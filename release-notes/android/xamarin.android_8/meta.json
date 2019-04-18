@@ -1,0 +1,8 @@
+{
+    "order":{
+        "xamarin.android_8.3":"Xamarin.Android 8.3",
+        "xamarin.android_8.2":"Xamarin.Android 8.2",
+        "xamarin.android_8.1":"Xamarin.Android 8.1",
+        "xamarin.android_8.0":"Xamarin.Android 8.0"
+    }
+}

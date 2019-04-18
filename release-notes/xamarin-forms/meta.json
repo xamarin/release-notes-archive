@@ -1,0 +1,22 @@
+{
+  "order":{
+    "xamarin-forms-4.0":"Xamarin.Forms 4.0",
+    "xamarin-forms-3.4":"Xamarin.Forms 3.4",
+    "xamarin-forms-3.3":"Xamarin.Forms 3.3",
+    "xamarin-forms-3.2":"Xamarin.Forms 3.2",
+    "xamarin-forms-3.1":"Xamarin.Forms 3.1",
+    "xamarin-forms-3.0":"Xamarin.Forms 3.0",
+    "xamarin-forms-2.5":"Xamarin.Forms 2.5",
+    "xamarin-forms-2.4":"Xamarin.Forms 2.4",
+    "xamarin-forms-2.3":"Xamarin.Forms 2.3",
+    "xamarin-forms-2.2":"Xamarin.Forms 2.2",
+    "xamarin-forms-2.1":"Xamarin.Forms 2.1",
+    "xamarin-forms-2.0":"Xamarin.Forms 2.0",
+    "xamarin-forms-1.5":"Xamarin.Forms 1.5",
+    "xamarin-forms-1.4":"Xamarin.Forms 1.4",
+    "xamarin-forms-1.3":"Xamarin.Forms 1.3",
+    "xamarin-forms-1.2":"Xamarin.Forms 1.2",
+    "xamarin-forms-1.1":"Xamarin.Forms 1.1",
+    "xamarin-forms-1.0":"Xamarin.Forms 1.0"
+  }
+}

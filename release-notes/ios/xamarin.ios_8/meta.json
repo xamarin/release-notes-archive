@@ -1,0 +1,14 @@
+{
+    "order":{
+        "xamarin.ios_8.0.html":"Xamarin.iOS 8.0",
+        "xamarin.ios_8.2.html":"Xamarin.iOS 8.2",
+        "xamarin.ios_8.4.html":"Xamarin.iOS 8.4",
+        "xamarin.ios_8.6.html":"Xamarin.iOS 8.6",
+        "xamarin.ios_8.7.html":"Xamarin.iOS 8.7",
+        "xamarin.ios_8.8.html":"Xamarin.iOS 8.8",
+        "xamarin.ios_8.9.html":"Xamarin.iOS 8.9",
+        "xamarin.ios_8.10.html":"Xamarin.iOS 8.10",
+        "xamarin.ios_8.13.html":"Xamarin.iOS 8.13",
+        "xamarin.ios_8.99.html":"Xamarin.iOS 8.99"
+     }
+}

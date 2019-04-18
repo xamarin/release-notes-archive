@@ -1,0 +1,47 @@
+---
+id: 089B0AB6-3133-4AA8-B93A-F2913EC61222
+title: "Xamarin.Forms 1.5"
+---
+
+# Xamarin.Forms 1.5.1
+
+## Enhancements ##
+
+- Performance enhancements in Core binding subsystem
+- Minor performance enhancements in layout and measurement subsystem
+- Precompiled XAML has been re-introduced to this pre-release for beta testing. You can enable XamlC by adding
+`[assembly: XamlCompilation (XamlCompilationOptions.Compile)]` to your assemblies with Xaml.
+
+## Bug Fixes ##
+
+- [Bug 34072](https://bugzilla.xamarin.com/show_bug.cgi?id=34072) - [Xamarin.Forms] Android - Inconsistent Disabled Button behavior between Forms for Android & iOS
+- [Bug 34037](https://bugzilla.xamarin.com/show_bug.cgi?id=34037) - ConverterParameter not correctly evaluated
+- [Bug 33890](https://bugzilla.xamarin.com/show_bug.cgi?id=33890) - CancelButtonColor for SearchBar does not work on iOS
+- [Bug 33714](https://bugzilla.xamarin.com/show_bug.cgi?id=33714) - [WP] Navigating Back Within MasterDetailPage.Detail Causes Crash
+- [Bug 33432](https://bugzilla.xamarin.com/show_bug.cgi?id=33432) - Grid with row definition of 0 height changed to 50 will not draw BoxView as of 1.4.4
+- [Bug 33360](https://bugzilla.xamarin.com/show_bug.cgi?id=33360) - ArgumentNullException due to unassigned gesture recognizer
+- [Bug 33256](https://bugzilla.xamarin.com/show_bug.cgi?id=33256) - Use of a simple control within a XAML-defined custom control when a class with the same name exists in the current namespace
+- [Bug 33110](https://bugzilla.xamarin.com/show_bug.cgi?id=33110) - Map resizes after pin click / push-pop
+- [Bug 32898](https://bugzilla.xamarin.com/show_bug.cgi?id=32898) - Memory leak when TabbedPage is popped out
+- [Bug 34515](https://bugzilla.xamarin.com/show_bug.cgi?id=34515) - Xamarin.Forms does not support AppCompatActivity
+- [Bug 32872](https://bugzilla.xamarin.com/show_bug.cgi?id=32872) - Using a custom keyboard view via PageRenderer causes incorrect insets with UITableView
+- [Bug 32776](https://bugzilla.xamarin.com/show_bug.cgi?id=32776) - [Windows 8.1/Windows Phone 8.1] MasterDetail page - page title not showing for Windows Phone 8.1 (any orientation) or in Windows 8.1 (portrait orientation).
+- [Bug 32691](https://bugzilla.xamarin.com/show_bug.cgi?id=32691) - Clearing an image by setting Image.Source to null, while Image.IsLoading is true, doesn't work.
+- [Bug 32683](https://bugzilla.xamarin.com/show_bug.cgi?id=32683) - Editor in ListView/TableView Does Not Scroll Up When Focused
+- [Bug 32552](https://bugzilla.xamarin.com/show_bug.cgi?id=32552) - ListView + TableHeader + Pull Refresh + Grouped Data leads to strange UI behaviour
+- [Bug 32230](https://bugzilla.xamarin.com/show_bug.cgi?id=32230) - isPresentedChanged raises multiple times
+- [Bug 31842](https://bugzilla.xamarin.com/show_bug.cgi?id=31842) - "Refreshing" spinner is not present when first loading a ListView
+- [Bug 31841](https://bugzilla.xamarin.com/show_bug.cgi?id=31841) - Can't edit Editor within a TableView
+- [Bug 31487](https://bugzilla.xamarin.com/show_bug.cgi?id=31487) - webview in tabbedpage has black margin
+- [Bug 31330](https://bugzilla.xamarin.com/show_bug.cgi?id=31330) - Disabled context actions appear enabled
+- [Bug 31094](https://bugzilla.xamarin.com/show_bug.cgi?id=31094) - setting picker.selectedindex to -1 visualize item with selected index 0
+- [Bug 30363](https://bugzilla.xamarin.com/show_bug.cgi?id=30363) - DatePicker does not update layout during orientation change
+- [Bug 30037](https://bugzilla.xamarin.com/show_bug.cgi?id=30037) - ListView context action should be removed on tab change
+- [Bug 29267](https://bugzilla.xamarin.com/show_bug.cgi?id=29267) - Android.Content.Res.Resources+NotFoundException: Resource ID #0xff303030
+- [Bug 28965](https://bugzilla.xamarin.com/show_bug.cgi?id=28965) - ScrollToAsync animation starts at position 0 instead of current position using a horizontal scrollview
+- [Bug 28786](https://bugzilla.xamarin.com/show_bug.cgi?id=28786) - Portrait upside down screen orientation doesn't work in Xamarin.Forms.
+- [Bug 28618](https://bugzilla.xamarin.com/show_bug.cgi?id=28618) - Horizontally centered Picker views clip contained text rather than expanding to required size
+- [Bug 27642](https://bugzilla.xamarin.com/show_bug.cgi?id=27642) - [Windows Phone] Adding a ScrollView control to a ContentView, remove it and re-add it will cause an exception on Windows Phone
+- [Bug 26993](https://bugzilla.xamarin.com/show_bug.cgi?id=26993) - [Android] WebView does not load local html when in a ViewCell in a ListView
+- [Bug 26233](https://bugzilla.xamarin.com/show_bug.cgi?id=26233) - Windows phone crashing when going back to page containing listview with Frame inside ViewCell
+

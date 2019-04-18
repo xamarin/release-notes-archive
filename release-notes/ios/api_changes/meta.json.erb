@@ -1,0 +1,7 @@
+{
+  "order":{
+    <%- files = Dir.entries(Dir.getwd).select {|f| f =~ /from.*html/} -%>
+    <%- entries = files.collect {|f| f.match /((.*).html)/} -%>
+    <%= entries.collect {|e| "\"#{e[1]}\": \"#{e[2].capitalize.gsub(/_/, ' ')}\""}.join(",\n    ") %>
+  }
+}

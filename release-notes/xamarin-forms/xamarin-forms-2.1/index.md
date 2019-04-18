@@ -1,0 +1,131 @@
+---
+id: 4679B102-DC9A-465F-9280-BCBD55FA653F
+title: "Xamarin.Forms 2.1"
+---
+
+# Xamarin.Forms 2.1.0
+
+## New Features ##
+
+### UWP support
+Stable UWP support (excluding maps). UWP support with maps will be stable in Xamarin.Forms 2.2.0.
+
+### ControlTemplates ###
+
+ControlTemplates have been introduced into the 2.1.0 branch, and have been included on the following types:
+
+- [`ContentPage`](https://developer.xamarin.com/api/type/Xamarin.Forms.ContentPage/)
+- [`ContentView`](https://developer.xamarin.com/api/type/Xamarin.Forms.ContentView/)
+- `TemplatedPage`
+- `TemplatedView`
+
+`TemplatedPage` and `TemplatedView` now serve as the base class for `ContentPage` and `ContentView`. ControlTemplates can be used to define the visual appearance of a Control or [`Page`](http://developer.xamarin.com/api/type/Xamarin.Forms.Page/) while providing a clean separation from the visual hierarchy and the Content itself. ControlTemplates can be applied via Style to greatly expand themeability in Xamarin.Forms.
+
+Along with ControlTemplates the concept of TemplateBindings has been introduced. TemplateBindings work identically to normal Bindings however their Source is automatically set to the parent of the target view which owns the ControlTemplate. Usage of a TemplateBinding outside of a ControlTemplate is not supported.
+
+### DataTemplateSelector ###
+
+IDataTemplateSelectors allow the selection of a DataTemplate at runtime per item in a ListView.ItemsSource.
+
+Usage:
+
+```csharp
+class MyDataTemplateSelector : DataTemplateSelector
+{
+  public MyDataTemplateSelector ()
+  {
+    // Retain instances!
+    this.templateOne = new DataTemplate (typeof (ViewA));
+    this.templateTwo = new DataTemplate (typeof (ViewB));
+  }
+
+  protected override DataTemplate OnSelectTemplate (object item, BindableObject container)
+  {
+    if (item is double)
+      return this.templateOne;
+    return this.templateTwo;
+  }
+
+  private readonly DataTemplate templateOne;
+  private readonly DataTemplate templateTwo;
+}
+```
+
+```xml
+<ListView ItemTemplate=local:MyDataTemplateSelector />
+```
+
+DataTemplateSelectors have the following limitations:
+
+- No more than 20 templates per ListView on Android
+- The DataTemplateSelector subclass MUST always return the same template for the same data if queried multiple times
+- The DataTemplateSelector must not return another DataTemplateSelector
+- The DataTemplateSelector must not return new instances of a DataTemplate on each call, instead the same instance must be returned. Failure to do so will effectively disable virtualization and lead to an enormous memory leak. Don't do this.
+
+### Effects ###
+
+Effects provide an easy way to customize the native look and feel of controls without having to resort to a complete Custom Renderer.   You can use these to customize the native controls, for example, the following Effect shows how to create a Border effect on iOS that will set a 2 pixel purple outline on the control:
+
+```csharp
+// located inside iOS specific codebase
+public class BorderEffect : PlatformEffect
+{
+  protected override void OnAttached ()
+  {
+    Control.Layer.BorderColor = UIColor.Purple.CGColor;
+    Control.Layer.BorderWidth = 2;
+  }
+
+  protected override void OnDetached ()
+  {
+    Control.Layer.BorderWidth = 0;
+  }
+}
+```
+
+To apply this effect, all you have to do is attached it via the `IList<Effect> Effects` collection on Element.   This is a much simpler way of fine tuning your user interface with native touches.
+
+### Other Improvements ###
+
+ - HasUnevenRows dynamic sizing support;
+ - ListView Virtualization is now supported on Windows ;
+ - Generic versions of Create () BindableProperty are no longer supported and deprecated;
+ - The Entry/Editor updates on WP8 and WinRT are now consistent with other platforms;
+
+## Bug Fixes ##
+
+ - [Bug 21780](https://bugzilla.xamarin.com/show_bug.cgi?id=21780) - Windows Phone Editor control has black background with black text, background turns to white when editing.
+ - [Bug 24769](https://bugzilla.xamarin.com/show_bug.cgi?id=24769) - [Win Phone/winrt] Progress Bar in listview item not working
+ - [Bug 26868](https://bugzilla.xamarin.com/show_bug.cgi?id=26868) - GroupHeaders do not extend on Windows Phone and WINRT
+ - [Bug 30370](https://bugzilla.xamarin.com/show_bug.cgi?id=30370) - Background Color on an Entry Control is Applied to the Padding
+ - [Bug 32615](https://bugzilla.xamarin.com/show_bug.cgi?id=32615) - [Android] OnAppearing is not called on previous page when modal page is popped
+ - [Bug 32847](https://bugzilla.xamarin.com/show_bug.cgi?id=32847) - Picker text is cleared after selecting an item, whether Picker, DatePicker, or TimePicker
+ - [Bug 33268](https://bugzilla.xamarin.com/show_bug.cgi?id=33268) - Picker is broken on Windows 8.1
+ - [Bug 33870](https://bugzilla.xamarin.com/show_bug.cgi?id=33870) - crash when the listview selection is disabled on Windows Phone 8.1 RT
+ - [Bug 35490](https://bugzilla.xamarin.com/show_bug.cgi?id=35490) - Label Text Misaligned in Windows Phone 8.1 and WinRT (Xamarin Nuget Version 1.5.1.6471)
+ - [Bug 35811](https://bugzilla.xamarin.com/show_bug.cgi?id=35811) - Navigation.PushAsync from TabbedPage then hit back button causes crash
+ - [Bug 36171](https://bugzilla.xamarin.com/show_bug.cgi?id=36171) - WinRT Entry UI not updating on TextChanged
+ - [Bug 36174](https://bugzilla.xamarin.com/show_bug.cgi?id=36174) - Android Search Bar vertical text alignment in Forms 2.0
+ - [Bug 36251](https://bugzilla.xamarin.com/show_bug.cgi?id=36251) - Issues when switching between pages of a TabbedPage on iOS
+ - [Bug 36422](https://bugzilla.xamarin.com/show_bug.cgi?id=36422) - XamlC Fails When using X:Array in Xaml. Throws NullReferenceExceptio
+ - [Bug 36559](https://bugzilla.xamarin.com/show_bug.cgi?id=36559) - [WP] Navigating to a ContentPage with a Grid inside a TableView affects Entry heights
+ - [Bug 36649](https://bugzilla.xamarin.com/show_bug.cgi?id=36649) - LineBreakMode.NoWrap is handled incorrectly on Windows Phone 8.1 RT
+ - [Bug 36687](https://bugzilla.xamarin.com/show_bug.cgi?id=36687) - On WinPhone 8.1 RT, the background color used in Entry fields is not as expected
+ - [Bug 36730](https://bugzilla.xamarin.com/show_bug.cgi?id=36730) - OnStart / OnResume are not called on WP8.1 and UWP
+ - [Bug 36778](https://bugzilla.xamarin.com/show_bug.cgi?id=36778) - ListView on UWP doesn't display Detail line with TextCell
+ - [Bug 37306](https://bugzilla.xamarin.com/show_bug.cgi?id=37306) - XamlC doesn´t support adding x:String in resource dictionary
+ - [Bug 37675](https://bugzilla.xamarin.com/show_bug.cgi?id=37675) - Style PropertyChanged called before the Style is applied
+ - [Bug 37779](https://bugzilla.xamarin.com/show_bug.cgi?id=37779) - TabbedPageRenderer throws exceptions on Android 4.0.4 when using Material Design theme
+ - Fixes to OnAppearing/OnDisappearing;
+ - Fixes to PanGestureRecognizer on android;
+ - Fixes to animation safety;
+ - UWP fix headerzoom;
+ - Fixes an issue where images sometimes didn't load on WP8;
+
+
+## Known Issues ##
+
+- WinRT reloads toolbar items on navigation even when they haven't changed'
+- RoutingEffect API is not final
+- <del>RoutingEffect will not correctly inherit properties</del> - Fixed in point update
+

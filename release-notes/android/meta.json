@@ -1,0 +1,15 @@
+{
+  "order":{
+    "xamarin.android_9":"Xamarin.Android 9",
+    "xamarin.android_8":"Xamarin.Android 8",
+    "xamarin.android_7":"Xamarin.Android 7",
+    "xamarin.android_6":"Xamarin.Android 6",
+    "xamarin.android_5":"Xamarin.Android 5",
+    "xamarin.android_4":"Xamarin.Android 4",
+    "android-player":"Android Player",
+    "mono_for_android_4":"Mono For Android 4",
+    "mono_for_android_1":"Mono For Android 1",
+    "mfa_addin":"MfA Addin",
+    "previews":"Previews"
+  }
+}

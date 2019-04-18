@@ -1,0 +1,9 @@
+{
+    "order":{
+        "xamarin.android_7.4":"Xamarin.Android 7.4",
+        "xamarin.android_7.3":"Xamarin.Android 7.3",
+        "xamarin.android_7.2":"Xamarin.Android 7.2",
+        "xamarin.android_7.1":"Xamarin.Android 7.1",
+        "xamarin.android_7.0":"Xamarin.Android 7.0"
+    }
+}

@@ -1,0 +1,8 @@
+{
+  "order":{
+    "mono.android.dll.html":"Mono.Android.dll",
+    "mono.android.googlemaps.dll.html":"Mono.Android.GoogleMaps.dll",
+    "mono.android.support.v4.dll.html":"Mono.Android.Support.v4.dll",
+    "OpenTK.dll.html":"OpenTK.dll"
+  }
+}

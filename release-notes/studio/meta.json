@@ -1,0 +1,23 @@
+{
+  "order":{
+      "xamarin.studio_6.3":"Xamarin Studio 6.3",
+      "xamarin.studio_6.2":"Xamarin Studio 6.2",
+      "xamarin.studio_6.1":"Xamarin Studio 6.1",
+      "xamarin.studio_6.0":"Xamarin Studio 6.0",
+      "xamarin.studio_5.10":"Xamarin Studio 5.10",
+      "xamarin.studio_5.9":"Xamarin Studio 5.9",
+      "xamarin.studio_5.8":"Xamarin Studio 5.8",
+      "xamarin.studio_5.7":"Xamarin Studio 5.7",
+      "xamarin.studio_5.6":"Xamarin Studio 5.6",
+      "xamarin.studio_5.5":"Xamarin Studio 5.5",
+      "xamarin.studio_5.4":"Xamarin Studio 5.4",
+      "xamarin.studio_5.3":"Xamarin Studio 5.3",
+      "xamarin.studio_5.2":"Xamarin Studio 5.2",
+      "xamarin.studio_5.1":"Xamarin Studio 5.1",
+      "xamarin.studio_5.0":"Xamarin Studio 5.0",
+      "xamarin.studio_4.3":"Xamarin Studio 4.3",
+      "xamarin.studio_4.2":"Xamarin Studio 4.2",
+      "xamarin.studio_4.1":"Xamarin Studio 4.1",
+      "xamarin.studio_4.0":"Xamarin Studio 4.0"
+  }
+}

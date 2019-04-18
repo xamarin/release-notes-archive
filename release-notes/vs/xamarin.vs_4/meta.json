@@ -1,0 +1,12 @@
+{
+  "order":{
+      "xamarin.vs_4.0.html":"Xamarin for Visual Studio 4.0" ,
+      "xamarin.vs_4.1.html":"Xamarin for Visual Studio 4.1" ,
+      "xamarin.vs_4.2.html":"Xamarin for Visual Studio 4.2" ,
+      "xamarin.vs_4.3.html":"Xamarin for Visual Studio 4.3" ,
+      "xamarin.vs_4.4.html":"Xamarin for Visual Studio 4.4" ,
+      "xamarin.vs_4.5.html":"Xamarin for Visual Studio 4.5" ,
+      "xamarin.vs_4.6.html":"Xamarin for Visual Studio 4.6",
+      "xamarin.vs_4.7.md":"Visual Studio Tools for Xamarin 4.7"
+  }
+}

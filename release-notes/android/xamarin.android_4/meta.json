@@ -1,0 +1,21 @@
+{
+    "order":{
+        "xamarin.android_4.20":"Xamarin.Android 4.20",
+        "xamarin.android_4.18":"Xamarin.Android 4.18",
+        "xamarin.android_4.17":"Xamarin.Android 4.17",
+        "xamarin.android_4.16":"Xamarin.Android 4.16",
+        "xamarin.android_4.14":"Xamarin.Android 4.14",
+        "xamarin.android_4.12":"Xamarin.Android 4.12",
+        "xamarin.android_4.10":"Xamarin.Android 4.10",
+        "xamarin.android_4.8":"Xamarin.Android 4.8",
+        "xamarin.android_4.7":"Xamarin.Android 4.7",
+        "xamarin.android_4.6.8.html":"Xamarin.Android 4.6.8",
+        "xamarin.android_4.6.7":"Xamarin.Android 4.6.7",
+        "xamarin.android_4.6.6":"Xamarin.Android 4.6.6",
+        "xamarin.android_4.6.5":"Xamarin.Android 4.6.5",
+        "xamarin.android_4.6.4":"Xamarin.Android 4.6.4",
+        "xamarin.android_4.6.3":"Xamarin.Android 4.6.3",
+        "xamarin.android_4.6.2":"Xamarin.Android 4.6.2",
+        "xamarin.android_4.6":"Xamarin.Android 4.6"
+    }
+}

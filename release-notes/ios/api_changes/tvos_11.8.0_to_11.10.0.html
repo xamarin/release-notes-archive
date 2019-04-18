@@ -1,0 +1,2791 @@
+<h1>API diff</h1>
+<a href='#diff/xi/Xamarin.TVOS/mscorlib.html'>mscorlib.dll</a><br/>
+<a href='#diff/xi/Xamarin.TVOS/System.html'>System.dll</a><br/>
+<a href='#diff/xi/Xamarin.TVOS/System.Numerics.html'>System.Numerics.dll</a><br/>
+<a href='#diff/xi/Xamarin.TVOS/System.Data.html'>System.Data.dll</a><br/>
+<a href='#diff/xi/Xamarin.TVOS/System.Xml.html'>System.Xml.dll</a><br/>
+<a href='#diff/xi/Xamarin.TVOS/System.IO.Compression.html'>System.IO.Compression.dll</a><br/>
+<a href='#diff/xi/Xamarin.TVOS/Xamarin.TVOS.html'>Xamarin.TVOS.dll</a><br/>
+<a href='#diff/xi/Xamarin.TVOS/MonoTouch.Dialog-1.html'>MonoTouch.Dialog-1.dll</a><br/>
+<a href='#diff/xi/Xamarin.TVOS/MonoTouch.NUnitLite.html'>MonoTouch.NUnitLite.dll</a><br/>
+<br><hr>
+<div>
+<style scoped>
+	.obsolete { color: gray; }
+	.added { color: green; }
+	.removed-inline { text-decoration: line-through; }
+	.removed-breaking-inline { color: red;}
+	.added-breaking-inline { text-decoration: underline; }
+	.nonbreaking { color: black; }
+	.breaking { color: red; }
+</style>
+<script type="text/javascript">
+	// Only some elements have 'data-is-[non-]breaking' attributes. Here we
+	// iterate over all descendents elements, and set 'data-is-[non-]breaking'
+	// depending on whether there are any descendents with that attribute.
+	function propagateDataAttribute (element)
+	{
+		if (element.hasAttribute ('data-is-propagated'))
+			return;
+
+		var i;
+		var any_breaking = element.hasAttribute ('data-is-breaking');
+		var any_non_breaking = element.hasAttribute ('data-is-non-breaking');
+		for (i = 0; i < element.children.length; i++) {
+			var el = element.children [i];
+			propagateDataAttribute (el);
+			any_breaking |= el.hasAttribute ('data-is-breaking');
+			any_non_breaking |= el.hasAttribute ('data-is-non-breaking');
+		}
+		
+		if (any_breaking)
+			element.setAttribute ('data-is-breaking', null);
+		else if (any_non_breaking)
+			element.setAttribute ('data-is-non-breaking', null);
+		element.setAttribute ('data-is-propagated', null);
+	}
+
+	function hideNonBreakingChanges ()
+	{
+		var topNodes = document.querySelectorAll ('[data-is-topmost]');
+		var n;
+		var i;
+		for (n = 0; n < topNodes.length; n++) {
+			propagateDataAttribute (topNodes [n]);
+			var elements = topNodes [n].querySelectorAll ('[data-is-non-breaking]');
+			for (i = 0; i < elements.length; i++) {
+				var el = elements [i];
+				if (!el.hasAttribute ('data-original-display'))
+					el.setAttribute ('data-original-display', el.style.display);
+				el.style.display = 'none';
+			}
+		}
+		
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+	}
+
+	function showNonBreakingChanges ()
+	{
+		var elements = document.querySelectorAll ('[data-original-display]');
+		var i;
+		for (i = 0; i < elements.length; i++) {
+			var el = elements [i];
+			el.style.display = el.getAttribute ('data-original-display');
+		}
+
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+	}
+</script>
+<h1 id='diff/xi/Xamarin.TVOS/mscorlib.html'>mscorlib.dll</h1>
+<a href='javascript: hideNonBreakingChanges (); ' class='hide-nonbreaking'>Hide non-breaking changes</a>
+<a href='javascript: showNonBreakingChanges (); ' class='restore-nonbreaking' style='display: none;'>Show non-breaking changes</a>
+<br/>
+<div data-is-topmost>
+<!-- start namespace System --> <div> 
+<h2>Namespace System</h2>
+<!-- start type BitConverter --> <div>
+<h3>Type Changed: System.BitConverter</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public static int ToInt32 (System.ReadOnlySpan&lt;byte&gt; value);</span>
+</pre>
+</div>
+
+</div> <!-- end type BitConverter -->
+<!-- start type Double --> <div>
+<h3>Type Changed: System.Double</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public static bool IsFinite (double d);</span>
+</pre>
+</div>
+
+</div> <!-- end type Double -->
+<!-- start type Int32 --> <div>
+<h3>Type Changed: System.Int32</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public bool TryFormat (System.Span&lt;char&gt; destination, out int charsWritten, System.ReadOnlySpan&lt;char&gt; format, IFormatProvider provider);</span>
+</pre>
+</div>
+
+</div> <!-- end type Int32 -->
+<!-- start type Single --> <div>
+<h3>Type Changed: System.Single</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public static bool IsFinite (float f);</span>
+</pre>
+</div>
+
+</div> <!-- end type Single -->
+<!-- start type String --> <div>
+<h3>Type Changed: System.String</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking>public String (System.ReadOnlySpan&lt;char&gt; value);</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlySpan&lt;char&gt; op_Implicit (string value);</span>
+</pre>
+</div>
+
+</div> <!-- end type String -->
+<!-- start type Type --> <div>
+<h3>Type Changed: System.Type</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public virtual bool IsCollectible { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type Type -->
+<div> <!-- start type MemoryExtensions -->
+<h3>New Type System.MemoryExtensions</h3>
+<pre class='added' data-is-non-breaking>
+public static class MemoryExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlySpan&lt;byte&gt; AsBytes&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; source);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.Span&lt;byte&gt; AsBytes&lt;T&gt; (this System.Span&lt;T&gt; source);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlyMemory&lt;T&gt; AsReadOnlyMemory&lt;T&gt; (this System.Memory&lt;T&gt; memory);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlyMemory&lt;char&gt; AsReadOnlyMemory (this string text);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlyMemory&lt;char&gt; AsReadOnlyMemory (this string text, int start);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlyMemory&lt;char&gt; AsReadOnlyMemory (this string text, int start, int length);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlySpan&lt;T&gt; AsReadOnlySpan&lt;T&gt; (this System.ArraySegment&lt;T&gt; arraySegment);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlySpan&lt;T&gt; AsReadOnlySpan&lt;T&gt; (this System.Span&lt;T&gt; span);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlySpan&lt;char&gt; AsReadOnlySpan (this string text);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlySpan&lt;T&gt; AsReadOnlySpan&lt;T&gt; (this T[] array);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlySpan&lt;char&gt; AsReadOnlySpan (this string text, int start);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlySpan&lt;char&gt; AsReadOnlySpan (this string text, int start, int length);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.Span&lt;T&gt; AsSpan&lt;T&gt; (this System.ArraySegment&lt;T&gt; arraySegment);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.Span&lt;T&gt; AsSpan&lt;T&gt; (this T[] array);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int BinarySearch&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; span, System.IComparable&lt;T&gt; comparable);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int BinarySearch&lt;T, TComparable&gt; (this System.ReadOnlySpan&lt;T&gt; span, TComparable comparable);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int BinarySearch&lt;T&gt; (this System.Span&lt;T&gt; span, System.IComparable&lt;T&gt; comparable);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int BinarySearch&lt;T, TComparable&gt; (this System.Span&lt;T&gt; span, TComparable comparable);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int BinarySearch&lt;T, TComparer&gt; (this System.ReadOnlySpan&lt;T&gt; span, T value, TComparer comparer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int BinarySearch&lt;T, TComparer&gt; (this System.Span&lt;T&gt; span, T value, TComparer comparer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void CopyTo&lt;T&gt; (this T[] array, System.Memory&lt;T&gt; destination);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void CopyTo&lt;T&gt; (this T[] array, System.Span&lt;T&gt; destination);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool EndsWith&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; span, System.ReadOnlySpan&lt;T&gt; value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool EndsWith&lt;T&gt; (this System.Span&lt;T&gt; span, System.ReadOnlySpan&lt;T&gt; value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int IndexOf&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; span, System.ReadOnlySpan&lt;T&gt; value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int IndexOf&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; span, T value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int IndexOf&lt;T&gt; (this System.Span&lt;T&gt; span, System.ReadOnlySpan&lt;T&gt; value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int IndexOf&lt;T&gt; (this System.Span&lt;T&gt; span, T value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int IndexOfAny&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; span, System.ReadOnlySpan&lt;T&gt; values);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int IndexOfAny&lt;T&gt; (this System.Span&lt;T&gt; span, System.ReadOnlySpan&lt;T&gt; values);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int IndexOfAny&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; span, T value0, T value1);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int IndexOfAny&lt;T&gt; (this System.Span&lt;T&gt; span, T value0, T value1);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int IndexOfAny&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; span, T value0, T value1, T value2);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int IndexOfAny&lt;T&gt; (this System.Span&lt;T&gt; span, T value0, T value1, T value2);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int LastIndexOf&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; span, System.ReadOnlySpan&lt;T&gt; value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int LastIndexOf&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; span, T value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int LastIndexOf&lt;T&gt; (this System.Span&lt;T&gt; span, System.ReadOnlySpan&lt;T&gt; value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int LastIndexOf&lt;T&gt; (this System.Span&lt;T&gt; span, T value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int LastIndexOfAny&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; span, System.ReadOnlySpan&lt;T&gt; values);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int LastIndexOfAny&lt;T&gt; (this System.Span&lt;T&gt; span, System.ReadOnlySpan&lt;T&gt; values);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int LastIndexOfAny&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; span, T value0, T value1);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int LastIndexOfAny&lt;T&gt; (this System.Span&lt;T&gt; span, T value0, T value1);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int LastIndexOfAny&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; span, T value0, T value1, T value2);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int LastIndexOfAny&lt;T&gt; (this System.Span&lt;T&gt; span, T value0, T value1, T value2);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlySpan&lt;TTo&gt; NonPortableCast&lt;TFrom, TTo&gt; (this System.ReadOnlySpan&lt;TFrom&gt; source);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.Span&lt;TTo&gt; NonPortableCast&lt;TFrom, TTo&gt; (this System.Span&lt;TFrom&gt; source);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool Overlaps&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; first, System.ReadOnlySpan&lt;T&gt; second);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool Overlaps&lt;T&gt; (this System.Span&lt;T&gt; first, System.ReadOnlySpan&lt;T&gt; second);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool Overlaps&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; first, System.ReadOnlySpan&lt;T&gt; second, out int elementOffset);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool Overlaps&lt;T&gt; (this System.Span&lt;T&gt; first, System.ReadOnlySpan&lt;T&gt; second, out int elementOffset);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void Reverse&lt;T&gt; (this System.Span&lt;T&gt; span);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int SequenceCompareTo&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; first, System.ReadOnlySpan&lt;T&gt; second);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int SequenceCompareTo&lt;T&gt; (this System.Span&lt;T&gt; first, System.ReadOnlySpan&lt;T&gt; second);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool SequenceEqual&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; first, System.ReadOnlySpan&lt;T&gt; second);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool SequenceEqual&lt;T&gt; (this System.Span&lt;T&gt; first, System.ReadOnlySpan&lt;T&gt; second);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool StartsWith&lt;T&gt; (this System.ReadOnlySpan&lt;T&gt; span, System.ReadOnlySpan&lt;T&gt; value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool StartsWith&lt;T&gt; (this System.Span&lt;T&gt; span, System.ReadOnlySpan&lt;T&gt; value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryGetString (this System.ReadOnlyMemory&lt;char&gt; readOnlyMemory, out string text, out int start, out int length);</span>
+}
+</pre>
+</div> <!-- end type MemoryExtensions -->
+<div> <!-- start type Memory`1 -->
+<h3>New Type System.Memory`1</h3>
+<pre class='added' data-is-non-breaking>
+public struct Memory`1 {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public Memory`1 (T[] array);</span>
+	<span class='added added-constructor ' data-is-non-breaking>public Memory`1 (T[] array, int start, int length);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public static System.Memory&lt;T&gt; Empty { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool IsEmpty { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public int Length { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public System.Span&lt;T&gt; Span { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public void CopyTo (System.Memory&lt;T&gt; destination);</span>
+	<span class='added added-method ' data-is-non-breaking>public bool Equals (System.Memory&lt;T&gt; other);</span>
+	<span class='added added-method ' data-is-non-breaking>public override bool Equals (object obj);</span>
+	<span class='added added-method ' data-is-non-breaking>public override int GetHashCode ();</span>
+	<span class='added added-method ' data-is-non-breaking>public Buffers.MemoryHandle Retain (bool pin);</span>
+	<span class='added added-method ' data-is-non-breaking>public System.Memory&lt;T&gt; Slice (int start);</span>
+	<span class='added added-method ' data-is-non-breaking>public System.Memory&lt;T&gt; Slice (int start, int length);</span>
+	<span class='added added-method ' data-is-non-breaking>public T[] ToArray ();</span>
+	<span class='added added-method ' data-is-non-breaking>public bool TryCopyTo (System.Memory&lt;T&gt; destination);</span>
+	<span class='added added-method ' data-is-non-breaking>public bool TryGetArray (out System.ArraySegment&lt;T&gt; arraySegment);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.Memory&lt;T&gt; op_Implicit (System.ArraySegment&lt;T&gt; arraySegment);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlyMemory&lt;T&gt; op_Implicit (System.Memory&lt;T&gt; memory);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.Memory&lt;T&gt; op_Implicit (T[] array);</span>
+}
+</pre>
+</div> <!-- end type Memory`1 -->
+<div> <!-- start type ReadOnlyMemory`1 -->
+<h3>New Type System.ReadOnlyMemory`1</h3>
+<pre class='added' data-is-non-breaking>
+public struct ReadOnlyMemory`1 {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public ReadOnlyMemory`1 (T[] array);</span>
+	<span class='added added-constructor ' data-is-non-breaking>public ReadOnlyMemory`1 (T[] array, int start, int length);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public static System.ReadOnlyMemory&lt;T&gt; Empty { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool IsEmpty { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public int Length { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public System.ReadOnlySpan&lt;T&gt; Span { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public void CopyTo (System.Memory&lt;T&gt; destination);</span>
+	<span class='added added-method ' data-is-non-breaking>public override bool Equals (object obj);</span>
+	<span class='added added-method ' data-is-non-breaking>public bool Equals (System.ReadOnlyMemory&lt;T&gt; other);</span>
+	<span class='added added-method ' data-is-non-breaking>public override int GetHashCode ();</span>
+	<span class='added added-method ' data-is-non-breaking>public Buffers.MemoryHandle Retain (bool pin);</span>
+	<span class='added added-method ' data-is-non-breaking>public System.ReadOnlyMemory&lt;T&gt; Slice (int start);</span>
+	<span class='added added-method ' data-is-non-breaking>public System.ReadOnlyMemory&lt;T&gt; Slice (int start, int length);</span>
+	<span class='added added-method ' data-is-non-breaking>public T[] ToArray ();</span>
+	<span class='added added-method ' data-is-non-breaking>public bool TryCopyTo (System.Memory&lt;T&gt; destination);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlyMemory&lt;T&gt; op_Implicit (System.ArraySegment&lt;T&gt; arraySegment);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlyMemory&lt;T&gt; op_Implicit (T[] array);</span>
+}
+</pre>
+</div> <!-- end type ReadOnlyMemory`1 -->
+<div> <!-- start type ReadOnlySpan`1 -->
+<h3>New Type System.ReadOnlySpan`1</h3>
+<pre class='added' data-is-non-breaking>
+public struct ReadOnlySpan`1 {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public ReadOnlySpan`1 (T[] array);</span>
+	<span class='added added-constructor ' data-is-non-breaking>public ReadOnlySpan`1 (void* pointer, int length);</span>
+	<span class='added added-constructor ' data-is-non-breaking>public ReadOnlySpan`1 (T[] array, int start, int length);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public static System.ReadOnlySpan&lt;T&gt; Empty { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool IsEmpty { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public T& modreq(System.Runtime.InteropServices.InAttribute) Item { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public int Length { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public void CopyTo (System.Span&lt;T&gt; destination);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlySpan&lt;T&gt; DangerousCreate (object obj, ref T objectData, int length);</span>
+
+	<span class='added added-method ' data-is-non-breaking>[Obsolete ("Equals() on ReadOnlySpan will always throw an exception. Use == instead.")]
+	public override bool Equals (object obj);</span>
+	<span class='added added-method ' data-is-non-breaking>public System.ReadOnlySpan&lt;Enumerator[T&gt; GetEnumerator ();</span>
+
+	<span class='added added-method ' data-is-non-breaking>[Obsolete ("GetHashCode() on ReadOnlySpan will always throw an exception.")]
+	public override int GetHashCode ();</span>
+	<span class='added added-method ' data-is-non-breaking>public System.ReadOnlySpan&lt;T&gt; Slice (int start);</span>
+	<span class='added added-method ' data-is-non-breaking>public System.ReadOnlySpan&lt;T&gt; Slice (int start, int length);</span>
+	<span class='added added-method ' data-is-non-breaking>public T[] ToArray ();</span>
+	<span class='added added-method ' data-is-non-breaking>public bool TryCopyTo (System.Span&lt;T&gt; destination);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool op_Equality (System.ReadOnlySpan&lt;T&gt; left, System.ReadOnlySpan&lt;T&gt; right);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlySpan&lt;T&gt; op_Implicit (System.ArraySegment&lt;T&gt; arraySegment);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlySpan&lt;T&gt; op_Implicit (T[] array);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool op_Inequality (System.ReadOnlySpan&lt;T&gt; left, System.ReadOnlySpan&lt;T&gt; right);</span>
+
+	// inner types
+	public struct Enumerator {
+		// properties
+		<span class='added added-property ' data-is-non-breaking>public T& modreq(System.Runtime.InteropServices.InAttribute) Current { get; }</span>
+		// methods
+		<span class='added added-method ' data-is-non-breaking>public bool MoveNext ();</span>
+	}
+}
+</pre>
+</div> <!-- end type ReadOnlySpan`1 -->
+<div> <!-- start type Span`1 -->
+<h3>New Type System.Span`1</h3>
+<pre class='added' data-is-non-breaking>
+public struct Span`1 {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public Span`1 (T[] array);</span>
+	<span class='added added-constructor ' data-is-non-breaking>public Span`1 (void* pointer, int length);</span>
+	<span class='added added-constructor ' data-is-non-breaking>public Span`1 (T[] array, int start, int length);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public static System.Span&lt;T&gt; Empty { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool IsEmpty { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public  T Item { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public int Length { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public void Clear ();</span>
+	<span class='added added-method ' data-is-non-breaking>public void CopyTo (System.Span&lt;T&gt; destination);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.Span&lt;T&gt; DangerousCreate (object obj, ref T objectData, int length);</span>
+
+	<span class='added added-method ' data-is-non-breaking>[Obsolete ("Equals() on Span will always throw an exception. Use == instead.")]
+	public override bool Equals (object obj);</span>
+	<span class='added added-method ' data-is-non-breaking>public void Fill (T value);</span>
+	<span class='added added-method ' data-is-non-breaking>public System.Span&lt;Enumerator[T&gt; GetEnumerator ();</span>
+
+	<span class='added added-method ' data-is-non-breaking>[Obsolete ("GetHashCode() on Span will always throw an exception.")]
+	public override int GetHashCode ();</span>
+	<span class='added added-method ' data-is-non-breaking>public System.Span&lt;T&gt; Slice (int start);</span>
+	<span class='added added-method ' data-is-non-breaking>public System.Span&lt;T&gt; Slice (int start, int length);</span>
+	<span class='added added-method ' data-is-non-breaking>public T[] ToArray ();</span>
+	<span class='added added-method ' data-is-non-breaking>public bool TryCopyTo (System.Span&lt;T&gt; destination);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool op_Equality (System.Span&lt;T&gt; left, System.Span&lt;T&gt; right);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.Span&lt;T&gt; op_Implicit (System.ArraySegment&lt;T&gt; arraySegment);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.ReadOnlySpan&lt;T&gt; op_Implicit (System.Span&lt;T&gt; span);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.Span&lt;T&gt; op_Implicit (T[] array);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool op_Inequality (System.Span&lt;T&gt; left, System.Span&lt;T&gt; right);</span>
+
+	// inner types
+	public struct Enumerator {
+		// properties
+		<span class='added added-property ' data-is-non-breaking>public  T Current { get; }</span>
+		// methods
+		<span class='added added-method ' data-is-non-breaking>public bool MoveNext ();</span>
+	}
+}
+</pre>
+</div> <!-- end type Span`1 -->
+<div> <!-- start type WeakAttribute -->
+<h3>New Type System.WeakAttribute</h3>
+<pre class='added' data-is-non-breaking>
+public sealed class WeakAttribute : System.Attribute {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public WeakAttribute ();</span>
+}
+</pre>
+</div> <!-- end type WeakAttribute -->
+
+</div> <!-- end namespace System -->
+<!-- start namespace System.Collections.Generic --> <div> 
+<h2>Namespace System.Collections.Generic</h2>
+<!-- start type Dictionary`2 --> <div>
+<h3>Type Changed: System.Collections.Generic.Dictionary`2</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public int EnsureCapacity (int capacity);</span>
+</pre>
+</div>
+
+</div> <!-- end type Dictionary`2 -->
+
+</div> <!-- end namespace System.Collections.Generic -->
+<!-- start namespace System.IO --> <div> 
+<h2>Namespace System.IO</h2>
+<!-- start type Stream --> <div>
+<h3>Type Changed: System.IO.Stream</h3>
+<p>Modified methods:</p>
+<pre>
+<div data-is-non-breaking>	public <span class='added '>virtual</span> void CopyTo (Stream destination, int bufferSize)
+</div></pre>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public virtual int Read (System.Span&lt;byte&gt; destination);</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual System.Threading.Tasks.ValueTask&lt;int&gt; ReadAsync (System.Memory&lt;byte&gt; destination, System.Threading.CancellationToken cancellationToken);</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual void Write (System.ReadOnlySpan&lt;byte&gt; source);</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual System.Threading.Tasks.Task WriteAsync (System.ReadOnlyMemory&lt;byte&gt; source, System.Threading.CancellationToken cancellationToken);</span>
+</pre>
+</div>
+
+</div> <!-- end type Stream -->
+
+</div> <!-- end namespace System.IO -->
+<!-- start namespace System.Runtime.CompilerServices --> <div> 
+<h2>Namespace System.Runtime.CompilerServices</h2>
+<!-- start type RuntimeWrappedException --> <div>
+<h3>Type Changed: System.Runtime.CompilerServices.RuntimeWrappedException</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking>public RuntimeWrappedException (object thrownObject);</span>
+</pre>
+</div>
+
+</div> <!-- end type RuntimeWrappedException -->
+<div> <!-- start type AsyncMethodBuilderAttribute -->
+<h3>New Type System.Runtime.CompilerServices.AsyncMethodBuilderAttribute</h3>
+<pre class='added' data-is-non-breaking>
+public sealed class AsyncMethodBuilderAttribute : System.Attribute {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public AsyncMethodBuilderAttribute (System.Type builderType);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public System.Type BuilderType { get; }</span>
+}
+</pre>
+</div> <!-- end type AsyncMethodBuilderAttribute -->
+<div> <!-- start type AsyncValueTaskMethodBuilder`1 -->
+<h3>New Type System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder`1</h3>
+<pre class='added' data-is-non-breaking>
+public struct AsyncValueTaskMethodBuilder`1 {
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public System.Threading.Tasks.ValueTask&lt;TResult&gt; Task { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public void AwaitOnCompleted&lt;TAwaiter, TStateMachine&gt; (ref TAwaiter awaiter, ref TStateMachine stateMachine);</span>
+	<span class='added added-method ' data-is-non-breaking>public void AwaitUnsafeOnCompleted&lt;TAwaiter, TStateMachine&gt; (ref TAwaiter awaiter, ref TStateMachine stateMachine);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder&lt;TResult&gt; Create ();</span>
+	<span class='added added-method ' data-is-non-breaking>public void SetException (System.Exception exception);</span>
+	<span class='added added-method ' data-is-non-breaking>public void SetResult (TResult result);</span>
+	<span class='added added-method ' data-is-non-breaking>public void SetStateMachine (IAsyncStateMachine stateMachine);</span>
+	<span class='added added-method ' data-is-non-breaking>public void Start&lt;TStateMachine&gt; (ref TStateMachine stateMachine);</span>
+}
+</pre>
+</div> <!-- end type AsyncValueTaskMethodBuilder`1 -->
+<div> <!-- start type ConfiguredValueTaskAwaitable`1 -->
+<h3>New Type System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1</h3>
+<pre class='added' data-is-non-breaking>
+public struct ConfiguredValueTaskAwaitable`1 {
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable&lt;ConfiguredValueTaskAwaiter[TResult&gt; GetAwaiter ();</span>
+
+	// inner types
+	public struct ConfiguredValueTaskAwaiter, ICriticalNotifyCompletion, INotifyCompletion {
+		// properties
+		<span class='added added-property ' data-is-non-breaking>public bool IsCompleted { get; }</span>
+		// methods
+		<span class='added added-method ' data-is-non-breaking>public TResult GetResult ();</span>
+		<span class='added added-method ' data-is-non-breaking>public virtual void OnCompleted (System.Action continuation);</span>
+		<span class='added added-method ' data-is-non-breaking>public virtual void UnsafeOnCompleted (System.Action continuation);</span>
+	}
+}
+</pre>
+</div> <!-- end type ConfiguredValueTaskAwaitable`1 -->
+<div> <!-- start type ValueTaskAwaiter`1 -->
+<h3>New Type System.Runtime.CompilerServices.ValueTaskAwaiter`1</h3>
+<pre class='added' data-is-non-breaking>
+public struct ValueTaskAwaiter`1, ICriticalNotifyCompletion, INotifyCompletion {
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public bool IsCompleted { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public TResult GetResult ();</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual void OnCompleted (System.Action continuation);</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual void UnsafeOnCompleted (System.Action continuation);</span>
+}
+</pre>
+</div> <!-- end type ValueTaskAwaiter`1 -->
+
+</div> <!-- end namespace System.Runtime.CompilerServices -->
+<!-- start namespace System.Runtime.InteropServices --> <div> 
+<h2>Namespace System.Runtime.InteropServices</h2>
+<div> <!-- start type Architecture -->
+<h3>New Type System.Runtime.InteropServices.Architecture</h3>
+<pre class='added' data-is-non-breaking>
+[Serializable]
+public enum Architecture {
+	<span class='added added-field ' data-is-non-breaking>Arm = 2,</span>
+	<span class='added added-field ' data-is-non-breaking>Arm64 = 3,</span>
+	<span class='added added-field ' data-is-non-breaking>X64 = 1,</span>
+	<span class='added added-field ' data-is-non-breaking>X86 = 0,</span>
+}
+</pre>
+</div> <!-- end type Architecture -->
+<div> <!-- start type MemoryMarshal -->
+<h3>New Type System.Runtime.InteropServices.MemoryMarshal</h3>
+<pre class='added' data-is-non-breaking>
+public static class MemoryMarshal {
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public static System.Memory&lt;T&gt; AsMemory&lt;T&gt; (System.ReadOnlyMemory&lt;T&gt; readOnlyMemory);</span>
+	<span class='added added-method ' data-is-non-breaking>public static  T GetReference&lt;T&gt; (System.ReadOnlySpan&lt;T&gt; span);</span>
+	<span class='added added-method ' data-is-non-breaking>public static  T GetReference&lt;T&gt; (System.Span&lt;T&gt; span);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryGetArray&lt;T&gt; (System.ReadOnlyMemory&lt;T&gt; readOnlyMemory, out System.ArraySegment&lt;T&gt; arraySegment);</span>
+}
+</pre>
+</div> <!-- end type MemoryMarshal -->
+<div> <!-- start type OSPlatform -->
+<h3>New Type System.Runtime.InteropServices.OSPlatform</h3>
+<pre class='added' data-is-non-breaking>
+public struct OSPlatform, System.IEquatable&lt;OSPlatform&gt; {
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public static OSPlatform Linux { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public static OSPlatform OSX { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public static OSPlatform Windows { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public static OSPlatform Create (string osPlatform);</span>
+	<span class='added added-method ' data-is-non-breaking>public override bool Equals (object obj);</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual bool Equals (OSPlatform other);</span>
+	<span class='added added-method ' data-is-non-breaking>public override int GetHashCode ();</span>
+	<span class='added added-method ' data-is-non-breaking>public override string ToString ();</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool op_Equality (OSPlatform left, OSPlatform right);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool op_Inequality (OSPlatform left, OSPlatform right);</span>
+}
+</pre>
+</div> <!-- end type OSPlatform -->
+<div> <!-- start type RuntimeInformation -->
+<h3>New Type System.Runtime.InteropServices.RuntimeInformation</h3>
+<pre class='added' data-is-non-breaking>
+public static class RuntimeInformation {
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public static string FrameworkDescription { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public static Architecture OSArchitecture { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public static string OSDescription { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public static Architecture ProcessArchitecture { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public static bool IsOSPlatform (OSPlatform osPlatform);</span>
+}
+</pre>
+</div> <!-- end type RuntimeInformation -->
+
+</div> <!-- end namespace System.Runtime.InteropServices -->
+<!-- start namespace System.Text --> <div> 
+<h2>Namespace System.Text</h2>
+<!-- start type Encoding --> <div>
+<h3>Type Changed: System.Text.Encoding</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public string GetString (System.ReadOnlySpan&lt;byte&gt; bytes);</span>
+</pre>
+</div>
+
+</div> <!-- end type Encoding -->
+
+</div> <!-- end namespace System.Text -->
+<!-- start namespace System.Threading.Tasks --> <div> 
+<h2>Namespace System.Threading.Tasks</h2>
+<!-- start type Task --> <div>
+<h3>Type Changed: System.Threading.Tasks.Task</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public bool IsCompletedSuccessfully { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type Task -->
+<div> <!-- start type ValueTask`1 -->
+<h3>New Type System.Threading.Tasks.ValueTask`1</h3>
+<pre class='added' data-is-non-breaking>
+public struct ValueTask`1, System.IEquatable&lt;System.Threading.Tasks.ValueTask&lt;TResult&gt;&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public ValueTask`1 (System.Threading.Tasks.Task&lt;TResult&gt; task);</span>
+	<span class='added added-constructor ' data-is-non-breaking>public ValueTask`1 (TResult result);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public bool IsCanceled { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool IsCompleted { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool IsCompletedSuccessfully { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool IsFaulted { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public TResult Result { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public System.Threading.Tasks.Task&lt;TResult&gt; AsTask ();</span>
+	<span class='added added-method ' data-is-non-breaking>public System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable&lt;TResult&gt; ConfigureAwait (bool continueOnCapturedContext);</span>
+	<span class='added added-method ' data-is-non-breaking>public static System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder&lt;TResult&gt; CreateAsyncMethodBuilder ();</span>
+	<span class='added added-method ' data-is-non-breaking>public override bool Equals (object obj);</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual bool Equals (System.Threading.Tasks.ValueTask&lt;TResult&gt; other);</span>
+	<span class='added added-method ' data-is-non-breaking>public System.Runtime.CompilerServices.ValueTaskAwaiter&lt;TResult&gt; GetAwaiter ();</span>
+	<span class='added added-method ' data-is-non-breaking>public override int GetHashCode ();</span>
+	<span class='added added-method ' data-is-non-breaking>public override string ToString ();</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool op_Equality (System.Threading.Tasks.ValueTask&lt;TResult&gt; left, System.Threading.Tasks.ValueTask&lt;TResult&gt; right);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool op_Inequality (System.Threading.Tasks.ValueTask&lt;TResult&gt; left, System.Threading.Tasks.ValueTask&lt;TResult&gt; right);</span>
+}
+</pre>
+</div> <!-- end type ValueTask`1 -->
+
+</div> <!-- end namespace System.Threading.Tasks -->
+<!-- start namespace System.Buffers --> <div> 
+<h2>New Namespace System.Buffers</h2>
+
+<div> <!-- start type IRetainable -->
+<h3>New Type System.Buffers.IRetainable</h3>
+<pre class='added' data-is-non-breaking>
+public interface IRetainable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public virtual bool Release ();</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual void Retain ();</span>
+}
+</pre>
+</div> <!-- end type IRetainable -->
+<div> <!-- start type MemoryHandle -->
+<h3>New Type System.Buffers.MemoryHandle</h3>
+<pre class='added' data-is-non-breaking>
+public struct MemoryHandle, System.IDisposable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public MemoryHandle (IRetainable retainable, void* pointer, System.Runtime.InteropServices.GCHandle handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public bool HasPointer { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public void* Pointer { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public virtual void Dispose ();</span>
+}
+</pre>
+</div> <!-- end type MemoryHandle -->
+<div> <!-- start type OperationStatus -->
+<h3>New Type System.Buffers.OperationStatus</h3>
+<pre class='added' data-is-non-breaking>
+[Serializable]
+public enum OperationStatus {
+	<span class='added added-field ' data-is-non-breaking>DestinationTooSmall = 1,</span>
+	<span class='added added-field ' data-is-non-breaking>Done = 0,</span>
+	<span class='added added-field ' data-is-non-breaking>InvalidData = 3,</span>
+	<span class='added added-field ' data-is-non-breaking>NeedMoreData = 2,</span>
+}
+</pre>
+</div> <!-- end type OperationStatus -->
+<div> <!-- start type OwnedMemory`1 -->
+<h3>New Type System.Buffers.OwnedMemory`1</h3>
+<pre class='added' data-is-non-breaking>
+public abstract class OwnedMemory`1 : IRetainable, System.IDisposable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>protected OwnedMemory`1 ();</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public virtual bool IsDisposed { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>protected virtual bool IsRetained { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public virtual int Length { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public System.Memory&lt;T&gt; Memory { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public virtual System.Span&lt;T&gt; Span { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public virtual void Dispose ();</span>
+	<span class='added added-method ' data-is-non-breaking>protected virtual void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual MemoryHandle Pin (int offset);</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual bool Release ();</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual void Retain ();</span>
+	<span class='added added-method ' data-is-non-breaking>protected virtual bool TryGetArray (out System.ArraySegment&lt;T&gt; arraySegment);</span>
+}
+</pre>
+</div> <!-- end type OwnedMemory`1 -->
+<div> <!-- start type StandardFormat -->
+<h3>New Type System.Buffers.StandardFormat</h3>
+<pre class='added' data-is-non-breaking>
+public struct StandardFormat, System.IEquatable&lt;StandardFormat&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public StandardFormat (char symbol, byte precision);</span>
+	// fields
+	<span class='added added-field ' data-is-non-breaking>public static const byte MaxPrecision;</span>
+	<span class='added added-field ' data-is-non-breaking>public static const byte NoPrecision;</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public bool HasPrecision { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool IsDefault { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public byte Precision { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public char Symbol { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public virtual bool Equals (StandardFormat other);</span>
+	<span class='added added-method ' data-is-non-breaking>public override bool Equals (object obj);</span>
+	<span class='added added-method ' data-is-non-breaking>public override int GetHashCode ();</span>
+	<span class='added added-method ' data-is-non-breaking>public static StandardFormat Parse (System.ReadOnlySpan&lt;char&gt; format);</span>
+	<span class='added added-method ' data-is-non-breaking>public static StandardFormat Parse (string format);</span>
+	<span class='added added-method ' data-is-non-breaking>public override string ToString ();</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool op_Equality (StandardFormat left, StandardFormat right);</span>
+	<span class='added added-method ' data-is-non-breaking>public static StandardFormat op_Implicit (char symbol);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool op_Inequality (StandardFormat left, StandardFormat right);</span>
+}
+</pre>
+</div> <!-- end type StandardFormat -->
+</div> <!-- end namespace System.Buffers -->
+
+<!-- start namespace System.Buffers.Binary --> <div> 
+<h2>New Namespace System.Buffers.Binary</h2>
+
+<div> <!-- start type BinaryPrimitives -->
+<h3>New Type System.Buffers.Binary.BinaryPrimitives</h3>
+<pre class='added' data-is-non-breaking>
+public static class BinaryPrimitives {
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public static short ReadInt16BigEndian (System.ReadOnlySpan&lt;byte&gt; buffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static short ReadInt16LittleEndian (System.ReadOnlySpan&lt;byte&gt; buffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int ReadInt32BigEndian (System.ReadOnlySpan&lt;byte&gt; buffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int ReadInt32LittleEndian (System.ReadOnlySpan&lt;byte&gt; buffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static long ReadInt64BigEndian (System.ReadOnlySpan&lt;byte&gt; buffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static long ReadInt64LittleEndian (System.ReadOnlySpan&lt;byte&gt; buffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static T ReadMachineEndian&lt;T&gt; (System.ReadOnlySpan&lt;byte&gt; buffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static ushort ReadUInt16BigEndian (System.ReadOnlySpan&lt;byte&gt; buffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static ushort ReadUInt16LittleEndian (System.ReadOnlySpan&lt;byte&gt; buffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static uint ReadUInt32BigEndian (System.ReadOnlySpan&lt;byte&gt; buffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static uint ReadUInt32LittleEndian (System.ReadOnlySpan&lt;byte&gt; buffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static ulong ReadUInt64BigEndian (System.ReadOnlySpan&lt;byte&gt; buffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static ulong ReadUInt64LittleEndian (System.ReadOnlySpan&lt;byte&gt; buffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public static byte ReverseEndianness (byte value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static short ReverseEndianness (short value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static int ReverseEndianness (int value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static long ReverseEndianness (long value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static sbyte ReverseEndianness (sbyte value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static ushort ReverseEndianness (ushort value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static uint ReverseEndianness (uint value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static ulong ReverseEndianness (ulong value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryReadInt16BigEndian (System.ReadOnlySpan&lt;byte&gt; buffer, out short value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryReadInt16LittleEndian (System.ReadOnlySpan&lt;byte&gt; buffer, out short value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryReadInt32BigEndian (System.ReadOnlySpan&lt;byte&gt; buffer, out int value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryReadInt32LittleEndian (System.ReadOnlySpan&lt;byte&gt; buffer, out int value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryReadInt64BigEndian (System.ReadOnlySpan&lt;byte&gt; buffer, out long value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryReadInt64LittleEndian (System.ReadOnlySpan&lt;byte&gt; buffer, out long value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryReadMachineEndian&lt;T&gt; (System.ReadOnlySpan&lt;byte&gt; buffer, out T value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryReadUInt16BigEndian (System.ReadOnlySpan&lt;byte&gt; buffer, out ushort value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryReadUInt16LittleEndian (System.ReadOnlySpan&lt;byte&gt; buffer, out ushort value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryReadUInt32BigEndian (System.ReadOnlySpan&lt;byte&gt; buffer, out uint value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryReadUInt32LittleEndian (System.ReadOnlySpan&lt;byte&gt; buffer, out uint value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryReadUInt64BigEndian (System.ReadOnlySpan&lt;byte&gt; buffer, out ulong value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryReadUInt64LittleEndian (System.ReadOnlySpan&lt;byte&gt; buffer, out ulong value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryWriteInt16BigEndian (System.Span&lt;byte&gt; buffer, short value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryWriteInt16LittleEndian (System.Span&lt;byte&gt; buffer, short value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryWriteInt32BigEndian (System.Span&lt;byte&gt; buffer, int value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryWriteInt32LittleEndian (System.Span&lt;byte&gt; buffer, int value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryWriteInt64BigEndian (System.Span&lt;byte&gt; buffer, long value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryWriteInt64LittleEndian (System.Span&lt;byte&gt; buffer, long value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryWriteMachineEndian&lt;T&gt; (System.Span&lt;byte&gt; buffer, ref T value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryWriteUInt16BigEndian (System.Span&lt;byte&gt; buffer, ushort value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryWriteUInt16LittleEndian (System.Span&lt;byte&gt; buffer, ushort value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryWriteUInt32BigEndian (System.Span&lt;byte&gt; buffer, uint value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryWriteUInt32LittleEndian (System.Span&lt;byte&gt; buffer, uint value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryWriteUInt64BigEndian (System.Span&lt;byte&gt; buffer, ulong value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryWriteUInt64LittleEndian (System.Span&lt;byte&gt; buffer, ulong value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void WriteInt16BigEndian (System.Span&lt;byte&gt; buffer, short value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void WriteInt16LittleEndian (System.Span&lt;byte&gt; buffer, short value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void WriteInt32BigEndian (System.Span&lt;byte&gt; buffer, int value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void WriteInt32LittleEndian (System.Span&lt;byte&gt; buffer, int value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void WriteInt64BigEndian (System.Span&lt;byte&gt; buffer, long value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void WriteInt64LittleEndian (System.Span&lt;byte&gt; buffer, long value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void WriteMachineEndian&lt;T&gt; (System.Span&lt;byte&gt; buffer, ref T value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void WriteUInt16BigEndian (System.Span&lt;byte&gt; buffer, ushort value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void WriteUInt16LittleEndian (System.Span&lt;byte&gt; buffer, ushort value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void WriteUInt32BigEndian (System.Span&lt;byte&gt; buffer, uint value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void WriteUInt32LittleEndian (System.Span&lt;byte&gt; buffer, uint value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void WriteUInt64BigEndian (System.Span&lt;byte&gt; buffer, ulong value);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void WriteUInt64LittleEndian (System.Span&lt;byte&gt; buffer, ulong value);</span>
+}
+</pre>
+</div> <!-- end type BinaryPrimitives -->
+</div> <!-- end namespace System.Buffers.Binary -->
+
+</div> <!-- end topmost div -->
+</div>
+<br><hr>
+<div>
+<style scoped>
+	.obsolete { color: gray; }
+	.added { color: green; }
+	.removed-inline { text-decoration: line-through; }
+	.removed-breaking-inline { color: red;}
+	.added-breaking-inline { text-decoration: underline; }
+	.nonbreaking { color: black; }
+	.breaking { color: red; }
+</style>
+<script type="text/javascript">
+	// Only some elements have 'data-is-[non-]breaking' attributes. Here we
+	// iterate over all descendents elements, and set 'data-is-[non-]breaking'
+	// depending on whether there are any descendents with that attribute.
+	function propagateDataAttribute (element)
+	{
+		if (element.hasAttribute ('data-is-propagated'))
+			return;
+
+		var i;
+		var any_breaking = element.hasAttribute ('data-is-breaking');
+		var any_non_breaking = element.hasAttribute ('data-is-non-breaking');
+		for (i = 0; i < element.children.length; i++) {
+			var el = element.children [i];
+			propagateDataAttribute (el);
+			any_breaking |= el.hasAttribute ('data-is-breaking');
+			any_non_breaking |= el.hasAttribute ('data-is-non-breaking');
+		}
+		
+		if (any_breaking)
+			element.setAttribute ('data-is-breaking', null);
+		else if (any_non_breaking)
+			element.setAttribute ('data-is-non-breaking', null);
+		element.setAttribute ('data-is-propagated', null);
+	}
+
+	function hideNonBreakingChanges ()
+	{
+		var topNodes = document.querySelectorAll ('[data-is-topmost]');
+		var n;
+		var i;
+		for (n = 0; n < topNodes.length; n++) {
+			propagateDataAttribute (topNodes [n]);
+			var elements = topNodes [n].querySelectorAll ('[data-is-non-breaking]');
+			for (i = 0; i < elements.length; i++) {
+				var el = elements [i];
+				if (!el.hasAttribute ('data-original-display'))
+					el.setAttribute ('data-original-display', el.style.display);
+				el.style.display = 'none';
+			}
+		}
+		
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+	}
+
+	function showNonBreakingChanges ()
+	{
+		var elements = document.querySelectorAll ('[data-original-display]');
+		var i;
+		for (i = 0; i < elements.length; i++) {
+			var el = elements [i];
+			el.style.display = el.getAttribute ('data-original-display');
+		}
+
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+	}
+</script>
+<h1 id='diff/xi/Xamarin.TVOS/System.html'>System.dll</h1>
+<a href='javascript: hideNonBreakingChanges (); ' class='hide-nonbreaking'>Hide non-breaking changes</a>
+<a href='javascript: showNonBreakingChanges (); ' class='restore-nonbreaking' style='display: none;'>Show non-breaking changes</a>
+<br/>
+<div data-is-topmost>
+<!-- start namespace System.IO.Compression --> <div> 
+<h2>Namespace System.IO.Compression</h2>
+<!-- start type GZipStream --> <div>
+<h3>Type Changed: System.IO.Compression.GZipStream</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public override void CopyTo (System.IO.Stream destination, int bufferSize);</span>
+	<span class='added added-method ' data-is-non-breaking>public override int Read (System.Span&lt;byte&gt; destination);</span>
+	<span class='added added-method ' data-is-non-breaking>public override System.Threading.Tasks.ValueTask&lt;int&gt; ReadAsync (System.Memory&lt;byte&gt; destination, System.Threading.CancellationToken cancellationToken);</span>
+	<span class='added added-method ' data-is-non-breaking>public override void Write (System.ReadOnlySpan&lt;byte&gt; source);</span>
+	<span class='added added-method ' data-is-non-breaking>public override System.Threading.Tasks.Task WriteAsync (System.ReadOnlyMemory&lt;byte&gt; source, System.Threading.CancellationToken cancellationToken);</span>
+</pre>
+</div>
+
+</div> <!-- end type GZipStream -->
+
+</div> <!-- end namespace System.IO.Compression -->
+<!-- start namespace System.Net.Security --> <div> 
+<h2>Namespace System.Net.Security</h2>
+<!-- start type SslStream --> <div>
+<h3>Type Changed: System.Net.Security.SslStream</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public override System.Threading.Tasks.Task FlushAsync (System.Threading.CancellationToken cancellationToken);</span>
+</pre>
+</div>
+
+</div> <!-- end type SslStream -->
+
+</div> <!-- end namespace System.Net.Security -->
+<!-- start namespace System.Net.WebSockets --> <div> 
+<h2>Namespace System.Net.WebSockets</h2>
+<!-- start type ClientWebSocket --> <div>
+<h3>Type Changed: System.Net.WebSockets.ClientWebSocket</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public override System.Threading.Tasks.ValueTask&lt;ValueWebSocketReceiveResult&gt; ReceiveAsync (System.Memory&lt;byte&gt; buffer, System.Threading.CancellationToken cancellationToken);</span>
+	<span class='added added-method ' data-is-non-breaking>public override System.Threading.Tasks.Task SendAsync (System.ReadOnlyMemory&lt;byte&gt; buffer, WebSocketMessageType messageType, bool endOfMessage, System.Threading.CancellationToken cancellationToken);</span>
+</pre>
+</div>
+
+</div> <!-- end type ClientWebSocket -->
+<!-- start type WebSocket --> <div>
+<h3>Type Changed: System.Net.WebSockets.WebSocket</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public static WebSocket CreateFromStream (System.IO.Stream stream, bool isServer, string subProtocol, System.TimeSpan keepAliveInterval, System.Memory&lt;byte&gt; buffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual System.Threading.Tasks.ValueTask&lt;ValueWebSocketReceiveResult&gt; ReceiveAsync (System.Memory&lt;byte&gt; buffer, System.Threading.CancellationToken cancellationToken);</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual System.Threading.Tasks.Task SendAsync (System.ReadOnlyMemory&lt;byte&gt; buffer, WebSocketMessageType messageType, bool endOfMessage, System.Threading.CancellationToken cancellationToken);</span>
+</pre>
+</div>
+
+</div> <!-- end type WebSocket -->
+<div> <!-- start type ValueWebSocketReceiveResult -->
+<h3>New Type System.Net.WebSockets.ValueWebSocketReceiveResult</h3>
+<pre class='added' data-is-non-breaking>
+public struct ValueWebSocketReceiveResult {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public ValueWebSocketReceiveResult (int count, WebSocketMessageType messageType, bool endOfMessage);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public int Count { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool EndOfMessage { get; }</span>
+	<span class='added added-property ' data-is-non-breaking>public WebSocketMessageType MessageType { get; }</span>
+}
+</pre>
+</div> <!-- end type ValueWebSocketReceiveResult -->
+
+</div> <!-- end namespace System.Net.WebSockets -->
+</div> <!-- end topmost div -->
+</div>
+<br><hr>
+<div>
+<style scoped>
+	.obsolete { color: gray; }
+	.added { color: green; }
+	.removed-inline { text-decoration: line-through; }
+	.removed-breaking-inline { color: red;}
+	.added-breaking-inline { text-decoration: underline; }
+	.nonbreaking { color: black; }
+	.breaking { color: red; }
+</style>
+<script type="text/javascript">
+	// Only some elements have 'data-is-[non-]breaking' attributes. Here we
+	// iterate over all descendents elements, and set 'data-is-[non-]breaking'
+	// depending on whether there are any descendents with that attribute.
+	function propagateDataAttribute (element)
+	{
+		if (element.hasAttribute ('data-is-propagated'))
+			return;
+
+		var i;
+		var any_breaking = element.hasAttribute ('data-is-breaking');
+		var any_non_breaking = element.hasAttribute ('data-is-non-breaking');
+		for (i = 0; i < element.children.length; i++) {
+			var el = element.children [i];
+			propagateDataAttribute (el);
+			any_breaking |= el.hasAttribute ('data-is-breaking');
+			any_non_breaking |= el.hasAttribute ('data-is-non-breaking');
+		}
+		
+		if (any_breaking)
+			element.setAttribute ('data-is-breaking', null);
+		else if (any_non_breaking)
+			element.setAttribute ('data-is-non-breaking', null);
+		element.setAttribute ('data-is-propagated', null);
+	}
+
+	function hideNonBreakingChanges ()
+	{
+		var topNodes = document.querySelectorAll ('[data-is-topmost]');
+		var n;
+		var i;
+		for (n = 0; n < topNodes.length; n++) {
+			propagateDataAttribute (topNodes [n]);
+			var elements = topNodes [n].querySelectorAll ('[data-is-non-breaking]');
+			for (i = 0; i < elements.length; i++) {
+				var el = elements [i];
+				if (!el.hasAttribute ('data-original-display'))
+					el.setAttribute ('data-original-display', el.style.display);
+				el.style.display = 'none';
+			}
+		}
+		
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+	}
+
+	function showNonBreakingChanges ()
+	{
+		var elements = document.querySelectorAll ('[data-original-display]');
+		var i;
+		for (i = 0; i < elements.length; i++) {
+			var el = elements [i];
+			el.style.display = el.getAttribute ('data-original-display');
+		}
+
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+	}
+</script>
+<h1 id='diff/xi/Xamarin.TVOS/System.Numerics.html'>System.Numerics.dll</h1>
+<a href='javascript: hideNonBreakingChanges (); ' class='hide-nonbreaking'>Hide non-breaking changes</a>
+<a href='javascript: showNonBreakingChanges (); ' class='restore-nonbreaking' style='display: none;'>Show non-breaking changes</a>
+<br/>
+<div data-is-topmost>
+<!-- start namespace System.Numerics --> <div> 
+<h2>Namespace System.Numerics</h2>
+<!-- start type BigInteger --> <div>
+<h3>Type Changed: System.Numerics.BigInteger</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking>public BigInteger (System.ReadOnlySpan&lt;byte&gt; value, bool isUnsigned, bool isBigEndian);</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public int GetByteCount (bool isUnsigned);</span>
+	<span class='added added-method ' data-is-non-breaking>public static BigInteger Parse (System.ReadOnlySpan&lt;char&gt; value, System.Globalization.NumberStyles style, System.IFormatProvider provider);</span>
+	<span class='added added-method ' data-is-non-breaking>public byte[] ToByteArray (bool isUnsigned, bool isBigEndian);</span>
+	<span class='added added-method ' data-is-non-breaking>public bool TryFormat (System.Span&lt;char&gt; destination, out int charsWritten, System.ReadOnlySpan&lt;char&gt; format, System.IFormatProvider provider);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryParse (System.ReadOnlySpan&lt;char&gt; value, out BigInteger result);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool TryParse (System.ReadOnlySpan&lt;char&gt; value, System.Globalization.NumberStyles style, System.IFormatProvider provider, out BigInteger result);</span>
+	<span class='added added-method ' data-is-non-breaking>public bool TryWriteBytes (System.Span&lt;byte&gt; destination, out int bytesWritten, bool isUnsigned, bool isBigEndian);</span>
+</pre>
+</div>
+
+</div> <!-- end type BigInteger -->
+
+</div> <!-- end namespace System.Numerics -->
+</div> <!-- end topmost div -->
+</div>
+<br><hr>
+<div>
+<style scoped>
+	.obsolete { color: gray; }
+	.added { color: green; }
+	.removed-inline { text-decoration: line-through; }
+	.removed-breaking-inline { color: red;}
+	.added-breaking-inline { text-decoration: underline; }
+	.nonbreaking { color: black; }
+	.breaking { color: red; }
+</style>
+<script type="text/javascript">
+	// Only some elements have 'data-is-[non-]breaking' attributes. Here we
+	// iterate over all descendents elements, and set 'data-is-[non-]breaking'
+	// depending on whether there are any descendents with that attribute.
+	function propagateDataAttribute (element)
+	{
+		if (element.hasAttribute ('data-is-propagated'))
+			return;
+
+		var i;
+		var any_breaking = element.hasAttribute ('data-is-breaking');
+		var any_non_breaking = element.hasAttribute ('data-is-non-breaking');
+		for (i = 0; i < element.children.length; i++) {
+			var el = element.children [i];
+			propagateDataAttribute (el);
+			any_breaking |= el.hasAttribute ('data-is-breaking');
+			any_non_breaking |= el.hasAttribute ('data-is-non-breaking');
+		}
+		
+		if (any_breaking)
+			element.setAttribute ('data-is-breaking', null);
+		else if (any_non_breaking)
+			element.setAttribute ('data-is-non-breaking', null);
+		element.setAttribute ('data-is-propagated', null);
+	}
+
+	function hideNonBreakingChanges ()
+	{
+		var topNodes = document.querySelectorAll ('[data-is-topmost]');
+		var n;
+		var i;
+		for (n = 0; n < topNodes.length; n++) {
+			propagateDataAttribute (topNodes [n]);
+			var elements = topNodes [n].querySelectorAll ('[data-is-non-breaking]');
+			for (i = 0; i < elements.length; i++) {
+				var el = elements [i];
+				if (!el.hasAttribute ('data-original-display'))
+					el.setAttribute ('data-original-display', el.style.display);
+				el.style.display = 'none';
+			}
+		}
+		
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+	}
+
+	function showNonBreakingChanges ()
+	{
+		var elements = document.querySelectorAll ('[data-original-display]');
+		var i;
+		for (i = 0; i < elements.length; i++) {
+			var el = elements [i];
+			el.style.display = el.getAttribute ('data-original-display');
+		}
+
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+	}
+</script>
+<h1 id='diff/xi/Xamarin.TVOS/System.Data.html'>System.Data.dll</h1>
+<a href='javascript: hideNonBreakingChanges (); ' class='hide-nonbreaking'>Hide non-breaking changes</a>
+<a href='javascript: showNonBreakingChanges (); ' class='restore-nonbreaking' style='display: none;'>Show non-breaking changes</a>
+<br/>
+<div data-is-topmost>
+<!-- start namespace Microsoft.SqlServer.Server --> <div> 
+<h2>Namespace Microsoft.SqlServer.Server</h2>
+<!-- start type SqlDataRecord --> <div>
+<h3>Type Changed: Microsoft.SqlServer.Server.SqlDataRecord</h3>
+<p>Removed method:</p>
+
+<pre>
+	<span class='removed removed-method breaking' data-is-breaking>public virtual System.Data.IDataReader GetData (int ordinal);</span>
+</pre>
+
+</div> <!-- end type SqlDataRecord -->
+<!-- start type SqlMetaData --> <div>
+<h3>Type Changed: Microsoft.SqlServer.Server.SqlMetaData</h3>
+<div>
+<p>Added constructors:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking>public SqlMetaData (string name, System.Data.SqlDbType dbType, System.Type userDefinedType, string serverTypeName);</span>
+	<span class='added added-constructor ' data-is-non-breaking>public SqlMetaData (string name, System.Data.SqlDbType dbType, System.Type userDefinedType, string serverTypeName, bool useServerDefault, bool isUniqueKey, System.Data.SqlClient.SortOrder columnSortOrder, int sortOrdinal);</span>
+</pre>
+</div>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public System.Type Type { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type SqlMetaData -->
+
+</div> <!-- end namespace Microsoft.SqlServer.Server -->
+<!-- start namespace System.Data --> <div> 
+<h2>Namespace System.Data</h2>
+<!-- start type DBConcurrencyException --> <div>
+<h3>Type Changed: System.Data.DBConcurrencyException</h3>
+<p>Modified methods:</p>
+<pre>
+<div data-is-breaking>	public override void GetObjectData (System.Runtime.Serialization.SerializationInfo <span class='removed removed-inline removed-breaking-inline'>si</span> <span class='added '>info</span>, System.Runtime.Serialization.StreamingContext context)
+</div></pre>
+
+</div> <!-- end type DBConcurrencyException -->
+
+</div> <!-- end namespace System.Data -->
+<!-- start namespace System.Data.SqlClient --> <div> 
+<h2>Namespace System.Data.SqlClient</h2>
+<!-- start type SqlCommand --> <div>
+<h3>Type Changed: System.Data.SqlClient.SqlCommand</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>protected override System.Threading.Tasks.Task&lt;System.Data.Common.DbDataReader&gt; ExecuteDbDataReaderAsync (System.Data.CommandBehavior behavior, System.Threading.CancellationToken cancellationToken);</span>
+	<span class='added added-method ' data-is-non-breaking>public override System.Threading.Tasks.Task&lt;int&gt; ExecuteNonQueryAsync (System.Threading.CancellationToken cancellationToken);</span>
+	<span class='added added-method ' data-is-non-breaking>public override System.Threading.Tasks.Task&lt;object&gt; ExecuteScalarAsync (System.Threading.CancellationToken cancellationToken);</span>
+</pre>
+</div>
+
+</div> <!-- end type SqlCommand -->
+<!-- start type SqlConnection --> <div>
+<h3>Type Changed: System.Data.SqlClient.SqlConnection</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public override void EnlistTransaction (System.Transactions.Transaction transaction);</span>
+	<span class='added added-method ' data-is-non-breaking>protected override void OnStateChange (System.Data.StateChangeEventArgs stateChange);</span>
+	<span class='added added-method ' data-is-non-breaking>public override System.Threading.Tasks.Task OpenAsync (System.Threading.CancellationToken cancellationToken);</span>
+</pre>
+</div>
+
+</div> <!-- end type SqlConnection -->
+<!-- start type SqlConnectionStringBuilder --> <div>
+<h3>Type Changed: System.Data.SqlClient.SqlConnectionStringBuilder</h3>
+<p>Removed property:</p>
+
+<pre>
+	<span class='removed removed-property breaking' data-is-breaking>public override bool IsFixedSize { get; }</span>
+</pre>
+<p>Obsoleted properties:</p>
+<pre>
+<div data-is-non-breaking>	<span class='obsolete obsolete-property' data-is-non-breaking>[Obsolete ("This property is ignored beginning in .NET Framework 4.5.For more information about SqlClient support for asynchronous programming, seehttps://docs.microsoft.com/en-us/dotnet/framework/data/adonet/asynchronous-programming")]
+	public bool AsynchronousProcessing { get; set; }</span>
+</div></pre>
+<p>Removed method:</p>
+
+<pre>
+	<span class='removed removed-method ' data-is-non-breaking>protected override void GetProperties (System.Collections.Hashtable propertyDescriptors);</span>
+</pre>
+
+</div> <!-- end type SqlConnectionStringBuilder -->
+<!-- start type SqlDataAdapter --> <div>
+<h3>Type Changed: System.Data.SqlClient.SqlDataAdapter</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>protected override bool GetBatchedRecordsAffected (int commandIdentifier, out int recordsAffected, out System.Exception error);</span>
+</pre>
+</div>
+
+</div> <!-- end type SqlDataAdapter -->
+<!-- start type SqlDataReader --> <div>
+<h3>Type Changed: System.Data.SqlClient.SqlDataReader</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>System.Data.Common.IDbColumnSchemaGenerator</span>
+</pre>
+</div>
+<p>Modified methods:</p>
+<pre>
+<div data-is-non-breaking>	<span class='removed removed-inline '>protected</span> <span class='added '>protected</span> bool IsCommandBehavior (System.Data.CommandBehavior condition)
+</div></pre>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual System.Collections.ObjectModel.ReadOnlyCollection&lt;System.Data.Common.DbColumn&gt; GetColumnSchema ();</span>
+	<span class='added added-method ' data-is-non-breaking>public override System.Threading.Tasks.Task&lt;bool&gt; NextResultAsync (System.Threading.CancellationToken cancellationToken);</span>
+	<span class='added added-method ' data-is-non-breaking>public override System.Threading.Tasks.Task&lt;bool&gt; ReadAsync (System.Threading.CancellationToken cancellationToken);</span>
+</pre>
+</div>
+
+</div> <!-- end type SqlDataReader -->
+<!-- start type SqlException --> <div>
+<h3>Type Changed: System.Data.SqlClient.SqlException</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public override string ToString ();</span>
+</pre>
+</div>
+
+</div> <!-- end type SqlException -->
+<!-- start type SqlNotificationInfo --> <div>
+<h3>Type Changed: System.Data.SqlClient.SqlNotificationInfo</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking>
+	<span class='added added-field ' data-is-non-breaking>Merge = 16,</span>
+</pre>
+</div>
+
+</div> <!-- end type SqlNotificationInfo -->
+<!-- start type SqlParameterCollection --> <div>
+<h3>Type Changed: System.Data.SqlClient.SqlParameterCollection</h3>
+<p>Removed properties:</p>
+
+<pre>
+	<span class='removed removed-property breaking' data-is-breaking>public override bool IsFixedSize { get; }</span>
+	<span class='removed removed-property breaking' data-is-breaking>public override bool IsReadOnly { get; }</span>
+	<span class='removed removed-property breaking' data-is-breaking>public override bool IsSynchronized { get; }</span>
+</pre>
+
+</div> <!-- end type SqlParameterCollection -->
+
+</div> <!-- end namespace System.Data.SqlClient -->
+</div> <!-- end topmost div -->
+</div>
+<br><hr>
+<div>
+<style scoped>
+	.obsolete { color: gray; }
+	.added { color: green; }
+	.removed-inline { text-decoration: line-through; }
+	.removed-breaking-inline { color: red;}
+	.added-breaking-inline { text-decoration: underline; }
+	.nonbreaking { color: black; }
+	.breaking { color: red; }
+</style>
+<script type="text/javascript">
+	// Only some elements have 'data-is-[non-]breaking' attributes. Here we
+	// iterate over all descendents elements, and set 'data-is-[non-]breaking'
+	// depending on whether there are any descendents with that attribute.
+	function propagateDataAttribute (element)
+	{
+		if (element.hasAttribute ('data-is-propagated'))
+			return;
+
+		var i;
+		var any_breaking = element.hasAttribute ('data-is-breaking');
+		var any_non_breaking = element.hasAttribute ('data-is-non-breaking');
+		for (i = 0; i < element.children.length; i++) {
+			var el = element.children [i];
+			propagateDataAttribute (el);
+			any_breaking |= el.hasAttribute ('data-is-breaking');
+			any_non_breaking |= el.hasAttribute ('data-is-non-breaking');
+		}
+		
+		if (any_breaking)
+			element.setAttribute ('data-is-breaking', null);
+		else if (any_non_breaking)
+			element.setAttribute ('data-is-non-breaking', null);
+		element.setAttribute ('data-is-propagated', null);
+	}
+
+	function hideNonBreakingChanges ()
+	{
+		var topNodes = document.querySelectorAll ('[data-is-topmost]');
+		var n;
+		var i;
+		for (n = 0; n < topNodes.length; n++) {
+			propagateDataAttribute (topNodes [n]);
+			var elements = topNodes [n].querySelectorAll ('[data-is-non-breaking]');
+			for (i = 0; i < elements.length; i++) {
+				var el = elements [i];
+				if (!el.hasAttribute ('data-original-display'))
+					el.setAttribute ('data-original-display', el.style.display);
+				el.style.display = 'none';
+			}
+		}
+		
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+	}
+
+	function showNonBreakingChanges ()
+	{
+		var elements = document.querySelectorAll ('[data-original-display]');
+		var i;
+		for (i = 0; i < elements.length; i++) {
+			var el = elements [i];
+			el.style.display = el.getAttribute ('data-original-display');
+		}
+
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+	}
+</script>
+<h1 id='diff/xi/Xamarin.TVOS/System.Xml.html'>System.Xml.dll</h1>
+<a href='javascript: hideNonBreakingChanges (); ' class='hide-nonbreaking'>Hide non-breaking changes</a>
+<a href='javascript: showNonBreakingChanges (); ' class='restore-nonbreaking' style='display: none;'>Show non-breaking changes</a>
+<br/>
+<div data-is-topmost>
+<!-- start namespace System.Xml.XmlConfiguration --> <div> 
+<h2>Namespace System.Xml.XmlConfiguration</h2>
+<!-- start type XmlReaderSection --> <div>
+<h3>Type Changed: System.Xml.XmlConfiguration.XmlReaderSection</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public string CollapseWhiteSpaceIntoEmptyStringString { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type XmlReaderSection -->
+
+</div> <!-- end namespace System.Xml.XmlConfiguration -->
+</div> <!-- end topmost div -->
+</div>
+<br><hr>
+<div>
+<style scoped>
+	.obsolete { color: gray; }
+	.added { color: green; }
+	.removed-inline { text-decoration: line-through; }
+	.removed-breaking-inline { color: red;}
+	.added-breaking-inline { text-decoration: underline; }
+	.nonbreaking { color: black; }
+	.breaking { color: red; }
+</style>
+<script type="text/javascript">
+	// Only some elements have 'data-is-[non-]breaking' attributes. Here we
+	// iterate over all descendents elements, and set 'data-is-[non-]breaking'
+	// depending on whether there are any descendents with that attribute.
+	function propagateDataAttribute (element)
+	{
+		if (element.hasAttribute ('data-is-propagated'))
+			return;
+
+		var i;
+		var any_breaking = element.hasAttribute ('data-is-breaking');
+		var any_non_breaking = element.hasAttribute ('data-is-non-breaking');
+		for (i = 0; i < element.children.length; i++) {
+			var el = element.children [i];
+			propagateDataAttribute (el);
+			any_breaking |= el.hasAttribute ('data-is-breaking');
+			any_non_breaking |= el.hasAttribute ('data-is-non-breaking');
+		}
+		
+		if (any_breaking)
+			element.setAttribute ('data-is-breaking', null);
+		else if (any_non_breaking)
+			element.setAttribute ('data-is-non-breaking', null);
+		element.setAttribute ('data-is-propagated', null);
+	}
+
+	function hideNonBreakingChanges ()
+	{
+		var topNodes = document.querySelectorAll ('[data-is-topmost]');
+		var n;
+		var i;
+		for (n = 0; n < topNodes.length; n++) {
+			propagateDataAttribute (topNodes [n]);
+			var elements = topNodes [n].querySelectorAll ('[data-is-non-breaking]');
+			for (i = 0; i < elements.length; i++) {
+				var el = elements [i];
+				if (!el.hasAttribute ('data-original-display'))
+					el.setAttribute ('data-original-display', el.style.display);
+				el.style.display = 'none';
+			}
+		}
+		
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+	}
+
+	function showNonBreakingChanges ()
+	{
+		var elements = document.querySelectorAll ('[data-original-display]');
+		var i;
+		for (i = 0; i < elements.length; i++) {
+			var el = elements [i];
+			el.style.display = el.getAttribute ('data-original-display');
+		}
+
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+	}
+</script>
+<h1 id='diff/xi/Xamarin.TVOS/System.IO.Compression.html'>System.IO.Compression.dll</h1>
+<a href='javascript: hideNonBreakingChanges (); ' class='hide-nonbreaking'>Hide non-breaking changes</a>
+<a href='javascript: showNonBreakingChanges (); ' class='restore-nonbreaking' style='display: none;'>Show non-breaking changes</a>
+<br/>
+<div data-is-topmost>
+<!-- start namespace System.IO.Compression --> <div> 
+<h2>Namespace System.IO.Compression</h2>
+<!-- start type ZipArchiveEntry --> <div>
+<h3>Type Changed: System.IO.Compression.ZipArchiveEntry</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public uint Crc32 { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type ZipArchiveEntry -->
+
+</div> <!-- end namespace System.IO.Compression -->
+</div> <!-- end topmost div -->
+</div>
+<br><hr>
+<div>
+<style scoped>
+	.obsolete { color: gray; }
+	.added { color: green; }
+	.removed-inline { text-decoration: line-through; }
+	.removed-breaking-inline { color: red;}
+	.added-breaking-inline { text-decoration: underline; }
+	.nonbreaking { color: black; }
+	.breaking { color: red; }
+</style>
+<script type="text/javascript">
+	// Only some elements have 'data-is-[non-]breaking' attributes. Here we
+	// iterate over all descendents elements, and set 'data-is-[non-]breaking'
+	// depending on whether there are any descendents with that attribute.
+	function propagateDataAttribute (element)
+	{
+		if (element.hasAttribute ('data-is-propagated'))
+			return;
+
+		var i;
+		var any_breaking = element.hasAttribute ('data-is-breaking');
+		var any_non_breaking = element.hasAttribute ('data-is-non-breaking');
+		for (i = 0; i < element.children.length; i++) {
+			var el = element.children [i];
+			propagateDataAttribute (el);
+			any_breaking |= el.hasAttribute ('data-is-breaking');
+			any_non_breaking |= el.hasAttribute ('data-is-non-breaking');
+		}
+		
+		if (any_breaking)
+			element.setAttribute ('data-is-breaking', null);
+		else if (any_non_breaking)
+			element.setAttribute ('data-is-non-breaking', null);
+		element.setAttribute ('data-is-propagated', null);
+	}
+
+	function hideNonBreakingChanges ()
+	{
+		var topNodes = document.querySelectorAll ('[data-is-topmost]');
+		var n;
+		var i;
+		for (n = 0; n < topNodes.length; n++) {
+			propagateDataAttribute (topNodes [n]);
+			var elements = topNodes [n].querySelectorAll ('[data-is-non-breaking]');
+			for (i = 0; i < elements.length; i++) {
+				var el = elements [i];
+				if (!el.hasAttribute ('data-original-display'))
+					el.setAttribute ('data-original-display', el.style.display);
+				el.style.display = 'none';
+			}
+		}
+		
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+	}
+
+	function showNonBreakingChanges ()
+	{
+		var elements = document.querySelectorAll ('[data-original-display]');
+		var i;
+		for (i = 0; i < elements.length; i++) {
+			var el = elements [i];
+			el.style.display = el.getAttribute ('data-original-display');
+		}
+
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+	}
+</script>
+<h1 id='diff/xi/Xamarin.TVOS/Xamarin.TVOS.html'>Xamarin.TVOS.dll</h1>
+<a href='javascript: hideNonBreakingChanges (); ' class='hide-nonbreaking'>Hide non-breaking changes</a>
+<a href='javascript: showNonBreakingChanges (); ' class='restore-nonbreaking' style='display: none;'>Show non-breaking changes</a>
+<br/>
+<div data-is-topmost>
+<!-- start namespace AVFoundation --> <div> 
+<h2>Namespace AVFoundation</h2>
+<!-- start type AVAudioPlayerDelegate --> <div>
+<h3>Type Changed: AVFoundation.AVAudioPlayerDelegate</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public virtual void EndInterruption (AVAudioPlayer player, AVAudioSessionInterruptionFlags flags);</span>
+</pre>
+</div>
+
+</div> <!-- end type AVAudioPlayerDelegate -->
+<!-- start type AVAudioPlayerDelegate_Extensions --> <div>
+<h3>Type Changed: AVFoundation.AVAudioPlayerDelegate_Extensions</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public static void EndInterruption (this IAVAudioPlayerDelegate This, AVAudioPlayer player, AVAudioSessionInterruptionFlags flags);</span>
+</pre>
+</div>
+
+</div> <!-- end type AVAudioPlayerDelegate_Extensions -->
+<!-- start type AVAudioUnitComponentManager --> <div>
+<h3>Type Changed: AVFoundation.AVAudioUnitComponentManager</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking>	<span class='obsolete obsolete-constructor' data-is-non-breaking>[Obsolete ("Please use the static 'SharedInstance' property as this type is not meant to be created.")]
+	public AVAudioUnitComponentManager ();</span>
+</div></pre>
+
+</div> <!-- end type AVAudioUnitComponentManager -->
+<!-- start type AVPlayerItem --> <div>
+<h3>Type Changed: AVFoundation.AVPlayerItem</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public virtual CoreGraphics.CGSize PreferredMaximumResolution { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking>public AVVideoApertureMode VideoApertureMode { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type AVPlayerItem -->
+<!-- start type AVSampleBufferDisplayLayer --> <div>
+<h3>Type Changed: AVFoundation.AVSampleBufferDisplayLayer</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public virtual CoreMedia.CMTimebase Timebase { get; }</span>
+</pre>
+</div>
+<p>Obsoleted methods:</p>
+<pre>
+<div data-is-non-breaking>	<span class='obsolete obsolete-method' data-is-non-breaking>[Obsolete ("Use the 'Enqueue' method instead.")]
+	public virtual void EnqueueSampleBuffer (CoreMedia.CMSampleBuffer sampleBuffer);</span>
+</div><div data-is-non-breaking>	<span class='obsolete obsolete-method' data-is-non-breaking>[Obsolete ("Use the 'RequestMediaData' method instead.")]
+	public virtual void RequestMediaDataWhenReadyOnQueue (CoreFoundation.DispatchQueue queue, System.Action enqueuer);</span>
+</div></pre>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public virtual void Enqueue (CoreMedia.CMSampleBuffer sampleBuffer);</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual void RequestMediaData (CoreFoundation.DispatchQueue queue, System.Action handler);</span>
+</pre>
+</div>
+
+</div> <!-- end type AVSampleBufferDisplayLayer -->
+<!-- start type AVUrlAsset --> <div>
+<h3>Type Changed: AVFoundation.AVUrlAsset</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>IAVContentKeyRecipient</span>
+</pre>
+</div>
+
+</div> <!-- end type AVUrlAsset -->
+<div> <!-- start type AVAudioSessionInterruptionFlags -->
+<h3>New Type AVFoundation.AVAudioSessionInterruptionFlags</h3>
+<pre class='added' data-is-non-breaking>
+[Serializable]
+[Flags]
+public enum AVAudioSessionInterruptionFlags {
+	<span class='added added-field ' data-is-non-breaking>ShouldResume = 1,</span>
+}
+</pre>
+</div> <!-- end type AVAudioSessionInterruptionFlags -->
+
+</div> <!-- end namespace AVFoundation -->
+<!-- start namespace AVKit --> <div> 
+<h2>Namespace AVKit</h2>
+<!-- start type AVContentProposalViewController --> <div>
+<h3>Type Changed: AVKit.AVContentProposalViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type AVContentProposalViewController -->
+<!-- start type AVPlayerViewController --> <div>
+<h3>Type Changed: AVKit.AVPlayerViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type AVPlayerViewController -->
+
+</div> <!-- end namespace AVKit -->
+<!-- start namespace CloudKit --> <div> 
+<h2>Namespace CloudKit</h2>
+<!-- start type CKAsset --> <div>
+<h3>Type Changed: CloudKit.CKAsset</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>ICKRecordValue</span>
+</pre>
+</div>
+
+</div> <!-- end type CKAsset -->
+<!-- start type CKReference --> <div>
+<h3>Type Changed: CloudKit.CKReference</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>ICKRecordValue</span>
+</pre>
+</div>
+
+</div> <!-- end type CKReference -->
+
+</div> <!-- end namespace CloudKit -->
+<!-- start namespace CoreAnimation --> <div> 
+<h2>Namespace CoreAnimation</h2>
+<!-- start type CAAnimationDelegate --> <div>
+<h3>Type Changed: CoreAnimation.CAAnimationDelegate</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>ICAAnimationDelegate</span>
+</pre>
+</div>
+
+</div> <!-- end type CAAnimationDelegate -->
+<div> <!-- start type CAAnimationDelegate_Extensions -->
+<h3>New Type CoreAnimation.CAAnimationDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking>
+public static class CAAnimationDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public static void AnimationStarted (this ICAAnimationDelegate This, CAAnimation anim);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void AnimationStopped (this ICAAnimationDelegate This, CAAnimation anim, bool finished);</span>
+}
+</pre>
+</div> <!-- end type CAAnimationDelegate_Extensions -->
+<div> <!-- start type ICAAnimationDelegate -->
+<h3>New Type CoreAnimation.ICAAnimationDelegate</h3>
+<pre class='added' data-is-non-breaking>
+public interface ICAAnimationDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type ICAAnimationDelegate -->
+
+</div> <!-- end namespace CoreAnimation -->
+<!-- start namespace CoreData --> <div> 
+<h2>Namespace CoreData</h2>
+<!-- start type NSManagedObject --> <div>
+<h3>Type Changed: CoreData.NSManagedObject</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>INSFetchRequestResult</span>
+</pre>
+</div>
+
+</div> <!-- end type NSManagedObject -->
+<!-- start type NSManagedObjectID --> <div>
+<h3>Type Changed: CoreData.NSManagedObjectID</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>INSFetchRequestResult</span>
+</pre>
+</div>
+
+</div> <!-- end type NSManagedObjectID -->
+
+</div> <!-- end namespace CoreData -->
+<!-- start namespace CoreImage --> <div> 
+<h2>Namespace CoreImage</h2>
+<!-- start type CIContext_ImageRepresentation --> <div>
+<h3>Type Changed: CoreImage.CIContext_ImageRepresentation</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public static Foundation.NSData GetHeifRepresentation (this CIContext This, CIImage image, CIFormat format, CoreGraphics.CGColorSpace colorSpace, CIImageRepresentationOptions options);</span>
+	<span class='added added-method ' data-is-non-breaking>public static Foundation.NSData GetJpegRepresentation (this CIContext This, CIImage image, CoreGraphics.CGColorSpace colorSpace, CIImageRepresentationOptions options);</span>
+	<span class='added added-method ' data-is-non-breaking>public static Foundation.NSData GetPngRepresentation (this CIContext This, CIImage image, CIFormat format, CoreGraphics.CGColorSpace colorSpace, CIImageRepresentationOptions options);</span>
+	<span class='added added-method ' data-is-non-breaking>public static Foundation.NSData GetTiffRepresentation (this CIContext This, CIImage image, CIFormat format, CoreGraphics.CGColorSpace colorSpace, CIImageRepresentationOptions options);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool WriteHeifRepresentation (this CIContext This, CIImage image, Foundation.NSUrl url, CIFormat format, CoreGraphics.CGColorSpace colorSpace, CIImageRepresentationOptions options, out Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool WriteJpegRepresentation (this CIContext This, CIImage image, Foundation.NSUrl url, CoreGraphics.CGColorSpace colorSpace, CIImageRepresentationOptions options, out Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool WritePngRepresentation (this CIContext This, CIImage image, Foundation.NSUrl url, CIFormat format, CoreGraphics.CGColorSpace colorSpace, CIImageRepresentationOptions options, out Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking>public static bool WriteTiffRepresentation (this CIContext This, CIImage image, Foundation.NSUrl url, CIFormat format, CoreGraphics.CGColorSpace colorSpace, CIImageRepresentationOptions options, out Foundation.NSError error);</span>
+</pre>
+</div>
+
+</div> <!-- end type CIContext_ImageRepresentation -->
+
+</div> <!-- end namespace CoreImage -->
+<!-- start namespace CoreLocation --> <div> 
+<h2>Namespace CoreLocation</h2>
+<!-- start type CLLocation --> <div>
+<h3>Type Changed: CoreLocation.CLLocation</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CloudKit.ICKRecordValue</span>
+</pre>
+</div>
+
+</div> <!-- end type CLLocation -->
+
+</div> <!-- end namespace CoreLocation -->
+<!-- start namespace Foundation --> <div> 
+<h2>Namespace Foundation</h2>
+<!-- start type NSArray --> <div>
+<h3>Type Changed: Foundation.NSArray</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CloudKit.ICKRecordValue</span>
+</pre>
+</div>
+<p>Modified methods:</p>
+<pre>
+<div data-is-breaking>	public T[] EnumsFromHandle&lt;<span class='removed removed-inline removed-breaking-inline'>T : System.ValueType, System.IConvertible</span> <span class='added '>T : System.IConvertible, System.ValueType</span>&gt; (IntPtr handle)
+</div></pre>
+
+</div> <!-- end type NSArray -->
+<!-- start type NSArray`1 --> <div>
+<h3>Type Changed: Foundation.NSArray`1</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CloudKit.ICKRecordValue</span>
+</pre>
+</div>
+
+</div> <!-- end type NSArray`1 -->
+<!-- start type NSBundle --> <div>
+<h3>Type Changed: Foundation.NSBundle</h3>
+<p>Obsoleted methods:</p>
+<pre>
+<div data-is-non-breaking>	<span class='obsolete obsolete-method' data-is-non-breaking>[Obsolete ("Use 'GetLocalizedString' instead.")]
+	public string LocalizedString (string key, string comment);</span>
+</div><div data-is-non-breaking>	<span class='obsolete obsolete-method' data-is-non-breaking>[Obsolete ("Use 'GetLocalizedString' instead.")]
+	public virtual string LocalizedString (string key, string value, string table);</span>
+</div><div data-is-non-breaking>	<span class='obsolete obsolete-method' data-is-non-breaking>[Obsolete ("Use 'GetLocalizedString' instead.")]
+	public string LocalizedString (string key, string val, string table, string comment);</span>
+</div></pre>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public virtual NSString GetLocalizedString (NSString key, NSString value, NSString table);</span>
+	<span class='added added-method ' data-is-non-breaking>public NSString GetLocalizedString (string key, string value, string table);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSBundle -->
+<!-- start type NSData --> <div>
+<h3>Type Changed: Foundation.NSData</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CloudKit.ICKRecordValue</span>
+</pre>
+</div>
+
+</div> <!-- end type NSData -->
+<!-- start type NSDate --> <div>
+<h3>Type Changed: Foundation.NSDate</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CloudKit.ICKRecordValue</span>
+</pre>
+</div>
+
+</div> <!-- end type NSDate -->
+<!-- start type NSDateComponents --> <div>
+<h3>Type Changed: Foundation.NSDateComponents</h3>
+<div>
+<p>Added field:</p>
+<pre>
+	<span class='added added-field ' data-is-non-breaking>public static nint Undefined;</span>
+</pre>
+</div>
+
+</div> <!-- end type NSDateComponents -->
+<!-- start type NSDecimalNumber --> <div>
+<h3>Type Changed: Foundation.NSDecimalNumber</h3>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CloudKit.ICKRecordValue</span>
+	<span class='added added-interface ' data-is-non-breaking>CoreData.INSFetchRequestResult</span>
+</pre>
+</div>
+
+</div> <!-- end type NSDecimalNumber -->
+<!-- start type NSDictionary --> <div>
+<h3>Type Changed: Foundation.NSDictionary</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CoreData.INSFetchRequestResult</span>
+</pre>
+</div>
+
+</div> <!-- end type NSDictionary -->
+<!-- start type NSDictionary`2 --> <div>
+<h3>Type Changed: Foundation.NSDictionary`2</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CoreData.INSFetchRequestResult</span>
+</pre>
+</div>
+
+</div> <!-- end type NSDictionary`2 -->
+<!-- start type NSMutableArray --> <div>
+<h3>Type Changed: Foundation.NSMutableArray</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CloudKit.ICKRecordValue</span>
+</pre>
+</div>
+
+</div> <!-- end type NSMutableArray -->
+<!-- start type NSMutableArray`1 --> <div>
+<h3>Type Changed: Foundation.NSMutableArray`1</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CloudKit.ICKRecordValue</span>
+</pre>
+</div>
+
+</div> <!-- end type NSMutableArray`1 -->
+<!-- start type NSMutableData --> <div>
+<h3>Type Changed: Foundation.NSMutableData</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CloudKit.ICKRecordValue</span>
+</pre>
+</div>
+
+</div> <!-- end type NSMutableData -->
+<!-- start type NSMutableDictionary --> <div>
+<h3>Type Changed: Foundation.NSMutableDictionary</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CoreData.INSFetchRequestResult</span>
+</pre>
+</div>
+
+</div> <!-- end type NSMutableDictionary -->
+<!-- start type NSMutableDictionary`2 --> <div>
+<h3>Type Changed: Foundation.NSMutableDictionary`2</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CoreData.INSFetchRequestResult</span>
+</pre>
+</div>
+
+</div> <!-- end type NSMutableDictionary`2 -->
+<!-- start type NSMutableString --> <div>
+<h3>Type Changed: Foundation.NSMutableString</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CloudKit.ICKRecordValue</span>
+</pre>
+</div>
+
+</div> <!-- end type NSMutableString -->
+<!-- start type NSNull --> <div>
+<h3>Type Changed: Foundation.NSNull</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CoreAnimation.ICAAction</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public virtual void RunAction (string eventKey, NSObject obj, NSDictionary arguments);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSNull -->
+<!-- start type NSNumber --> <div>
+<h3>Type Changed: Foundation.NSNumber</h3>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CloudKit.ICKRecordValue</span>
+	<span class='added added-interface ' data-is-non-breaking>CoreData.INSFetchRequestResult</span>
+</pre>
+</div>
+
+</div> <!-- end type NSNumber -->
+<!-- start type NSPurgeableData --> <div>
+<h3>Type Changed: Foundation.NSPurgeableData</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CloudKit.ICKRecordValue</span>
+</pre>
+</div>
+
+</div> <!-- end type NSPurgeableData -->
+<!-- start type NSString --> <div>
+<h3>Type Changed: Foundation.NSString</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>CloudKit.ICKRecordValue</span>
+</pre>
+</div>
+
+</div> <!-- end type NSString -->
+<!-- start type RegisterObjectRepresentationCompletionHandler --> <div>
+<h3>Type Changed: Foundation.RegisterObjectRepresentationCompletionHandler</h3>
+<p>Modified methods:</p>
+<pre>
+<div data-is-breaking>	public virtual System.IAsyncResult BeginInvoke (INSItemProviderWriting object, NSError error, System.AsyncCallback callback, object <span class='removed removed-inline removed-breaking-inline'>_object</span> <span class='added '>__object</span>)
+</div></pre>
+
+</div> <!-- end type RegisterObjectRepresentationCompletionHandler -->
+<div> <!-- start type NSEnumerateLinguisticTagsEnumerator -->
+<h3>New Type Foundation.NSEnumerateLinguisticTagsEnumerator</h3>
+<pre class='added' data-is-non-breaking>
+public sealed delegate NSEnumerateLinguisticTagsEnumerator : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public NSEnumerateLinguisticTagsEnumerator (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public virtual System.IAsyncResult BeginInvoke (NSString tag, NSRange tokenRange, NSRange sentenceRange, ref bool stop, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual bool EndInvoke (ref bool stop, System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual bool Invoke (NSString tag, NSRange tokenRange, NSRange sentenceRange, ref bool stop);</span>
+}
+</pre>
+</div> <!-- end type NSEnumerateLinguisticTagsEnumerator -->
+<div> <!-- start type NSLinguisticAnalysis -->
+<h3>New Type Foundation.NSLinguisticAnalysis</h3>
+<pre class='added' data-is-non-breaking>
+public static class NSLinguisticAnalysis {
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public static void EnumerateLinguisticTags (this NSString This, NSRange range, NSLinguisticTagScheme scheme, NSLinguisticTaggerOptions options, NSOrthography orthography, NSEnumerateLinguisticTagsEnumerator handler);</span>
+	<span class='added added-method ' data-is-non-breaking>public static void EnumerateLinguisticTags (this NSString This, NSRange range, NSString scheme, NSLinguisticTaggerOptions options, NSOrthography orthography, NSEnumerateLinguisticTagsEnumerator handler);</span>
+	<span class='added added-method ' data-is-non-breaking>public static NSLinguisticTagUnit[] GetLinguisticTags (this NSString This, NSRange range, NSLinguisticTagScheme scheme, NSLinguisticTaggerOptions options, NSOrthography orthography, out NSValue[] tokenRanges);</span>
+	<span class='added added-method ' data-is-non-breaking>public static NSLinguisticTagUnit[] GetLinguisticTags (this NSString This, NSRange range, NSString scheme, NSLinguisticTaggerOptions options, NSOrthography orthography, out NSValue[] tokenRanges);</span>
+}
+</pre>
+</div> <!-- end type NSLinguisticAnalysis -->
+<div> <!-- start type NSLinguisticTagScheme -->
+<h3>New Type Foundation.NSLinguisticTagScheme</h3>
+<pre class='added' data-is-non-breaking>
+[Serializable]
+public enum NSLinguisticTagScheme {
+	<span class='added added-field ' data-is-non-breaking>Language = 5,</span>
+	<span class='added added-field ' data-is-non-breaking>Lemma = 4,</span>
+	<span class='added added-field ' data-is-non-breaking>LexicalClass = 1,</span>
+	<span class='added added-field ' data-is-non-breaking>Name = 2,</span>
+	<span class='added added-field ' data-is-non-breaking>NameOrLexicalClass = 3,</span>
+	<span class='added added-field ' data-is-non-breaking>Script = 6,</span>
+	<span class='added added-field ' data-is-non-breaking>Token = 0,</span>
+}
+</pre>
+</div> <!-- end type NSLinguisticTagScheme -->
+<div> <!-- start type NSLinguisticTagSchemeExtensions -->
+<h3>New Type Foundation.NSLinguisticTagSchemeExtensions</h3>
+<pre class='added' data-is-non-breaking>
+public static class NSLinguisticTagSchemeExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public static NSString GetConstant (this NSLinguisticTagScheme self);</span>
+	<span class='added added-method ' data-is-non-breaking>public static NSLinguisticTagScheme GetValue (NSString constant);</span>
+}
+</pre>
+</div> <!-- end type NSLinguisticTagSchemeExtensions -->
+<div> <!-- start type NSLinguisticTagUnit -->
+<h3>New Type Foundation.NSLinguisticTagUnit</h3>
+<pre class='added' data-is-non-breaking>
+[Serializable]
+public enum NSLinguisticTagUnit {
+	<span class='added added-field ' data-is-non-breaking>Adjective = 6,</span>
+	<span class='added added-field ' data-is-non-breaking>Adverb = 7,</span>
+	<span class='added added-field ' data-is-non-breaking>Classifier = 15,</span>
+	<span class='added added-field ' data-is-non-breaking>CloseParenthesis = 22,</span>
+	<span class='added added-field ' data-is-non-breaking>CloseQuote = 20,</span>
+	<span class='added added-field ' data-is-non-breaking>Conjunction = 13,</span>
+	<span class='added added-field ' data-is-non-breaking>Dash = 24,</span>
+	<span class='added added-field ' data-is-non-breaking>Determiner = 9,</span>
+	<span class='added added-field ' data-is-non-breaking>Idiom = 16,</span>
+	<span class='added added-field ' data-is-non-breaking>Interjection = 14,</span>
+	<span class='added added-field ' data-is-non-breaking>Noun = 4,</span>
+	<span class='added added-field ' data-is-non-breaking>Number = 12,</span>
+	<span class='added added-field ' data-is-non-breaking>OpenParenthesis = 21,</span>
+	<span class='added added-field ' data-is-non-breaking>OpenQuote = 19,</span>
+	<span class='added added-field ' data-is-non-breaking>OrganizationName = 29,</span>
+	<span class='added added-field ' data-is-non-breaking>Other = 3,</span>
+	<span class='added added-field ' data-is-non-breaking>OtherPunctuation = 25,</span>
+	<span class='added added-field ' data-is-non-breaking>OtherWhitespace = 27,</span>
+	<span class='added added-field ' data-is-non-breaking>OtherWord = 17,</span>
+	<span class='added added-field ' data-is-non-breaking>ParagraphBreak = 26,</span>
+	<span class='added added-field ' data-is-non-breaking>Particle = 10,</span>
+	<span class='added added-field ' data-is-non-breaking>PersonalName = 28,</span>
+	<span class='added added-field ' data-is-non-breaking>PlaceName = 30,</span>
+	<span class='added added-field ' data-is-non-breaking>Preposition = 11,</span>
+	<span class='added added-field ' data-is-non-breaking>Pronoun = 8,</span>
+	<span class='added added-field ' data-is-non-breaking>Punctuation = 1,</span>
+	<span class='added added-field ' data-is-non-breaking>Terminator = 18,</span>
+	<span class='added added-field ' data-is-non-breaking>Verb = 5,</span>
+	<span class='added added-field ' data-is-non-breaking>Whitespace = 2,</span>
+	<span class='added added-field ' data-is-non-breaking>Word = 0,</span>
+	<span class='added added-field ' data-is-non-breaking>WordJoiner = 23,</span>
+}
+</pre>
+</div> <!-- end type NSLinguisticTagUnit -->
+<div> <!-- start type NSLinguisticTagUnitExtensions -->
+<h3>New Type Foundation.NSLinguisticTagUnitExtensions</h3>
+<pre class='added' data-is-non-breaking>
+public static class NSLinguisticTagUnitExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public static NSString GetConstant (this NSLinguisticTagUnit self);</span>
+	<span class='added added-method ' data-is-non-breaking>public static NSLinguisticTagUnit GetValue (NSString constant);</span>
+}
+</pre>
+</div> <!-- end type NSLinguisticTagUnitExtensions -->
+
+</div> <!-- end namespace Foundation -->
+<!-- start namespace GLKit --> <div> 
+<h2>Namespace GLKit</h2>
+<!-- start type GLKViewController --> <div>
+<h3>Type Changed: GLKit.GLKViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type GLKViewController -->
+
+</div> <!-- end namespace GLKit -->
+<!-- start namespace GameController --> <div> 
+<h2>Namespace GameController</h2>
+<!-- start type GCEventViewController --> <div>
+<h3>Type Changed: GameController.GCEventViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type GCEventViewController -->
+
+</div> <!-- end namespace GameController -->
+<!-- start namespace GameKit --> <div> 
+<h2>Namespace GameKit</h2>
+<!-- start type GKGameCenterViewController --> <div>
+<h3>Type Changed: GameKit.GKGameCenterViewController</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking>public GKGameCenterViewController (string nibNameOrNull, Foundation.NSBundle nibBundleOrNull);</span>
+</pre>
+</div>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type GKGameCenterViewController -->
+<!-- start type GKGameSessionSharingViewController --> <div>
+<h3>Type Changed: GameKit.GKGameSessionSharingViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type GKGameSessionSharingViewController -->
+<!-- start type GKMatchmakerViewController --> <div>
+<h3>Type Changed: GameKit.GKMatchmakerViewController</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking>public GKMatchmakerViewController (string nibNameOrNull, Foundation.NSBundle nibBundleOrNull);</span>
+</pre>
+</div>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type GKMatchmakerViewController -->
+<!-- start type GKTurnBasedMatchmakerViewController --> <div>
+<h3>Type Changed: GameKit.GKTurnBasedMatchmakerViewController</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking>public GKTurnBasedMatchmakerViewController (string nibNameOrNull, Foundation.NSBundle nibBundleOrNull);</span>
+</pre>
+</div>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type GKTurnBasedMatchmakerViewController -->
+
+</div> <!-- end namespace GameKit -->
+<!-- start namespace MapKit --> <div> 
+<h2>Namespace MapKit</h2>
+<!-- start type MKMapItem --> <div>
+<h3>Type Changed: MapKit.MKMapItem</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking>public MKMapItem (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSSecureCoding</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+</pre>
+</div>
+
+</div> <!-- end type MKMapItem -->
+
+</div> <!-- end namespace MapKit -->
+<!-- start namespace MetalPerformanceShaders --> <div> 
+<h2>Namespace MetalPerformanceShaders</h2>
+<!-- start type MPSImageLanczosScale --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageLanczosScale</h3>
+Modified base type: <span class='removed removed-inline removed-breaking-inline'>MetalPerformanceShaders.MPSUnaryImageKernel</span> <span class='added '>MetalPerformanceShaders.MPSImageScale</span>
+<p>Removed property:</p>
+
+<pre>
+	<span class='removed removed-property breaking' data-is-breaking>public virtual MPSScaleTransform? ScaleTransform { get; set; }</span>
+</pre>
+
+</div> <!-- end type MPSImageLanczosScale -->
+<!-- start type MPSImageScale --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageScale</h3>
+<p>Modified properties:</p>
+<pre>
+<div data-is-breaking>	public virtual <span class='removed removed-inline removed-breaking-inline'>MPSScaleTransform</span> <span class='added '>MPSScaleTransform?</span> ScaleTransform { get; set; }
+</div></pre>
+
+</div> <!-- end type MPSImageScale -->
+
+</div> <!-- end namespace MetalPerformanceShaders -->
+<!-- start namespace MultipeerConnectivity --> <div> 
+<h2>Namespace MultipeerConnectivity</h2>
+<!-- start type MCBrowserViewController --> <div>
+<h3>Type Changed: MultipeerConnectivity.MCBrowserViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type MCBrowserViewController -->
+
+</div> <!-- end namespace MultipeerConnectivity -->
+<!-- start namespace ObjCRuntime --> <div> 
+<h2>Namespace ObjCRuntime</h2>
+<!-- start type Constants --> <div>
+<h3>Type Changed: ObjCRuntime.Constants</h3>
+<p>Modified fields:</p>
+<pre>
+<div data-is-breaking>	public const string Version = <span class='removed removed-inline removed-breaking-inline'>"11.8.0"</span> <span class='added '>"11.10.0"</span>;
+</div></pre>
+
+</div> <!-- end type Constants -->
+<!-- start type Runtime --> <div>
+<h3>Type Changed: ObjCRuntime.Runtime</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public static bool DynamicRegistrationSupported { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type Runtime -->
+<div> <!-- start type BindingImplAttribute -->
+<h3>New Type ObjCRuntime.BindingImplAttribute</h3>
+<pre class='added' data-is-non-breaking>
+public class BindingImplAttribute : System.Attribute {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public BindingImplAttribute (BindingImplOptions options);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public BindingImplOptions Options { get; set; }</span>
+}
+</pre>
+</div> <!-- end type BindingImplAttribute -->
+<div> <!-- start type BindingImplOptions -->
+<h3>New Type ObjCRuntime.BindingImplOptions</h3>
+<pre class='added' data-is-non-breaking>
+[Serializable]
+[Flags]
+public enum BindingImplOptions {
+	<span class='added added-field ' data-is-non-breaking>GeneratedCode = 1,</span>
+	<span class='added added-field ' data-is-non-breaking>Optimizable = 2,</span>
+}
+</pre>
+</div> <!-- end type BindingImplOptions -->
+<div> <!-- start type NoMacAttribute -->
+<h3>New Type ObjCRuntime.NoMacAttribute</h3>
+<pre class='added' data-is-non-breaking>
+public sealed class NoMacAttribute : ObjCRuntime.UnavailableAttribute {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public NoMacAttribute ();</span>
+}
+</pre>
+</div> <!-- end type NoMacAttribute -->
+<div> <!-- start type NoTVAttribute -->
+<h3>New Type ObjCRuntime.NoTVAttribute</h3>
+<pre class='added' data-is-non-breaking>
+public sealed class NoTVAttribute : ObjCRuntime.UnavailableAttribute {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public NoTVAttribute ();</span>
+}
+</pre>
+</div> <!-- end type NoTVAttribute -->
+<div> <!-- start type NoWatchAttribute -->
+<h3>New Type ObjCRuntime.NoWatchAttribute</h3>
+<pre class='added' data-is-non-breaking>
+public sealed class NoWatchAttribute : ObjCRuntime.UnavailableAttribute {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public NoWatchAttribute ();</span>
+}
+</pre>
+</div> <!-- end type NoWatchAttribute -->
+<div> <!-- start type NoiOSAttribute -->
+<h3>New Type ObjCRuntime.NoiOSAttribute</h3>
+<pre class='added' data-is-non-breaking>
+public sealed class NoiOSAttribute : ObjCRuntime.UnavailableAttribute {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public NoiOSAttribute ();</span>
+}
+</pre>
+</div> <!-- end type NoiOSAttribute -->
+<div> <!-- start type RequiresSuperAttribute -->
+<h3>New Type ObjCRuntime.RequiresSuperAttribute</h3>
+<pre class='added' data-is-non-breaking>
+public sealed class RequiresSuperAttribute : Foundation.AdviceAttribute {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public RequiresSuperAttribute ();</span>
+}
+</pre>
+</div> <!-- end type RequiresSuperAttribute -->
+<div> <!-- start type TVAttribute -->
+<h3>New Type ObjCRuntime.TVAttribute</h3>
+<pre class='added' data-is-non-breaking>
+public sealed class TVAttribute : ObjCRuntime.IntroducedAttribute {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public TVAttribute (byte major, byte minor);</span>
+	<span class='added added-constructor ' data-is-non-breaking>public TVAttribute (byte major, byte minor, bool onlyOn64);</span>
+	<span class='added added-constructor ' data-is-non-breaking>public TVAttribute (byte major, byte minor, byte subminor);</span>
+	<span class='added added-constructor ' data-is-non-breaking>public TVAttribute (byte major, byte minor, byte subminor, bool onlyOn64);</span>
+}
+</pre>
+</div> <!-- end type TVAttribute -->
+<div> <!-- start type WatchAttribute -->
+<h3>New Type ObjCRuntime.WatchAttribute</h3>
+<pre class='added' data-is-non-breaking>
+public sealed class WatchAttribute : ObjCRuntime.IntroducedAttribute {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public WatchAttribute (byte major, byte minor);</span>
+	<span class='added added-constructor ' data-is-non-breaking>public WatchAttribute (byte major, byte minor, bool onlyOn64);</span>
+	<span class='added added-constructor ' data-is-non-breaking>public WatchAttribute (byte major, byte minor, byte subminor);</span>
+	<span class='added added-constructor ' data-is-non-breaking>public WatchAttribute (byte major, byte minor, byte subminor, bool onlyOn64);</span>
+}
+</pre>
+</div> <!-- end type WatchAttribute -->
+
+</div> <!-- end namespace ObjCRuntime -->
+<!-- start namespace ReplayKit --> <div> 
+<h2>Namespace ReplayKit</h2>
+<!-- start type RPBroadcastActivityViewController --> <div>
+<h3>Type Changed: ReplayKit.RPBroadcastActivityViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type RPBroadcastActivityViewController -->
+<!-- start type RPPreviewViewController --> <div>
+<h3>Type Changed: ReplayKit.RPPreviewViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type RPPreviewViewController -->
+
+</div> <!-- end namespace ReplayKit -->
+<!-- start namespace SceneKit --> <div> 
+<h2>Namespace SceneKit</h2>
+<div> <!-- start type SCNAnimatableExtensions -->
+<h3>New Type SceneKit.SCNAnimatableExtensions</h3>
+<pre class='added' data-is-non-breaking>
+public static class SCNAnimatableExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking>public static void AddAnimation (this ISCNAnimatable self, SCNAnimation animation, string key);</span>
+}
+</pre>
+</div> <!-- end type SCNAnimatableExtensions -->
+
+</div> <!-- end namespace SceneKit -->
+<!-- start namespace Security --> <div> 
+<h2>Namespace Security</h2>
+<!-- start type SecKey --> <div>
+<h3>Type Changed: Security.SecKey</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public static SecStatusCode GenerateKeyPair (SecKeyType type, int keySizeInBits, SecPublicPrivateKeyAttrs publicAndPrivateKeyAttrs, out SecKey publicKey, out SecKey privateKey);</span>
+	<span class='added added-method ' data-is-non-breaking>public static SecStatusCode GenerateKeyPair (SecKeyType type, int keySizeInBits, SecPublicPrivateKeyAttrs publicKeyAttrs, SecPublicPrivateKeyAttrs privateKeyAttrs, out SecKey publicKey, out SecKey privateKey);</span>
+</pre>
+</div>
+
+</div> <!-- end type SecKey -->
+<div> <!-- start type SecPublicPrivateKeyAttrs -->
+<h3>New Type Security.SecPublicPrivateKeyAttrs</h3>
+<pre class='added' data-is-non-breaking>
+public class SecPublicPrivateKeyAttrs : Foundation.DictionaryContainer {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking>public SecPublicPrivateKeyAttrs ();</span>
+	<span class='added added-constructor ' data-is-non-breaking>public SecPublicPrivateKeyAttrs (Foundation.NSDictionary dictionary);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking>public Foundation.NSData ApplicationTag { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool? CanDecrypt { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool? CanDerive { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool? CanEncrypt { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool? CanSign { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool? CanUnwrap { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool? CanVerify { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking>public int? EffectiveKeySize { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking>public bool? IsPermanent { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking>public string Label { get; set; }</span>
+}
+</pre>
+</div> <!-- end type SecPublicPrivateKeyAttrs -->
+
+</div> <!-- end namespace Security -->
+<!-- start namespace UIKit --> <div> 
+<h2>Namespace UIKit</h2>
+<!-- start type UIAccessibility --> <div>
+<h3>Type Changed: UIKit.UIAccessibility</h3>
+<p>Obsoleted properties:</p>
+<pre>
+<div data-is-non-breaking>	<span class='obsolete obsolete-property' data-is-non-breaking>[Obsolete ("Use 'DarkerSystemColorsEnabled' instead.")]
+	public static bool DarkerSystemColosEnabled { get; }</span>
+</div></pre>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public static bool DarkerSystemColorsEnabled { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type UIAccessibility -->
+<!-- start type UIAlertController --> <div>
+<h3>Type Changed: UIKit.UIAlertController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type UIAlertController -->
+<!-- start type UICollectionViewController --> <div>
+<h3>Type Changed: UIKit.UICollectionViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type UICollectionViewController -->
+<!-- start type UIDevice --> <div>
+<h3>Type Changed: UIKit.UIDevice</h3>
+<p>Modified properties:</p>
+<pre>
+<div data-is-non-breaking>	public <span class='added '>virtual</span> bool IsMultitaskingSupported { get; }
+</div><div data-is-non-breaking>	public <span class='added '>virtual</span> UIUserInterfaceIdiom UserInterfaceIdiom { get; }
+</div></pre>
+
+</div> <!-- end type UIDevice -->
+<!-- start type UIInputViewController --> <div>
+<h3>Type Changed: UIKit.UIInputViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type UIInputViewController -->
+<!-- start type UINavigationController --> <div>
+<h3>Type Changed: UIKit.UINavigationController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type UINavigationController -->
+<!-- start type UIPageViewController --> <div>
+<h3>Type Changed: UIKit.UIPageViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type UIPageViewController -->
+<!-- start type UISearchContainerViewController --> <div>
+<h3>Type Changed: UIKit.UISearchContainerViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type UISearchContainerViewController -->
+<!-- start type UISearchController --> <div>
+<h3>Type Changed: UIKit.UISearchController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type UISearchController -->
+<!-- start type UISplitViewController --> <div>
+<h3>Type Changed: UIKit.UISplitViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type UISplitViewController -->
+<!-- start type UITabBarController --> <div>
+<h3>Type Changed: UIKit.UITabBarController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type UITabBarController -->
+<!-- start type UITableViewController --> <div>
+<h3>Type Changed: UIKit.UITableViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type UITableViewController -->
+<!-- start type UIViewController --> <div>
+<h3>Type Changed: UIKit.UIViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public virtual void BeginRequestWithExtensionContext (Foundation.NSExtensionContext context);</span>
+</pre>
+</div>
+
+</div> <!-- end type UIViewController -->
+
+</div> <!-- end namespace UIKit -->
+</div> <!-- end topmost div -->
+</div>
+<br><hr>
+<div>
+<style scoped>
+	.obsolete { color: gray; }
+	.added { color: green; }
+	.removed-inline { text-decoration: line-through; }
+	.removed-breaking-inline { color: red;}
+	.added-breaking-inline { text-decoration: underline; }
+	.nonbreaking { color: black; }
+	.breaking { color: red; }
+</style>
+<script type="text/javascript">
+	// Only some elements have 'data-is-[non-]breaking' attributes. Here we
+	// iterate over all descendents elements, and set 'data-is-[non-]breaking'
+	// depending on whether there are any descendents with that attribute.
+	function propagateDataAttribute (element)
+	{
+		if (element.hasAttribute ('data-is-propagated'))
+			return;
+
+		var i;
+		var any_breaking = element.hasAttribute ('data-is-breaking');
+		var any_non_breaking = element.hasAttribute ('data-is-non-breaking');
+		for (i = 0; i < element.children.length; i++) {
+			var el = element.children [i];
+			propagateDataAttribute (el);
+			any_breaking |= el.hasAttribute ('data-is-breaking');
+			any_non_breaking |= el.hasAttribute ('data-is-non-breaking');
+		}
+		
+		if (any_breaking)
+			element.setAttribute ('data-is-breaking', null);
+		else if (any_non_breaking)
+			element.setAttribute ('data-is-non-breaking', null);
+		element.setAttribute ('data-is-propagated', null);
+	}
+
+	function hideNonBreakingChanges ()
+	{
+		var topNodes = document.querySelectorAll ('[data-is-topmost]');
+		var n;
+		var i;
+		for (n = 0; n < topNodes.length; n++) {
+			propagateDataAttribute (topNodes [n]);
+			var elements = topNodes [n].querySelectorAll ('[data-is-non-breaking]');
+			for (i = 0; i < elements.length; i++) {
+				var el = elements [i];
+				if (!el.hasAttribute ('data-original-display'))
+					el.setAttribute ('data-original-display', el.style.display);
+				el.style.display = 'none';
+			}
+		}
+		
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+	}
+
+	function showNonBreakingChanges ()
+	{
+		var elements = document.querySelectorAll ('[data-original-display]');
+		var i;
+		for (i = 0; i < elements.length; i++) {
+			var el = elements [i];
+			el.style.display = el.getAttribute ('data-original-display');
+		}
+
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+	}
+</script>
+<h1 id='diff/xi/Xamarin.TVOS/MonoTouch.Dialog-1.html'>MonoTouch.Dialog-1.dll</h1>
+<a href='javascript: hideNonBreakingChanges (); ' class='hide-nonbreaking'>Hide non-breaking changes</a>
+<a href='javascript: showNonBreakingChanges (); ' class='restore-nonbreaking' style='display: none;'>Show non-breaking changes</a>
+<br/>
+<div data-is-topmost>
+<!-- start namespace MonoTouch.Dialog --> <div> 
+<h2>Namespace MonoTouch.Dialog</h2>
+<!-- start type DialogViewController --> <div>
+<h3>Type Changed: MonoTouch.Dialog.DialogViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type DialogViewController -->
+
+</div> <!-- end namespace MonoTouch.Dialog -->
+</div> <!-- end topmost div -->
+</div>
+<br><hr>
+<div>
+<style scoped>
+	.obsolete { color: gray; }
+	.added { color: green; }
+	.removed-inline { text-decoration: line-through; }
+	.removed-breaking-inline { color: red;}
+	.added-breaking-inline { text-decoration: underline; }
+	.nonbreaking { color: black; }
+	.breaking { color: red; }
+</style>
+<script type="text/javascript">
+	// Only some elements have 'data-is-[non-]breaking' attributes. Here we
+	// iterate over all descendents elements, and set 'data-is-[non-]breaking'
+	// depending on whether there are any descendents with that attribute.
+	function propagateDataAttribute (element)
+	{
+		if (element.hasAttribute ('data-is-propagated'))
+			return;
+
+		var i;
+		var any_breaking = element.hasAttribute ('data-is-breaking');
+		var any_non_breaking = element.hasAttribute ('data-is-non-breaking');
+		for (i = 0; i < element.children.length; i++) {
+			var el = element.children [i];
+			propagateDataAttribute (el);
+			any_breaking |= el.hasAttribute ('data-is-breaking');
+			any_non_breaking |= el.hasAttribute ('data-is-non-breaking');
+		}
+		
+		if (any_breaking)
+			element.setAttribute ('data-is-breaking', null);
+		else if (any_non_breaking)
+			element.setAttribute ('data-is-non-breaking', null);
+		element.setAttribute ('data-is-propagated', null);
+	}
+
+	function hideNonBreakingChanges ()
+	{
+		var topNodes = document.querySelectorAll ('[data-is-topmost]');
+		var n;
+		var i;
+		for (n = 0; n < topNodes.length; n++) {
+			propagateDataAttribute (topNodes [n]);
+			var elements = topNodes [n].querySelectorAll ('[data-is-non-breaking]');
+			for (i = 0; i < elements.length; i++) {
+				var el = elements [i];
+				if (!el.hasAttribute ('data-original-display'))
+					el.setAttribute ('data-original-display', el.style.display);
+				el.style.display = 'none';
+			}
+		}
+		
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+	}
+
+	function showNonBreakingChanges ()
+	{
+		var elements = document.querySelectorAll ('[data-original-display]');
+		var i;
+		for (i = 0; i < elements.length; i++) {
+			var el = elements [i];
+			el.style.display = el.getAttribute ('data-original-display');
+		}
+
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+	}
+</script>
+<h1 id='diff/xi/Xamarin.TVOS/MonoTouch.NUnitLite.html'>MonoTouch.NUnitLite.dll</h1>
+<a href='javascript: hideNonBreakingChanges (); ' class='hide-nonbreaking'>Hide non-breaking changes</a>
+<a href='javascript: showNonBreakingChanges (); ' class='restore-nonbreaking' style='display: none;'>Show non-breaking changes</a>
+<br/>
+<div data-is-topmost>
+<!-- start namespace MonoTouch.NUnit.UI --> <div> 
+<h2>Namespace MonoTouch.NUnit.UI</h2>
+<!-- start type TouchViewController --> <div>
+<h3>Type Changed: MonoTouch.NUnit.UI.TouchViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Foundation.INSExtensionRequestHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type TouchViewController -->
+
+</div> <!-- end namespace MonoTouch.NUnit.UI -->
+</div> <!-- end topmost div -->
+</div>
+<br><hr>

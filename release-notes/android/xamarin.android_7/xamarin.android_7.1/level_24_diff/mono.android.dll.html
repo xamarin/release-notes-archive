@@ -1,0 +1,236 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="{ED8353DC-DE4C-4C4F-BAE7-9357D2B8564F}" title="Mono.Android.dll" subtitle="" ttc="">
+  <brief></brief>
+  <resources>
+    <samplecode></samplecode>
+    <offline></offline>
+  </resources>
+  <related>
+    <articles></articles>
+    <recipes></recipes>
+    <samples></samples>
+    <api></api>
+    <sdk></sdk>
+    <books></books>
+    <links></links>
+  </related>
+</meta>
+<h1>Mono.Android.dll</h1>
+<!-- start namespace Android.App --> <div> 
+<h2>Namespace Android.App</h2>
+<!-- start type ActivityAttribute --> <div>
+<h3>Type Changed: Android.App.ActivityAttribute</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public bool DirectBootAware { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type ActivityAttribute -->
+<!-- start type ApplicationAttribute --> <div>
+<h3>Type Changed: Android.App.ApplicationAttribute</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public bool DirectBootAware { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type ApplicationAttribute -->
+<!-- start type Dialog --> <div>
+<h3>Type Changed: Android.App.Dialog</h3>
+<p>Removed method:</p>
+
+<pre>
+	<span class='removed removed-method breaking' data-is-breaking>public virtual void OnProvideKeyboardShortcuts (System.Collections.Generic.IList&lt;Android.Views.KeyboardShortcutGroup&gt; data, Android.Views.IMenu menu, int deviceId);</span>
+</pre>
+
+</div> <!-- end type Dialog -->
+<!-- start type ServiceAttribute --> <div>
+<h3>Type Changed: Android.App.ServiceAttribute</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public bool DirectBootAware { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type ServiceAttribute -->
+
+</div> <!-- end namespace Android.App -->
+<!-- start namespace Android.Content --> <div> 
+<h2>Namespace Android.Content</h2>
+<!-- start type ContentProviderAttribute --> <div>
+<h3>Type Changed: Android.Content.ContentProviderAttribute</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public bool DirectBootAware { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type ContentProviderAttribute -->
+
+</div> <!-- end namespace Android.Content -->
+<!-- start namespace Android.Service.Dreams --> <div> 
+<h2>Namespace Android.Service.Dreams</h2>
+<!-- start type DreamService --> <div>
+<h3>Type Changed: Android.Service.Dreams.DreamService</h3>
+<p>Removed method:</p>
+
+<pre>
+	<span class='removed removed-method breaking' data-is-breaking>public virtual void OnProvideKeyboardShortcuts (System.Collections.Generic.IList&lt;Android.Views.KeyboardShortcutGroup&gt; data, Android.Views.IMenu menu, int deviceId);</span>
+</pre>
+
+</div> <!-- end type DreamService -->
+
+</div> <!-- end namespace Android.Service.Dreams -->
+<!-- start namespace Android.Service.QuickSettings --> <div> 
+<h2>Namespace Android.Service.QuickSettings</h2>
+<!-- start type Tile --> <div>
+<h3>Type Changed: Android.Service.QuickSettings.Tile</h3>
+<p>Modified fields:</p>
+<pre>
+<div data-is-breaking>	public const <span class='removed removed-inline removed-breaking-inline'>Android.Service.Quicksettings.TileState</span> <span class='added '>TileState</span> StateActive = 2;
+</div><div data-is-breaking>	public const <span class='removed removed-inline removed-breaking-inline'>Android.Service.Quicksettings.TileState</span> <span class='added '>TileState</span> StateInactive = 1;
+</div><div data-is-breaking>	public const <span class='removed removed-inline removed-breaking-inline'>Android.Service.Quicksettings.TileState</span> <span class='added '>TileState</span> StateUnavailable = 0;
+</div></pre>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public TileState State { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type Tile -->
+<div> <!-- start type TileState -->
+<h3>New Type Android.Service.QuickSettings.TileState</h3>
+<pre class='added' data-is-non-breaking>
+[Serializable]
+public enum TileState {
+	<span class='added added-field ' data-is-non-breaking>Active = 2,</span>
+	<span class='added added-field ' data-is-non-breaking>Inactive = 1,</span>
+	<span class='added added-field ' data-is-non-breaking>Unavailable = 0,</span>
+}
+</pre>
+</div> <!-- end type TileState -->
+
+</div> <!-- end namespace Android.Service.QuickSettings -->
+<!-- start namespace Android.Views --> <div> 
+<h2>Namespace Android.Views</h2>
+<!-- start type DragAndDropPermissions --> <div>
+<h3>Type Changed: Android.Views.DragAndDropPermissions</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking>Android.OS.IParcelable</span>
+</pre>
+</div>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking>public static Android.OS.IParcelableCreator Creator { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public virtual int DescribeContents ();</span>
+	<span class='added added-method ' data-is-non-breaking>public virtual void WriteToParcel (Android.OS.Parcel destination, Android.OS.ParcelableWriteFlags flags);</span>
+</pre>
+</div>
+
+</div> <!-- end type DragAndDropPermissions -->
+<!-- start type Window --> <div>
+<h3>Type Changed: Android.Views.Window</h3>
+<!-- start type Window.ICallback --> <div>
+<h3>Type Changed: Android.Views.Window.ICallback</h3>
+<p>Removed method:</p>
+
+<pre>
+	<span class='removed removed-method breaking' data-is-breaking>public virtual void OnProvideKeyboardShortcuts (System.Collections.Generic.IList&lt;KeyboardShortcutGroup&gt; data, IMenu menu, int deviceId);</span>
+</pre>
+
+</div> <!-- end type Window.ICallback -->
+
+</div> <!-- end type Window -->
+
+</div> <!-- end namespace Android.Views -->
+<!-- start namespace Java.Util --> <div> 
+<h2>Namespace Java.Util</h2>
+<!-- start type IPrimitiveIteratorOfDouble --> <div>
+<h3>Type Changed: Java.Util.IPrimitiveIteratorOfDouble</h3>
+<p>Removed methods:</p>
+
+<pre>
+	<span class='removed removed-method breaking' data-is-breaking>public virtual void ForEachRemaining (Functions.IConsumer action);</span>
+	<span class='removed removed-method breaking' data-is-breaking>public virtual void ForEachRemaining (Functions.IDoubleConsumer action);</span>
+	<span class='removed removed-method breaking' data-is-breaking>public virtual Java.Lang.Object Next ();</span>
+</pre>
+
+</div> <!-- end type IPrimitiveIteratorOfDouble -->
+<!-- start type IPrimitiveIteratorOfInt --> <div>
+<h3>Type Changed: Java.Util.IPrimitiveIteratorOfInt</h3>
+<p>Removed methods:</p>
+
+<pre>
+	<span class='removed removed-method breaking' data-is-breaking>public virtual void ForEachRemaining (Functions.IConsumer action);</span>
+	<span class='removed removed-method breaking' data-is-breaking>public virtual void ForEachRemaining (Functions.IIntConsumer action);</span>
+	<span class='removed removed-method breaking' data-is-breaking>public virtual Java.Lang.Object Next ();</span>
+</pre>
+
+</div> <!-- end type IPrimitiveIteratorOfInt -->
+<!-- start type IPrimitiveIteratorOfLong --> <div>
+<h3>Type Changed: Java.Util.IPrimitiveIteratorOfLong</h3>
+<p>Removed methods:</p>
+
+<pre>
+	<span class='removed removed-method breaking' data-is-breaking>public virtual void ForEachRemaining (Functions.IConsumer action);</span>
+	<span class='removed removed-method breaking' data-is-breaking>public virtual void ForEachRemaining (Functions.ILongConsumer action);</span>
+	<span class='removed removed-method breaking' data-is-breaking>public virtual Java.Lang.Object Next ();</span>
+</pre>
+
+</div> <!-- end type IPrimitiveIteratorOfLong -->
+
+</div> <!-- end namespace Java.Util -->
+<!-- start namespace Java.Util.Concurrent.Atomic --> <div> 
+<h2>Namespace Java.Util.Concurrent.Atomic</h2>
+<!-- start type AtomicInteger --> <div>
+<h3>Type Changed: Java.Util.Concurrent.Atomic.AtomicInteger</h3>
+<p>Obsoleted properties:</p>
+<pre>
+<div data-is-non-breaking>	<span class='obsolete obsolete-property' data-is-non-breaking>[Obsolete ("This property was generated for getAndDecrement() method, while it does not make sense. It will be removed in the future version")]
+	public int AndDecrement { get; }</span>
+</div><div data-is-non-breaking>	<span class='obsolete obsolete-property' data-is-non-breaking>[Obsolete ("This property was generated for getAndIncrement() method, while it does not make sense. It will be removed in the future version")]
+	public int AndIncrement { get; }</span>
+</div></pre>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public int GetAndDecrement ();</span>
+	<span class='added added-method ' data-is-non-breaking>public int GetAndIncrement ();</span>
+</pre>
+</div>
+
+</div> <!-- end type AtomicInteger -->
+<!-- start type AtomicLong --> <div>
+<h3>Type Changed: Java.Util.Concurrent.Atomic.AtomicLong</h3>
+<p>Obsoleted properties:</p>
+<pre>
+<div data-is-non-breaking>	<span class='obsolete obsolete-property' data-is-non-breaking>[Obsolete ("This property was generated for getAndDecrement() method, while it does not make sense. It will be removed in the future version")]
+	public long AndDecrement { get; }</span>
+</div><div data-is-non-breaking>	<span class='obsolete obsolete-property' data-is-non-breaking>[Obsolete ("This property was generated for getAndIncrement() method, while it does not make sense. It will be removed in the future version")]
+	public long AndIncrement { get; }</span>
+</div></pre>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking>public long GetAndDecrement ();</span>
+	<span class='added added-method ' data-is-non-breaking>public long GetAndIncrement ();</span>
+</pre>
+</div>
+
+</div> <!-- end type AtomicLong -->
+
+</div> <!-- end namespace Java.Util.Concurrent.Atomic -->

@@ -1,0 +1,8 @@
+{
+  "order":{
+    "calabash":"Calabash iOS",
+    "android":"Calabash Android",
+    "uitest":"UITest",
+    "xtc-agent":"Test Cloud Agent"
+  }
+}

@@ -1,0 +1,29 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="{F12BA2E8-6A55-8663-F5D2-24913B869B1A}" title="API Changes"
+subtitle ttc>
+  <link rel="legacy" href="http://docs.xamarin.com/ios/releases/api_changes">
+  <brief></brief>
+  <resources>
+    <samplecode></samplecode>
+    <offline></offline>
+  </resources>
+  <related>
+    <articles></articles>
+    <recipes></recipes>
+    <samples></samples>
+    <api></api>
+    <sdk></sdk>
+    <books></books>
+    <links></links>
+  </related>
+</meta>
+<p><strong>API Changes</strong></p>
+
+<ul>
+  <%- entries = Dir.entries(Dir.getwd).select {|f| f =~ /from.*html/} -%>
+  <%- entries.collect {|f| f.match /(.*).html/}.each do |entry| -%>
+  <li>
+    <a href="/releases/ios/api_changes/<%= entry[1] %>"><%= entry[1].capitalize.gsub(/_/, ' ') %></a>
+  </li>
+  <%- end -%>
+</ul>

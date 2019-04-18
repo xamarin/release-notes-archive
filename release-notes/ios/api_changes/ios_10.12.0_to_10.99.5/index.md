@@ -1,0 +1,14356 @@
+---
+id: C047820F-E5C4-4A1C-AD75-0FBCD7446A3E
+title: "iOS 10.12.0 to 10.99.5"
+---
+
+# API diff
+
+ [MonoTouch.NUnitLite.dll](#diff/xi/Xamarin.iOS/MonoTouch.NUnitLite.html)
+
+   
+
+
+ [Xamarin.iOS.dll](#diff/xi/Xamarin.iOS/Xamarin.iOS.html)
+
+   
+
+
+   
+
+
+ <hr>
+
+ <style scoped="">
+	.obsolete { color: gray; }
+	.added { color: green; }
+	.removed-inline { text-decoration: line-through; }
+	.removed-breaking-inline { color: red;}
+	.added-breaking-inline { text-decoration: underline; }
+	.nonbreaking { color: black; }
+	.breaking { color: red; }
+</style> <script type="text/javascript">
+	// Only some elements have 'data-is-[non-]breaking' attributes. Here we
+	// iterate over all descendents elements, and set 'data-is-[non-]breaking'
+	// depending on whether there are any descendents with that attribute.
+	function propagateDataAttribute (element)
+	{
+		if (element.hasAttribute ('data-is-propagated'))
+			return;
+
+		var i;
+		var any_breaking = element.hasAttribute ('data-is-breaking');
+		var any_non_breaking = element.hasAttribute ('data-is-non-breaking');
+		for (i = 0; i < element.children.length; i++) {
+			var el = element.children [i];
+			propagateDataAttribute (el);
+			any_breaking |= el.hasAttribute ('data-is-breaking');
+			any_non_breaking |= el.hasAttribute ('data-is-non-breaking');
+		}
+		
+		if (any_breaking)
+			element.setAttribute ('data-is-breaking', null);
+		else if (any_non_breaking)
+			element.setAttribute ('data-is-non-breaking', null);
+		element.setAttribute ('data-is-propagated', null);
+	}
+
+	function hideNonBreakingChanges ()
+	{
+		var topNodes = document.querySelectorAll ('[data-is-topmost]');
+		var n;
+		var i;
+		for (n = 0; n < topNodes.length; n++) {
+			propagateDataAttribute (topNodes [n]);
+			var elements = topNodes [n].querySelectorAll ('[data-is-non-breaking]');
+			for (i = 0; i < elements.length; i++) {
+				var el = elements [i];
+				if (!el.hasAttribute ('data-original-display'))
+					el.setAttribute ('data-original-display', el.style.display);
+				el.style.display = 'none';
+			}
+		}
+		
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+	}
+
+	function showNonBreakingChanges ()
+	{
+		var elements = document.querySelectorAll ('[data-original-display]');
+		var i;
+		for (i = 0; i < elements.length; i++) {
+			var el = elements [i];
+			el.style.display = el.getAttribute ('data-original-display');
+		}
+
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+	}
+</script><h1 id='diff/xi/Xamarin.iOS/MonoTouch.NUnitLite.html'>MonoTouch.NUnitLite.dll</h1>
+
+ [Hide non-breaking changes](javascript: hideNonBreakingChanges (); ) [Show non-breaking changes](javascript: showNonBreakingChanges (); )   
+<div data-is-topmost="">
+<!-- start namespace MonoTouch.NUnit --> <div> 
+<h2>Namespace MonoTouch.NUnit</h2>
+<!-- start type NUnitOutputTextWriter --> <div>
+<h3>Type Changed: MonoTouch.NUnit.NUnitOutputTextWriter</h3>
+<p>Removed constructor:</p>
+
+<pre>
+	<span class='removed removed-constructor breaking' data-is-breaking="">public NUnitOutputTextWriter (UI.BaseTouchRunner runner, System.IO.TextWriter baseWriter, NUnitLite.Runner.OutputWriter xmlWriter);</span>
+</pre>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public NUnitOutputTextWriter (UI.BaseTouchRunner runner, System.IO.TextWriter baseWriter, NUnitLite.Runner.OutputWriter xmlWriter, UI.XmlMode xmlMode);</span>
+</pre>
+</div>
+
+</div> <!-- end type NUnitOutputTextWriter -->
+
+</div> <!-- end namespace MonoTouch.NUnit -->
+<!-- start namespace MonoTouch.NUnit.UI --> <div> 
+<h2>Namespace MonoTouch.NUnit.UI</h2>
+<!-- start type TouchOptions --> <div>
+<h3>Type Changed: MonoTouch.NUnit.UI.TouchOptions</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public string LogFile { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public XmlMode XmlMode { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type TouchOptions -->
+<div> <!-- start type XmlMode -->
+<h3>New Type MonoTouch.NUnit.UI.XmlMode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum XmlMode {
+	<span class='added added-field ' data-is-non-breaking="">Default = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Wrapped = 1,</span>
+}
+</pre>
+</div> <!-- end type XmlMode -->
+
+</div> <!-- end namespace MonoTouch.NUnit.UI -->
+</div>
+
+
+
+   
+
+
+ <hr>
+
+ <style scoped="">
+	.obsolete { color: gray; }
+	.added { color: green; }
+	.removed-inline { text-decoration: line-through; }
+	.removed-breaking-inline { color: red;}
+	.added-breaking-inline { text-decoration: underline; }
+	.nonbreaking { color: black; }
+	.breaking { color: red; }
+</style> <script type="text/javascript">
+	// Only some elements have 'data-is-[non-]breaking' attributes. Here we
+	// iterate over all descendents elements, and set 'data-is-[non-]breaking'
+	// depending on whether there are any descendents with that attribute.
+	function propagateDataAttribute (element)
+	{
+		if (element.hasAttribute ('data-is-propagated'))
+			return;
+
+		var i;
+		var any_breaking = element.hasAttribute ('data-is-breaking');
+		var any_non_breaking = element.hasAttribute ('data-is-non-breaking');
+		for (i = 0; i < element.children.length; i++) {
+			var el = element.children [i];
+			propagateDataAttribute (el);
+			any_breaking |= el.hasAttribute ('data-is-breaking');
+			any_non_breaking |= el.hasAttribute ('data-is-non-breaking');
+		}
+		
+		if (any_breaking)
+			element.setAttribute ('data-is-breaking', null);
+		else if (any_non_breaking)
+			element.setAttribute ('data-is-non-breaking', null);
+		element.setAttribute ('data-is-propagated', null);
+	}
+
+	function hideNonBreakingChanges ()
+	{
+		var topNodes = document.querySelectorAll ('[data-is-topmost]');
+		var n;
+		var i;
+		for (n = 0; n < topNodes.length; n++) {
+			propagateDataAttribute (topNodes [n]);
+			var elements = topNodes [n].querySelectorAll ('[data-is-non-breaking]');
+			for (i = 0; i < elements.length; i++) {
+				var el = elements [i];
+				if (!el.hasAttribute ('data-original-display'))
+					el.setAttribute ('data-original-display', el.style.display);
+				el.style.display = 'none';
+			}
+		}
+		
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+	}
+
+	function showNonBreakingChanges ()
+	{
+		var elements = document.querySelectorAll ('[data-original-display]');
+		var i;
+		for (i = 0; i < elements.length; i++) {
+			var el = elements [i];
+			el.style.display = el.getAttribute ('data-original-display');
+		}
+
+		var links = document.getElementsByClassName ('hide-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = '';
+		links = document.getElementsByClassName ('restore-nonbreaking');
+		for (i = 0; i < links.length; i++)
+			links [i].style.display = 'none';
+	}
+</script><h1 id='diff/xi/Xamarin.iOS/Xamarin.iOS.html'>Xamarin.iOS.dll</h1>
+
+ [Hide non-breaking changes](javascript: hideNonBreakingChanges (); ) [Show non-breaking changes](javascript: showNonBreakingChanges (); )   
+<div data-is-topmost="">
+<!-- start namespace AVFoundation --> <div> 
+<h2>Namespace AVFoundation</h2>
+<!-- start type AVAssetDownloadDelegate --> <div>
+<h3>Type Changed: AVFoundation.AVAssetDownloadDelegate</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void TaskIsWaitingForConnectivity (Foundation.NSUrlSession session, Foundation.NSUrlSessionTask task);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillBeginDelayedRequest (Foundation.NSUrlSession session, Foundation.NSUrlSessionTask task, Foundation.NSUrlRequest request, System.Action&lt;Foundation.NSUrlSessionDelayedRequestDisposition,Foundation.NSUrlRequest&gt; completionHandler);</span>
+</pre>
+</div>
+
+</div> <!-- end type AVAssetDownloadDelegate -->
+<!-- start type AVCaptureVideoPreviewLayer --> <div>
+<h3>Type Changed: AVFoundation.AVCaptureVideoPreviewLayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type AVCaptureVideoPreviewLayer -->
+<!-- start type AVPlayerLayer --> <div>
+<h3>Type Changed: AVFoundation.AVPlayerLayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type AVPlayerLayer -->
+<!-- start type AVSampleBufferDisplayLayer --> <div>
+<h3>Type Changed: AVFoundation.AVSampleBufferDisplayLayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type AVSampleBufferDisplayLayer -->
+<!-- start type AVSynchronizedLayer --> <div>
+<h3>Type Changed: AVFoundation.AVSynchronizedLayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type AVSynchronizedLayer -->
+
+</div> <!-- end namespace AVFoundation -->
+<!-- start namespace AVKit --> <div> 
+<h2>Namespace AVKit</h2>
+<!-- start type AVPlayerViewController --> <div>
+<h3>Type Changed: AVKit.AVPlayerViewController</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool EntersFullScreenWhenPlaybackBegins { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ExitsFullScreenWhenPlaybackEnds { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type AVPlayerViewController -->
+<div> <!-- start type AVRoutePickerView -->
+<h3>New Type AVKit.AVRoutePickerView</h3>
+<pre class='added' data-is-non-breaking="">
+public class AVRoutePickerView : UIKit.UIView, CoreAnimation.ICALayerDelegate, Foundation.INSCoding, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.Collections.IEnumerable, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAccessibilityIdentification, UIKit.IUIAppearance, UIKit.IUIAppearanceContainer, UIKit.IUICoordinateSpace, UIKit.IUIDynamicItem, UIKit.IUIFocusEnvironment, UIKit.IUIFocusItem, UIKit.IUITraitEnvironment {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public AVRoutePickerView ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public AVRoutePickerView (CoreGraphics.CGRect frame);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public AVRoutePickerView (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected AVRoutePickerView (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected AVRoutePickerView (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIColor ActiveTintColor { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static AVRoutePickerView.AVRoutePickerViewAppearance Appearance { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IAVRoutePickerViewDelegate Delegate { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static AVRoutePickerView.AVRoutePickerViewAppearance AppearanceWhenContainedIn (System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static AVRoutePickerView.AVRoutePickerViewAppearance GetAppearance&lt;T&gt; ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public static AVRoutePickerView.AVRoutePickerViewAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static AVRoutePickerView.AVRoutePickerViewAppearance GetAppearance (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static AVRoutePickerView.AVRoutePickerViewAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static AVRoutePickerView.AVRoutePickerViewAppearance GetAppearance (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+
+	// inner types
+	public class AVRoutePickerViewAppearance : UIKit.UIView+UIViewAppearance, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAppearance {
+		// constructors
+		<span class='added added-constructor ' data-is-non-breaking="">protected AVRoutePickerView (IntPtr handle);</span>
+	}
+}
+</pre>
+</div> <!-- end type AVRoutePickerView -->
+<div> <!-- start type AVRoutePickerViewDelegate -->
+<h3>New Type AVKit.AVRoutePickerViewDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public class AVRoutePickerViewDelegate : Foundation.NSObject, IAVRoutePickerViewDelegate, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public AVRoutePickerViewDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected AVRoutePickerViewDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected AVRoutePickerViewDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidEndPresentingRoutes (AVRoutePickerView routePickerView);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillBeginPresentingRoutes (AVRoutePickerView routePickerView);</span>
+}
+</pre>
+</div> <!-- end type AVRoutePickerViewDelegate -->
+<div> <!-- start type AVRoutePickerViewDelegate_Extensions -->
+<h3>New Type AVKit.AVRoutePickerViewDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class AVRoutePickerViewDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void DidEndPresentingRoutes (IAVRoutePickerViewDelegate This, AVRoutePickerView routePickerView);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void WillBeginPresentingRoutes (IAVRoutePickerViewDelegate This, AVRoutePickerView routePickerView);</span>
+}
+</pre>
+</div> <!-- end type AVRoutePickerViewDelegate_Extensions -->
+<div> <!-- start type IAVRoutePickerViewDelegate -->
+<h3>New Type AVKit.IAVRoutePickerViewDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IAVRoutePickerViewDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IAVRoutePickerViewDelegate -->
+
+</div> <!-- end namespace AVKit -->
+<!-- start namespace Accounts --> <div> 
+<h2>Namespace Accounts</h2>
+<!-- start type ACAccountStore --> <div>
+<h3>Type Changed: Accounts.ACAccountStore</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveAccount (ACAccount account, ACAccountStoreRemoveCompletionHandler completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;System.Tuple&lt;System.Boolean,Foundation.NSError&gt;&gt; RemoveAccountAsync (ACAccount account);</span>
+</pre>
+</div>
+
+</div> <!-- end type ACAccountStore -->
+<div> <!-- start type ACAccountStoreRemoveCompletionHandler -->
+<h3>New Type Accounts.ACAccountStoreRemoveCompletionHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate ACAccountStoreRemoveCompletionHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public ACAccountStoreRemoveCompletionHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (bool success, Foundation.NSError error, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invoke (bool success, Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type ACAccountStoreRemoveCompletionHandler -->
+
+</div> <!-- end namespace Accounts -->
+<!-- start namespace AudioToolbox --> <div> 
+<h2>Namespace AudioToolbox</h2>
+<!-- start type AudioChannelLabel --> <div>
+<h3>Type Changed: AudioToolbox.AudioChannelLabel</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn = 500,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn0 = 131072,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn1 = 131073,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn10 = 131082,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn11 = 131083,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn12 = 131084,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn13 = 131085,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn14 = 131086,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn15 = 131087,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn2 = 131074,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn3 = 131075,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn4 = 131076,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn5 = 131077,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn6 = 131078,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn65024 = 196096,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn7 = 131079,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn8 = 131080,</span>
+	<span class='added added-field ' data-is-non-breaking="">HoaAcn9 = 131081,</span>
+</pre>
+</div>
+
+</div> <!-- end type AudioChannelLabel -->
+<!-- start type AudioChannelLayoutTag --> <div>
+<h3>Type Changed: AudioToolbox.AudioChannelLayoutTag</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">HOA_ACN_N3D = 12517376,</span>
+	<span class='added added-field ' data-is-non-breaking="">HOA_ACN_SN3D = 12451840,</span>
+</pre>
+</div>
+
+</div> <!-- end type AudioChannelLayoutTag -->
+<!-- start type AudioFileType --> <div>
+<h3>Type Changed: AudioToolbox.AudioFileType</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">FLAC = 1718378851,</span>
+	<span class='added added-field ' data-is-non-breaking="">RF64 = 1380333108,</span>
+</pre>
+</div>
+
+</div> <!-- end type AudioFileType -->
+<!-- start type AudioFormatType --> <div>
+<h3>Type Changed: AudioToolbox.AudioFormatType</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">Flac = 1718378851,</span>
+	<span class='added added-field ' data-is-non-breaking="">Opus = 1869641075,</span>
+</pre>
+</div>
+
+</div> <!-- end type AudioFormatType -->
+
+</div> <!-- end namespace AudioToolbox -->
+<!-- start namespace AudioUnit --> <div> 
+<h2>Namespace AudioUnit</h2>
+<!-- start type AUAudioUnit --> <div>
+<h3>Type Changed: AudioUnit.AUAudioUnit</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint MidiOutputBufferSizeHint { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual AUMidiOutputEventBlock MidiOutputEventBlock { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] MidiOutputNames { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ProvidesUserInterface { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string ShortName { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type AUAudioUnit -->
+<!-- start type AUAudioUnitBus --> <div>
+<h3>Type Changed: AudioUnit.AUAudioUnitBus</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ShouldAllocateBuffer { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type AUAudioUnitBus -->
+<!-- start type AUAudioUnit_AUAudioInputOutputUnit --> <div>
+<h3>Type Changed: AudioUnit.AUAudioUnit_AUAudioInputOutputUnit</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static bool IsRunning (AUAudioUnit This);</span>
+</pre>
+</div>
+
+</div> <!-- end type AUAudioUnit_AUAudioInputOutputUnit -->
+<!-- start type AUSpatializationAlgorithm --> <div>
+<h3>Type Changed: AudioUnit.AUSpatializationAlgorithm</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">HrtfHQ = 6,</span>
+</pre>
+</div>
+
+</div> <!-- end type AUSpatializationAlgorithm -->
+<!-- start type AudioComponent --> <div>
+<h3>Type Changed: AudioUnit.AudioComponent</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public AudioComponentInfo[] ComponentList { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type AudioComponent -->
+<!-- start type AudioUnit --> <div>
+<h3>Type Changed: AudioUnit.AudioUnit</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public AudioUnitStatus ScheduleParameter (AudioUnitParameterEvent inParameterEvent, uint inNumParamEvents);</span>
+</pre>
+</div>
+
+</div> <!-- end type AudioUnit -->
+<!-- start type AudioUnitStatus --> <div>
+<h3>Type Changed: AudioUnit.AudioUnitStatus</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">ExtensionNotFound = -66744,</span>
+	<span class='added added-field ' data-is-non-breaking="">MidiOutputBufferFull = -66753,</span>
+</pre>
+</div>
+
+</div> <!-- end type AudioUnitStatus -->
+<div> <!-- start type AUMidiOutputEventBlock -->
+<h3>New Type AudioUnit.AUMidiOutputEventBlock</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate AUMidiOutputEventBlock : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public AUMidiOutputEventBlock (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (long eventSampleTime, byte cable, nint length, IntPtr midiBytes, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual int EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual int Invoke (long eventSampleTime, byte cable, nint length, IntPtr midiBytes);</span>
+}
+</pre>
+</div> <!-- end type AUMidiOutputEventBlock -->
+<div> <!-- start type AUParameterEventType -->
+<h3>New Type AudioUnit.AUParameterEventType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum AUParameterEventType {
+	<span class='added added-field ' data-is-non-breaking="">Immediate = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ramped = 2,</span>
+}
+</pre>
+</div> <!-- end type AUParameterEventType -->
+<div> <!-- start type AudioComponentInfo -->
+<h3>New Type AudioUnit.AudioComponentInfo</h3>
+<pre class='added' data-is-non-breaking="">
+public class AudioComponentInfo : Foundation.DictionaryContainer {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public AudioComponentInfo ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public AudioComponentInfo (Foundation.NSDictionary dic);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public string FactoryFunction { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string Manufacturer { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string Name { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public ResourceUsageInfo ResourceUsage { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public bool? SandboxSafe { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string Subtype { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string[] Tags { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string Type { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public uint? Version { get; set; }</span>
+}
+</pre>
+</div> <!-- end type AudioComponentInfo -->
+<div> <!-- start type AudioUnitParameterEvent -->
+<h3>New Type AudioUnit.AudioUnitParameterEvent</h3>
+<pre class='added' data-is-non-breaking="">
+public struct AudioUnitParameterEvent {
+	// fields
+	<span class='added added-field ' data-is-non-breaking="">public uint Element;</span>
+	<span class='added added-field ' data-is-non-breaking="">public AUParameterEventType EventType;</span>
+	<span class='added added-field ' data-is-non-breaking="">public AudioUnitParameterEvent.EventValuesStruct EventValues;</span>
+	<span class='added added-field ' data-is-non-breaking="">public uint Parameter;</span>
+	<span class='added added-field ' data-is-non-breaking="">public uint Scope;</span>
+
+	// inner types
+	public struct EventValuesStruct {
+		// fields
+		<span class='added added-field ' data-is-non-breaking="">public AudioUnitParameterEvent.EventValuesStruct.ImmediateStruct Immediate;</span>
+		<span class='added added-field ' data-is-non-breaking="">public AudioUnitParameterEvent.EventValuesStruct.RampStruct Ramp;</span>
+
+		// inner types
+		public struct ImmediateStruct {
+			// fields
+			<span class='added added-field ' data-is-non-breaking="">public uint BufferOffset;</span>
+			<span class='added added-field ' data-is-non-breaking="">public float Value;</span>
+		}
+		public struct RampStruct {
+			// fields
+			<span class='added added-field ' data-is-non-breaking="">public uint DurationInFrames;</span>
+			<span class='added added-field ' data-is-non-breaking="">public float EndValue;</span>
+			<span class='added added-field ' data-is-non-breaking="">public int StartBufferOffset;</span>
+			<span class='added added-field ' data-is-non-breaking="">public float StartValue;</span>
+		}
+	}
+}
+</pre>
+</div> <!-- end type AudioUnitParameterEvent -->
+<div> <!-- start type ResourceUsageInfo -->
+<h3>New Type AudioUnit.ResourceUsageInfo</h3>
+<pre class='added' data-is-non-breaking="">
+public class ResourceUsageInfo : Foundation.DictionaryContainer {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public ResourceUsageInfo ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public ResourceUsageInfo (Foundation.NSDictionary dic);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public string[] IOKitUserClient { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string[] MachLookUpGlobalName { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public bool? NetworkClient { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public bool? TemporaryExceptionReadWrite { get; set; }</span>
+}
+</pre>
+</div> <!-- end type ResourceUsageInfo -->
+
+</div> <!-- end namespace AudioUnit -->
+<!-- start namespace CallKit --> <div> 
+<h2>Namespace CallKit</h2>
+<!-- start type CXCallController --> <div>
+<h3>Type Changed: CallKit.CXCallController</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RequestTransaction (CXAction action, System.Action&lt;Foundation.NSError&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RequestTransaction (CXAction[] actions, System.Action&lt;Foundation.NSError&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task RequestTransactionAsync (CXAction action);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task RequestTransactionAsync (CXAction[] actions);</span>
+</pre>
+</div>
+
+</div> <!-- end type CXCallController -->
+<!-- start type CXCallDirectoryExtensionContext --> <div>
+<h3>Type Changed: CallKit.CXCallDirectoryExtensionContext</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Incremental { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveAllBlockingEntries ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveAllIdentificationEntries ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveBlockingEntry (long phoneNumber);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveIdentificationEntry (long phoneNumber);</span>
+</pre>
+</div>
+
+</div> <!-- end type CXCallDirectoryExtensionContext -->
+<!-- start type CXErrorCodeCallDirectoryManagerError --> <div>
+<h3>Type Changed: CallKit.CXErrorCodeCallDirectoryManagerError</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">UnexpectedIncrementalRemoval = 8,</span>
+</pre>
+</div>
+
+</div> <!-- end type CXErrorCodeCallDirectoryManagerError -->
+<!-- start type CXProviderConfiguration --> <div>
+<h3>Type Changed: CallKit.CXProviderConfiguration</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool IncludesCallsInRecents { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type CXProviderConfiguration -->
+<!-- start type CXSetGroupCallAction --> <div>
+<h3>Type Changed: CallKit.CXSetGroupCallAction</h3>
+<p>Removed method:</p>
+
+<pre>
+	<span class='removed removed-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+</pre>
+
+</div> <!-- end type CXSetGroupCallAction -->
+
+</div> <!-- end namespace CallKit -->
+<!-- start namespace CloudKit --> <div> 
+<h2>Namespace CloudKit</h2>
+<!-- start type CKFetchRecordZoneChangesOptions --> <div>
+<h3>Type Changed: CloudKit.CKFetchRecordZoneChangesOptions</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCopying</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+</pre>
+</div>
+
+</div> <!-- end type CKFetchRecordZoneChangesOptions -->
+
+</div> <!-- end namespace CloudKit -->
+<!-- start namespace Contacts --> <div> 
+<h2>Namespace Contacts</h2>
+<!-- start type CNContact --> <div>
+<h3>Type Changed: Contacts.CNContact</h3>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSItemProviderReading</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSItemProviderWriting</span>
+</pre>
+</div>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] WritableTypeIdentifiersForItemProvider { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSItemProviderRepresentationVisibility GetItemProviderVisibility (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSProgress LoadData (string typeIdentifier, System.Action&lt;Foundation.NSData,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;Foundation.NSData&gt; LoadDataAsync (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;Foundation.NSData&gt; LoadDataAsync (string typeIdentifier, Foundation.NSProgress result);</span>
+</pre>
+</div>
+
+</div> <!-- end type CNContact -->
+<!-- start type CNErrorCode --> <div>
+<h3>Type Changed: Contacts.CNErrorCode</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">ClientIdentifierDoesNotExist = 601,</span>
+	<span class='added added-field ' data-is-non-breaking="">ClientIdentifierInvalid = 600,</span>
+	<span class='added added-field ' data-is-non-breaking="">VCardMalformed = 700,</span>
+</pre>
+</div>
+
+</div> <!-- end type CNErrorCode -->
+<!-- start type CNLabelContactRelationKey --> <div>
+<h3>Type Changed: Contacts.CNLabelContactRelationKey</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString Daughter { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString Son { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type CNLabelContactRelationKey -->
+<!-- start type CNMutableContact --> <div>
+<h3>Type Changed: Contacts.CNMutableContact</h3>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSItemProviderReading</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSItemProviderWriting</span>
+</pre>
+</div>
+
+</div> <!-- end type CNMutableContact -->
+<!-- start type CNPostalAddress --> <div>
+<h3>Type Changed: Contacts.CNPostalAddress</h3>
+<p>Removed method:</p>
+
+<pre>
+	<span class='removed removed-method breaking' data-is-breaking="">public static string LocalizeProperty (CNPostalAddressKeyOption option);</span>
+</pre>
+
+</div> <!-- end type CNPostalAddress -->
+<!-- start type CNPostalAddressKeyOption --> <div>
+<h3>Type Changed: Contacts.CNPostalAddressKeyOption</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">SubAdministrativeArea = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">SubLocality = 6,</span>
+</pre>
+</div>
+
+</div> <!-- end type CNPostalAddressKeyOption -->
+<!-- start type CNSocialProfile --> <div>
+<h3>Type Changed: Contacts.CNSocialProfile</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static string LocalizeProperty (CNPostalAddressKeyOption key);</span>
+</pre>
+</div>
+
+</div> <!-- end type CNSocialProfile -->
+<div> <!-- start type CNPostalAddressKeyOptionExtensions -->
+<h3>New Type Contacts.CNPostalAddressKeyOptionExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class CNPostalAddressKeyOptionExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetConstant (CNPostalAddressKeyOption self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static CNPostalAddressKeyOption GetValue (Foundation.NSString constant);</span>
+}
+</pre>
+</div> <!-- end type CNPostalAddressKeyOptionExtensions -->
+
+</div> <!-- end namespace Contacts -->
+<!-- start namespace CoreAnimation --> <div> 
+<h2>Namespace CoreAnimation</h2>
+<!-- start type CAAnimation --> <div>
+<h3>Type Changed: CoreAnimation.CAAnimation</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CAAnimation -->
+<!-- start type CAAnimationGroup --> <div>
+<h3>Type Changed: CoreAnimation.CAAnimationGroup</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CAAnimationGroup -->
+<!-- start type CABasicAnimation --> <div>
+<h3>Type Changed: CoreAnimation.CABasicAnimation</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CABasicAnimation -->
+<!-- start type CAEAGLLayer --> <div>
+<h3>Type Changed: CoreAnimation.CAEAGLLayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CAEAGLLayer -->
+<!-- start type CAEmitterBehavior --> <div>
+<h3>Type Changed: CoreAnimation.CAEmitterBehavior</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CAEmitterBehavior -->
+<!-- start type CAEmitterCell --> <div>
+<h3>Type Changed: CoreAnimation.CAEmitterCell</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CAEmitterCell -->
+<!-- start type CAEmitterLayer --> <div>
+<h3>Type Changed: CoreAnimation.CAEmitterLayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CAEmitterLayer -->
+<!-- start type CAGradientLayer --> <div>
+<h3>Type Changed: CoreAnimation.CAGradientLayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CAGradientLayer -->
+<!-- start type CAKeyFrameAnimation --> <div>
+<h3>Type Changed: CoreAnimation.CAKeyFrameAnimation</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CAKeyFrameAnimation -->
+<!-- start type CALayer --> <div>
+<h3>Type Changed: CoreAnimation.CALayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CACornerMask MaskedCorners { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type CALayer -->
+<!-- start type CAMediaTimingFunction --> <div>
+<h3>Type Changed: CoreAnimation.CAMediaTimingFunction</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CAMediaTimingFunction -->
+<!-- start type CAMetalLayer --> <div>
+<h3>Type Changed: CoreAnimation.CAMetalLayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AllowsNextDrawableTimeout { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type CAMetalLayer -->
+<!-- start type CAPropertyAnimation --> <div>
+<h3>Type Changed: CoreAnimation.CAPropertyAnimation</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CAPropertyAnimation -->
+<!-- start type CAReplicatorLayer --> <div>
+<h3>Type Changed: CoreAnimation.CAReplicatorLayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CAReplicatorLayer -->
+<!-- start type CAScrollLayer --> <div>
+<h3>Type Changed: CoreAnimation.CAScrollLayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CAScrollLayer -->
+<!-- start type CAShapeLayer --> <div>
+<h3>Type Changed: CoreAnimation.CAShapeLayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CAShapeLayer -->
+<!-- start type CASpringAnimation --> <div>
+<h3>Type Changed: CoreAnimation.CASpringAnimation</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CASpringAnimation -->
+<!-- start type CATextLayer --> <div>
+<h3>Type Changed: CoreAnimation.CATextLayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CATextLayer -->
+<!-- start type CATiledLayer --> <div>
+<h3>Type Changed: CoreAnimation.CATiledLayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CATiledLayer -->
+<!-- start type CATransformLayer --> <div>
+<h3>Type Changed: CoreAnimation.CATransformLayer</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CATransformLayer -->
+<!-- start type CATransition --> <div>
+<h3>Type Changed: CoreAnimation.CATransition</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CATransition -->
+<!-- start type CAValueFunction --> <div>
+<h3>Type Changed: CoreAnimation.CAValueFunction</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type CAValueFunction -->
+<div> <!-- start type CACornerMask -->
+<h3>New Type CoreAnimation.CACornerMask</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+[Flags]
+public enum CACornerMask {
+	<span class='added added-field ' data-is-non-breaking="">MaxXMaxYCorner = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">MaxXMinYCorner = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">MinXMaxYCorner = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">MinXMinYCorner = 1,</span>
+}
+</pre>
+</div> <!-- end type CACornerMask -->
+
+</div> <!-- end namespace CoreAnimation -->
+<!-- start namespace CoreAudioKit --> <div> 
+<h2>Namespace CoreAudioKit</h2>
+<div> <!-- start type AUAudioUnitViewConfiguration -->
+<h3>New Type CoreAudioKit.AUAudioUnitViewConfiguration</h3>
+<pre class='added' data-is-non-breaking="">
+public class AUAudioUnitViewConfiguration : Foundation.NSObject, Foundation.INSCoding, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public AUAudioUnitViewConfiguration ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public AUAudioUnitViewConfiguration (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected AUAudioUnitViewConfiguration (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected AUAudioUnitViewConfiguration (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public AUAudioUnitViewConfiguration (nfloat width, nfloat height, bool hostHasController);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat Height { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool HostHasController { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat Width { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type AUAudioUnitViewConfiguration -->
+<div> <!-- start type AUAudioUnitViewControllerExtensions -->
+<h3>New Type CoreAudioKit.AUAudioUnitViewControllerExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class AUAudioUnitViewControllerExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSIndexSet GetSupportedViewConfigurations (AudioUnit.AUAudioUnit This, AUAudioUnitViewConfiguration[] availableViewConfigurations);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SelectViewConfiguration (AudioUnit.AUAudioUnit This, AUAudioUnitViewConfiguration viewConfiguration);</span>
+}
+</pre>
+</div> <!-- end type AUAudioUnitViewControllerExtensions -->
+
+</div> <!-- end namespace CoreAudioKit -->
+<!-- start namespace CoreData --> <div> 
+<h2>Namespace CoreData</h2>
+<!-- start type MigrationErrorType --> <div>
+<h3>Type Changed: CoreData.MigrationErrorType</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">HistoryTokenExpired = 134301,</span>
+</pre>
+</div>
+
+</div> <!-- end type MigrationErrorType -->
+<!-- start type NSAttributeType --> <div>
+<h3>Type Changed: CoreData.NSAttributeType</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">Uri = 1200,</span>
+	<span class='added added-field ' data-is-non-breaking="">Uuid = 1100,</span>
+</pre>
+</div>
+
+</div> <!-- end type NSAttributeType -->
+<!-- start type NSEntityDescription --> <div>
+<h3>Type Changed: CoreData.NSEntityDescription</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSExpression CoreSpotlightDisplayNameExpression { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSFetchIndexDescription[] Indexes { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type NSEntityDescription -->
+<!-- start type NSManagedObjectContext --> <div>
+<h3>Type Changed: CoreData.NSManagedObjectContext</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string TransactionAuthor { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type NSManagedObjectContext -->
+<!-- start type NSPersistentStore --> <div>
+<h3>Type Changed: CoreData.NSPersistentStore</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSCoreDataCoreSpotlightDelegate CoreSpotlightExporter { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type NSPersistentStore -->
+<!-- start type NSPersistentStoreCoordinator --> <div>
+<h3>Type Changed: CoreData.NSPersistentStoreCoordinator</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString CoreSpotlightExporter { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString HistoryTrackingKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString UbiquitousContainerIdentifierKey { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type NSPersistentStoreCoordinator -->
+<!-- start type NSQueryGenerationToken --> <div>
+<h3>Type Changed: CoreData.NSQueryGenerationToken</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public NSQueryGenerationToken (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSQueryGenerationToken -->
+<!-- start type ValidationErrorType --> <div>
+<h3>Type Changed: CoreData.ValidationErrorType</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">InvalidUri = 1690,</span>
+</pre>
+</div>
+
+</div> <!-- end type ValidationErrorType -->
+<div> <!-- start type NSCoreDataCoreSpotlightDelegate -->
+<h3>New Type CoreData.NSCoreDataCoreSpotlightDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public class NSCoreDataCoreSpotlightDelegate : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public NSCoreDataCoreSpotlightDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSCoreDataCoreSpotlightDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSCoreDataCoreSpotlightDelegate (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NSCoreDataCoreSpotlightDelegate (NSPersistentStoreDescription description, NSManagedObjectModel model);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string DomainIdentifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string IndexName { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreSpotlight.CSSearchableItemAttributeSet GetAttributeSet (NSManagedObject object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ReindexAllSearchableItems (CoreSpotlight.CSSearchableIndex searchableIndex, System.Action acknowledgementHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ReindexSearchableItems (CoreSpotlight.CSSearchableIndex searchableIndex, string[] identifiers, System.Action acknowledgementHandler);</span>
+}
+</pre>
+</div> <!-- end type NSCoreDataCoreSpotlightDelegate -->
+<div> <!-- start type NSFetchIndexDescription -->
+<h3>New Type CoreData.NSFetchIndexDescription</h3>
+<pre class='added' data-is-non-breaking="">
+public class NSFetchIndexDescription : Foundation.NSObject, Foundation.INSCoding, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public NSFetchIndexDescription ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NSFetchIndexDescription (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSFetchIndexDescription (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSFetchIndexDescription (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NSFetchIndexDescription (string name, NSFetchIndexElementDescription[] elements);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSFetchIndexElementDescription[] Elements { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSEntityDescription Entity { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Name { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSPredicate PartialIndexPredicate { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type NSFetchIndexDescription -->
+<div> <!-- start type NSFetchIndexElementDescription -->
+<h3>New Type CoreData.NSFetchIndexElementDescription</h3>
+<pre class='added' data-is-non-breaking="">
+public class NSFetchIndexElementDescription : Foundation.NSObject, Foundation.INSCoding, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public NSFetchIndexElementDescription ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NSFetchIndexElementDescription (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSFetchIndexElementDescription (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSFetchIndexElementDescription (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NSFetchIndexElementDescription (NSPropertyDescription property, NSFetchIndexElementType collationType);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSFetchIndexElementType CollationType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSFetchIndexDescription IndexDescription { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool IsAscending { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSPropertyDescription Property { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string PropertyName { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type NSFetchIndexElementDescription -->
+<div> <!-- start type NSFetchIndexElementType -->
+<h3>New Type CoreData.NSFetchIndexElementType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum NSFetchIndexElementType {
+	<span class='added added-field ' data-is-non-breaking="">Binary = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">RTree = 1,</span>
+}
+</pre>
+</div> <!-- end type NSFetchIndexElementType -->
+<div> <!-- start type NSPersistentHistoryChange -->
+<h3>New Type CoreData.NSPersistentHistoryChange</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class NSPersistentHistoryChange : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSPersistentHistoryChange ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSPersistentHistoryChange (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSPersistentHistoryChange (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual long ChangeId { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSPersistentHistoryChangeType ChangeType { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSManagedObjectID ChangedObjectId { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDictionary Tombstone { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSPersistentHistoryTransaction Transaction { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSSet&lt;NSPropertyDescription&gt; UpdatedProperties { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type NSPersistentHistoryChange -->
+<div> <!-- start type NSPersistentHistoryChangeRequest -->
+<h3>New Type CoreData.NSPersistentHistoryChangeRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public class NSPersistentHistoryChangeRequest : CoreData.NSPersistentStoreRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSPersistentHistoryChangeRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSPersistentHistoryChangeRequest (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSPersistentHistoryResultType ResultType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSPersistentHistoryToken Token { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static NSPersistentHistoryChangeRequest DeleteHistoryBefore (NSPersistentHistoryToken token);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static NSPersistentHistoryChangeRequest DeleteHistoryBefore (NSPersistentHistoryTransaction transaction);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static NSPersistentHistoryChangeRequest DeleteHistoryBefore (Foundation.NSDate date);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static NSPersistentHistoryChangeRequest FetchHistoryAfter (NSPersistentHistoryToken token);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static NSPersistentHistoryChangeRequest FetchHistoryAfter (NSPersistentHistoryTransaction transaction);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static NSPersistentHistoryChangeRequest FetchHistoryAfter (Foundation.NSDate date);</span>
+}
+</pre>
+</div> <!-- end type NSPersistentHistoryChangeRequest -->
+<div> <!-- start type NSPersistentHistoryChangeType -->
+<h3>New Type CoreData.NSPersistentHistoryChangeType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum NSPersistentHistoryChangeType {
+	<span class='added added-field ' data-is-non-breaking="">Delete = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Insert = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Update = 1,</span>
+}
+</pre>
+</div> <!-- end type NSPersistentHistoryChangeType -->
+<div> <!-- start type NSPersistentHistoryResult -->
+<h3>New Type CoreData.NSPersistentHistoryResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class NSPersistentHistoryResult : CoreData.NSPersistentStoreResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public NSPersistentHistoryResult ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSPersistentHistoryResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSPersistentHistoryResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSObject Result { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSPersistentHistoryResultType ResultType { get; }</span>
+}
+</pre>
+</div> <!-- end type NSPersistentHistoryResult -->
+<div> <!-- start type NSPersistentHistoryResultType -->
+<h3>New Type CoreData.NSPersistentHistoryResultType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum NSPersistentHistoryResultType {
+	<span class='added added-field ' data-is-non-breaking="">ChangesOnly = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Count = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">ObjectIds = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">StatusOnly = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">TransactionsAndChanges = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">TransactionsOnly = 3,</span>
+}
+</pre>
+</div> <!-- end type NSPersistentHistoryResultType -->
+<div> <!-- start type NSPersistentHistoryToken -->
+<h3>New Type CoreData.NSPersistentHistoryToken</h3>
+<pre class='added' data-is-non-breaking="">
+public class NSPersistentHistoryToken : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public NSPersistentHistoryToken ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSPersistentHistoryToken (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSPersistentHistoryToken (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type NSPersistentHistoryToken -->
+<div> <!-- start type NSPersistentHistoryTransaction -->
+<h3>New Type CoreData.NSPersistentHistoryTransaction</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class NSPersistentHistoryTransaction : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSPersistentHistoryTransaction ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSPersistentHistoryTransaction (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSPersistentHistoryTransaction (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Author { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string BundleId { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSPersistentHistoryChange[] Changes { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string ContextName { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSNotification ObjectIdNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string ProcessId { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string StoreId { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDate Timestamp { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSPersistentHistoryToken Token { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual long TransactionNumber { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type NSPersistentHistoryTransaction -->
+
+</div> <!-- end namespace CoreData -->
+<!-- start namespace CoreImage --> <div> 
+<h2>Namespace CoreImage</h2>
+<!-- start type CIImageAccumulator --> <div>
+<h3>Type Changed: CoreImage.CIImageAccumulator</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("The default initializer does not work in recent iOS version (11b4).")]
+	public CIImageAccumulator ();</span>
+</div></pre>
+<div>
+<p>Added constructors:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIImageAccumulator (CoreGraphics.CGRect rectangle, CIFormat format);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIImageAccumulator (CoreGraphics.CGRect extent, CIFormat format, CoreGraphics.CGColorSpace colorSpace);</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static CIImageAccumulator FromRectangle (CoreGraphics.CGRect rect, CIFormat format);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static CIImageAccumulator FromRectangle (CoreGraphics.CGRect extent, CIFormat format, CoreGraphics.CGColorSpace colorSpace);</span>
+</pre>
+</div>
+
+</div> <!-- end type CIImageAccumulator -->
+<!-- start type CIQRCodeFeature --> <div>
+<h3>Type Changed: CoreImage.CIQRCodeFeature</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIQRCodeFeature (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCopying</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+</pre>
+</div>
+
+</div> <!-- end type CIQRCodeFeature -->
+<div> <!-- start type CIAreaMinMaxRed -->
+<h3>New Type CoreImage.CIAreaMinMaxRed</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIAreaMinMaxRed : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIAreaMinMaxRed ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIAreaMinMaxRed (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIAreaMinMaxRed (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIAreaMinMaxRed (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIAreaMinMaxRed -->
+<div> <!-- start type CIAttributedTextImageGenerator -->
+<h3>New Type CoreImage.CIAttributedTextImageGenerator</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIAttributedTextImageGenerator : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIAttributedTextImageGenerator ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIAttributedTextImageGenerator (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIAttributedTextImageGenerator (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIAttributedTextImageGenerator (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIAttributedTextImageGenerator -->
+<div> <!-- start type CIBarcodeDescriptor -->
+<h3>New Type CoreImage.CIBarcodeDescriptor</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class CIBarcodeDescriptor : Foundation.NSObject, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIBarcodeDescriptor ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIBarcodeDescriptor (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIBarcodeDescriptor (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIBarcodeDescriptor (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type CIBarcodeDescriptor -->
+<div> <!-- start type CIBarcodeGenerator -->
+<h3>New Type CoreImage.CIBarcodeGenerator</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIBarcodeGenerator : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBarcodeGenerator ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBarcodeGenerator (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIBarcodeGenerator (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBarcodeGenerator (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIBarcodeGenerator -->
+<div> <!-- start type CIBicubicScaleTransform -->
+<h3>New Type CoreImage.CIBicubicScaleTransform</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIBicubicScaleTransform : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBicubicScaleTransform ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBicubicScaleTransform (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIBicubicScaleTransform (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBicubicScaleTransform (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIBicubicScaleTransform -->
+<div> <!-- start type CIBlendWithBlueMask -->
+<h3>New Type CoreImage.CIBlendWithBlueMask</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIBlendWithBlueMask : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBlendWithBlueMask ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBlendWithBlueMask (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIBlendWithBlueMask (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBlendWithBlueMask (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIBlendWithBlueMask -->
+<div> <!-- start type CIBlendWithRedMask -->
+<h3>New Type CoreImage.CIBlendWithRedMask</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIBlendWithRedMask : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBlendWithRedMask ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBlendWithRedMask (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIBlendWithRedMask (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBlendWithRedMask (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIBlendWithRedMask -->
+<div> <!-- start type CIBokehBlur -->
+<h3>New Type CoreImage.CIBokehBlur</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIBokehBlur : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBokehBlur ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBokehBlur (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIBokehBlur (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIBokehBlur (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIBokehBlur -->
+<div> <!-- start type CIColorCubesMixedWithMask -->
+<h3>New Type CoreImage.CIColorCubesMixedWithMask</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIColorCubesMixedWithMask : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIColorCubesMixedWithMask ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIColorCubesMixedWithMask (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIColorCubesMixedWithMask (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIColorCubesMixedWithMask (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIColorCubesMixedWithMask -->
+<div> <!-- start type CIColorCurves -->
+<h3>New Type CoreImage.CIColorCurves</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIColorCurves : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIColorCurves ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIColorCurves (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIColorCurves (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIColorCurves (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIColorCurves -->
+<div> <!-- start type CIDepthBlurEffect -->
+<h3>New Type CoreImage.CIDepthBlurEffect</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIDepthBlurEffect : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIDepthBlurEffect ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIDepthBlurEffect (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIDepthBlurEffect (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIDepthBlurEffect (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIDepthBlurEffect -->
+<div> <!-- start type CIDepthToDisparity -->
+<h3>New Type CoreImage.CIDepthToDisparity</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIDepthToDisparity : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIDepthToDisparity ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIDepthToDisparity (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIDepthToDisparity (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIDepthToDisparity (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIDepthToDisparity -->
+<div> <!-- start type CIDisparityToDepth -->
+<h3>New Type CoreImage.CIDisparityToDepth</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIDisparityToDepth : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIDisparityToDepth ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIDisparityToDepth (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIDisparityToDepth (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIDisparityToDepth (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIDisparityToDepth -->
+<div> <!-- start type CIEdgePreserveUpsampleFilter -->
+<h3>New Type CoreImage.CIEdgePreserveUpsampleFilter</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIEdgePreserveUpsampleFilter : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIEdgePreserveUpsampleFilter ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIEdgePreserveUpsampleFilter (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIEdgePreserveUpsampleFilter (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIEdgePreserveUpsampleFilter (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIEdgePreserveUpsampleFilter -->
+<div> <!-- start type CILabDeltaE -->
+<h3>New Type CoreImage.CILabDeltaE</h3>
+<pre class='added' data-is-non-breaking="">
+public class CILabDeltaE : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CILabDeltaE ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CILabDeltaE (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CILabDeltaE (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CILabDeltaE (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CILabDeltaE -->
+<div> <!-- start type CIMorphologyGradient -->
+<h3>New Type CoreImage.CIMorphologyGradient</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIMorphologyGradient : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIMorphologyGradient ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIMorphologyGradient (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIMorphologyGradient (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIMorphologyGradient (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIMorphologyGradient -->
+<div> <!-- start type CIMorphologyMaximum -->
+<h3>New Type CoreImage.CIMorphologyMaximum</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIMorphologyMaximum : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIMorphologyMaximum ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIMorphologyMaximum (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIMorphologyMaximum (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIMorphologyMaximum (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIMorphologyMaximum -->
+<div> <!-- start type CIMorphologyMinimum -->
+<h3>New Type CoreImage.CIMorphologyMinimum</h3>
+<pre class='added' data-is-non-breaking="">
+public class CIMorphologyMinimum : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CIMorphologyMinimum ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIMorphologyMinimum (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CIMorphologyMinimum (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CIMorphologyMinimum (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CIMorphologyMinimum -->
+<div> <!-- start type CITextImageGenerator -->
+<h3>New Type CoreImage.CITextImageGenerator</h3>
+<pre class='added' data-is-non-breaking="">
+public class CITextImageGenerator : CoreImage.CIFilter, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CITextImageGenerator ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CITextImageGenerator (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected CITextImageGenerator (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public CITextImageGenerator (IntPtr handle);</span>
+}
+</pre>
+</div> <!-- end type CITextImageGenerator -->
+
+</div> <!-- end namespace CoreImage -->
+<!-- start namespace CoreLocation --> <div> 
+<h2>Namespace CoreLocation</h2>
+<!-- start type CLGeocoder --> <div>
+<h3>Type Changed: CoreLocation.CLGeocoder</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GeocodeAddress (string addressString, CLRegion region, Foundation.NSLocale locale, CLGeocodeCompletionHandler completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;CLPlacemark[]&gt; GeocodeAddressAsync (string addressString, CLRegion region, Foundation.NSLocale locale);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GeocodePostalAddress (Contacts.CNPostalAddress postalAddress, CLGeocodeCompletionHandler completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GeocodePostalAddress (Contacts.CNPostalAddress postalAddress, Foundation.NSLocale locale, CLGeocodeCompletionHandler completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;CLPlacemark[]&gt; GeocodePostalAddressAsync (Contacts.CNPostalAddress postalAddress);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;CLPlacemark[]&gt; GeocodePostalAddressAsync (Contacts.CNPostalAddress postalAddress, Foundation.NSLocale locale);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ReverseGeocodeLocation (CLLocation location, Foundation.NSLocale locale, CLGeocodeCompletionHandler completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;CLPlacemark[]&gt; ReverseGeocodeLocationAsync (CLLocation location, Foundation.NSLocale locale);</span>
+</pre>
+</div>
+
+</div> <!-- end type CLGeocoder -->
+<!-- start type CLLocationManager --> <div>
+<h3>Type Changed: CoreLocation.CLLocationManager</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ShowsBackgroundLocationIndicator { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type CLLocationManager -->
+<!-- start type CLPlacemark --> <div>
+<h3>Type Changed: CoreLocation.CLPlacemark</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Contacts.CNPostalAddress PostalAddress { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type CLPlacemark -->
+
+</div> <!-- end namespace CoreLocation -->
+<!-- start namespace CoreMedia --> <div> 
+<h2>Namespace CoreMedia</h2>
+<!-- start type CMAttachmentBearer --> <div>
+<h3>Type Changed: CoreMedia.CMAttachmentBearer</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSDictionary&lt;TKey,TValue&gt; GetAttachments&lt;TKey, TValue&gt; (ICMAttachmentBearer target, CMAttachmentMode attachmentMode);</span>
+</pre>
+</div>
+
+</div> <!-- end type CMAttachmentBearer -->
+
+</div> <!-- end namespace CoreMedia -->
+<!-- start namespace CoreMotion --> <div> 
+<h2>Namespace CoreMotion</h2>
+<!-- start type CMAltimeter --> <div>
+<h3>Type Changed: CoreMotion.CMAltimeter</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static CMAuthorizationStatus AuthorizationStatus { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type CMAltimeter -->
+<!-- start type CMDeviceMotion --> <div>
+<h3>Type Changed: CoreMotion.CMDeviceMotion</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual double Heading { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type CMDeviceMotion -->
+<!-- start type CMMotionActivityManager --> <div>
+<h3>Type Changed: CoreMotion.CMMotionActivityManager</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static CMAuthorizationStatus AuthorizationStatus { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type CMMotionActivityManager -->
+<!-- start type CMPedometer --> <div>
+<h3>Type Changed: CoreMotion.CMPedometer</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static CMAuthorizationStatus AuthorizationStatus { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type CMPedometer -->
+<!-- start type CMSensorRecorder --> <div>
+<h3>Type Changed: CoreMotion.CMSensorRecorder</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static CMAuthorizationStatus AuthorizationStatus { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type CMSensorRecorder -->
+<div> <!-- start type CMAuthorizationStatus -->
+<h3>New Type CoreMotion.CMAuthorizationStatus</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum CMAuthorizationStatus {
+	<span class='added added-field ' data-is-non-breaking="">Authorized = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Denied = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">NotDetermined = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Restricted = 1,</span>
+}
+</pre>
+</div> <!-- end type CMAuthorizationStatus -->
+
+</div> <!-- end namespace CoreMotion -->
+<!-- start namespace CoreSpotlight --> <div> 
+<h2>Namespace CoreSpotlight</h2>
+<!-- start type CSIndexExtensionRequestHandler --> <div>
+<h3>Type Changed: CoreSpotlight.CSIndexExtensionRequestHandler</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSData GetData (CSSearchableIndex searchableIndex, string itemIdentifier, string typeIdentifier, Foundation.NSError outError);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSUrl GetFileUrl (CSSearchableIndex searchableIndex, string itemIdentifier, string typeIdentifier, bool inPlace, Foundation.NSError outError);</span>
+</pre>
+</div>
+
+</div> <!-- end type CSIndexExtensionRequestHandler -->
+<!-- start type CSLocalizedString --> <div>
+<h3>Type Changed: CoreSpotlight.CSLocalizedString</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSItemProviderWriting</span>
+</pre>
+</div>
+
+</div> <!-- end type CSLocalizedString -->
+<!-- start type CSSearchableIndexDelegate --> <div>
+<h3>Type Changed: CoreSpotlight.CSSearchableIndexDelegate</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSData GetData (CSSearchableIndex searchableIndex, string itemIdentifier, string typeIdentifier, Foundation.NSError outError);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSUrl GetFileUrl (CSSearchableIndex searchableIndex, string itemIdentifier, string typeIdentifier, bool inPlace, Foundation.NSError outError);</span>
+</pre>
+</div>
+
+</div> <!-- end type CSSearchableIndexDelegate -->
+<!-- start type CSSearchableIndexDelegate_Extensions --> <div>
+<h3>Type Changed: CoreSpotlight.CSSearchableIndexDelegate_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSData GetData (ICSSearchableIndexDelegate This, CSSearchableIndex searchableIndex, string itemIdentifier, string typeIdentifier, Foundation.NSError outError);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSUrl GetFileUrl (ICSSearchableIndexDelegate This, CSSearchableIndex searchableIndex, string itemIdentifier, string typeIdentifier, bool inPlace, Foundation.NSError outError);</span>
+</pre>
+</div>
+
+</div> <!-- end type CSSearchableIndexDelegate_Extensions -->
+<!-- start type CSSearchableItemAttributeSet --> <div>
+<h3>Type Changed: CoreSpotlight.CSSearchableItemAttributeSet</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public bool? IsUserCreated { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public bool? IsUserCurated { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public bool? IsUserOwned { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] ProviderDataTypeIdentifiers { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] ProviderFileTypeIdentifiers { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] ProviderInPlaceFileTypeIdentifiers { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSNumber RankingHint { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type CSSearchableItemAttributeSet -->
+
+</div> <!-- end namespace CoreSpotlight -->
+<!-- start namespace CoreVideo --> <div> 
+<h2>Namespace CoreVideo</h2>
+<!-- start type CVBuffer --> <div>
+<h3>Type Changed: CoreVideo.CVBuffer</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public Foundation.NSDictionary&lt;TKey,TValue&gt; GetAttachments&lt;TKey, TValue&gt; (CVAttachmentMode attachmentMode);</span>
+</pre>
+</div>
+
+</div> <!-- end type CVBuffer -->
+
+</div> <!-- end namespace CoreVideo -->
+<!-- start namespace EventKit --> <div> 
+<h2>Namespace EventKit</h2>
+<!-- start type EKAlarm --> <div>
+<h3>Type Changed: EventKit.EKAlarm</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use the static methods FromDate or FromTimeInterval to create alarms")]
+	public EKAlarm ();</span>
+</div></pre>
+
+</div> <!-- end type EKAlarm -->
+
+</div> <!-- end namespace EventKit -->
+<!-- start namespace EventKitUI --> <div> 
+<h2>Namespace EventKitUI</h2>
+<div> <!-- start type EKUIBundle -->
+<h3>New Type EventKitUI.EKUIBundle</h3>
+<pre class='added' data-is-non-breaking="">
+public static class EKUIBundle {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSBundle UIBundle { get; }</span>
+}
+</pre>
+</div> <!-- end type EKUIBundle -->
+
+</div> <!-- end namespace EventKitUI -->
+<!-- start namespace Foundation --> <div> 
+<h2>Namespace Foundation</h2>
+<!-- start type NSArray --> <div>
+<h3>Type Changed: Foundation.NSArray</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static NSArray FromUrl (NSUrl url, NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Write (NSUrl url, NSError error);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSArray -->
+<!-- start type NSAttributedString --> <div>
+<h3>Type Changed: Foundation.NSAttributedString</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static string[] ReadableTypeIdentifiersForItemProvider { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static string[] WritableTypeIdentifiers { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static NSAttributedString FromItemProviderData (NSData itemProviderData, string typeIdentifier, NSError outError);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSAttributedString -->
+<!-- start type NSCocoaError --> <div>
+<h3>Type Changed: Foundation.NSCocoaError</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">CoderInvalidValueError = 4866,</span>
+</pre>
+</div>
+
+</div> <!-- end type NSCocoaError -->
+<!-- start type NSDateComponentsFormatter --> <div>
+<h3>Type Changed: Foundation.NSDateComponentsFormatter</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSDate ReferenceDate { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type NSDateComponentsFormatter -->
+<!-- start type NSDateFormatter --> <div>
+<h3>Type Changed: Foundation.NSDateFormatter</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSFormattingContext FormattingContext { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type NSDateFormatter -->
+<!-- start type NSDictionary --> <div>
+<h3>Type Changed: Foundation.NSDictionary</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public NSDictionary (NSUrl url, NSError error);</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSDictionary&lt;NSString,Foundation.NSObject&gt; FromUrl (NSUrl url, NSError error);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSDictionary -->
+<!-- start type NSDimension --> <div>
+<h3>Type Changed: Foundation.NSDimension</h3>
+<div>
+<p>Added constructors:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">[Obsolete ("Not intended to be directly instantiated, this is an abstract class.")]
+	public NSDimension ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NSDimension (string symbol);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSDimension -->
+<!-- start type NSError --> <div>
+<h3>Type Changed: Foundation.NSError</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString DebugDescriptionErrorKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString LocalizedFailureErrorKey { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static NSError GetFileProviderError (FileProvider.INSFileProviderItem existingItem);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static NSError GetFileProviderError (string nonExistentItemIdentifier);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSError -->
+<!-- start type NSFileCoordinator --> <div>
+<h3>Type Changed: Foundation.NSFileCoordinator</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ItemUbiquityAttributesChanged (NSUrl url, Foundation.NSSet&lt;NSString&gt; attributes);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSFileCoordinator -->
+<!-- start type NSFileManager --> <div>
+<h3>Type Changed: Foundation.NSFileManager</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GetFileProviderMessageInterfaces (NSUrl url, System.Action&lt;NSFileProviderMessageInterface[],Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;NSFileProviderMessageInterface[]&gt; GetFileProviderMessageInterfacesAsync (NSUrl url);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GetFileProviderServices (NSUrl url, System.Action&lt;Foundation.NSDictionary&lt;NSString,Foundation.NSFileProviderService&gt;&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;Foundation.NSDictionary&lt;NSString,Foundation.NSFileProviderService&gt;&gt; GetFileProviderServicesAsync (NSUrl url);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool TrashItem (NSUrl url, NSUrl resultingItemUrl, NSError error);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSFileManager -->
+<!-- start type NSFilePresenter --> <div>
+<h3>Type Changed: Foundation.NSFilePresenter</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSSet&lt;NSString&gt; PresentedItemObservedUbiquityAttributes { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PresentedItemChangedUbiquityAttributes (Foundation.NSSet&lt;NSString&gt; attributes);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSFilePresenter -->
+<!-- start type NSFilePresenter_Extensions --> <div>
+<h3>Type Changed: Foundation.NSFilePresenter_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSSet&lt;NSString&gt; GetPresentedItemObservedUbiquityAttributes (INSFilePresenter This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void PresentedItemChangedUbiquityAttributes (INSFilePresenter This, Foundation.NSSet&lt;NSString&gt; attributes);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSFilePresenter_Extensions -->
+<!-- start type NSFileVersion --> <div>
+<h3>Type Changed: Foundation.NSFileVersion</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSPersonNameComponents OriginatorNameComponents { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type NSFileVersion -->
+<!-- start type NSIso8601DateFormatOptions --> <div>
+<h3>Type Changed: Foundation.NSIso8601DateFormatOptions</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">FractionalSeconds = 2048,</span>
+</pre>
+</div>
+
+</div> <!-- end type NSIso8601DateFormatOptions -->
+<!-- start type NSItemProvider --> <div>
+<h3>Type Changed: Foundation.NSItemProvider</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public NSItemProvider (INSItemProviderWriting object);</span>
+</pre>
+</div>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string SuggestedName { get; set; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool CanLoadObject (ObjCRuntime.Class aClass);</span>
+	<span class='added added-method ' data-is-non-breaking="">public bool CanLoadObject (System.Type type);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual string[] GetRegisteredTypeIdentifiers (NSItemProviderFileOptions fileOptions);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool HasConformingRepresentation (string typeIdentifier, NSItemProviderFileOptions fileOptions);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSProgress LoadDataRepresentation (string typeIdentifier, System.Action&lt;NSData,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;NSData&gt; LoadDataRepresentationAsync (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;NSData&gt; LoadDataRepresentationAsync (string typeIdentifier, NSProgress result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSProgress LoadFileRepresentation (string typeIdentifier, System.Action&lt;NSUrl,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;NSUrl&gt; LoadFileRepresentationAsync (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;NSUrl&gt; LoadFileRepresentationAsync (string typeIdentifier, NSProgress result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSProgress LoadInPlaceFileRepresentation (string typeIdentifier, LoadInPlaceFileRepresentationHandler completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;LoadInPlaceResult&gt; LoadInPlaceFileRepresentationAsync (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;LoadInPlaceResult&gt; LoadInPlaceFileRepresentationAsync (string typeIdentifier, NSProgress result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSProgress LoadObject (ObjCRuntime.Class aClass, System.Action&lt;INSItemProviderReading,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public NSProgress LoadObject (System.Type type, System.Action&lt;INSItemProviderReading,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;INSItemProviderReading&gt; LoadObjectAsync (ObjCRuntime.Class aClass);</span>
+	<span class='added added-method ' data-is-non-breaking="">public System.Threading.Tasks.Task&lt;INSItemProviderReading&gt; LoadObjectAsync (System.Type type);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;INSItemProviderReading&gt; LoadObjectAsync (ObjCRuntime.Class aClass, NSProgress result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public System.Threading.Tasks.Task&lt;INSItemProviderReading&gt; LoadObjectAsync (System.Type type, NSProgress result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RegisterDataRepresentation (string typeIdentifier, NSItemProviderRepresentationVisibility visibility, RegisterDataRepresentationLoadHandler loadHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RegisterFileRepresentation (string typeIdentifier, NSItemProviderFileOptions fileOptions, NSItemProviderRepresentationVisibility visibility, RegisterFileRepresentationLoadHandler loadHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RegisterObject (INSItemProviderWriting object, NSItemProviderRepresentationVisibility visibility);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RegisterObject (ObjCRuntime.Class aClass, NSItemProviderRepresentationVisibility visibility, RegisterObjectRepresentationLoadHandler loadHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public void RegisterObject (System.Type type, NSItemProviderRepresentationVisibility visibility, RegisterObjectRepresentationLoadHandler loadHandler);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSItemProvider -->
+<!-- start type NSJsonWritingOptions --> <div>
+<h3>Type Changed: Foundation.NSJsonWritingOptions</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">SortedKeys = 2,</span>
+</pre>
+</div>
+
+</div> <!-- end type NSJsonWritingOptions -->
+<!-- start type NSLinguisticTagger --> <div>
+<h3>Type Changed: Foundation.NSLinguisticTagger</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string DominantLanguage { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EnumerateTags (NSRange range, NSLinguisticTaggerUnit unit, string scheme, NSLinguisticTaggerOptions options, LinguisticTagEnumerator enumerator);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void EnumerateTags (string str, NSRange range, NSLinguisticTaggerUnit unit, string scheme, NSLinguisticTaggerOptions options, NSOrthography orthography, LinguisticTagEnumerator enumerator);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static string[] GetAvailableTagSchemes (NSLinguisticTaggerUnit unit, string language);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static string GetDominantLanguage (string str);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual string GetTag (uint charIndex, NSLinguisticTaggerUnit unit, string scheme, NSRange tokenRange);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static string GetTag (string str, uint charIndex, NSLinguisticTaggerUnit unit, string scheme, NSOrthography orthography, NSRange tokenRange);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual string[] GetTags (NSRange range, NSLinguisticTaggerUnit unit, string scheme, NSLinguisticTaggerOptions options, NSValue[] tokenRanges);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static string[] GetTags (string str, NSRange range, NSLinguisticTaggerUnit unit, string scheme, NSLinguisticTaggerOptions options, NSOrthography orthography, NSValue[] tokenRanges);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSRange GetTokenRange (uint charIndex, NSLinguisticTaggerUnit unit);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSLinguisticTagger -->
+<!-- start type NSMetadataQuery --> <div>
+<h3>Type Changed: Foundation.NSMetadataQuery</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousItemIsSharedKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemCurrentUserPermissionsKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemCurrentUserRoleKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemMostRecentEditorNameComponentsKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemOwnerNameComponentsKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemPermissionsReadOnly { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemPermissionsReadWrite { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemRoleOwner { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemRoleParticipant { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type NSMetadataQuery -->
+<!-- start type NSMutableString --> <div>
+<h3>Type Changed: Foundation.NSMutableString</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">INSItemProviderWriting</span>
+</pre>
+</div>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static string[] WritableTypeIdentifiers { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type NSMutableString -->
+<!-- start type NSProgress --> <div>
+<h3>Type Changed: Foundation.NSProgress</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public nint? EstimatedTimeRemaining { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public nint? FileCompletedCount { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string FileOperationKind { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public nint? FileTotalCount { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSUrl FileUrl { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Finished { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public nint? Throughput { get; set; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PerformAsCurrent (long unitCount, System.Action work);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task PerformAsCurrentAsync (long unitCount);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSProgress -->
+<!-- start type NSString --> <div>
+<h3>Type Changed: Foundation.NSString</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">INSItemProviderWriting</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static string[] ReadableTypeIdentifiers { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static string[] WritableTypeIdentifiers { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] WritableTypeIdentifiersForItemProvider { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static NSString FromItemProviderData (NSData itemProviderData, string typeIdentifier, NSError outError);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSItemProviderRepresentationVisibility GetItemProviderVisibility (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSProgress LoadData (string typeIdentifier, System.Action&lt;NSData,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;NSData&gt; LoadDataAsync (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;NSData&gt; LoadDataAsync (string typeIdentifier, NSProgress result);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSString -->
+<!-- start type NSTextCheckingResult --> <div>
+<h3>Type Changed: Foundation.NSTextCheckingResult</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSRange GetRange (string name);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSTextCheckingResult -->
+<!-- start type NSUnit --> <div>
+<h3>Type Changed: Foundation.NSUnit</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string)")]
+	public NSUnit ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnit -->
+<!-- start type NSUnitAcceleration --> <div>
+<h3>Type Changed: Foundation.NSUnitAcceleration</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitAcceleration ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitAcceleration -->
+<!-- start type NSUnitAngle --> <div>
+<h3>Type Changed: Foundation.NSUnitAngle</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitAngle ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitAngle -->
+<!-- start type NSUnitArea --> <div>
+<h3>Type Changed: Foundation.NSUnitArea</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitArea ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitArea -->
+<!-- start type NSUnitConcentrationMass --> <div>
+<h3>Type Changed: Foundation.NSUnitConcentrationMass</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitConcentrationMass ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitConcentrationMass -->
+<!-- start type NSUnitDispersion --> <div>
+<h3>Type Changed: Foundation.NSUnitDispersion</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitDispersion ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitDispersion -->
+<!-- start type NSUnitDuration --> <div>
+<h3>Type Changed: Foundation.NSUnitDuration</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitDuration ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitDuration -->
+<!-- start type NSUnitElectricCharge --> <div>
+<h3>Type Changed: Foundation.NSUnitElectricCharge</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitElectricCharge ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitElectricCharge -->
+<!-- start type NSUnitElectricCurrent --> <div>
+<h3>Type Changed: Foundation.NSUnitElectricCurrent</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitElectricCurrent ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitElectricCurrent -->
+<!-- start type NSUnitElectricPotentialDifference --> <div>
+<h3>Type Changed: Foundation.NSUnitElectricPotentialDifference</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitElectricPotentialDifference ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitElectricPotentialDifference -->
+<!-- start type NSUnitElectricResistance --> <div>
+<h3>Type Changed: Foundation.NSUnitElectricResistance</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitElectricResistance ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitElectricResistance -->
+<!-- start type NSUnitEnergy --> <div>
+<h3>Type Changed: Foundation.NSUnitEnergy</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitEnergy ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitEnergy -->
+<!-- start type NSUnitFrequency --> <div>
+<h3>Type Changed: Foundation.NSUnitFrequency</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitFrequency ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitFrequency -->
+<!-- start type NSUnitFuelEfficiency --> <div>
+<h3>Type Changed: Foundation.NSUnitFuelEfficiency</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitFuelEfficiency ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitFuelEfficiency -->
+<!-- start type NSUnitIlluminance --> <div>
+<h3>Type Changed: Foundation.NSUnitIlluminance</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitIlluminance ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitIlluminance -->
+<!-- start type NSUnitLength --> <div>
+<h3>Type Changed: Foundation.NSUnitLength</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitLength ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitLength -->
+<!-- start type NSUnitMass --> <div>
+<h3>Type Changed: Foundation.NSUnitMass</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitMass ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitMass -->
+<!-- start type NSUnitPower --> <div>
+<h3>Type Changed: Foundation.NSUnitPower</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitPower ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitPower -->
+<!-- start type NSUnitPressure --> <div>
+<h3>Type Changed: Foundation.NSUnitPressure</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitPressure ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitPressure -->
+<!-- start type NSUnitSpeed --> <div>
+<h3>Type Changed: Foundation.NSUnitSpeed</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitSpeed ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitSpeed -->
+<!-- start type NSUnitVolume --> <div>
+<h3>Type Changed: Foundation.NSUnitVolume</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("Use .ctor(string, NSUnitConverter) or any of the static properties.")]
+	public NSUnitVolume ();</span>
+</div></pre>
+
+</div> <!-- end type NSUnitVolume -->
+<!-- start type NSUrl --> <div>
+<h3>Type Changed: Foundation.NSUrl</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">INSItemProviderWriting</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static string[] ReadableTypeIdentifiers { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousItemIsSharedKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemCurrentUserPermissionsKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemCurrentUserRoleKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemMostRecentEditorNameComponentsKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemOwnerNameComponentsKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemPermissionsReadOnly { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemPermissionsReadWrite { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemRoleOwner { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString UbiquitousSharedItemRoleParticipant { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString VolumeAvailableCapacityForImportantUsageKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString VolumeAvailableCapacityForOpportunisticUsageKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString VolumeIsEncryptedKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString VolumeIsRootFileSystemKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString VolumeSupportsAccessPermissionsKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString VolumeSupportsCompressionKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString VolumeSupportsExclusiveRenamingKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString VolumeSupportsFileCloningKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString VolumeSupportsImmutableFilesKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSString VolumeSupportsSwapRenamingKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static string[] WritableTypeIdentifiers { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] WritableTypeIdentifiersForItemProvider { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static NSUrl FromItemProviderData (NSData itemProviderData, string typeIdentifier, NSError outError);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSItemProviderRepresentationVisibility GetItemProviderVisibility (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSProgress LoadData (string typeIdentifier, System.Action&lt;NSData,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;NSData&gt; LoadDataAsync (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;NSData&gt; LoadDataAsync (string typeIdentifier, NSProgress result);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSUrl -->
+<!-- start type NSUrlComponents --> <div>
+<h3>Type Changed: Foundation.NSUrlComponents</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSUrlQueryItem[] PercentEncodedQueryItems { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type NSUrlComponents -->
+<!-- start type NSUrlSessionConfiguration --> <div>
+<h3>Type Changed: Foundation.NSUrlSessionConfiguration</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSUrlSessionMultipathServiceType MultipathServiceType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool WaitsForConnectivity { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type NSUrlSessionConfiguration -->
+<!-- start type NSUrlSessionTask --> <div>
+<h3>Type Changed: Foundation.NSUrlSessionTask</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual long CountOfBytesClientExpectsToReceive { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual long CountOfBytesClientExpectsToSend { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSDate EarliestBeginDate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSProgress Progress { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type NSUrlSessionTask -->
+<!-- start type NSUrlSessionTaskDelegate --> <div>
+<h3>Type Changed: Foundation.NSUrlSessionTaskDelegate</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void TaskIsWaitingForConnectivity (NSUrlSession session, NSUrlSessionTask task);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillBeginDelayedRequest (NSUrlSession session, NSUrlSessionTask task, NSUrlRequest request, System.Action&lt;NSUrlSessionDelayedRequestDisposition,Foundation.NSUrlRequest&gt; completionHandler);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSUrlSessionTaskDelegate -->
+<!-- start type NSUrlSessionTaskDelegate_Extensions --> <div>
+<h3>Type Changed: Foundation.NSUrlSessionTaskDelegate_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void TaskIsWaitingForConnectivity (INSUrlSessionTaskDelegate This, NSUrlSession session, NSUrlSessionTask task);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void WillBeginDelayedRequest (INSUrlSessionTaskDelegate This, NSUrlSession session, NSUrlSessionTask task, NSUrlRequest request, System.Action&lt;NSUrlSessionDelayedRequestDisposition,Foundation.NSUrlRequest&gt; completionHandler);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSUrlSessionTaskDelegate_Extensions -->
+<!-- start type NSUserActivity --> <div>
+<h3>Type Changed: Foundation.NSUserActivity</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSUrl ReferrerUrl { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type NSUserActivity -->
+<!-- start type NSValue --> <div>
+<h3>Type Changed: Foundation.NSValue</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.NSDirectionalEdgeInsets DirectionalEdgeInsetsValue { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static NSValue FromDirectionalEdgeInsets (UIKit.NSDirectionalEdgeInsets insets);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSValue -->
+<div> <!-- start type INSItemProviderReading -->
+<h3>New Type Foundation.INSItemProviderReading</h3>
+<pre class='added' data-is-non-breaking="">
+public interface INSItemProviderReading : ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type INSItemProviderReading -->
+<div> <!-- start type INSItemProviderWriting -->
+<h3>New Type Foundation.INSItemProviderWriting</h3>
+<pre class='added' data-is-non-breaking="">
+public interface INSItemProviderWriting : ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type INSItemProviderWriting -->
+<div> <!-- start type ItemProviderDataCompletionHandler -->
+<h3>New Type Foundation.ItemProviderDataCompletionHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate ItemProviderDataCompletionHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public ItemProviderDataCompletionHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (NSData data, NSError error, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invoke (NSData data, NSError error);</span>
+}
+</pre>
+</div> <!-- end type ItemProviderDataCompletionHandler -->
+<div> <!-- start type LinguisticTagEnumerator -->
+<h3>New Type Foundation.LinguisticTagEnumerator</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate LinguisticTagEnumerator : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public LinguisticTagEnumerator (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (string tag, NSRange tokenRange, bool stop, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invoke (string tag, NSRange tokenRange, bool stop);</span>
+}
+</pre>
+</div> <!-- end type LinguisticTagEnumerator -->
+<div> <!-- start type LoadInPlaceFileRepresentationHandler -->
+<h3>New Type Foundation.LoadInPlaceFileRepresentationHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate LoadInPlaceFileRepresentationHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public LoadInPlaceFileRepresentationHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (NSUrl fileUrl, bool isInPlace, NSError error, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invoke (NSUrl fileUrl, bool isInPlace, NSError error);</span>
+}
+</pre>
+</div> <!-- end type LoadInPlaceFileRepresentationHandler -->
+<div> <!-- start type LoadInPlaceResult -->
+<h3>New Type Foundation.LoadInPlaceResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class LoadInPlaceResult {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public LoadInPlaceResult (NSUrl fileUrl, bool isInPlace);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public NSUrl FileUrl { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public bool IsInPlace { get; set; }</span>
+}
+</pre>
+</div> <!-- end type LoadInPlaceResult -->
+<div> <!-- start type NSFileProviderMessageInterface -->
+<h3>New Type Foundation.NSFileProviderMessageInterface</h3>
+<pre class='added' data-is-non-breaking="">
+public class NSFileProviderMessageInterface : Foundation.NSObject, INSCoding, INSObjectProtocol, INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public NSFileProviderMessageInterface ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NSFileProviderMessageInterface (NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSFileProviderMessageInterface (NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSFileProviderMessageInterface (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Name { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type NSFileProviderMessageInterface -->
+<div> <!-- start type NSFileProviderMessenger -->
+<h3>New Type Foundation.NSFileProviderMessenger</h3>
+<pre class='added' data-is-non-breaking="">
+public class NSFileProviderMessenger : Foundation.NSObject, INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSFileProviderMessenger (NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSFileProviderMessenger (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NSFileProviderMessenger (NSFileProviderMessageInterface interface, ObjCRuntime.Protocol protocol);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSObject GetRemoteObjectProxy (System.Action&lt;NSError&gt; errorHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task GetRemoteObjectProxyAsync ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task GetRemoteObjectProxyAsync (NSObject result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invalidate ();</span>
+}
+</pre>
+</div> <!-- end type NSFileProviderMessenger -->
+<div> <!-- start type NSFileProviderService -->
+<h3>New Type Foundation.NSFileProviderService</h3>
+<pre class='added' data-is-non-breaking="">
+public class NSFileProviderService : Foundation.NSObject, INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSFileProviderService (NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSFileProviderService (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Name { get; }</span>
+}
+</pre>
+</div> <!-- end type NSFileProviderService -->
+<div> <!-- start type NSItemProviderFileOptions -->
+<h3>New Type Foundation.NSItemProviderFileOptions</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum NSItemProviderFileOptions {
+	<span class='added added-field ' data-is-non-breaking="">OpenInPlace = 1,</span>
+}
+</pre>
+</div> <!-- end type NSItemProviderFileOptions -->
+<div> <!-- start type NSItemProviderRepresentationVisibility -->
+<h3>New Type Foundation.NSItemProviderRepresentationVisibility</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum NSItemProviderRepresentationVisibility {
+	<span class='added added-field ' data-is-non-breaking="">All = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Group = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">OwnProcess = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Team = 1,</span>
+}
+</pre>
+</div> <!-- end type NSItemProviderRepresentationVisibility -->
+<div> <!-- start type NSItemProviderWriting_Extensions -->
+<h3>New Type Foundation.NSItemProviderWriting_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class NSItemProviderWriting_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static NSItemProviderRepresentationVisibility GetItemProviderVisibility (INSItemProviderWriting This, string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static string[] GetWritableTypeIdentifiersForItemProvider (INSItemProviderWriting This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static NSProgress LoadData (INSItemProviderWriting This, string typeIdentifier, System.Action&lt;NSData,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static System.Threading.Tasks.Task&lt;NSData&gt; LoadDataAsync (INSItemProviderWriting This, string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static System.Threading.Tasks.Task&lt;NSData&gt; LoadDataAsync (INSItemProviderWriting This, string typeIdentifier, NSProgress result);</span>
+}
+</pre>
+</div> <!-- end type NSItemProviderWriting_Extensions -->
+<div> <!-- start type NSLinguisticTaggerUnit -->
+<h3>New Type Foundation.NSLinguisticTaggerUnit</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum NSLinguisticTaggerUnit {
+	<span class='added added-field ' data-is-non-breaking="">Document = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Paragraph = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Sentence = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Word = 0,</span>
+}
+</pre>
+</div> <!-- end type NSLinguisticTaggerUnit -->
+<div> <!-- start type NSUrlSessionDelayedRequestDisposition -->
+<h3>New Type Foundation.NSUrlSessionDelayedRequestDisposition</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum NSUrlSessionDelayedRequestDisposition {
+	<span class='added added-field ' data-is-non-breaking="">Cancel = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">ContinueLoading = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">UseNewRequest = 1,</span>
+}
+</pre>
+</div> <!-- end type NSUrlSessionDelayedRequestDisposition -->
+<div> <!-- start type NSUrlSessionMultipathServiceType -->
+<h3>New Type Foundation.NSUrlSessionMultipathServiceType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum NSUrlSessionMultipathServiceType {
+	<span class='added added-field ' data-is-non-breaking="">Aggregate = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Handover = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Interactive = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+}
+</pre>
+</div> <!-- end type NSUrlSessionMultipathServiceType -->
+<div> <!-- start type RegisterDataRepresentationLoadHandler -->
+<h3>New Type Foundation.RegisterDataRepresentationLoadHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate RegisterDataRepresentationLoadHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public RegisterDataRepresentationLoadHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (ItemProviderDataCompletionHandler completionHandler, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSProgress EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSProgress Invoke (ItemProviderDataCompletionHandler completionHandler);</span>
+}
+</pre>
+</div> <!-- end type RegisterDataRepresentationLoadHandler -->
+<div> <!-- start type RegisterFileRepresentationCompletionHandler -->
+<h3>New Type Foundation.RegisterFileRepresentationCompletionHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate RegisterFileRepresentationCompletionHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public RegisterFileRepresentationCompletionHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (NSUrl fileUrl, bool coordinated, NSError error, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invoke (NSUrl fileUrl, bool coordinated, NSError error);</span>
+}
+</pre>
+</div> <!-- end type RegisterFileRepresentationCompletionHandler -->
+<div> <!-- start type RegisterFileRepresentationLoadHandler -->
+<h3>New Type Foundation.RegisterFileRepresentationLoadHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate RegisterFileRepresentationLoadHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public RegisterFileRepresentationLoadHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (RegisterFileRepresentationCompletionHandler completionHandler, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSProgress EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSProgress Invoke (RegisterFileRepresentationCompletionHandler completionHandler);</span>
+}
+</pre>
+</div> <!-- end type RegisterFileRepresentationLoadHandler -->
+<div> <!-- start type RegisterObjectRepresentationCompletionHandler -->
+<h3>New Type Foundation.RegisterObjectRepresentationCompletionHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate RegisterObjectRepresentationCompletionHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public RegisterObjectRepresentationCompletionHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (INSItemProviderWriting object, NSError error, System.AsyncCallback callback, object _object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invoke (INSItemProviderWriting object, NSError error);</span>
+}
+</pre>
+</div> <!-- end type RegisterObjectRepresentationCompletionHandler -->
+<div> <!-- start type RegisterObjectRepresentationLoadHandler -->
+<h3>New Type Foundation.RegisterObjectRepresentationLoadHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate RegisterObjectRepresentationLoadHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public RegisterObjectRepresentationLoadHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (RegisterObjectRepresentationCompletionHandler completionHandler, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSProgress EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual NSProgress Invoke (RegisterObjectRepresentationCompletionHandler completionHandler);</span>
+}
+</pre>
+</div> <!-- end type RegisterObjectRepresentationLoadHandler -->
+
+</div> <!-- end namespace Foundation -->
+<!-- start namespace GameController --> <div> 
+<h2>Namespace GameController</h2>
+<!-- start type GCMotion --> <div>
+<h3>Type Changed: GameController.GCMotion</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool HasAttitudeAndRotationRate { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type GCMotion -->
+
+</div> <!-- end namespace GameController -->
+<!-- start namespace HomeKit --> <div> 
+<h2>Namespace HomeKit</h2>
+<!-- start type HMAccessory --> <div>
+<h3>Type Changed: HomeKit.HMAccessory</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string FirmwareVersion { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Manufacturer { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Model { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual HMAccessoryProfile[] Profiles { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added events:</p>
+<pre>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler&lt;HMAccessoryProfileEventArgs&gt; DidAddProfile;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler&lt;HMAccessoryProfileEventArgs&gt; DidRemoveProfile;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler&lt;HMAccessoryFirmwareVersionEventArgs&gt; DidUpdateFirmwareVersion;</span>
+</pre>
+</div>
+
+</div> <!-- end type HMAccessory -->
+<!-- start type HMAccessoryDelegate --> <div>
+<h3>Type Changed: HomeKit.HMAccessoryDelegate</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidAddProfile (HMAccessory accessory, HMAccessoryProfile profile);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidRemoveProfile (HMAccessory accessory, HMAccessoryProfile profile);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidUpdateFirmwareVersion (HMAccessory accessory, string firmwareVersion);</span>
+</pre>
+</div>
+
+</div> <!-- end type HMAccessoryDelegate -->
+<!-- start type HMAccessoryDelegate_Extensions --> <div>
+<h3>Type Changed: HomeKit.HMAccessoryDelegate_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidAddProfile (IHMAccessoryDelegate This, HMAccessory accessory, HMAccessoryProfile profile);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidRemoveProfile (IHMAccessoryDelegate This, HMAccessory accessory, HMAccessoryProfile profile);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidUpdateFirmwareVersion (IHMAccessoryDelegate This, HMAccessory accessory, string firmwareVersion);</span>
+</pre>
+</div>
+
+</div> <!-- end type HMAccessoryDelegate_Extensions -->
+<!-- start type HMCharacteristicEvent --> <div>
+<h3>Type Changed: HomeKit.HMCharacteristicEvent</h3>
+<p>Modified properties:</p>
+<pre>
+<div data-is-non-breaking="">	public virtual HMCharacteristic Characteristic { get; <span class='added '>set;</span> }
+</div><div data-is-non-breaking="">	public virtual Foundation.INSCopying TriggerValue { get; <span class='added '>set;</span> }
+</div></pre>
+
+</div> <!-- end type HMCharacteristicEvent -->
+<!-- start type HMCharacteristicType --> <div>
+<h3>Type Changed: HomeKit.HMCharacteristicType</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">ColorTemperature = 115,</span>
+</pre>
+</div>
+
+</div> <!-- end type HMCharacteristicType -->
+<!-- start type HMError --> <div>
+<h3>Type Changed: HomeKit.HMError</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">IncompatibleHomeHub = 92,</span>
+	<span class='added added-field ' data-is-non-breaking="">NoHomeHub = 91,</span>
+</pre>
+</div>
+
+</div> <!-- end type HMError -->
+<!-- start type HMEvent --> <div>
+<h3>Type Changed: HomeKit.HMEvent</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static bool IsSupported (HMHome home);</span>
+</pre>
+</div>
+
+</div> <!-- end type HMEvent -->
+<!-- start type HMEventTrigger --> <div>
+<h3>Type Changed: HomeKit.HMEventTrigger</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public HMEventTrigger (string name, HMEvent[] events, HMEvent[] endEvents, Foundation.NSDateComponents[] recurrences, Foundation.NSPredicate predicate);</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual HMEvent[] EndEvents { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ExecuteOnce { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDateComponents[] Recurrences { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual HMEventTriggerActivationState TriggerActivationState { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSPredicate CreatePredicateForEvaluatingTrigger (HMPresenceEvent presenceEvent);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSPredicate CreatePredicateForEvaluatingTriggerOccurringAfterSignificantEvent (HMSignificantTimeEvent significantEvent);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSPredicate CreatePredicateForEvaluatingTriggerOccurringBeforeSignificantEvent (HMSignificantTimeEvent significantEvent);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSPredicate CreatePredicateForEvaluatingTriggerOccurringBetweenDates (Foundation.NSDateComponents firstDateComponents, Foundation.NSDateComponents secondDateComponents);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSPredicate CreatePredicateForEvaluatingTriggerOccurringBetweenSignificantEvent (HMSignificantTimeEvent firstSignificantEvent, HMSignificantTimeEvent secondSignificantEvent);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void UpdateEndEvents (HMEvent[] endEvents, System.Action&lt;Foundation.NSError&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task UpdateEndEventsAsync (HMEvent[] endEvents);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void UpdateEvents (HMEvent[] events, System.Action&lt;Foundation.NSError&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task UpdateEventsAsync (HMEvent[] events);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void UpdateExecuteOnce (bool executeOnce, System.Action&lt;Foundation.NSError&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task UpdateExecuteOnceAsync (bool executeOnce);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void UpdateRecurrences (Foundation.NSDateComponents[] recurrences, System.Action&lt;Foundation.NSError&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task UpdateRecurrencesAsync (Foundation.NSDateComponents[] recurrences);</span>
+</pre>
+</div>
+
+</div> <!-- end type HMEventTrigger -->
+<!-- start type HMHome --> <div>
+<h3>Type Changed: HomeKit.HMHome</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual HMHomeHubState HomeHubState { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added events:</p>
+<pre>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler DidUpdateAccessControlForCurrentUser;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler&lt;HMHomeHubStateEventArgs&gt; DidUpdateHomeHubState;</span>
+</pre>
+</div>
+
+</div> <!-- end type HMHome -->
+<!-- start type HMHomeDelegate --> <div>
+<h3>Type Changed: HomeKit.HMHomeDelegate</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidUpdateAccessControlForCurrentUser (HMHome home);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidUpdateHomeHubState (HMHome home, HMHomeHubState homeHubState);</span>
+</pre>
+</div>
+
+</div> <!-- end type HMHomeDelegate -->
+<!-- start type HMHomeDelegate_Extensions --> <div>
+<h3>Type Changed: HomeKit.HMHomeDelegate_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidUpdateAccessControlForCurrentUser (IHMHomeDelegate This, HMHome home);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidUpdateHomeHubState (IHMHomeDelegate This, HMHome home, HMHomeHubState homeHubState);</span>
+</pre>
+</div>
+
+</div> <!-- end type HMHomeDelegate_Extensions -->
+<!-- start type HMLocationEvent --> <div>
+<h3>Type Changed: HomeKit.HMLocationEvent</h3>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCopying</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSMutableCopying</span>
+</pre>
+</div>
+<p>Modified properties:</p>
+<pre>
+<div data-is-non-breaking="">	public virtual CoreLocation.CLRegion Region { get; <span class='added '>set;</span> }
+</div></pre>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject MutableCopy (Foundation.NSZone zone);</span>
+</pre>
+</div>
+
+</div> <!-- end type HMLocationEvent -->
+<div> <!-- start type HMAccessoryFirmwareVersionEventArgs -->
+<h3>New Type HomeKit.HMAccessoryFirmwareVersionEventArgs</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMAccessoryFirmwareVersionEventArgs : System.EventArgs {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public HMAccessoryFirmwareVersionEventArgs (string firmwareVersion);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public string FirmwareVersion { get; set; }</span>
+}
+</pre>
+</div> <!-- end type HMAccessoryFirmwareVersionEventArgs -->
+<div> <!-- start type HMAccessoryProfileEventArgs -->
+<h3>New Type HomeKit.HMAccessoryProfileEventArgs</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMAccessoryProfileEventArgs : System.EventArgs {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public HMAccessoryProfileEventArgs (HMAccessoryProfile profile);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public HMAccessoryProfile Profile { get; set; }</span>
+}
+</pre>
+</div> <!-- end type HMAccessoryProfileEventArgs -->
+<div> <!-- start type HMCalendarEvent -->
+<h3>New Type HomeKit.HMCalendarEvent</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMCalendarEvent : HomeKit.HMTimeEvent, Foundation.INSCopying, Foundation.INSMutableCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public HMCalendarEvent (Foundation.NSDateComponents fireDateComponents);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMCalendarEvent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMCalendarEvent (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDateComponents FireDateComponents { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject MutableCopy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type HMCalendarEvent -->
+<div> <!-- start type HMCharacteristicThresholdRangeEvent -->
+<h3>New Type HomeKit.HMCharacteristicThresholdRangeEvent</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMCharacteristicThresholdRangeEvent : HomeKit.HMEvent, Foundation.INSCopying, Foundation.INSMutableCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMCharacteristicThresholdRangeEvent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMCharacteristicThresholdRangeEvent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public HMCharacteristicThresholdRangeEvent (HMCharacteristic characteristic, HMNumberRange thresholdRange);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual HMCharacteristic Characteristic { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual HMNumberRange ThresholdRange { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject MutableCopy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type HMCharacteristicThresholdRangeEvent -->
+<div> <!-- start type HMDurationEvent -->
+<h3>New Type HomeKit.HMDurationEvent</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMDurationEvent : HomeKit.HMTimeEvent, Foundation.INSCopying, Foundation.INSMutableCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMDurationEvent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public HMDurationEvent (double duration);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMDurationEvent (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual double Duration { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject MutableCopy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type HMDurationEvent -->
+<div> <!-- start type HMEventTriggerActivationState -->
+<h3>New Type HomeKit.HMEventTriggerActivationState</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum HMEventTriggerActivationState {
+	<span class='added added-field ' data-is-non-breaking="">Disabled = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">DisabledNoCompatibleHomeHub = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">DisabledNoHomeHub = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">DisabledNoLocationServicesAuthorization = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Enabled = 4,</span>
+}
+</pre>
+</div> <!-- end type HMEventTriggerActivationState -->
+<div> <!-- start type HMHomeHubState -->
+<h3>New Type HomeKit.HMHomeHubState</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum HMHomeHubState {
+	<span class='added added-field ' data-is-non-breaking="">Connected = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Disconnected = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">NotAvailable = 0,</span>
+}
+</pre>
+</div> <!-- end type HMHomeHubState -->
+<div> <!-- start type HMHomeHubStateEventArgs -->
+<h3>New Type HomeKit.HMHomeHubStateEventArgs</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMHomeHubStateEventArgs : System.EventArgs {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public HMHomeHubStateEventArgs (HMHomeHubState homeHubState);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public HMHomeHubState HomeHubState { get; set; }</span>
+}
+</pre>
+</div> <!-- end type HMHomeHubStateEventArgs -->
+<div> <!-- start type HMMutableCalendarEvent -->
+<h3>New Type HomeKit.HMMutableCalendarEvent</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMMutableCalendarEvent : HomeKit.HMCalendarEvent, Foundation.INSCopying, Foundation.INSMutableCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public HMMutableCalendarEvent (Foundation.NSDateComponents fireDateComponents);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMMutableCalendarEvent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMMutableCalendarEvent (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override Foundation.NSDateComponents FireDateComponents { get; set; }</span>
+}
+</pre>
+</div> <!-- end type HMMutableCalendarEvent -->
+<div> <!-- start type HMMutableCharacteristicEvent -->
+<h3>New Type HomeKit.HMMutableCharacteristicEvent</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMMutableCharacteristicEvent : HomeKit.HMCharacteristicEvent, Foundation.INSCopying, Foundation.INSMutableCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMMutableCharacteristicEvent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMMutableCharacteristicEvent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public HMMutableCharacteristicEvent (HMCharacteristic characteristic, Foundation.INSCopying triggerValue);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override HMCharacteristic Characteristic { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override Foundation.INSCopying TriggerValue { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject MutableCopy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type HMMutableCharacteristicEvent -->
+<div> <!-- start type HMMutableCharacteristicThresholdRangeEvent -->
+<h3>New Type HomeKit.HMMutableCharacteristicThresholdRangeEvent</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMMutableCharacteristicThresholdRangeEvent : HomeKit.HMCharacteristicThresholdRangeEvent, Foundation.INSCopying, Foundation.INSMutableCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMMutableCharacteristicThresholdRangeEvent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMMutableCharacteristicThresholdRangeEvent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public HMMutableCharacteristicThresholdRangeEvent (HMCharacteristic characteristic, HMNumberRange thresholdRange);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override HMCharacteristic Characteristic { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override HMNumberRange ThresholdRange { get; set; }</span>
+}
+</pre>
+</div> <!-- end type HMMutableCharacteristicThresholdRangeEvent -->
+<div> <!-- start type HMMutableDurationEvent -->
+<h3>New Type HomeKit.HMMutableDurationEvent</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMMutableDurationEvent : HomeKit.HMDurationEvent, Foundation.INSCopying, Foundation.INSMutableCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMMutableDurationEvent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public HMMutableDurationEvent (double duration);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMMutableDurationEvent (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override double Duration { get; set; }</span>
+}
+</pre>
+</div> <!-- end type HMMutableDurationEvent -->
+<div> <!-- start type HMMutableLocationEvent -->
+<h3>New Type HomeKit.HMMutableLocationEvent</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMMutableLocationEvent : HomeKit.HMLocationEvent, Foundation.INSCopying, Foundation.INSMutableCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public HMMutableLocationEvent (CoreLocation.CLRegion region);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMMutableLocationEvent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMMutableLocationEvent (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override CoreLocation.CLRegion Region { get; set; }</span>
+}
+</pre>
+</div> <!-- end type HMMutableLocationEvent -->
+<div> <!-- start type HMMutablePresenceEvent -->
+<h3>New Type HomeKit.HMMutablePresenceEvent</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMMutablePresenceEvent : HomeKit.HMPresenceEvent, Foundation.INSCopying, Foundation.INSMutableCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMMutablePresenceEvent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMMutablePresenceEvent (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual HMPresenceEventType PresenceEventType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual HMPresenceEventUserType PresenceUserType { get; set; }</span>
+}
+</pre>
+</div> <!-- end type HMMutablePresenceEvent -->
+<div> <!-- start type HMMutableSignificantTimeEvent -->
+<h3>New Type HomeKit.HMMutableSignificantTimeEvent</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMMutableSignificantTimeEvent : HomeKit.HMSignificantTimeEvent, Foundation.INSCopying, Foundation.INSMutableCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public HMMutableSignificantTimeEvent ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMMutableSignificantTimeEvent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMMutableSignificantTimeEvent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public HMMutableSignificantTimeEvent (Foundation.NSString significantEvent, Foundation.NSDateComponents offset);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public HMMutableSignificantTimeEvent (HMSignificantEvent significantEvent, Foundation.NSDateComponents offset);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override Foundation.NSDateComponents Offset { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual HMSignificantEvent SignificantEvent { get; set; }</span>
+}
+</pre>
+</div> <!-- end type HMMutableSignificantTimeEvent -->
+<div> <!-- start type HMNumberRange -->
+<h3>New Type HomeKit.HMNumberRange</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMNumberRange : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMNumberRange (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMNumberRange (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSNumber Max { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSNumber Min { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static HMNumberRange FromMax (Foundation.NSNumber maxValue);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static HMNumberRange FromMin (Foundation.NSNumber minValue);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static HMNumberRange FromRange (Foundation.NSNumber minValue, Foundation.NSNumber maxValue);</span>
+}
+</pre>
+</div> <!-- end type HMNumberRange -->
+<div> <!-- start type HMPresenceEvent -->
+<h3>New Type HomeKit.HMPresenceEvent</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMPresenceEvent : HomeKit.HMEvent, Foundation.INSCopying, Foundation.INSMutableCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMPresenceEvent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMPresenceEvent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public HMPresenceEvent (HMPresenceEventType presenceEventType, HMPresenceEventUserType presenceUserType);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString KeyPath { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual HMPresenceEventType PresenceEventType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual HMPresenceEventUserType PresenceUserType { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject MutableCopy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type HMPresenceEvent -->
+<div> <!-- start type HMPresenceEventType -->
+<h3>New Type HomeKit.HMPresenceEventType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum HMPresenceEventType {
+	<span class='added added-field ' data-is-non-breaking="">AtHome = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">EveryEntry = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">EveryExit = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">FirstEntry = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">LastExit = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">NotAtHome = 4,</span>
+}
+</pre>
+</div> <!-- end type HMPresenceEventType -->
+<div> <!-- start type HMPresenceEventUserType -->
+<h3>New Type HomeKit.HMPresenceEventUserType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum HMPresenceEventUserType {
+	<span class='added added-field ' data-is-non-breaking="">CurrentUser = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">CustomUsers = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">HomeUsers = 2,</span>
+}
+</pre>
+</div> <!-- end type HMPresenceEventUserType -->
+<div> <!-- start type HMSignificantEventExtensions -->
+<h3>New Type HomeKit.HMSignificantEventExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class HMSignificantEventExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetConstant (HMSignificantEvent self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static HMSignificantEvent GetValue (Foundation.NSString constant);</span>
+}
+</pre>
+</div> <!-- end type HMSignificantEventExtensions -->
+<div> <!-- start type HMSignificantTimeEvent -->
+<h3>New Type HomeKit.HMSignificantTimeEvent</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMSignificantTimeEvent : HomeKit.HMTimeEvent, Foundation.INSCopying, Foundation.INSMutableCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMSignificantTimeEvent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMSignificantTimeEvent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public HMSignificantTimeEvent (Foundation.NSString significantEvent, Foundation.NSDateComponents offset);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public HMSignificantTimeEvent (HMSignificantEvent significantEvent, Foundation.NSDateComponents offset);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDateComponents Offset { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual HMSignificantEvent SignificantEvent { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject MutableCopy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type HMSignificantTimeEvent -->
+<div> <!-- start type HMTimeEvent -->
+<h3>New Type HomeKit.HMTimeEvent</h3>
+<pre class='added' data-is-non-breaking="">
+public class HMTimeEvent : HomeKit.HMEvent, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public HMTimeEvent ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMTimeEvent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected HMTimeEvent (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type HMTimeEvent -->
+
+</div> <!-- end namespace HomeKit -->
+<!-- start namespace ImageIO --> <div> 
+<h2>Namespace ImageIO</h2>
+<!-- start type CGImageDestination --> <div>
+<h3>Type Changed: ImageIO.CGImageDestination</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public void AddAuxiliaryDataInfo (CGImageDestination dest, CGImageAuxiliaryDataType auxiliaryImageDataType, CGImageAuxiliaryDataInfo auxiliaryDataInfo);</span>
+</pre>
+</div>
+
+</div> <!-- end type CGImageDestination -->
+<!-- start type CGImageProperties --> <div>
+<h3>Type Changed: ImageIO.CGImageProperties</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString AuxiliaryData { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString AuxiliaryDataType { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString BytesPerRow { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString FileContentsDictionary { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString Height { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString ImageCount { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString Images { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString NamedColorSpace { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString PixelFormat { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString ThumbnailImages { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString Width { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type CGImageProperties -->
+<!-- start type CGImageSource --> <div>
+<h3>Type Changed: ImageIO.CGImageSource</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public CGImageAuxiliaryDataInfo CopyAuxiliaryDataInfo (CGImageSource imageSource, uint index, CGImageAuxiliaryDataType auxiliaryImageDataType);</span>
+</pre>
+</div>
+
+</div> <!-- end type CGImageSource -->
+<div> <!-- start type CGImageAuxiliaryDataInfo -->
+<h3>New Type ImageIO.CGImageAuxiliaryDataInfo</h3>
+<pre class='added' data-is-non-breaking="">
+public class CGImageAuxiliaryDataInfo {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public CGImageAuxiliaryDataInfo ();</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public Foundation.NSData DepthData { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public Foundation.NSDictionary DepthDataDescription { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public CGImageMetadata Metadata { get; set; }</span>
+}
+</pre>
+</div> <!-- end type CGImageAuxiliaryDataInfo -->
+<div> <!-- start type CGImageAuxiliaryDataType -->
+<h3>New Type ImageIO.CGImageAuxiliaryDataType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum CGImageAuxiliaryDataType {
+	<span class='added added-field ' data-is-non-breaking="">Depth = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Disparity = 1,</span>
+}
+</pre>
+</div> <!-- end type CGImageAuxiliaryDataType -->
+<div> <!-- start type CGImageAuxiliaryDataTypeExtensions -->
+<h3>New Type ImageIO.CGImageAuxiliaryDataTypeExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class CGImageAuxiliaryDataTypeExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetConstant (CGImageAuxiliaryDataType self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static CGImageAuxiliaryDataType GetValue (Foundation.NSString constant);</span>
+}
+</pre>
+</div> <!-- end type CGImageAuxiliaryDataTypeExtensions -->
+
+</div> <!-- end namespace ImageIO -->
+<!-- start namespace Intents --> <div> 
+<h2>Namespace Intents</h2>
+<!-- start type IINPaymentsDomainHandling --> <div>
+<h3>Type Changed: Intents.IINPaymentsDomainHandling</h3>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface breaking' data-is-breaking="">IINSearchForAccountsIntentHandling</span>
+	<span class='added added-interface breaking' data-is-breaking="">IINTransferMoneyIntentHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type IINPaymentsDomainHandling -->
+<!-- start type IINRidesharingDomainHandling --> <div>
+<h3>Type Changed: Intents.IINRidesharingDomainHandling</h3>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface breaking' data-is-breaking="">IINCancelRideIntentHandling</span>
+	<span class='added added-interface breaking' data-is-breaking="">IINSendRideFeedbackIntentHandling</span>
+</pre>
+</div>
+
+</div> <!-- end type IINRidesharingDomainHandling -->
+<!-- start type IINSpeakable --> <div>
+<h3>Type Changed: Intents.IINSpeakable</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property breaking' data-is-breaking="">public virtual IINSpeakable[] AlternativeSpeakableMatches { get; }</span>
+	<span class='added added-property breaking' data-is-breaking="">public virtual string VocabularyIdentifier { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type IINSpeakable -->
+<!-- start type INAmountType --> <div>
+<h3>Type Changed: Intents.INAmountType</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">MaximumTransferAmount = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">MinimumTransferAmount = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">StatementBalance = 6,</span>
+</pre>
+</div>
+
+</div> <!-- end type INAmountType -->
+<!-- start type INBookRestaurantReservationIntent --> <div>
+<h3>Type Changed: Intents.INBookRestaurantReservationIntent</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public INBookRestaurantReservationIntent (INRestaurant restaurant, Foundation.NSDateComponents bookingDateComponents, ulong partySize, string bookingIdentifier, INRestaurantGuest guest, INRestaurantOffer selectedOffer, string guestProvidedSpecialRequestText);</span>
+</pre>
+</div>
+
+</div> <!-- end type INBookRestaurantReservationIntent -->
+<!-- start type INCallRecordType --> <div>
+<h3>Type Changed: Intents.INCallRecordType</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">Latest = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Voicemail = 5,</span>
+</pre>
+</div>
+
+</div> <!-- end type INCallRecordType -->
+<!-- start type INCancelWorkoutIntentResponseCode --> <div>
+<h3>Type Changed: Intents.INCancelWorkoutIntentResponseCode</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">HandleInApp = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 6,</span>
+</pre>
+</div>
+
+</div> <!-- end type INCancelWorkoutIntentResponseCode -->
+<!-- start type INCarAirCirculationModeResolutionResult --> <div>
+<h3>Type Changed: Intents.INCarAirCirculationModeResolutionResult</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static INCarAirCirculationModeResolutionResult ConfirmationRequiredWithCarAirCirculationModeToConfirm (INCarAirCirculationMode carAirCirculationModeToConfirm);</span>
+</pre>
+</div>
+
+</div> <!-- end type INCarAirCirculationModeResolutionResult -->
+<!-- start type INDateComponentsRange --> <div>
+<h3>Type Changed: Intents.INDateComponentsRange</h3>
+<div>
+<p>Added constructors:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public INDateComponentsRange (EventKit.EKRecurrenceRule recurrenceRule);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INDateComponentsRange (Foundation.NSDateComponents startDateComponents, Foundation.NSDateComponents endDateComponents, INRecurrenceRule recurrenceRule);</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual EventKit.EKRecurrenceRule EKRecurrenceRule { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INRecurrenceRule RecurrenceRule { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type INDateComponentsRange -->
+<!-- start type INEndWorkoutIntentResponseCode --> <div>
+<h3>Type Changed: Intents.INEndWorkoutIntentResponseCode</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">HandleInApp = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 6,</span>
+</pre>
+</div>
+
+</div> <!-- end type INEndWorkoutIntentResponseCode -->
+<!-- start type INGetAvailableRestaurantReservationBookingDefaultsIntent --> <div>
+<h3>Type Changed: Intents.INGetAvailableRestaurantReservationBookingDefaultsIntent</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public INGetAvailableRestaurantReservationBookingDefaultsIntent (INRestaurant restaurant);</span>
+</pre>
+</div>
+
+</div> <!-- end type INGetAvailableRestaurantReservationBookingDefaultsIntent -->
+<!-- start type INGetAvailableRestaurantReservationBookingsIntent --> <div>
+<h3>Type Changed: Intents.INGetAvailableRestaurantReservationBookingsIntent</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public INGetAvailableRestaurantReservationBookingsIntent (INRestaurant restaurant, uint partySize, Foundation.NSDateComponents preferredBookingDateComponents, Foundation.NSNumber maximumNumberOfResults, Foundation.NSDate earliestBookingDateForResults, Foundation.NSDate latestBookingDateForResults);</span>
+</pre>
+</div>
+
+</div> <!-- end type INGetAvailableRestaurantReservationBookingsIntent -->
+<!-- start type INGetUserCurrentRestaurantReservationBookingsIntent --> <div>
+<h3>Type Changed: Intents.INGetUserCurrentRestaurantReservationBookingsIntent</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public INGetUserCurrentRestaurantReservationBookingsIntent (INRestaurant restaurant, string reservationIdentifier, Foundation.NSNumber maximumNumberOfResults, Foundation.NSDate earliestBookingDateForResults);</span>
+</pre>
+</div>
+
+</div> <!-- end type INGetUserCurrentRestaurantReservationBookingsIntent -->
+<!-- start type INImage --> <div>
+<h3>Type Changed: Intents.INImage</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void FetchImage (System.Action&lt;UIKit.UIImage&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;UIKit.UIImage&gt; FetchImageAsync ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INImage FromUrl (Foundation.NSUrl url, double width, double height);</span>
+</pre>
+</div>
+
+</div> <!-- end type INImage -->
+<!-- start type INIntent --> <div>
+<h3>Type Changed: Intents.INIntent</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string IntentDescription { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type INIntent -->
+<!-- start type INInteraction --> <div>
+<h3>Type Changed: Intents.INInteraction</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public T GetParameterValue&lt;T&gt; (INParameter parameter);</span>
+</pre>
+</div>
+
+</div> <!-- end type INInteraction -->
+<!-- start type INListRideOptionsIntentResponseCode --> <div>
+<h3>Type Changed: Intents.INListRideOptionsIntentResponseCode</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">FailurePreviousRideNeedsFeedback = 10,</span>
+</pre>
+</div>
+
+</div> <!-- end type INListRideOptionsIntentResponseCode -->
+<!-- start type INMessage --> <div>
+<h3>Type Changed: Intents.INMessage</h3>
+<div>
+<p>Added constructors:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public INMessage (string identifier, string conversationIdentifier, string content, Foundation.NSDate dateSent, INPerson sender, INPerson[] recipients, INMessageType messageType);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INMessage (string identifier, string conversationIdentifier, string content, Foundation.NSDate dateSent, INPerson sender, INPerson[] recipients, INSpeakableString groupName, INMessageType messageType);</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string ConversationIdentifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString GroupName { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INMessageType MessageType { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type INMessage -->
+<!-- start type INMessageAttribute --> <div>
+<h3>Type Changed: Intents.INMessageAttribute</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">Played = 5,</span>
+</pre>
+</div>
+
+</div> <!-- end type INMessageAttribute -->
+<!-- start type INMessageAttributeOptions --> <div>
+<h3>Type Changed: Intents.INMessageAttributeOptions</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">Played = 16,</span>
+</pre>
+</div>
+
+</div> <!-- end type INMessageAttributeOptions -->
+<!-- start type INPauseWorkoutIntentResponseCode --> <div>
+<h3>Type Changed: Intents.INPauseWorkoutIntentResponseCode</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">HandleInApp = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 6,</span>
+</pre>
+</div>
+
+</div> <!-- end type INPauseWorkoutIntentResponseCode -->
+<!-- start type INPaymentAccount --> <div>
+<h3>Type Changed: Intents.INPaymentAccount</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public INPaymentAccount (INSpeakableString nickname, string accountNumber, INAccountType accountType, INSpeakableString organizationName, INBalanceAmount balance, INBalanceAmount secondaryBalance);</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INBalanceAmount Balance { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INBalanceAmount SecondaryBalance { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type INPaymentAccount -->
+<!-- start type INPerson --> <div>
+<h3>Type Changed: Intents.INPerson</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IINSpeakable[] AlternativeSpeakableMatches { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool IsMe { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string VocabularyIdentifier { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type INPerson -->
+<!-- start type INRequestPaymentIntentHandling_Extensions --> <div>
+<h3>Type Changed: Intents.INRequestPaymentIntentHandling_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveCurrencyAmount (IINRequestPaymentIntentHandling This, INRequestPaymentIntent intent, System.Action&lt;INRequestPaymentCurrencyAmountResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolvePayer (IINRequestPaymentIntentHandling This, INRequestPaymentIntent intent, System.Action&lt;INRequestPaymentPayerResolutionResult&gt; completion);</span>
+</pre>
+</div>
+
+</div> <!-- end type INRequestPaymentIntentHandling_Extensions -->
+<!-- start type INRequestPaymentIntentResponseCode --> <div>
+<h3>Type Changed: Intents.INRequestPaymentIntentResponseCode</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">NotEligible = 11,</span>
+</pre>
+</div>
+
+</div> <!-- end type INRequestPaymentIntentResponseCode -->
+<!-- start type INRestaurantGuest --> <div>
+<h3>Type Changed: Intents.INRestaurantGuest</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("This constructor does not create a valid instance of the type")]
+	public INRestaurantGuest ();</span>
+</div></pre>
+
+</div> <!-- end type INRestaurantGuest -->
+<!-- start type INResumeWorkoutIntentResponseCode --> <div>
+<h3>Type Changed: Intents.INResumeWorkoutIntentResponseCode</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">HandleInApp = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 6,</span>
+</pre>
+</div>
+
+</div> <!-- end type INResumeWorkoutIntentResponseCode -->
+<!-- start type INRideCompletionStatus --> <div>
+<h3>Type Changed: Intents.INRideCompletionStatus</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSSet&lt;INCurrencyAmount&gt; DefaultTippingOptions { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INRideFeedbackTypeOptions FeedbackType { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static INRideCompletionStatus GetCompleted (INRideFeedbackTypeOptions feedbackType);</span>
+</pre>
+</div>
+
+</div> <!-- end type INRideCompletionStatus -->
+<!-- start type INSearchCallHistoryIntent --> <div>
+<h3>Type Changed: Intents.INSearchCallHistoryIntent</h3>
+<div>
+<p>Added constructors:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSearchCallHistoryIntent (INDateComponentsRange dateCreated, INPerson recipient, INCallCapabilityOptions callCapabilities, INCallRecordTypeOptions callTypes, Foundation.NSNumber unseen);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSearchCallHistoryIntent (INDateComponentsRange dateCreated, INPerson recipient, INCallCapabilityOptions callCapabilities, INCallRecordTypeOptions callTypes, bool unseen);</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INCallRecordTypeOptions CallTypes { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public bool? Unseen { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">protected virtual Foundation.NSNumber WeakUnseen { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type INSearchCallHistoryIntent -->
+<!-- start type INSearchCallHistoryIntentHandling_Extensions --> <div>
+<h3>Type Changed: Intents.INSearchCallHistoryIntentHandling_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveCallTypes (IINSearchCallHistoryIntentHandling This, INSearchCallHistoryIntent intent, System.Action&lt;INCallRecordTypeOptionsResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveUnseen (IINSearchCallHistoryIntentHandling This, INSearchCallHistoryIntent intent, System.Action&lt;INBooleanResolutionResult&gt; completion);</span>
+</pre>
+</div>
+
+</div> <!-- end type INSearchCallHistoryIntentHandling_Extensions -->
+<!-- start type INSearchCallHistoryIntentResponse --> <div>
+<h3>Type Changed: Intents.INSearchCallHistoryIntentResponse</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INCallRecord[] CallRecords { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type INSearchCallHistoryIntentResponse -->
+<!-- start type INSearchCallHistoryIntentResponseCode --> <div>
+<h3>Type Changed: Intents.INSearchCallHistoryIntentResponseCode</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">InProgress = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 7,</span>
+</pre>
+</div>
+
+</div> <!-- end type INSearchCallHistoryIntentResponseCode -->
+<!-- start type INSearchForMessagesIntent --> <div>
+<h3>Type Changed: Intents.INSearchForMessagesIntent</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSearchForMessagesIntent (INPerson[] recipients, INPerson[] senders, string[] searchTerms, INMessageAttributeOptions attributes, INDateComponentsRange dateTimeRange, string[] identifiers, string[] notificationIdentifiers, INSpeakableString[] speakableGroupNames);</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString[] SpeakableGroupNames { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INConditionalOperator SpeakableGroupNamesOperator { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type INSearchForMessagesIntent -->
+<!-- start type INSearchForMessagesIntentHandling_Extensions --> <div>
+<h3>Type Changed: Intents.INSearchForMessagesIntentHandling_Extensions</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveSpeakableGroupNames (IINSearchForMessagesIntentHandling This, INSearchForMessagesIntent intent, System.Action&lt;INSpeakableStringResolutionResult[]&gt; completion);</span>
+</pre>
+</div>
+
+</div> <!-- end type INSearchForMessagesIntentHandling_Extensions -->
+<!-- start type INSearchForMessagesIntentResponseCode --> <div>
+<h3>Type Changed: Intents.INSearchForMessagesIntentResponseCode</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">FailureMessageTooManyResults = 7,</span>
+</pre>
+</div>
+
+</div> <!-- end type INSearchForMessagesIntentResponseCode -->
+<!-- start type INSearchForPhotosIntentHandling_Extensions --> <div>
+<h3>Type Changed: Intents.INSearchForPhotosIntentHandling_Extensions</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveSearchTerms (IINSearchForPhotosIntentHandling This, INSearchForPhotosIntent intent, System.Action&lt;INStringResolutionResult[]&gt; completion);</span>
+</pre>
+</div>
+
+</div> <!-- end type INSearchForPhotosIntentHandling_Extensions -->
+<!-- start type INSendMessageIntent --> <div>
+<h3>Type Changed: Intents.INSendMessageIntent</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSendMessageIntent (INPerson[] recipients, string content, INSpeakableString speakableGroupName, string conversationIdentifier, string serviceName, INPerson sender);</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string ConversationIdentifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString SpeakableGroupName { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type INSendMessageIntent -->
+<!-- start type INSendMessageIntentHandling_Extensions --> <div>
+<h3>Type Changed: Intents.INSendMessageIntentHandling_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveRecipients (IINSendMessageIntentHandling This, INSendMessageIntent intent, System.Action&lt;INSendMessageRecipientResolutionResult[]&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveSpeakableGroupName (IINSendMessageIntentHandling This, INSendMessageIntent intent, System.Action&lt;INSpeakableStringResolutionResult&gt; completion);</span>
+</pre>
+</div>
+
+</div> <!-- end type INSendMessageIntentHandling_Extensions -->
+<!-- start type INSendMessageIntentResponse --> <div>
+<h3>Type Changed: Intents.INSendMessageIntentResponse</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INMessage SentMessage { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type INSendMessageIntentResponse -->
+<!-- start type INSendPaymentIntentHandling_Extensions --> <div>
+<h3>Type Changed: Intents.INSendPaymentIntentHandling_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveCurrencyAmount (IINSendPaymentIntentHandling This, INSendPaymentIntent intent, System.Action&lt;INSendPaymentCurrencyAmountResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolvePayee (IINSendPaymentIntentHandling This, INSendPaymentIntent intent, System.Action&lt;INSendPaymentPayeeResolutionResult&gt; completion);</span>
+</pre>
+</div>
+
+</div> <!-- end type INSendPaymentIntentHandling_Extensions -->
+<!-- start type INSendPaymentIntentResponseCode --> <div>
+<h3>Type Changed: Intents.INSendPaymentIntentResponseCode</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">FailureNotEligible = 12,</span>
+</pre>
+</div>
+
+</div> <!-- end type INSendPaymentIntentResponseCode -->
+<!-- start type INSpeakableString --> <div>
+<h3>Type Changed: Intents.INSpeakableString</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IINSpeakable[] AlternativeSpeakableMatches { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string VocabularyIdentifier { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type INSpeakableString -->
+<!-- start type INStartAudioCallIntent --> <div>
+<h3>Type Changed: Intents.INStartAudioCallIntent</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public INStartAudioCallIntent (INCallDestinationType destinationType, INPerson[] contacts);</span>
+</pre>
+</div>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INCallDestinationType DestinationType { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type INStartAudioCallIntent -->
+<!-- start type INStartAudioCallIntentHandling_Extensions --> <div>
+<h3>Type Changed: Intents.INStartAudioCallIntentHandling_Extensions</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveDestinationType (IINStartAudioCallIntentHandling This, INStartAudioCallIntent intent, System.Action&lt;INCallDestinationTypeResolutionResult&gt; completion);</span>
+</pre>
+</div>
+
+</div> <!-- end type INStartAudioCallIntentHandling_Extensions -->
+<!-- start type INStartAudioCallIntentResponseCode --> <div>
+<h3>Type Changed: Intents.INStartAudioCallIntentResponseCode</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">FailureContactNotSupportedByApp = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureNoValidNumber = 8,</span>
+</pre>
+</div>
+
+</div> <!-- end type INStartAudioCallIntentResponseCode -->
+<!-- start type INStartVideoCallIntentResponseCode --> <div>
+<h3>Type Changed: Intents.INStartVideoCallIntentResponseCode</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">FailureContactNotSupportedByApp = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureInvalidNumber = 8,</span>
+</pre>
+</div>
+
+</div> <!-- end type INStartVideoCallIntentResponseCode -->
+<!-- start type INStartWorkoutIntentResponseCode --> <div>
+<h3>Type Changed: Intents.INStartWorkoutIntentResponseCode</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">HandleInApp = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 7,</span>
+</pre>
+</div>
+
+</div> <!-- end type INStartWorkoutIntentResponseCode -->
+<!-- start type INVocabulary --> <div>
+<h3>Type Changed: Intents.INVocabulary</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetVocabulary (Foundation.NSOrderedSet&lt;IINSpeakable&gt; vocabulary, INVocabularyStringType type);</span>
+</pre>
+</div>
+
+</div> <!-- end type INVocabulary -->
+<!-- start type INVocabularyStringType --> <div>
+<h3>Type Changed: Intents.INVocabularyStringType</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">NotebookItemGroupName = 501,</span>
+	<span class='added added-field ' data-is-non-breaking="">NotebookItemTitle = 500,</span>
+</pre>
+</div>
+
+</div> <!-- end type INVocabularyStringType -->
+<div> <!-- start type IINAddTasksIntentHandling -->
+<h3>New Type Intents.IINAddTasksIntentHandling</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IINAddTasksIntentHandling : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void HandleAddTasks (INAddTasksIntent intent, System.Action&lt;INAddTasksIntentResponse&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type IINAddTasksIntentHandling -->
+<div> <!-- start type IINAppendToNoteIntentHandling -->
+<h3>New Type Intents.IINAppendToNoteIntentHandling</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IINAppendToNoteIntentHandling : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void HandleAppendToNote (INAppendToNoteIntent intent, System.Action&lt;INAppendToNoteIntentResponse&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type IINAppendToNoteIntentHandling -->
+<div> <!-- start type IINCancelRideIntentHandling -->
+<h3>New Type Intents.IINCancelRideIntentHandling</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IINCancelRideIntentHandling : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void HandleCancelRide (INCancelRideIntent intent, System.Action&lt;INCancelRideIntentResponse&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type IINCancelRideIntentHandling -->
+<div> <!-- start type IINCreateNoteIntentHandling -->
+<h3>New Type Intents.IINCreateNoteIntentHandling</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IINCreateNoteIntentHandling : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void HandleCreateNote (INCreateNoteIntent intent, System.Action&lt;INCreateNoteIntentResponse&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type IINCreateNoteIntentHandling -->
+<div> <!-- start type IINCreateTaskListIntentHandling -->
+<h3>New Type Intents.IINCreateTaskListIntentHandling</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IINCreateTaskListIntentHandling : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void HandleCreateTaskList (INCreateTaskListIntent intent, System.Action&lt;INCreateTaskListIntentResponse&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type IINCreateTaskListIntentHandling -->
+<div> <!-- start type IINGetVisualCodeIntentHandling -->
+<h3>New Type Intents.IINGetVisualCodeIntentHandling</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IINGetVisualCodeIntentHandling : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void HandleGetVisualCode (INGetVisualCodeIntent intent, System.Action&lt;INGetVisualCodeIntentResponse&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type IINGetVisualCodeIntentHandling -->
+<div> <!-- start type IINNotebookDomainHandling -->
+<h3>New Type Intents.IINNotebookDomainHandling</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IINNotebookDomainHandling : IINAddTasksIntentHandling, IINAppendToNoteIntentHandling, IINCreateNoteIntentHandling, IINCreateTaskListIntentHandling, IINSearchForNotebookItemsIntentHandling, IINSetTaskAttributeIntentHandling, ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IINNotebookDomainHandling -->
+<div> <!-- start type IINSearchForAccountsIntentHandling -->
+<h3>New Type Intents.IINSearchForAccountsIntentHandling</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IINSearchForAccountsIntentHandling : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void HandleSearchForAccounts (INSearchForAccountsIntent intent, System.Action&lt;INSearchForAccountsIntentResponse&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type IINSearchForAccountsIntentHandling -->
+<div> <!-- start type IINSearchForNotebookItemsIntentHandling -->
+<h3>New Type Intents.IINSearchForNotebookItemsIntentHandling</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IINSearchForNotebookItemsIntentHandling : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void HandleSearchForNotebookItems (INSearchForNotebookItemsIntent intent, System.Action&lt;INSearchForNotebookItemsIntentResponse&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type IINSearchForNotebookItemsIntentHandling -->
+<div> <!-- start type IINSendRideFeedbackIntentHandling -->
+<h3>New Type Intents.IINSendRideFeedbackIntentHandling</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IINSendRideFeedbackIntentHandling : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void HandleSendRideFeedback (INSendRideFeedbackIntent sendRideFeedbackintent, System.Action&lt;INSendRideFeedbackIntentResponse&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type IINSendRideFeedbackIntentHandling -->
+<div> <!-- start type IINSetTaskAttributeIntentHandling -->
+<h3>New Type Intents.IINSetTaskAttributeIntentHandling</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IINSetTaskAttributeIntentHandling : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void HandleSetTaskAttribute (INSetTaskAttributeIntent intent, System.Action&lt;INSetTaskAttributeIntentResponse&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type IINSetTaskAttributeIntentHandling -->
+<div> <!-- start type IINTransferMoneyIntentHandling -->
+<h3>New Type Intents.IINTransferMoneyIntentHandling</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IINTransferMoneyIntentHandling : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void HandleTransferMoney (INTransferMoneyIntent intent, System.Action&lt;INTransferMoneyIntentResponse&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type IINTransferMoneyIntentHandling -->
+<div> <!-- start type IINVisualCodeDomainHandling -->
+<h3>New Type Intents.IINVisualCodeDomainHandling</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IINVisualCodeDomainHandling : IINGetVisualCodeIntentHandling, ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IINVisualCodeDomainHandling -->
+<div> <!-- start type INAccountTypeResolutionResult -->
+<h3>New Type Intents.INAccountTypeResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INAccountTypeResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INAccountTypeResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INAccountTypeResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INAccountTypeResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INAccountTypeResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INAccountTypeResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INAccountTypeResolutionResult GetConfirmationRequired (INAccountType accountTypeToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INAccountTypeResolutionResult GetSuccess (INAccountType resolvedAccountType);</span>
+}
+</pre>
+</div> <!-- end type INAccountTypeResolutionResult -->
+<div> <!-- start type INAddTasksIntent -->
+<h3>New Type Intents.INAddTasksIntent</h3>
+<pre class='added' data-is-non-breaking="">
+public class INAddTasksIntent : Intents.INIntent, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INAddTasksIntent ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INAddTasksIntent (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INAddTasksIntent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INAddTasksIntent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INAddTasksIntent (INTaskList targetTaskList, INSpeakableString[] taskTitles, INSpatialEventTrigger spatialEventTrigger, INTemporalEventTrigger temporalEventTrigger);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpatialEventTrigger SpatialEventTrigger { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTaskList TargetTaskList { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString[] TaskTitles { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTemporalEventTrigger TemporalEventTrigger { get; }</span>
+}
+</pre>
+</div> <!-- end type INAddTasksIntent -->
+<div> <!-- start type INAddTasksIntentHandling_Extensions -->
+<h3>New Type Intents.INAddTasksIntentHandling_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class INAddTasksIntentHandling_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void ConfirmAddTasks (IINAddTasksIntentHandling This, INAddTasksIntent intent, System.Action&lt;INAddTasksIntentResponse&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveSpatialEventTrigger (IINAddTasksIntentHandling This, INAddTasksIntent intent, System.Action&lt;INSpatialEventTriggerResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveTargetTaskList (IINAddTasksIntentHandling This, INAddTasksIntent intent, System.Action&lt;INTaskListResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveTaskTitles (IINAddTasksIntentHandling This, INAddTasksIntent intent, System.Action&lt;INSpeakableStringResolutionResult[]&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveTemporalEventTrigger (IINAddTasksIntentHandling This, INAddTasksIntent intent, System.Action&lt;INTemporalEventTriggerResolutionResult&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type INAddTasksIntentHandling_Extensions -->
+<div> <!-- start type INAddTasksIntentResponse -->
+<h3>New Type Intents.INAddTasksIntentResponse</h3>
+<pre class='added' data-is-non-breaking="">
+public class INAddTasksIntentResponse : Intents.INIntentResponse, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INAddTasksIntentResponse (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INAddTasksIntentResponse (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INAddTasksIntentResponse (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INAddTasksIntentResponse (INAddTasksIntentResponseCode code, Foundation.NSUserActivity userActivity);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTask[] AddedTasks { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INAddTasksIntentResponseCode Code { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTaskList ModifiedTaskList { get; set; }</span>
+}
+</pre>
+</div> <!-- end type INAddTasksIntentResponse -->
+<div> <!-- start type INAddTasksIntentResponseCode -->
+<h3>New Type Intents.INAddTasksIntentResponseCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INAddTasksIntentResponseCode {
+	<span class='added added-field ' data-is-non-breaking="">Failure = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureRequiringAppLaunch = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">InProgress = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ready = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type INAddTasksIntentResponseCode -->
+<div> <!-- start type INAppendToNoteIntent -->
+<h3>New Type Intents.INAppendToNoteIntent</h3>
+<pre class='added' data-is-non-breaking="">
+public class INAppendToNoteIntent : Intents.INIntent, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INAppendToNoteIntent ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INAppendToNoteIntent (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INAppendToNoteIntent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INAppendToNoteIntent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INAppendToNoteIntent (INNote targetNote, INNoteContent content);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INNoteContent Content { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INNote TargetNote { get; }</span>
+}
+</pre>
+</div> <!-- end type INAppendToNoteIntent -->
+<div> <!-- start type INAppendToNoteIntentHandling_Extensions -->
+<h3>New Type Intents.INAppendToNoteIntentHandling_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class INAppendToNoteIntentHandling_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void ConfirmAppendToNote (IINAppendToNoteIntentHandling This, INAppendToNoteIntent intent, System.Action&lt;INAppendToNoteIntentResponse&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveContentForAppend (IINAppendToNoteIntentHandling This, INAppendToNoteIntent intent, System.Action&lt;INNoteContentResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveTargetNoteForAppend (IINAppendToNoteIntentHandling This, INAppendToNoteIntent intent, System.Action&lt;INNoteResolutionResult&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type INAppendToNoteIntentHandling_Extensions -->
+<div> <!-- start type INAppendToNoteIntentResponse -->
+<h3>New Type Intents.INAppendToNoteIntentResponse</h3>
+<pre class='added' data-is-non-breaking="">
+public class INAppendToNoteIntentResponse : Intents.INIntentResponse, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INAppendToNoteIntentResponse (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INAppendToNoteIntentResponse (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INAppendToNoteIntentResponse (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INAppendToNoteIntentResponse (INAppendToNoteIntentResponseCode code, Foundation.NSUserActivity userActivity);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INAppendToNoteIntentResponseCode Code { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INNote Note { get; set; }</span>
+}
+</pre>
+</div> <!-- end type INAppendToNoteIntentResponse -->
+<div> <!-- start type INAppendToNoteIntentResponseCode -->
+<h3>New Type Intents.INAppendToNoteIntentResponseCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INAppendToNoteIntentResponseCode {
+	<span class='added added-field ' data-is-non-breaking="">Failure = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureCannotUpdatePasswordProtectedNote = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureRequiringAppLaunch = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">InProgress = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ready = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type INAppendToNoteIntentResponseCode -->
+<div> <!-- start type INBalanceAmount -->
+<h3>New Type Intents.INBalanceAmount</h3>
+<pre class='added' data-is-non-breaking="">
+public class INBalanceAmount : Foundation.NSObject, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INBalanceAmount (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INBalanceAmount (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INBalanceAmount (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INBalanceAmount (Foundation.NSDecimalNumber amount, INBalanceType balanceType);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INBalanceAmount (Foundation.NSDecimalNumber amount, string currencyCode);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDecimalNumber Amount { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INBalanceType BalanceType { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string CurrencyCode { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type INBalanceAmount -->
+<div> <!-- start type INBalanceType -->
+<h3>New Type Intents.INBalanceType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INBalanceType {
+	<span class='added added-field ' data-is-non-breaking="">Miles = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Money = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Points = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 0,</span>
+}
+</pre>
+</div> <!-- end type INBalanceType -->
+<div> <!-- start type INBalanceTypeResolutionResult -->
+<h3>New Type Intents.INBalanceTypeResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INBalanceTypeResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INBalanceTypeResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INBalanceTypeResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INBalanceTypeResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INBalanceTypeResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INBalanceTypeResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INBalanceTypeResolutionResult GetConfirmationRequired (INBalanceType balanceTypeToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INBalanceTypeResolutionResult GetSuccess (INBalanceType resolvedBalanceType);</span>
+}
+</pre>
+</div> <!-- end type INBalanceTypeResolutionResult -->
+<div> <!-- start type INCallCapability -->
+<h3>New Type Intents.INCallCapability</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INCallCapability {
+	<span class='added added-field ' data-is-non-breaking="">AudioCall = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">VideoCall = 2,</span>
+}
+</pre>
+</div> <!-- end type INCallCapability -->
+<div> <!-- start type INCallDestinationType -->
+<h3>New Type Intents.INCallDestinationType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INCallDestinationType {
+	<span class='added added-field ' data-is-non-breaking="">Emergency = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Normal = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Redial = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Voicemail = 3,</span>
+}
+</pre>
+</div> <!-- end type INCallDestinationType -->
+<div> <!-- start type INCallDestinationTypeResolutionResult -->
+<h3>New Type Intents.INCallDestinationTypeResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INCallDestinationTypeResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCallDestinationTypeResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCallDestinationTypeResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INCallDestinationTypeResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INCallDestinationTypeResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INCallDestinationTypeResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INCallDestinationTypeResolutionResult GetConfirmationRequired (INCallDestinationType callDestinationTypeToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INCallDestinationTypeResolutionResult GetSuccess (INCallDestinationType resolvedCallDestinationType);</span>
+}
+</pre>
+</div> <!-- end type INCallDestinationTypeResolutionResult -->
+<div> <!-- start type INCallRecord -->
+<h3>New Type Intents.INCallRecord</h3>
+<pre class='added' data-is-non-breaking="">
+public class INCallRecord : Foundation.NSObject, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INCallRecord (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCallRecord (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCallRecord (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INCallRecord (string identifier, Foundation.NSDate dateCreated, INPerson caller, INCallRecordType callRecordType, INCallCapability callCapability, Foundation.NSNumber callDuration, Foundation.NSNumber unseen);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual INCallCapability CallCapability { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public double? CallDuration { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INCallRecordType CallRecordType { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INPerson Caller { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDate DateCreated { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Identifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public bool? Unseen { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">protected virtual Foundation.NSNumber WeakCallDuration { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">protected virtual Foundation.NSNumber WeakUnseen { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type INCallRecord -->
+<div> <!-- start type INCallRecordTypeOptions -->
+<h3>New Type Intents.INCallRecordTypeOptions</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+[Flags]
+public enum INCallRecordTypeOptions {
+	<span class='added added-field ' data-is-non-breaking="">Latest = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">Missed = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Outgoing = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Received = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Voicemail = 16,</span>
+}
+</pre>
+</div> <!-- end type INCallRecordTypeOptions -->
+<div> <!-- start type INCallRecordTypeOptionsResolutionResult -->
+<h3>New Type Intents.INCallRecordTypeOptionsResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INCallRecordTypeOptionsResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCallRecordTypeOptionsResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCallRecordTypeOptionsResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INCallRecordTypeOptionsResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INCallRecordTypeOptionsResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INCallRecordTypeOptionsResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INCallRecordTypeOptionsResolutionResult GetConfirmationRequired (INCallRecordTypeOptions callRecordTypeOptionsToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INCallRecordTypeOptionsResolutionResult GetSuccess (INCallRecordTypeOptions resolvedCallRecordTypeOptions);</span>
+}
+</pre>
+</div> <!-- end type INCallRecordTypeOptionsResolutionResult -->
+<div> <!-- start type INCancelRideIntent -->
+<h3>New Type Intents.INCancelRideIntent</h3>
+<pre class='added' data-is-non-breaking="">
+public class INCancelRideIntent : Intents.INIntent, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INCancelRideIntent (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCancelRideIntent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCancelRideIntent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INCancelRideIntent (string rideIdentifier);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string RideIdentifier { get; }</span>
+}
+</pre>
+</div> <!-- end type INCancelRideIntent -->
+<div> <!-- start type INCancelRideIntentHandling_Extensions -->
+<h3>New Type Intents.INCancelRideIntentHandling_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class INCancelRideIntentHandling_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void ConfirmCancelRide (IINCancelRideIntentHandling This, INCancelRideIntent intent, System.Action&lt;INCancelRideIntentResponse&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type INCancelRideIntentHandling_Extensions -->
+<div> <!-- start type INCancelRideIntentResponse -->
+<h3>New Type Intents.INCancelRideIntentResponse</h3>
+<pre class='added' data-is-non-breaking="">
+public class INCancelRideIntentResponse : Intents.INIntentResponse, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INCancelRideIntentResponse (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCancelRideIntentResponse (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCancelRideIntentResponse (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INCancelRideIntentResponse (INCancelRideIntentResponseCode code, Foundation.NSUserActivity userActivity);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual INCurrencyAmount CancellationFee { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDateComponents CancellationFeeThreshold { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INCancelRideIntentResponseCode Code { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+}
+</pre>
+</div> <!-- end type INCancelRideIntentResponse -->
+<div> <!-- start type INCancelRideIntentResponseCode -->
+<h3>New Type Intents.INCancelRideIntentResponseCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INCancelRideIntentResponseCode {
+	<span class='added added-field ' data-is-non-breaking="">Failure = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ready = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type INCancelRideIntentResponseCode -->
+<div> <!-- start type INCreateNoteIntent -->
+<h3>New Type Intents.INCreateNoteIntent</h3>
+<pre class='added' data-is-non-breaking="">
+public class INCreateNoteIntent : Intents.INIntent, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INCreateNoteIntent (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCreateNoteIntent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCreateNoteIntent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INCreateNoteIntent (INSpeakableString title, INNoteContent content, INSpeakableString groupName);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INNoteContent Content { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString GroupName { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString Title { get; }</span>
+}
+</pre>
+</div> <!-- end type INCreateNoteIntent -->
+<div> <!-- start type INCreateNoteIntentHandling_Extensions -->
+<h3>New Type Intents.INCreateNoteIntentHandling_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class INCreateNoteIntentHandling_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void ConfirmCreateNote (IINCreateNoteIntentHandling This, INCreateNoteIntent intent, System.Action&lt;INCreateNoteIntentResponse&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveContent (IINCreateNoteIntentHandling This, INCreateNoteIntent intent, System.Action&lt;INNoteContentResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveGroupName (IINCreateNoteIntentHandling This, INCreateNoteIntent intent, System.Action&lt;INSpeakableStringResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveTitle (IINCreateNoteIntentHandling This, INCreateNoteIntent intent, System.Action&lt;INSpeakableStringResolutionResult&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type INCreateNoteIntentHandling_Extensions -->
+<div> <!-- start type INCreateNoteIntentResponse -->
+<h3>New Type Intents.INCreateNoteIntentResponse</h3>
+<pre class='added' data-is-non-breaking="">
+public class INCreateNoteIntentResponse : Intents.INIntentResponse, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INCreateNoteIntentResponse (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCreateNoteIntentResponse (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCreateNoteIntentResponse (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INCreateNoteIntentResponse (INCreateNoteIntentResponseCode code, Foundation.NSUserActivity userActivity);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INCreateNoteIntentResponseCode Code { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INNote CreatedNote { get; set; }</span>
+}
+</pre>
+</div> <!-- end type INCreateNoteIntentResponse -->
+<div> <!-- start type INCreateNoteIntentResponseCode -->
+<h3>New Type Intents.INCreateNoteIntentResponseCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INCreateNoteIntentResponseCode {
+	<span class='added added-field ' data-is-non-breaking="">Failure = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureRequiringAppLaunch = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">InProgress = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ready = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type INCreateNoteIntentResponseCode -->
+<div> <!-- start type INCreateTaskListIntent -->
+<h3>New Type Intents.INCreateTaskListIntent</h3>
+<pre class='added' data-is-non-breaking="">
+public class INCreateTaskListIntent : Intents.INIntent, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INCreateTaskListIntent (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCreateTaskListIntent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCreateTaskListIntent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INCreateTaskListIntent (INSpeakableString title, INSpeakableString[] taskTitles, INSpeakableString groupName);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString GroupName { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString[] TaskTitles { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString Title { get; }</span>
+}
+</pre>
+</div> <!-- end type INCreateTaskListIntent -->
+<div> <!-- start type INCreateTaskListIntentHandling_Extensions -->
+<h3>New Type Intents.INCreateTaskListIntentHandling_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class INCreateTaskListIntentHandling_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void ConfirmCreateTaskList (IINCreateTaskListIntentHandling This, INCreateTaskListIntent intent, System.Action&lt;INCreateTaskListIntentResponse&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveGroupName (IINCreateTaskListIntentHandling This, INCreateTaskListIntent intent, System.Action&lt;INSpeakableStringResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveTaskTitles (IINCreateTaskListIntentHandling This, INCreateTaskListIntent intent, System.Action&lt;INSpeakableStringResolutionResult[]&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveTitle (IINCreateTaskListIntentHandling This, INCreateTaskListIntent intent, System.Action&lt;INSpeakableStringResolutionResult&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type INCreateTaskListIntentHandling_Extensions -->
+<div> <!-- start type INCreateTaskListIntentResponse -->
+<h3>New Type Intents.INCreateTaskListIntentResponse</h3>
+<pre class='added' data-is-non-breaking="">
+public class INCreateTaskListIntentResponse : Intents.INIntentResponse, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INCreateTaskListIntentResponse (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCreateTaskListIntentResponse (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INCreateTaskListIntentResponse (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INCreateTaskListIntentResponse (INCreateTaskListIntentResponseCode code, Foundation.NSUserActivity userActivity);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INCreateTaskListIntentResponseCode Code { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTaskList CreatedTaskList { get; set; }</span>
+}
+</pre>
+</div> <!-- end type INCreateTaskListIntentResponse -->
+<div> <!-- start type INCreateTaskListIntentResponseCode -->
+<h3>New Type Intents.INCreateTaskListIntentResponseCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INCreateTaskListIntentResponseCode {
+	<span class='added added-field ' data-is-non-breaking="">Failure = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureRequiringAppLaunch = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">InProgress = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ready = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type INCreateTaskListIntentResponseCode -->
+<div> <!-- start type INDateSearchType -->
+<h3>New Type Intents.INDateSearchType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INDateSearchType {
+	<span class='added added-field ' data-is-non-breaking="">ByCreatedDate = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">ByDueDate = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">ByModifiedDate = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 0,</span>
+}
+</pre>
+</div> <!-- end type INDateSearchType -->
+<div> <!-- start type INDateSearchTypeResolutionResult -->
+<h3>New Type Intents.INDateSearchTypeResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INDateSearchTypeResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INDateSearchTypeResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INDateSearchTypeResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INDateSearchTypeResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INDateSearchTypeResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INDateSearchTypeResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INDateSearchTypeResolutionResult GetConfirmationRequired (INDateSearchType dateSearchTypeToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INDateSearchTypeResolutionResult GetSuccess (INDateSearchType resolvedDateSearchType);</span>
+}
+</pre>
+</div> <!-- end type INDateSearchTypeResolutionResult -->
+<div> <!-- start type INGetVisualCodeIntent -->
+<h3>New Type Intents.INGetVisualCodeIntent</h3>
+<pre class='added' data-is-non-breaking="">
+public class INGetVisualCodeIntent : Intents.INIntent, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INGetVisualCodeIntent (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INGetVisualCodeIntent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INGetVisualCodeIntent (INVisualCodeType visualCodeType);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INGetVisualCodeIntent (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INVisualCodeType VisualCodeType { get; }</span>
+}
+</pre>
+</div> <!-- end type INGetVisualCodeIntent -->
+<div> <!-- start type INGetVisualCodeIntentHandling_Extensions -->
+<h3>New Type Intents.INGetVisualCodeIntentHandling_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class INGetVisualCodeIntentHandling_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void ConfirmGetVisualCode (IINGetVisualCodeIntentHandling This, INGetVisualCodeIntent intent, System.Action&lt;INGetVisualCodeIntentResponse&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveVisualCodeType (IINGetVisualCodeIntentHandling This, INGetVisualCodeIntent intent, System.Action&lt;INVisualCodeTypeResolutionResult&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type INGetVisualCodeIntentHandling_Extensions -->
+<div> <!-- start type INGetVisualCodeIntentResponse -->
+<h3>New Type Intents.INGetVisualCodeIntentResponse</h3>
+<pre class='added' data-is-non-breaking="">
+public class INGetVisualCodeIntentResponse : Intents.INIntentResponse, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INGetVisualCodeIntentResponse (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INGetVisualCodeIntentResponse (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INGetVisualCodeIntentResponse (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INGetVisualCodeIntentResponse (INGetVisualCodeIntentResponseCode code, Foundation.NSUserActivity userActivity);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INGetVisualCodeIntentResponseCode Code { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INImage VisualCodeImage { get; set; }</span>
+}
+</pre>
+</div> <!-- end type INGetVisualCodeIntentResponse -->
+<div> <!-- start type INGetVisualCodeIntentResponseCode -->
+<h3>New Type Intents.INGetVisualCodeIntentResponseCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INGetVisualCodeIntentResponseCode {
+	<span class='added added-field ' data-is-non-breaking="">ContinueInApp = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Failure = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureAppConfigurationRequired = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureRequiringAppLaunch = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">InProgress = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ready = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type INGetVisualCodeIntentResponseCode -->
+<div> <!-- start type INImageNoteContent -->
+<h3>New Type Intents.INImageNoteContent</h3>
+<pre class='added' data-is-non-breaking="">
+public class INImageNoteContent : Intents.INNoteContent, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INImageNoteContent ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INImageNoteContent (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INImageNoteContent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INImageNoteContent (INImage image);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INImageNoteContent (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INImage Image { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type INImageNoteContent -->
+<div> <!-- start type INLocationSearchType -->
+<h3>New Type Intents.INLocationSearchType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INLocationSearchType {
+	<span class='added added-field ' data-is-non-breaking="">ByLocationTrigger = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 0,</span>
+}
+</pre>
+</div> <!-- end type INLocationSearchType -->
+<div> <!-- start type INLocationSearchTypeResolutionResult -->
+<h3>New Type Intents.INLocationSearchTypeResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INLocationSearchTypeResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INLocationSearchTypeResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INLocationSearchTypeResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INLocationSearchTypeResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INLocationSearchTypeResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INLocationSearchTypeResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INLocationSearchTypeResolutionResult GetConfirmationRequired (INLocationSearchType locationSearchTypeToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INLocationSearchTypeResolutionResult GetSuccess (INLocationSearchType resolvedLocationSearchType);</span>
+}
+</pre>
+</div> <!-- end type INLocationSearchTypeResolutionResult -->
+<div> <!-- start type INMessageType -->
+<h3>New Type Intents.INMessageType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INMessageType {
+	<span class='added added-field ' data-is-non-breaking="">Audio = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">DigitalTouch = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Handwriting = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">MediaAddressCard = 14,</span>
+	<span class='added added-field ' data-is-non-breaking="">MediaAudio = 18,</span>
+	<span class='added added-field ' data-is-non-breaking="">MediaCalendar = 12,</span>
+	<span class='added added-field ' data-is-non-breaking="">MediaImage = 15,</span>
+	<span class='added added-field ' data-is-non-breaking="">MediaLocation = 13,</span>
+	<span class='added added-field ' data-is-non-breaking="">MediaPass = 17,</span>
+	<span class='added added-field ' data-is-non-breaking="">MediaVideo = 16,</span>
+	<span class='added added-field ' data-is-non-breaking="">Sticker = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">TapbackDisliked = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">TapbackEmphasized = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">TapbackLaughed = 11,</span>
+	<span class='added added-field ' data-is-non-breaking="">TapbackLiked = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">TapbackLoved = 9,</span>
+	<span class='added added-field ' data-is-non-breaking="">TapbackQuestioned = 10,</span>
+	<span class='added added-field ' data-is-non-breaking="">Text = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type INMessageType -->
+<div> <!-- start type INNote -->
+<h3>New Type Intents.INNote</h3>
+<pre class='added' data-is-non-breaking="">
+public class INNote : Foundation.NSObject, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INNote ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INNote (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INNote (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INNote (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INNote (INSpeakableString title, INNoteContent[] contents, INSpeakableString groupName, Foundation.NSDateComponents createdDateComponents, Foundation.NSDateComponents modifiedDateComponents, string identifier);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INNoteContent[] Contents { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDateComponents CreatedDateComponents { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString GroupName { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Identifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDateComponents ModifiedDateComponents { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString Title { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type INNote -->
+<div> <!-- start type INNoteContent -->
+<h3>New Type Intents.INNoteContent</h3>
+<pre class='added' data-is-non-breaking="">
+public class INNoteContent : Foundation.NSObject, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INNoteContent ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INNoteContent (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INNoteContent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INNoteContent (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type INNoteContent -->
+<div> <!-- start type INNoteContentResolutionResult -->
+<h3>New Type Intents.INNoteContentResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INNoteContentResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INNoteContentResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INNoteContentResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INNoteContentResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INNoteContentResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INNoteContentResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INNoteContentResolutionResult GetConfirmationRequired (INNoteContent noteContentToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INNoteContentResolutionResult GetDisambiguation (INNoteContent[] noteContentsToDisambiguate);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INNoteContentResolutionResult GetSuccess (INNoteContent resolvedNoteContent);</span>
+}
+</pre>
+</div> <!-- end type INNoteContentResolutionResult -->
+<div> <!-- start type INNoteContentType -->
+<h3>New Type Intents.INNoteContentType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INNoteContentType {
+	<span class='added added-field ' data-is-non-breaking="">Image = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Text = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 0,</span>
+}
+</pre>
+</div> <!-- end type INNoteContentType -->
+<div> <!-- start type INNoteContentTypeResolutionResult -->
+<h3>New Type Intents.INNoteContentTypeResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INNoteContentTypeResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INNoteContentTypeResolutionResult ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INNoteContentTypeResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INNoteContentTypeResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INNoteContentTypeResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INNoteContentTypeResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INNoteContentTypeResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INNoteContentTypeResolutionResult GetConfirmationRequired (INNoteContentType noteContentTypeToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INNoteContentTypeResolutionResult GetSuccess (INNoteContentType resolvedNoteContentType);</span>
+}
+</pre>
+</div> <!-- end type INNoteContentTypeResolutionResult -->
+<div> <!-- start type INNoteResolutionResult -->
+<h3>New Type Intents.INNoteResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INNoteResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INNoteResolutionResult ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INNoteResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INNoteResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INNoteResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INNoteResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INNoteResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INNoteResolutionResult GetConfirmationRequired (INNote noteToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INNoteResolutionResult GetDisambiguation (INNote[] notesToDisambiguate);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INNoteResolutionResult GetSuccess (INNote resolvedNote);</span>
+}
+</pre>
+</div> <!-- end type INNoteResolutionResult -->
+<div> <!-- start type INNotebookItemType -->
+<h3>New Type Intents.INNotebookItemType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INNotebookItemType {
+	<span class='added added-field ' data-is-non-breaking="">Note = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Task = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">TaskList = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 0,</span>
+}
+</pre>
+</div> <!-- end type INNotebookItemType -->
+<div> <!-- start type INNotebookItemTypeResolutionResult -->
+<h3>New Type Intents.INNotebookItemTypeResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INNotebookItemTypeResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INNotebookItemTypeResolutionResult ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INNotebookItemTypeResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INNotebookItemTypeResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INNotebookItemTypeResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INNotebookItemTypeResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INNotebookItemTypeResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INNotebookItemTypeResolutionResult GetConfirmationRequired (INNotebookItemType notebookItemTypeToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INNotebookItemTypeResolutionResult GetDisambiguation (Foundation.NSNumber[] notebookItemTypesToDisambiguate);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INNotebookItemTypeResolutionResult GetSuccess (INNotebookItemType resolvedNotebookItemType);</span>
+}
+</pre>
+</div> <!-- end type INNotebookItemTypeResolutionResult -->
+<div> <!-- start type INParameter -->
+<h3>New Type Intents.INParameter</h3>
+<pre class='added' data-is-non-breaking="">
+public class INParameter : Foundation.NSObject, Foundation.INSCoding, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INParameter (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INParameter (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INParameter (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual ObjCRuntime.Class ParameterClass { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string ParameterKeyPath { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public System.Type ParameterType { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual uint GetIndex (string subKeyPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INParameter GetParameter (ObjCRuntime.Class aClass, string keyPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INParameter GetParameter (System.Type type, string keyPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool IsEqualTo (INParameter parameter);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetIndex (uint index, string subKeyPath);</span>
+}
+</pre>
+</div> <!-- end type INParameter -->
+<div> <!-- start type INRecurrenceFrequency -->
+<h3>New Type Intents.INRecurrenceFrequency</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INRecurrenceFrequency {
+	<span class='added added-field ' data-is-non-breaking="">Daily = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Hourly = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Minute = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Monthly = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Weekly = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Yearly = 6,</span>
+}
+</pre>
+</div> <!-- end type INRecurrenceFrequency -->
+<div> <!-- start type INRecurrenceRule -->
+<h3>New Type Intents.INRecurrenceRule</h3>
+<pre class='added' data-is-non-breaking="">
+public class INRecurrenceRule : Foundation.NSObject, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INRecurrenceRule (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INRecurrenceRule (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INRecurrenceRule (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INRecurrenceRule (uint interval, INRecurrenceFrequency frequency);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INRecurrenceFrequency Frequency { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual uint Interval { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type INRecurrenceRule -->
+<div> <!-- start type INRequestPaymentCurrencyAmountResolutionResult -->
+<h3>New Type Intents.INRequestPaymentCurrencyAmountResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INRequestPaymentCurrencyAmountResolutionResult : Intents.INCurrencyAmountResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INRequestPaymentCurrencyAmountResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INRequestPaymentCurrencyAmountResolutionResult (INCurrencyAmountResolutionResult currencyAmountResolutionResult);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INRequestPaymentCurrencyAmountResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INRequestPaymentCurrencyAmountResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INRequestPaymentCurrencyAmountResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INRequestPaymentCurrencyAmountResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INRequestPaymentCurrencyAmountResolutionResult GetUnsupported (INRequestPaymentCurrencyAmountUnsupportedReason reason);</span>
+}
+</pre>
+</div> <!-- end type INRequestPaymentCurrencyAmountResolutionResult -->
+<div> <!-- start type INRequestPaymentCurrencyAmountUnsupportedReason -->
+<h3>New Type Intents.INRequestPaymentCurrencyAmountUnsupportedReason</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INRequestPaymentCurrencyAmountUnsupportedReason {
+	<span class='added added-field ' data-is-non-breaking="">AmountAboveMaximum = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">AmountBelowMinimum = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">CurrencyUnsupported = 3,</span>
+}
+</pre>
+</div> <!-- end type INRequestPaymentCurrencyAmountUnsupportedReason -->
+<div> <!-- start type INRequestPaymentPayerResolutionResult -->
+<h3>New Type Intents.INRequestPaymentPayerResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INRequestPaymentPayerResolutionResult : Intents.INPersonResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INRequestPaymentPayerResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INRequestPaymentPayerResolutionResult (INPersonResolutionResult personResolutionResult);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INRequestPaymentPayerResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INRequestPaymentPayerResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INRequestPaymentPayerResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INRequestPaymentPayerResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INRequestPaymentPayerResolutionResult GetUnsupported (INRequestPaymentPayerUnsupportedReason reason);</span>
+}
+</pre>
+</div> <!-- end type INRequestPaymentPayerResolutionResult -->
+<div> <!-- start type INRequestPaymentPayerUnsupportedReason -->
+<h3>New Type Intents.INRequestPaymentPayerUnsupportedReason</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INRequestPaymentPayerUnsupportedReason {
+	<span class='added added-field ' data-is-non-breaking="">CredentialsUnverified = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">NoAccount = 2,</span>
+}
+</pre>
+</div> <!-- end type INRequestPaymentPayerUnsupportedReason -->
+<div> <!-- start type INRideFeedbackTypeOptions -->
+<h3>New Type Intents.INRideFeedbackTypeOptions</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INRideFeedbackTypeOptions {
+	<span class='added added-field ' data-is-non-breaking="">Rate = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Tip = 2,</span>
+}
+</pre>
+</div> <!-- end type INRideFeedbackTypeOptions -->
+<div> <!-- start type INSearchForAccountsIntent -->
+<h3>New Type Intents.INSearchForAccountsIntent</h3>
+<pre class='added' data-is-non-breaking="">
+public class INSearchForAccountsIntent : Intents.INIntent, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INSearchForAccountsIntent ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSearchForAccountsIntent (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSearchForAccountsIntent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSearchForAccountsIntent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSearchForAccountsIntent (INSpeakableString accountNickname, INAccountType accountType, INSpeakableString organizationName, INBalanceType requestedBalanceType);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString AccountNickname { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INAccountType AccountType { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString OrganizationName { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INBalanceType RequestedBalanceType { get; }</span>
+}
+</pre>
+</div> <!-- end type INSearchForAccountsIntent -->
+<div> <!-- start type INSearchForAccountsIntentHandling_Extensions -->
+<h3>New Type Intents.INSearchForAccountsIntentHandling_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class INSearchForAccountsIntentHandling_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void ConfirmSearchForAccounts (IINSearchForAccountsIntentHandling This, INSearchForAccountsIntent intent, System.Action&lt;INSearchForAccountsIntentResponse&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveAccountNickname (IINSearchForAccountsIntentHandling This, INSearchForAccountsIntent intent, System.Action&lt;INSpeakableStringResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveAccountType (IINSearchForAccountsIntentHandling This, INSearchForAccountsIntent intent, System.Action&lt;INAccountTypeResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveOrganizationName (IINSearchForAccountsIntentHandling This, INSearchForAccountsIntent intent, System.Action&lt;INSpeakableStringResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveRequestedBalanceType (IINSearchForAccountsIntentHandling This, INSearchForAccountsIntent intent, System.Action&lt;INBalanceTypeResolutionResult&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type INSearchForAccountsIntentHandling_Extensions -->
+<div> <!-- start type INSearchForAccountsIntentResponse -->
+<h3>New Type Intents.INSearchForAccountsIntentResponse</h3>
+<pre class='added' data-is-non-breaking="">
+public class INSearchForAccountsIntentResponse : Intents.INIntentResponse, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INSearchForAccountsIntentResponse (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSearchForAccountsIntentResponse (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSearchForAccountsIntentResponse (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSearchForAccountsIntentResponse (INSearchForAccountsIntentResponseCode code, Foundation.NSUserActivity userActivity);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual INPaymentAccount[] Accounts { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSearchForAccountsIntentResponseCode Code { get; }</span>
+}
+</pre>
+</div> <!-- end type INSearchForAccountsIntentResponse -->
+<div> <!-- start type INSearchForAccountsIntentResponseCode -->
+<h3>New Type Intents.INSearchForAccountsIntentResponseCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INSearchForAccountsIntentResponseCode {
+	<span class='added added-field ' data-is-non-breaking="">Failure = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureAccountNotFound = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureCredentialsUnverified = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureRequiringAppLaunch = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">InProgress = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ready = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type INSearchForAccountsIntentResponseCode -->
+<div> <!-- start type INSearchForNotebookItemsIntent -->
+<h3>New Type Intents.INSearchForNotebookItemsIntent</h3>
+<pre class='added' data-is-non-breaking="">
+public class INSearchForNotebookItemsIntent : Intents.INIntent, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INSearchForNotebookItemsIntent ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSearchForNotebookItemsIntent (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSearchForNotebookItemsIntent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSearchForNotebookItemsIntent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSearchForNotebookItemsIntent (INSpeakableString title, string content, INNotebookItemType itemType, INTaskStatus status, CoreLocation.CLPlacemark location, INLocationSearchType locationSearchType, INDateComponentsRange dateTime, INDateSearchType dateSearchType);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Content { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INDateSearchType DateSearchType { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INDateComponentsRange DateTime { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INNotebookItemType ItemType { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreLocation.CLPlacemark Location { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INLocationSearchType LocationSearchType { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTaskStatus Status { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString Title { get; }</span>
+}
+</pre>
+</div> <!-- end type INSearchForNotebookItemsIntent -->
+<div> <!-- start type INSearchForNotebookItemsIntentHandling_Extensions -->
+<h3>New Type Intents.INSearchForNotebookItemsIntentHandling_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class INSearchForNotebookItemsIntentHandling_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void ConfirmSearchForNotebookItems (IINSearchForNotebookItemsIntentHandling This, INSearchForNotebookItemsIntent intent, System.Action&lt;INSearchForNotebookItemsIntentResponse&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveContent (IINSearchForNotebookItemsIntentHandling This, INSearchForNotebookItemsIntent intent, System.Action&lt;INStringResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveDateSearchType (IINSearchForNotebookItemsIntentHandling This, INSearchForNotebookItemsIntent intent, System.Action&lt;INDateSearchTypeResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveDateTime (IINSearchForNotebookItemsIntentHandling This, INSearchForNotebookItemsIntent intent, System.Action&lt;INDateComponentsRangeResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveItemType (IINSearchForNotebookItemsIntentHandling This, INSearchForNotebookItemsIntent intent, System.Action&lt;INNotebookItemTypeResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveLocation (IINSearchForNotebookItemsIntentHandling This, INSearchForNotebookItemsIntent intent, System.Action&lt;INPlacemarkResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveLocationSearchType (IINSearchForNotebookItemsIntentHandling This, INSearchForNotebookItemsIntent intent, System.Action&lt;INLocationSearchTypeResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveStatus (IINSearchForNotebookItemsIntentHandling This, INSearchForNotebookItemsIntent intent, System.Action&lt;INTaskStatusResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveTitle (IINSearchForNotebookItemsIntentHandling This, INSearchForNotebookItemsIntent intent, System.Action&lt;INSpeakableStringResolutionResult&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type INSearchForNotebookItemsIntentHandling_Extensions -->
+<div> <!-- start type INSearchForNotebookItemsIntentResponse -->
+<h3>New Type Intents.INSearchForNotebookItemsIntentResponse</h3>
+<pre class='added' data-is-non-breaking="">
+public class INSearchForNotebookItemsIntentResponse : Intents.INIntentResponse, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INSearchForNotebookItemsIntentResponse (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSearchForNotebookItemsIntentResponse (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSearchForNotebookItemsIntentResponse (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSearchForNotebookItemsIntentResponse (INSearchForNotebookItemsIntentResponseCode code, Foundation.NSUserActivity userActivity);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSearchForNotebookItemsIntentResponseCode Code { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INNote[] Notes { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSortType SortType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTaskList[] TaskLists { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTask[] Tasks { get; set; }</span>
+}
+</pre>
+</div> <!-- end type INSearchForNotebookItemsIntentResponse -->
+<div> <!-- start type INSearchForNotebookItemsIntentResponseCode -->
+<h3>New Type Intents.INSearchForNotebookItemsIntentResponseCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INSearchForNotebookItemsIntentResponseCode {
+	<span class='added added-field ' data-is-non-breaking="">Failure = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureRequiringAppLaunch = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">InProgress = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ready = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type INSearchForNotebookItemsIntentResponseCode -->
+<div> <!-- start type INSendMessageRecipientResolutionResult -->
+<h3>New Type Intents.INSendMessageRecipientResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INSendMessageRecipientResolutionResult : Intents.INPersonResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSendMessageRecipientResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSendMessageRecipientResolutionResult (INPersonResolutionResult personResolutionResult);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSendMessageRecipientResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INSendMessageRecipientResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INSendMessageRecipientResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INSendMessageRecipientResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INSendMessageRecipientResolutionResult GetUnsupported (INSendMessageRecipientUnsupportedReason reason);</span>
+}
+</pre>
+</div> <!-- end type INSendMessageRecipientResolutionResult -->
+<div> <!-- start type INSendMessageRecipientUnsupportedReason -->
+<h3>New Type Intents.INSendMessageRecipientUnsupportedReason</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INSendMessageRecipientUnsupportedReason {
+	<span class='added added-field ' data-is-non-breaking="">MessagingServiceNotEnabledForRecipient = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">NoAccount = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Offline = 2,</span>
+}
+</pre>
+</div> <!-- end type INSendMessageRecipientUnsupportedReason -->
+<div> <!-- start type INSendPaymentCurrencyAmountResolutionResult -->
+<h3>New Type Intents.INSendPaymentCurrencyAmountResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INSendPaymentCurrencyAmountResolutionResult : Intents.INCurrencyAmountResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSendPaymentCurrencyAmountResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSendPaymentCurrencyAmountResolutionResult (INCurrencyAmountResolutionResult currencyAmountResolutionResult);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSendPaymentCurrencyAmountResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INSendPaymentCurrencyAmountResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INSendPaymentCurrencyAmountResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INSendPaymentCurrencyAmountResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INSendPaymentCurrencyAmountResolutionResult GetUnsupported (INSendPaymentCurrencyAmountUnsupportedReason reason);</span>
+}
+</pre>
+</div> <!-- end type INSendPaymentCurrencyAmountResolutionResult -->
+<div> <!-- start type INSendPaymentCurrencyAmountUnsupportedReason -->
+<h3>New Type Intents.INSendPaymentCurrencyAmountUnsupportedReason</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INSendPaymentCurrencyAmountUnsupportedReason {
+	<span class='added added-field ' data-is-non-breaking="">AmountAboveMaximum = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">AmountBelowMinimum = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">CurrencyUnsupported = 3,</span>
+}
+</pre>
+</div> <!-- end type INSendPaymentCurrencyAmountUnsupportedReason -->
+<div> <!-- start type INSendPaymentPayeeResolutionResult -->
+<h3>New Type Intents.INSendPaymentPayeeResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INSendPaymentPayeeResolutionResult : Intents.INPersonResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSendPaymentPayeeResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSendPaymentPayeeResolutionResult (INPersonResolutionResult personResolutionResult);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSendPaymentPayeeResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INSendPaymentPayeeResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INSendPaymentPayeeResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INSendPaymentPayeeResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INSendPaymentPayeeResolutionResult GetUnsupported (INSendPaymentPayeeUnsupportedReason reason);</span>
+}
+</pre>
+</div> <!-- end type INSendPaymentPayeeResolutionResult -->
+<div> <!-- start type INSendPaymentPayeeUnsupportedReason -->
+<h3>New Type Intents.INSendPaymentPayeeUnsupportedReason</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INSendPaymentPayeeUnsupportedReason {
+	<span class='added added-field ' data-is-non-breaking="">CredentialsUnverified = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">InsufficientFunds = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">NoAccount = 3,</span>
+}
+</pre>
+</div> <!-- end type INSendPaymentPayeeUnsupportedReason -->
+<div> <!-- start type INSendRideFeedbackIntent -->
+<h3>New Type Intents.INSendRideFeedbackIntent</h3>
+<pre class='added' data-is-non-breaking="">
+public class INSendRideFeedbackIntent : Intents.INIntent, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INSendRideFeedbackIntent (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSendRideFeedbackIntent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSendRideFeedbackIntent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSendRideFeedbackIntent (string rideIdentifier);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSNumber Rating { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string RideIdentifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INCurrencyAmount Tip { get; set; }</span>
+}
+</pre>
+</div> <!-- end type INSendRideFeedbackIntent -->
+<div> <!-- start type INSendRideFeedbackIntentHandling_Extensions -->
+<h3>New Type Intents.INSendRideFeedbackIntentHandling_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class INSendRideFeedbackIntentHandling_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void ConfirmSendRideFeedback (IINSendRideFeedbackIntentHandling This, INSendRideFeedbackIntent sendRideFeedbackIntent, System.Action&lt;INSendRideFeedbackIntentResponse&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type INSendRideFeedbackIntentHandling_Extensions -->
+<div> <!-- start type INSendRideFeedbackIntentResponse -->
+<h3>New Type Intents.INSendRideFeedbackIntentResponse</h3>
+<pre class='added' data-is-non-breaking="">
+public class INSendRideFeedbackIntentResponse : Intents.INIntentResponse, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INSendRideFeedbackIntentResponse (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSendRideFeedbackIntentResponse (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSendRideFeedbackIntentResponse (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSendRideFeedbackIntentResponse (INSendRideFeedbackIntentResponseCode code, Foundation.NSUserActivity userActivity);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSendRideFeedbackIntentResponseCode Code { get; }</span>
+}
+</pre>
+</div> <!-- end type INSendRideFeedbackIntentResponse -->
+<div> <!-- start type INSendRideFeedbackIntentResponseCode -->
+<h3>New Type Intents.INSendRideFeedbackIntentResponseCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INSendRideFeedbackIntentResponseCode {
+	<span class='added added-field ' data-is-non-breaking="">Failure = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ready = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type INSendRideFeedbackIntentResponseCode -->
+<div> <!-- start type INSetTaskAttributeIntent -->
+<h3>New Type Intents.INSetTaskAttributeIntent</h3>
+<pre class='added' data-is-non-breaking="">
+public class INSetTaskAttributeIntent : Intents.INIntent, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INSetTaskAttributeIntent ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSetTaskAttributeIntent (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSetTaskAttributeIntent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSetTaskAttributeIntent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSetTaskAttributeIntent (INTask targetTask, INTaskStatus status, INSpatialEventTrigger spatialEventTrigger, INTemporalEventTrigger temporalEventTrigger);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpatialEventTrigger SpatialEventTrigger { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTaskStatus Status { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTask TargetTask { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTemporalEventTrigger TemporalEventTrigger { get; }</span>
+}
+</pre>
+</div> <!-- end type INSetTaskAttributeIntent -->
+<div> <!-- start type INSetTaskAttributeIntentHandling_Extensions -->
+<h3>New Type Intents.INSetTaskAttributeIntentHandling_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class INSetTaskAttributeIntentHandling_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void ConfirmSetTaskAttribute (IINSetTaskAttributeIntentHandling This, INSetTaskAttributeIntent intent, System.Action&lt;INSetTaskAttributeIntentResponse&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveSpatialEventTrigger (IINSetTaskAttributeIntentHandling This, INSetTaskAttributeIntent intent, System.Action&lt;INSpatialEventTriggerResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveStatus (IINSetTaskAttributeIntentHandling This, INSetTaskAttributeIntent intent, System.Action&lt;INTaskStatusResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveTargetTask (IINSetTaskAttributeIntentHandling This, INSetTaskAttributeIntent intent, System.Action&lt;INTaskResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveTemporalEventTrigger (IINSetTaskAttributeIntentHandling This, INSetTaskAttributeIntent intent, System.Action&lt;INTemporalEventTriggerResolutionResult&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type INSetTaskAttributeIntentHandling_Extensions -->
+<div> <!-- start type INSetTaskAttributeIntentResponse -->
+<h3>New Type Intents.INSetTaskAttributeIntentResponse</h3>
+<pre class='added' data-is-non-breaking="">
+public class INSetTaskAttributeIntentResponse : Intents.INIntentResponse, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INSetTaskAttributeIntentResponse (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSetTaskAttributeIntentResponse (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSetTaskAttributeIntentResponse (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSetTaskAttributeIntentResponse (INSetTaskAttributeIntentResponseCode code, Foundation.NSUserActivity userActivity);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSetTaskAttributeIntentResponseCode Code { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTask ModifiedTask { get; set; }</span>
+}
+</pre>
+</div> <!-- end type INSetTaskAttributeIntentResponse -->
+<div> <!-- start type INSetTaskAttributeIntentResponseCode -->
+<h3>New Type Intents.INSetTaskAttributeIntentResponseCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INSetTaskAttributeIntentResponseCode {
+	<span class='added added-field ' data-is-non-breaking="">Failure = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureRequiringAppLaunch = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">InProgress = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ready = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type INSetTaskAttributeIntentResponseCode -->
+<div> <!-- start type INSortType -->
+<h3>New Type Intents.INSortType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INSortType {
+	<span class='added added-field ' data-is-non-breaking="">AsIs = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">ByDate = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 0,</span>
+}
+</pre>
+</div> <!-- end type INSortType -->
+<div> <!-- start type INSpatialEvent -->
+<h3>New Type Intents.INSpatialEvent</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INSpatialEvent {
+	<span class='added added-field ' data-is-non-breaking="">Arrive = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Depart = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 0,</span>
+}
+</pre>
+</div> <!-- end type INSpatialEvent -->
+<div> <!-- start type INSpatialEventTrigger -->
+<h3>New Type Intents.INSpatialEventTrigger</h3>
+<pre class='added' data-is-non-breaking="">
+public class INSpatialEventTrigger : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSpatialEventTrigger (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSpatialEventTrigger (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INSpatialEventTrigger (CoreLocation.CLPlacemark placemark, INSpatialEvent event);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpatialEvent Event { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreLocation.CLPlacemark Placemark { get; }</span>
+}
+</pre>
+</div> <!-- end type INSpatialEventTrigger -->
+<div> <!-- start type INSpatialEventTriggerResolutionResult -->
+<h3>New Type Intents.INSpatialEventTriggerResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INSpatialEventTriggerResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSpatialEventTriggerResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INSpatialEventTriggerResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INSpatialEventTriggerResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INSpatialEventTriggerResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INSpatialEventTriggerResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INSpatialEventTriggerResolutionResult GetConfirmationRequired (INSpatialEventTrigger spatialEventTriggerToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INSpatialEventTriggerResolutionResult GetDisambiguation (INSpatialEventTrigger[] spatialEventTriggersToDisambiguate);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INSpatialEventTriggerResolutionResult GetSuccess (INSpatialEventTrigger resolvedSpatialEventTrigger);</span>
+}
+</pre>
+</div> <!-- end type INSpatialEventTriggerResolutionResult -->
+<div> <!-- start type INTask -->
+<h3>New Type Intents.INTask</h3>
+<pre class='added' data-is-non-breaking="">
+public class INTask : Foundation.NSObject, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INTask (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTask (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTask (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INTask (INSpeakableString title, INTaskStatus status, INTaskType taskType, INSpatialEventTrigger spatialEventTrigger, INTemporalEventTrigger temporalEventTrigger, Foundation.NSDateComponents createdDateComponents, Foundation.NSDateComponents modifiedDateComponents, string identifier);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDateComponents CreatedDateComponents { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Identifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDateComponents ModifiedDateComponents { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpatialEventTrigger SpatialEventTrigger { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTaskStatus Status { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTaskType TaskType { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTemporalEventTrigger TemporalEventTrigger { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString Title { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type INTask -->
+<div> <!-- start type INTaskList -->
+<h3>New Type Intents.INTaskList</h3>
+<pre class='added' data-is-non-breaking="">
+public class INTaskList : Foundation.NSObject, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INTaskList (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTaskList (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTaskList (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INTaskList (INSpeakableString title, INTask[] tasks, INSpeakableString groupName, Foundation.NSDateComponents createdDateComponents, Foundation.NSDateComponents modifiedDateComponents, string identifier);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDateComponents CreatedDateComponents { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString GroupName { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Identifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDateComponents ModifiedDateComponents { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTask[] Tasks { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INSpeakableString Title { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type INTaskList -->
+<div> <!-- start type INTaskListResolutionResult -->
+<h3>New Type Intents.INTaskListResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INTaskListResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTaskListResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTaskListResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INTaskListResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INTaskListResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INTaskListResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INTaskListResolutionResult GetConfirmationRequired (INTaskList taskListToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INTaskListResolutionResult GetDisambiguation (INTaskList[] taskListsToDisambiguate);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INTaskListResolutionResult GetSuccess (INTaskList resolvedTaskList);</span>
+}
+</pre>
+</div> <!-- end type INTaskListResolutionResult -->
+<div> <!-- start type INTaskResolutionResult -->
+<h3>New Type Intents.INTaskResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INTaskResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTaskResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTaskResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INTaskResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INTaskResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INTaskResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INTaskResolutionResult GetConfirmationRequired (INTask taskToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INTaskResolutionResult GetDisambiguation (INTask[] tasksToDisambiguate);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INTaskResolutionResult GetSuccess (INTask resolvedTask);</span>
+}
+</pre>
+</div> <!-- end type INTaskResolutionResult -->
+<div> <!-- start type INTaskStatus -->
+<h3>New Type Intents.INTaskStatus</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INTaskStatus {
+	<span class='added added-field ' data-is-non-breaking="">Completed = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">NotCompleted = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 0,</span>
+}
+</pre>
+</div> <!-- end type INTaskStatus -->
+<div> <!-- start type INTaskStatusResolutionResult -->
+<h3>New Type Intents.INTaskStatusResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INTaskStatusResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTaskStatusResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTaskStatusResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INTaskStatusResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INTaskStatusResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INTaskStatusResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INTaskStatusResolutionResult GetConfirmationRequired (INTaskStatus taskStatusToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INTaskStatusResolutionResult GetSuccess (INTaskStatus resolvedTaskStatus);</span>
+}
+</pre>
+</div> <!-- end type INTaskStatusResolutionResult -->
+<div> <!-- start type INTaskType -->
+<h3>New Type Intents.INTaskType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INTaskType {
+	<span class='added added-field ' data-is-non-breaking="">Completable = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">NotCompletable = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 0,</span>
+}
+</pre>
+</div> <!-- end type INTaskType -->
+<div> <!-- start type INTemporalEventTrigger -->
+<h3>New Type Intents.INTemporalEventTrigger</h3>
+<pre class='added' data-is-non-breaking="">
+public class INTemporalEventTrigger : Foundation.NSObject, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INTemporalEventTrigger (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTemporalEventTrigger (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INTemporalEventTrigger (INDateComponentsRange dateComponentsRange);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTemporalEventTrigger (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INDateComponentsRange DateComponentsRange { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type INTemporalEventTrigger -->
+<div> <!-- start type INTemporalEventTriggerResolutionResult -->
+<h3>New Type Intents.INTemporalEventTriggerResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INTemporalEventTriggerResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTemporalEventTriggerResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTemporalEventTriggerResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INTemporalEventTriggerResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INTemporalEventTriggerResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INTemporalEventTriggerResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INTemporalEventTriggerResolutionResult GetConfirmationRequired (INTemporalEventTrigger temporalEventTriggerToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INTemporalEventTriggerResolutionResult GetDisambiguation (INTemporalEventTrigger[] temporalEventTriggersToDisambiguate);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INTemporalEventTriggerResolutionResult GetSuccess (INTemporalEventTrigger resolvedTemporalEventTrigger);</span>
+}
+</pre>
+</div> <!-- end type INTemporalEventTriggerResolutionResult -->
+<div> <!-- start type INTextNoteContent -->
+<h3>New Type Intents.INTextNoteContent</h3>
+<pre class='added' data-is-non-breaking="">
+public class INTextNoteContent : Intents.INNoteContent, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INTextNoteContent (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTextNoteContent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTextNoteContent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INTextNoteContent (string text);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Text { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type INTextNoteContent -->
+<div> <!-- start type INTransferMoneyIntent -->
+<h3>New Type Intents.INTransferMoneyIntent</h3>
+<pre class='added' data-is-non-breaking="">
+public class INTransferMoneyIntent : Intents.INIntent, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INTransferMoneyIntent (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTransferMoneyIntent (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTransferMoneyIntent (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INTransferMoneyIntent (INPaymentAccount fromAccount, INPaymentAccount toAccount, INPaymentAmount transactionAmount, INDateComponentsRange transactionScheduledDate, string transactionNote);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INPaymentAccount FromAccount { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INPaymentAccount ToAccount { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INPaymentAmount TransactionAmount { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string TransactionNote { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INDateComponentsRange TransactionScheduledDate { get; }</span>
+}
+</pre>
+</div> <!-- end type INTransferMoneyIntent -->
+<div> <!-- start type INTransferMoneyIntentHandling_Extensions -->
+<h3>New Type Intents.INTransferMoneyIntentHandling_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class INTransferMoneyIntentHandling_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void ConfirmTransferMoney (IINTransferMoneyIntentHandling This, INTransferMoneyIntent intent, System.Action&lt;INTransferMoneyIntentResponse&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveFromAccount (IINTransferMoneyIntentHandling This, INTransferMoneyIntent intent, System.Action&lt;INPaymentAccountResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveToAccount (IINTransferMoneyIntentHandling This, INTransferMoneyIntent intent, System.Action&lt;INPaymentAccountResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveTransactionAmount (IINTransferMoneyIntentHandling This, INTransferMoneyIntent intent, System.Action&lt;INPaymentAmountResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveTransactionNote (IINTransferMoneyIntentHandling This, INTransferMoneyIntent intent, System.Action&lt;INStringResolutionResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ResolveTransactionScheduledDate (IINTransferMoneyIntentHandling This, INTransferMoneyIntent intent, System.Action&lt;INDateComponentsRangeResolutionResult&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type INTransferMoneyIntentHandling_Extensions -->
+<div> <!-- start type INTransferMoneyIntentResponse -->
+<h3>New Type Intents.INTransferMoneyIntentResponse</h3>
+<pre class='added' data-is-non-breaking="">
+public class INTransferMoneyIntentResponse : Intents.INIntentResponse, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INTransferMoneyIntentResponse (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTransferMoneyIntentResponse (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INTransferMoneyIntentResponse (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public INTransferMoneyIntentResponse (INTransferMoneyIntentResponseCode code, Foundation.NSUserActivity userActivity);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INTransferMoneyIntentResponseCode Code { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INPaymentAccount FromAccount { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INPaymentAccount ToAccount { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INPaymentAmount TransactionAmount { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string TransactionNote { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INDateComponentsRange TransactionScheduledDate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INCurrencyAmount TransferFee { get; set; }</span>
+}
+</pre>
+</div> <!-- end type INTransferMoneyIntentResponse -->
+<div> <!-- start type INTransferMoneyIntentResponseCode -->
+<h3>New Type Intents.INTransferMoneyIntentResponseCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INTransferMoneyIntentResponseCode {
+	<span class='added added-field ' data-is-non-breaking="">Failure = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureCredentialsUnverified = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureInsufficientFunds = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailureRequiringAppLaunch = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">InProgress = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ready = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Success = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type INTransferMoneyIntentResponseCode -->
+<div> <!-- start type INVisualCodeType -->
+<h3>New Type Intents.INVisualCodeType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INVisualCodeType {
+	<span class='added added-field ' data-is-non-breaking="">Contact = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">RequestPayment = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">SendPayment = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 0,</span>
+}
+</pre>
+</div> <!-- end type INVisualCodeType -->
+<div> <!-- start type INVisualCodeTypeResolutionResult -->
+<h3>New Type Intents.INVisualCodeTypeResolutionResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class INVisualCodeTypeResolutionResult : Intents.INIntentResolutionResult, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected INVisualCodeTypeResolutionResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected INVisualCodeTypeResolutionResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INVisualCodeTypeResolutionResult NeedsValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INVisualCodeTypeResolutionResult NotRequired { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static INVisualCodeTypeResolutionResult Unsupported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static INVisualCodeTypeResolutionResult GetConfirmationRequired (INVisualCodeType visualCodeTypeToConfirm);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static INVisualCodeTypeResolutionResult GetSuccess (INVisualCodeType resolvedVisualCodeType);</span>
+}
+</pre>
+</div> <!-- end type INVisualCodeTypeResolutionResult -->
+
+</div> <!-- end namespace Intents -->
+<!-- start namespace IntentsUI --> <div> 
+<h2>Namespace IntentsUI</h2>
+<!-- start type NSExtensionContext_INUIHostedViewControlling --> <div>
+<h3>Type Changed: IntentsUI.NSExtensionContext_INUIHostedViewControlling</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static string GetInterfaceParametersDescription (Foundation.NSExtensionContext This);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSExtensionContext_INUIHostedViewControlling -->
+<div> <!-- start type INUIHostedViewControllingConfigureViewHandler -->
+<h3>New Type IntentsUI.INUIHostedViewControllingConfigureViewHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate INUIHostedViewControllingConfigureViewHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public INUIHostedViewControllingConfigureViewHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (bool success, Foundation.NSSet&lt;Intents.INParameter&gt; configuredParameters, CoreGraphics.CGSize desiredSize, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invoke (bool success, Foundation.NSSet&lt;Intents.INParameter&gt; configuredParameters, CoreGraphics.CGSize desiredSize);</span>
+}
+</pre>
+</div> <!-- end type INUIHostedViewControllingConfigureViewHandler -->
+<div> <!-- start type INUIHostedViewControlling_Extensions -->
+<h3>New Type IntentsUI.INUIHostedViewControlling_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class INUIHostedViewControlling_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void ConfigureView (IINUIHostedViewControlling This, Foundation.NSSet&lt;Intents.INParameter&gt; parameters, Intents.INInteraction interaction, INUIInteractiveBehavior interactiveBehavior, INUIHostedViewContext context, INUIHostedViewControllingConfigureViewHandler completionHandler);</span>
+}
+</pre>
+</div> <!-- end type INUIHostedViewControlling_Extensions -->
+<div> <!-- start type INUIInteractiveBehavior -->
+<h3>New Type IntentsUI.INUIInteractiveBehavior</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum INUIInteractiveBehavior {
+	<span class='added added-field ' data-is-non-breaking="">GenericAction = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Launch = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">NextView = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+}
+</pre>
+</div> <!-- end type INUIInteractiveBehavior -->
+
+</div> <!-- end namespace IntentsUI -->
+<!-- start namespace LocalAuthentication --> <div> 
+<h2>Namespace LocalAuthentication</h2>
+<!-- start type LAContext --> <div>
+<h3>Type Changed: LocalAuthentication.LAContext</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool InteractionNotAllowed { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string LocalizedReason { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type LAContext -->
+<!-- start type LAStatus --> <div>
+<h3>Type Changed: LocalAuthentication.LAStatus</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">NotInteractive = -1004,</span>
+</pre>
+</div>
+
+</div> <!-- end type LAStatus -->
+
+</div> <!-- end namespace LocalAuthentication -->
+<!-- start namespace MapKit --> <div> 
+<h2>Namespace MapKit</h2>
+<!-- start type MKAnnotationView --> <div>
+<h3>Type Changed: MapKit.MKAnnotationView</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MKAnnotationView ClusterAnnotationView { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string ClusteringIdentifier { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MKAnnotationViewCollisionMode CollisionMode { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual float DisplayPriority { get; set; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PrepareForDisplay ();</span>
+</pre>
+</div>
+
+</div> <!-- end type MKAnnotationView -->
+<!-- start type MKMapItem --> <div>
+<h3>Type Changed: MapKit.MKMapItem</h3>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSItemProviderReading</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSItemProviderWriting</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString TypeIdentifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] WritableTypeIdentifiersForItemProvider { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSItemProviderRepresentationVisibility GetItemProviderVisibility (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSProgress LoadData (string typeIdentifier, System.Action&lt;Foundation.NSData,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;Foundation.NSData&gt; LoadDataAsync (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;Foundation.NSData&gt; LoadDataAsync (string typeIdentifier, Foundation.NSProgress result);</span>
+</pre>
+</div>
+
+</div> <!-- end type MKMapItem -->
+<!-- start type MKMapType --> <div>
+<h3>Type Changed: MapKit.MKMapType</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">MutedStandard = 5,</span>
+</pre>
+</div>
+
+</div> <!-- end type MKMapType -->
+<!-- start type MKMapView --> <div>
+<h3>Type Changed: MapKit.MKMapView</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public MKCreateClusterAnnotation CreateClusterAnnotation { get; set; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual MKAnnotationView DequeueReusableAnnotation (string identifier, IMKAnnotation annotation);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Register (ObjCRuntime.Class viewClass, string identifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public void Register (System.Type viewType, string identifier);</span>
+</pre>
+</div>
+
+</div> <!-- end type MKMapView -->
+<!-- start type MKMapViewDelegate --> <div>
+<h3>Type Changed: MapKit.MKMapViewDelegate</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual MKClusterAnnotation CreateClusterAnnotation (MKMapView mapView, IMKAnnotation[] memberAnnotations);</span>
+</pre>
+</div>
+
+</div> <!-- end type MKMapViewDelegate -->
+<!-- start type MKMapViewDelegate_Extensions --> <div>
+<h3>Type Changed: MapKit.MKMapViewDelegate_Extensions</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static MKClusterAnnotation CreateClusterAnnotation (IMKMapViewDelegate This, MKMapView mapView, IMKAnnotation[] memberAnnotations);</span>
+</pre>
+</div>
+
+</div> <!-- end type MKMapViewDelegate_Extensions -->
+<div> <!-- start type MKAnnotationViewCollisionMode -->
+<h3>New Type MapKit.MKAnnotationViewCollisionMode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum MKAnnotationViewCollisionMode {
+	<span class='added added-field ' data-is-non-breaking="">Circle = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Rectangle = 0,</span>
+}
+</pre>
+</div> <!-- end type MKAnnotationViewCollisionMode -->
+<div> <!-- start type MKClusterAnnotation -->
+<h3>New Type MapKit.MKClusterAnnotation</h3>
+<pre class='added' data-is-non-breaking="">
+public class MKClusterAnnotation : Foundation.NSObject, Foundation.INSObjectProtocol, IMKAnnotation, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected MKClusterAnnotation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public MKClusterAnnotation (IMKAnnotation[] memberAnnotations);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MKClusterAnnotation (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreLocation.CLLocationCoordinate2D Coordinate { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IMKAnnotation[] MemberAnnotations { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Subtitle { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Title { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetCoordinate (CoreLocation.CLLocationCoordinate2D value);</span>
+}
+</pre>
+</div> <!-- end type MKClusterAnnotation -->
+<div> <!-- start type MKCompassButton -->
+<h3>New Type MapKit.MKCompassButton</h3>
+<pre class='added' data-is-non-breaking="">
+public class MKCompassButton : UIKit.UIView, CoreAnimation.ICALayerDelegate, Foundation.INSCoding, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.Collections.IEnumerable, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAccessibilityIdentification, UIKit.IUIAppearance, UIKit.IUIAppearanceContainer, UIKit.IUICoordinateSpace, UIKit.IUIDynamicItem, UIKit.IUIFocusEnvironment, UIKit.IUIFocusItem, UIKit.IUITraitEnvironment {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public MKCompassButton (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MKCompassButton (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MKCompassButton (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public static MKCompassButton.MKCompassButtonAppearance Appearance { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MKFeatureVisibility CompassVisibility { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MKMapView MapView { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static MKCompassButton.MKCompassButtonAppearance AppearanceWhenContainedIn (System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKCompassButton FromMapView (MKMapView mapView);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKCompassButton.MKCompassButtonAppearance GetAppearance&lt;T&gt; ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKCompassButton.MKCompassButtonAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKCompassButton.MKCompassButtonAppearance GetAppearance (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKCompassButton.MKCompassButtonAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKCompassButton.MKCompassButtonAppearance GetAppearance (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+
+	// inner types
+	public class MKCompassButtonAppearance : UIKit.UIView+UIViewAppearance, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAppearance {
+		// constructors
+		<span class='added added-constructor ' data-is-non-breaking="">protected MKCompassButton (IntPtr handle);</span>
+	}
+}
+</pre>
+</div> <!-- end type MKCompassButton -->
+<div> <!-- start type MKCreateClusterAnnotation -->
+<h3>New Type MapKit.MKCreateClusterAnnotation</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate MKCreateClusterAnnotation : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public MKCreateClusterAnnotation (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (MKMapView mapView, IMKAnnotation[] memberAnnotations, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual MKClusterAnnotation EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual MKClusterAnnotation Invoke (MKMapView mapView, IMKAnnotation[] memberAnnotations);</span>
+}
+</pre>
+</div> <!-- end type MKCreateClusterAnnotation -->
+<div> <!-- start type MKFeatureDisplayPriority -->
+<h3>New Type MapKit.MKFeatureDisplayPriority</h3>
+<pre class='added' data-is-non-breaking="">
+public static class MKFeatureDisplayPriority {
+	// fields
+	<span class='added added-field ' data-is-non-breaking="">public static const float DefaultHigh;</span>
+	<span class='added added-field ' data-is-non-breaking="">public static const float DefaultLow;</span>
+	<span class='added added-field ' data-is-non-breaking="">public static const float Required;</span>
+}
+</pre>
+</div> <!-- end type MKFeatureDisplayPriority -->
+<div> <!-- start type MKFeatureVisibility -->
+<h3>New Type MapKit.MKFeatureVisibility</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum MKFeatureVisibility {
+	<span class='added added-field ' data-is-non-breaking="">Adaptive = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Hidden = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Visible = 2,</span>
+}
+</pre>
+</div> <!-- end type MKFeatureVisibility -->
+<div> <!-- start type MKMapViewDefault -->
+<h3>New Type MapKit.MKMapViewDefault</h3>
+<pre class='added' data-is-non-breaking="">
+public static class MKMapViewDefault {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString AnnotationViewReuseIdentifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString ClusterAnnotationViewReuseIdentifier { get; }</span>
+}
+</pre>
+</div> <!-- end type MKMapViewDefault -->
+<div> <!-- start type MKMarkerAnnotationView -->
+<h3>New Type MapKit.MKMarkerAnnotationView</h3>
+<pre class='added' data-is-non-breaking="">
+public class MKMarkerAnnotationView : MapKit.MKAnnotationView, CoreAnimation.ICALayerDelegate, Foundation.INSCoding, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.Collections.IEnumerable, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAccessibilityIdentification, UIKit.IUIAppearance, UIKit.IUIAppearanceContainer, UIKit.IUICoordinateSpace, UIKit.IUIDynamicItem, UIKit.IUIFocusEnvironment, UIKit.IUIFocusItem, UIKit.IUITraitEnvironment {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public MKMarkerAnnotationView ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public MKMarkerAnnotationView (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MKMarkerAnnotationView (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MKMarkerAnnotationView (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public MKMarkerAnnotationView (IMKAnnotation annotation, string reuseIdentifier);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AnimatesWhenAdded { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static MKMarkerAnnotationView.MKMarkerAnnotationViewAppearance Appearance { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIImage GlyphImage { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string GlyphText { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIColor GlyphTintColor { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIColor MarkerTintColor { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIImage SelectedGlyphImage { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MKFeatureVisibility SubtitleVisibility { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MKFeatureVisibility TitleVisibility { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static MKMarkerAnnotationView.MKMarkerAnnotationViewAppearance AppearanceWhenContainedIn (System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKMarkerAnnotationView.MKMarkerAnnotationViewAppearance GetAppearance&lt;T&gt; ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKMarkerAnnotationView.MKMarkerAnnotationViewAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKMarkerAnnotationView.MKMarkerAnnotationViewAppearance GetAppearance (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKMarkerAnnotationView.MKMarkerAnnotationViewAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKMarkerAnnotationView.MKMarkerAnnotationViewAppearance GetAppearance (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+
+	// inner types
+	public class MKMarkerAnnotationViewAppearance : MapKit.MKAnnotationView+MKAnnotationViewAppearance, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAppearance {
+		// constructors
+		<span class='added added-constructor ' data-is-non-breaking="">protected MKMarkerAnnotationView (IntPtr handle);</span>
+		// properties
+		<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIImage GlyphImage { get; set; }</span>
+		<span class='added added-property ' data-is-non-breaking="">public virtual string GlyphText { get; set; }</span>
+		<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIColor GlyphTintColor { get; set; }</span>
+		<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIColor MarkerTintColor { get; set; }</span>
+		<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIImage SelectedGlyphImage { get; set; }</span>
+	}
+}
+</pre>
+</div> <!-- end type MKMarkerAnnotationView -->
+<div> <!-- start type MKScaleView -->
+<h3>New Type MapKit.MKScaleView</h3>
+<pre class='added' data-is-non-breaking="">
+public class MKScaleView : UIKit.UIView, CoreAnimation.ICALayerDelegate, Foundation.INSCoding, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.Collections.IEnumerable, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAccessibilityIdentification, UIKit.IUIAppearance, UIKit.IUIAppearanceContainer, UIKit.IUICoordinateSpace, UIKit.IUIDynamicItem, UIKit.IUIFocusEnvironment, UIKit.IUIFocusItem, UIKit.IUITraitEnvironment {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public MKScaleView (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MKScaleView (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MKScaleView (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public static MKScaleView.MKScaleViewAppearance Appearance { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MKScaleViewAlignment LegendAlignment { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MKMapView MapView { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MKFeatureVisibility ScaleVisibility { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static MKScaleView.MKScaleViewAppearance AppearanceWhenContainedIn (System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKScaleView FromMapView (MKMapView mapView);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKScaleView.MKScaleViewAppearance GetAppearance&lt;T&gt; ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKScaleView.MKScaleViewAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKScaleView.MKScaleViewAppearance GetAppearance (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKScaleView.MKScaleViewAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKScaleView.MKScaleViewAppearance GetAppearance (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+
+	// inner types
+	public class MKScaleViewAppearance : UIKit.UIView+UIViewAppearance, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAppearance {
+		// constructors
+		<span class='added added-constructor ' data-is-non-breaking="">protected MKScaleView (IntPtr handle);</span>
+	}
+}
+</pre>
+</div> <!-- end type MKScaleView -->
+<div> <!-- start type MKScaleViewAlignment -->
+<h3>New Type MapKit.MKScaleViewAlignment</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum MKScaleViewAlignment {
+	<span class='added added-field ' data-is-non-breaking="">Leading = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Trailing = 1,</span>
+}
+</pre>
+</div> <!-- end type MKScaleViewAlignment -->
+<div> <!-- start type MKUserTrackingButton -->
+<h3>New Type MapKit.MKUserTrackingButton</h3>
+<pre class='added' data-is-non-breaking="">
+public class MKUserTrackingButton : UIKit.UIView, CoreAnimation.ICALayerDelegate, Foundation.INSCoding, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.Collections.IEnumerable, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAccessibilityIdentification, UIKit.IUIAppearance, UIKit.IUIAppearanceContainer, UIKit.IUICoordinateSpace, UIKit.IUIDynamicItem, UIKit.IUIFocusEnvironment, UIKit.IUIFocusItem, UIKit.IUITraitEnvironment {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public MKUserTrackingButton (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MKUserTrackingButton (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MKUserTrackingButton (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public static MKUserTrackingButton.MKUserTrackingButtonAppearance Appearance { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MKMapView MapView { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static MKUserTrackingButton.MKUserTrackingButtonAppearance AppearanceWhenContainedIn (System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKUserTrackingButton FromMapView (MKMapView mapView);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKUserTrackingButton.MKUserTrackingButtonAppearance GetAppearance&lt;T&gt; ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKUserTrackingButton.MKUserTrackingButtonAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKUserTrackingButton.MKUserTrackingButtonAppearance GetAppearance (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKUserTrackingButton.MKUserTrackingButtonAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MKUserTrackingButton.MKUserTrackingButtonAppearance GetAppearance (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+
+	// inner types
+	public class MKUserTrackingButtonAppearance : UIKit.UIView+UIViewAppearance, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAppearance {
+		// constructors
+		<span class='added added-constructor ' data-is-non-breaking="">protected MKUserTrackingButton (IntPtr handle);</span>
+	}
+}
+</pre>
+</div> <!-- end type MKUserTrackingButton -->
+
+</div> <!-- end namespace MapKit -->
+<!-- start namespace MediaPlayer --> <div> 
+<h2>Namespace MediaPlayer</h2>
+<!-- start type MPNowPlayingInfoCenter --> <div>
+<h3>Type Changed: MediaPlayer.MPNowPlayingInfoCenter</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString PropertyServiceIdentifier { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type MPNowPlayingInfoCenter -->
+<!-- start type MPRemoteCommandHandlerStatus --> <div>
+<h3>Type Changed: MediaPlayer.MPRemoteCommandHandlerStatus</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">DeviceNotFound = 120,</span>
+</pre>
+</div>
+
+</div> <!-- end type MPRemoteCommandHandlerStatus -->
+<div> <!-- start type IMPSystemMusicPlayerController -->
+<h3>New Type MediaPlayer.IMPSystemMusicPlayerController</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IMPSystemMusicPlayerController : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void OpenToPlay (MPMusicPlayerQueueDescriptor queueDescriptor);</span>
+}
+</pre>
+</div> <!-- end type IMPSystemMusicPlayerController -->
+<div> <!-- start type MPMusicPlayerPlayParameters -->
+<h3>New Type MediaPlayer.MPMusicPlayerPlayParameters</h3>
+<pre class='added' data-is-non-breaking="">
+public class MPMusicPlayerPlayParameters : Foundation.NSObject, Foundation.INSCoding, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public MPMusicPlayerPlayParameters (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPMusicPlayerPlayParameters (Foundation.NSDictionary dictionary);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MPMusicPlayerPlayParameters (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MPMusicPlayerPlayParameters (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDictionary Dictionary { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type MPMusicPlayerPlayParameters -->
+<div> <!-- start type MPMusicPlayerPlayParametersQueueDescriptor -->
+<h3>New Type MediaPlayer.MPMusicPlayerPlayParametersQueueDescriptor</h3>
+<pre class='added' data-is-non-breaking="">
+public class MPMusicPlayerPlayParametersQueueDescriptor : MediaPlayer.MPMusicPlayerQueueDescriptor, Foundation.INSCoding, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public MPMusicPlayerPlayParametersQueueDescriptor (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MPMusicPlayerPlayParametersQueueDescriptor (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPMusicPlayerPlayParametersQueueDescriptor (MPMusicPlayerPlayParameters[] playParametersQueue);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MPMusicPlayerPlayParametersQueueDescriptor (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MPMusicPlayerPlayParameters[] PlayParametersQueue { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MPMusicPlayerPlayParameters StartItemPlayParameters { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetEndTime (double endTime, MPMusicPlayerPlayParameters playParameters);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetStartTime (double startTime, MPMusicPlayerPlayParameters playParameters);</span>
+}
+</pre>
+</div> <!-- end type MPMusicPlayerPlayParametersQueueDescriptor -->
+<div> <!-- start type NSUserActivity_MediaPlayerAdditions -->
+<h3>New Type MediaPlayer.NSUserActivity_MediaPlayerAdditions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class NSUserActivity_MediaPlayerAdditions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetExternalMediaContentIdentifier (Foundation.NSUserActivity This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SetExternalMediaContentIdentifier (Foundation.NSUserActivity This, Foundation.NSString identifier);</span>
+}
+</pre>
+</div> <!-- end type NSUserActivity_MediaPlayerAdditions -->
+
+</div> <!-- end namespace MediaPlayer -->
+<!-- start namespace MessageUI --> <div> 
+<h2>Namespace MessageUI</h2>
+<!-- start type MFMailComposeViewController --> <div>
+<h3>Type Changed: MessageUI.MFMailComposeViewController</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetPreferredSendingEmailAddress (string emailAddress);</span>
+</pre>
+</div>
+
+</div> <!-- end type MFMailComposeViewController -->
+
+</div> <!-- end namespace MessageUI -->
+<!-- start namespace Messages --> <div> 
+<h2>Namespace Messages</h2>
+<!-- start type MSConversation --> <div>
+<h3>Type Changed: Messages.MSConversation</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SendAttachment (Foundation.NSUrl url, string filename, System.Action&lt;Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task SendAttachmentAsync (Foundation.NSUrl url, string filename);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SendMessage (MSMessage message, System.Action&lt;Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task SendMessageAsync (MSMessage message);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SendSticker (MSSticker sticker, System.Action&lt;Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task SendStickerAsync (MSSticker sticker);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SendText (string text, System.Action&lt;Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task SendTextAsync (string text);</span>
+</pre>
+</div>
+
+</div> <!-- end type MSConversation -->
+<!-- start type MSMessage --> <div>
+<h3>Type Changed: Messages.MSMessage</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Pending { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type MSMessage -->
+<!-- start type MSMessageErrorCode --> <div>
+<h3>Type Changed: Messages.MSMessageErrorCode</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">SendWhileNotVisible = 10,</span>
+	<span class='added added-field ' data-is-non-breaking="">SendWithoutRecentInteraction = 9,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = -1,</span>
+</pre>
+</div>
+
+</div> <!-- end type MSMessageErrorCode -->
+<!-- start type MSMessagesAppPresentationStyle --> <div>
+<h3>Type Changed: Messages.MSMessagesAppPresentationStyle</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">Transcript = 2,</span>
+</pre>
+</div>
+
+</div> <!-- end type MSMessagesAppPresentationStyle -->
+<!-- start type MSMessagesAppViewController --> <div>
+<h3>Type Changed: Messages.MSMessagesAppViewController</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">IMSMessagesAppTranscriptPresentation</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGSize GetContentSizeThatFits (CoreGraphics.CGSize size);</span>
+</pre>
+</div>
+
+</div> <!-- end type MSMessagesAppViewController -->
+<div> <!-- start type IMSMessagesAppTranscriptPresentation -->
+<h3>New Type Messages.IMSMessagesAppTranscriptPresentation</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IMSMessagesAppTranscriptPresentation : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGSize GetContentSizeThatFits (CoreGraphics.CGSize size);</span>
+}
+</pre>
+</div> <!-- end type IMSMessagesAppTranscriptPresentation -->
+<div> <!-- start type MSMessageLiveLayout -->
+<h3>New Type Messages.MSMessageLiveLayout</h3>
+<pre class='added' data-is-non-breaking="">
+public class MSMessageLiveLayout : Messages.MSMessageLayout, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected MSMessageLiveLayout (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public MSMessageLiveLayout (MSMessageTemplateLayout alternateLayout);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MSMessageLiveLayout (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual MSMessageTemplateLayout AlternateLayout { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type MSMessageLiveLayout -->
+
+</div> <!-- end namespace Messages -->
+<!-- start namespace MetalPerformanceShaders --> <div> 
+<h2>Namespace MetalPerformanceShaders</h2>
+<!-- start type MPSBinaryImageKernel --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSBinaryImageKernel</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSBinaryImageKernel (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSBinaryImageKernel -->
+<!-- start type MPSCnnConvolution --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnConvolution</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnConvolution (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnConvolution -->
+<!-- start type MPSCnnConvolutionDescriptor --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnConvolutionDescriptor</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnConvolutionDescriptor (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnConvolutionDescriptor -->
+<!-- start type MPSCnnCrossChannelNormalization --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnCrossChannelNormalization</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnCrossChannelNormalization (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnCrossChannelNormalization -->
+<!-- start type MPSCnnFullyConnected --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnFullyConnected</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnFullyConnected (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnFullyConnected -->
+<!-- start type MPSCnnKernel --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnKernel</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MPSCnnKernel (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnKernel -->
+<!-- start type MPSCnnLocalContrastNormalization --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnLocalContrastNormalization</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnLocalContrastNormalization (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnLocalContrastNormalization -->
+<!-- start type MPSCnnLogSoftMax --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnLogSoftMax</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnLogSoftMax (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnLogSoftMax -->
+<!-- start type MPSCnnNeuron --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnNeuron</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MPSCnnNeuron (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnNeuron -->
+<!-- start type MPSCnnNeuronAbsolute --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnNeuronAbsolute</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnNeuronAbsolute (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnNeuronAbsolute -->
+<!-- start type MPSCnnNeuronLinear --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnNeuronLinear</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnNeuronLinear (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnNeuronLinear -->
+<!-- start type MPSCnnNeuronReLU --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnNeuronReLU</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnNeuronReLU (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnNeuronReLU -->
+<!-- start type MPSCnnNeuronSigmoid --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnNeuronSigmoid</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnNeuronSigmoid (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnNeuronSigmoid -->
+<!-- start type MPSCnnNeuronTanH --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnNeuronTanH</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnNeuronTanH (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnNeuronTanH -->
+<!-- start type MPSCnnPooling --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnPooling</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnPooling (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnPooling -->
+<!-- start type MPSCnnPoolingAverage --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnPoolingAverage</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnPoolingAverage (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnPoolingAverage -->
+<!-- start type MPSCnnPoolingMax --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnPoolingMax</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnPoolingMax (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnPoolingMax -->
+<!-- start type MPSCnnSoftMax --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnSoftMax</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnSoftMax (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnSoftMax -->
+<!-- start type MPSCnnSpatialNormalization --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSCnnSpatialNormalization</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSCnnSpatialNormalization (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSCnnSpatialNormalization -->
+<!-- start type MPSImageAreaMax --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageAreaMax</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageAreaMax (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageAreaMax -->
+<!-- start type MPSImageAreaMin --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageAreaMin</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageAreaMin (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageAreaMin -->
+<!-- start type MPSImageBox --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageBox</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageBox (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageBox -->
+<!-- start type MPSImageConversion --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageConversion</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageConversion (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageConversion -->
+<!-- start type MPSImageConvolution --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageConvolution</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageConvolution (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageConvolution -->
+<!-- start type MPSImageDilate --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageDilate</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageDilate (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageDilate -->
+<!-- start type MPSImageErode --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageErode</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageErode (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageErode -->
+<!-- start type MPSImageGaussianBlur --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageGaussianBlur</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageGaussianBlur (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageGaussianBlur -->
+<!-- start type MPSImageGaussianPyramid --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageGaussianPyramid</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageGaussianPyramid (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageGaussianPyramid -->
+<!-- start type MPSImageHistogram --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageHistogram</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageHistogram (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageHistogram -->
+<!-- start type MPSImageHistogramEqualization --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageHistogramEqualization</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageHistogramEqualization (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageHistogramEqualization -->
+<!-- start type MPSImageHistogramSpecification --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageHistogramSpecification</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageHistogramSpecification (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageHistogramSpecification -->
+<!-- start type MPSImageIntegral --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageIntegral</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageIntegral (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageIntegral -->
+<!-- start type MPSImageIntegralOfSquares --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageIntegralOfSquares</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageIntegralOfSquares (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageIntegralOfSquares -->
+<!-- start type MPSImageLanczosScale --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageLanczosScale</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageLanczosScale (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageLanczosScale -->
+<!-- start type MPSImageLaplacian --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageLaplacian</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageLaplacian (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageLaplacian -->
+<!-- start type MPSImageMedian --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageMedian</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageMedian (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageMedian -->
+<!-- start type MPSImagePyramid --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImagePyramid</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImagePyramid (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImagePyramid -->
+<!-- start type MPSImageSobel --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageSobel</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageSobel (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageSobel -->
+<!-- start type MPSImageTent --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageTent</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageTent (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageTent -->
+<!-- start type MPSImageThresholdBinary --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageThresholdBinary</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageThresholdBinary (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageThresholdBinary -->
+<!-- start type MPSImageThresholdBinaryInverse --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageThresholdBinaryInverse</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageThresholdBinaryInverse (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageThresholdBinaryInverse -->
+<!-- start type MPSImageThresholdToZero --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageThresholdToZero</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageThresholdToZero (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageThresholdToZero -->
+<!-- start type MPSImageThresholdToZeroInverse --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageThresholdToZeroInverse</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageThresholdToZeroInverse (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageThresholdToZeroInverse -->
+<!-- start type MPSImageThresholdTruncate --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageThresholdTruncate</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageThresholdTruncate (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageThresholdTruncate -->
+<!-- start type MPSImageTranspose --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSImageTranspose</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSImageTranspose (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSImageTranspose -->
+<!-- start type MPSKernel --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSKernel</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSKernel (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSKernel -->
+<!-- start type MPSMatrixMultiplication --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSMatrixMultiplication</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSMatrixMultiplication (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSMatrixMultiplication -->
+<!-- start type MPSUnaryImageKernel --> <div>
+<h3>Type Changed: MetalPerformanceShaders.MPSUnaryImageKernel</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public MPSUnaryImageKernel (Foundation.NSCoder coder);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSCoding</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type MPSUnaryImageKernel -->
+
+</div> <!-- end namespace MetalPerformanceShaders -->
+<!-- start namespace ObjCRuntime --> <div> 
+<h2>Namespace ObjCRuntime</h2>
+<!-- start type Constants --> <div>
+<h3>Type Changed: ObjCRuntime.Constants</h3>
+<p>Modified fields:</p>
+<pre>
+<div data-is-breaking="">	public const string SdkVersion = <span class='removed removed-inline removed-breaking-inline'>"10.3"</span> <span class='added '>"11.0"</span>;
+</div><div data-is-breaking="">	public const string Version = <span class='removed removed-inline removed-breaking-inline'>"10.12.0"</span> <span class='added '>"10.99.5"</span>;
+</div></pre>
+<div>
+<p>Added fields:</p>
+<pre>
+	<span class='added added-field ' data-is-non-breaking="">public static const string ARKitLibrary = "/System/Library/Frameworks/ARKit.framework/ARKit";</span>
+	<span class='added added-field ' data-is-non-breaking="">public static const string CoreMLLibrary = "/System/Library/Frameworks/CoreML.framework/CoreML";</span>
+	<span class='added added-field ' data-is-non-breaking="">public static const string CoreNFCLibrary = "/System/Library/Frameworks/CoreNFC.framework/CoreNFC";</span>
+	<span class='added added-field ' data-is-non-breaking="">public static const string DeviceCheckLibrary = "/System/Library/Frameworks/DeviceCheck.framework/DeviceCheck";</span>
+	<span class='added added-field ' data-is-non-breaking="">public static const string EventKitUILibrary = "/System/Library/Frameworks/EventKitUI.framework/EventKitUI";</span>
+	<span class='added added-field ' data-is-non-breaking="">public static const string FileProviderLibrary = "/System/Library/Frameworks/FileProvider.framework/FileProvider";</span>
+	<span class='added added-field ' data-is-non-breaking="">public static const string FileProviderUILibrary = "/System/Library/Frameworks/FileProviderUI.framework/FileProviderUI";</span>
+	<span class='added added-field ' data-is-non-breaking="">public static const string IdentityLookupLibrary = "/System/Library/Frameworks/IdentityLookup.framework/IdentityLookup";</span>
+	<span class='added added-field ' data-is-non-breaking="">public static const string PdfKitLibrary = "/System/Library/Frameworks/PDFKit.framework/PDFKit";</span>
+	<span class='added added-field ' data-is-non-breaking="">public static const string VisionLibrary = "/System/Library/Frameworks/Vision.framework/Vision";</span>
+</pre>
+</div>
+
+</div> <!-- end type Constants -->
+<!-- start type Dlfcn --> <div>
+<h3>Type Changed: ObjCRuntime.Dlfcn</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static uint GetUInt32 (IntPtr handle, string symbol);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static ulong GetUInt64 (IntPtr handle, string symbol);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SetNFloat (IntPtr handle, string symbol, nfloat value);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SetNInt (IntPtr handle, string symbol, nint value);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SetNUInt (IntPtr handle, string symbol, uint value);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SetUInt32 (IntPtr handle, string symbol, uint value);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SetUInt64 (IntPtr handle, string symbol, long value);</span>
+</pre>
+</div>
+
+</div> <!-- end type Dlfcn -->
+
+</div> <!-- end namespace ObjCRuntime -->
+<!-- start namespace PassKit --> <div> 
+<h2>Namespace PassKit</h2>
+<!-- start type PKPaymentAuthorizationControllerDelegate --> <div>
+<h3>Type Changed: PassKit.PKPaymentAuthorizationControllerDelegate</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidAuthorizePayment (PKPaymentAuthorizationController controller, PKPayment payment, System.Action&lt;PKPaymentAuthorizationResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidSelectPaymentMethod (PKPaymentAuthorizationController controller, PKPaymentMethod paymentMethod, System.Action&lt;PKPaymentRequestPaymentMethodUpdate&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidSelectShippingContact (PKPaymentAuthorizationController controller, PKContact contact, System.Action&lt;PKPaymentRequestShippingContactUpdate&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidSelectShippingMethod (PKPaymentAuthorizationController controller, PKPaymentMethod paymentMethod, System.Action&lt;PKPaymentRequestPaymentMethodUpdate&gt; completion);</span>
+</pre>
+</div>
+
+</div> <!-- end type PKPaymentAuthorizationControllerDelegate -->
+<!-- start type PKPaymentAuthorizationControllerDelegate_Extensions --> <div>
+<h3>Type Changed: PassKit.PKPaymentAuthorizationControllerDelegate_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidAuthorizePayment (IPKPaymentAuthorizationControllerDelegate This, PKPaymentAuthorizationController controller, PKPayment payment, System.Action&lt;PKPaymentAuthorizationResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidSelectPaymentMethod (IPKPaymentAuthorizationControllerDelegate This, PKPaymentAuthorizationController controller, PKPaymentMethod paymentMethod, System.Action&lt;PKPaymentRequestPaymentMethodUpdate&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidSelectShippingContact (IPKPaymentAuthorizationControllerDelegate This, PKPaymentAuthorizationController controller, PKContact contact, System.Action&lt;PKPaymentRequestShippingContactUpdate&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidSelectShippingMethod (IPKPaymentAuthorizationControllerDelegate This, PKPaymentAuthorizationController controller, PKPaymentMethod paymentMethod, System.Action&lt;PKPaymentRequestPaymentMethodUpdate&gt; completion);</span>
+</pre>
+</div>
+
+</div> <!-- end type PKPaymentAuthorizationControllerDelegate_Extensions -->
+<!-- start type PKPaymentAuthorizationViewController --> <div>
+<h3>Type Changed: PassKit.PKPaymentAuthorizationViewController</h3>
+<div>
+<p>Added events:</p>
+<pre>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler&lt;PKPaymentAuthorizationResultEventArgs&gt; DidAuthorizePayment2;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler&lt;PKPaymentRequestPaymentMethodUpdateEventArgs&gt; DidSelectPaymentMethod2;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler&lt;PKPaymentRequestShippingContactUpdateEventArgs&gt; DidSelectShippingContact2;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler&lt;PKPaymentRequestShippingMethodUpdateEventArgs&gt; DidSelectShippingMethod2;</span>
+</pre>
+</div>
+
+</div> <!-- end type PKPaymentAuthorizationViewController -->
+<!-- start type PKPaymentAuthorizationViewControllerDelegate --> <div>
+<h3>Type Changed: PassKit.PKPaymentAuthorizationViewControllerDelegate</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidAuthorizePayment2 (PKPaymentAuthorizationViewController controller, PKPayment payment, System.Action&lt;PKPaymentAuthorizationResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidSelectPaymentMethod2 (PKPaymentAuthorizationViewController controller, PKPaymentMethod paymentMethod, System.Action&lt;PKPaymentRequestPaymentMethodUpdate&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidSelectShippingContact2 (PKPaymentAuthorizationViewController controller, PKContact contact, System.Action&lt;PKPaymentRequestShippingContactUpdate&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidSelectShippingMethod2 (PKPaymentAuthorizationViewController controller, PKShippingMethod shippingMethod, System.Action&lt;PKPaymentRequestShippingMethodUpdate&gt; completion);</span>
+</pre>
+</div>
+
+</div> <!-- end type PKPaymentAuthorizationViewControllerDelegate -->
+<!-- start type PKPaymentAuthorizationViewControllerDelegate_Extensions --> <div>
+<h3>Type Changed: PassKit.PKPaymentAuthorizationViewControllerDelegate_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidAuthorizePayment2 (IPKPaymentAuthorizationViewControllerDelegate This, PKPaymentAuthorizationViewController controller, PKPayment payment, System.Action&lt;PKPaymentAuthorizationResult&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidSelectPaymentMethod2 (IPKPaymentAuthorizationViewControllerDelegate This, PKPaymentAuthorizationViewController controller, PKPaymentMethod paymentMethod, System.Action&lt;PKPaymentRequestPaymentMethodUpdate&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidSelectShippingContact2 (IPKPaymentAuthorizationViewControllerDelegate This, PKPaymentAuthorizationViewController controller, PKContact contact, System.Action&lt;PKPaymentRequestShippingContactUpdate&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidSelectShippingMethod2 (IPKPaymentAuthorizationViewControllerDelegate This, PKPaymentAuthorizationViewController controller, PKShippingMethod shippingMethod, System.Action&lt;PKPaymentRequestShippingMethodUpdate&gt; completion);</span>
+</pre>
+</div>
+
+</div> <!-- end type PKPaymentAuthorizationViewControllerDelegate_Extensions -->
+<!-- start type PKPaymentNetwork --> <div>
+<h3>Type Changed: PassKit.PKPaymentNetwork</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString CarteBancaires { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type PKPaymentNetwork -->
+<!-- start type PKPaymentRequest --> <div>
+<h3>Type Changed: PassKit.PKPaymentRequest</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public PKContactFields RequiredBillingContactFields { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public PKContactFields RequiredShippingContactFields { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSSet&lt;Foundation.NSString&gt; SupportedCountries { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSSet WeakRequiredBillingContactFields { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSSet WeakRequiredShippingContactFields { get; set; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSError CreatePaymentBillingAddressInvalidError (Contacts.CNPostalAddressKeyOption postalAddress, string localizedDescription);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSError CreatePaymentBillingAddressInvalidError (Foundation.NSString postalAddressKey, string localizedDescription);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSError CreatePaymentContactInvalidError (Foundation.NSString field, string localizedDescription);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSError CreatePaymentContactInvalidError (PKContactFields contactField, string localizedDescription);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSError CreatePaymentShippingAddressInvalidError (Contacts.CNPostalAddressKeyOption postalAddress, string localizedDescription);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSError CreatePaymentShippingAddressInvalidError (Foundation.NSString postalAddressKey, string localizedDescription);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSError CreatePaymentShippingAddressUnserviceableError (string localizedDescription);</span>
+</pre>
+</div>
+
+</div> <!-- end type PKPaymentRequest -->
+<div> <!-- start type PKContactFields -->
+<h3>New Type PassKit.PKContactFields</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+[Flags]
+public enum PKContactFields {
+	<span class='added added-field ' data-is-non-breaking="">EmailAddress = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Name = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">PhoneNumber = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">PhoneticName = 16,</span>
+	<span class='added added-field ' data-is-non-breaking="">PostalAddress = 1,</span>
+}
+</pre>
+</div> <!-- end type PKContactFields -->
+<div> <!-- start type PKContactFieldsExtensions -->
+<h3>New Type PassKit.PKContactFieldsExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class PKContactFieldsExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetConstant (PKContactFields self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSSet GetSet (PKContactFields values);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PKContactFields GetValue (Foundation.NSSet set);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PKContactFields GetValue (Foundation.NSString constant);</span>
+}
+</pre>
+</div> <!-- end type PKContactFieldsExtensions -->
+<div> <!-- start type PKPassKitErrorCodeExtensions -->
+<h3>New Type PassKit.PKPassKitErrorCodeExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class PKPassKitErrorCodeExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetDomain (PKPassKitErrorCode self);</span>
+}
+</pre>
+</div> <!-- end type PKPassKitErrorCodeExtensions -->
+<div> <!-- start type PKPaymentAuthorizationResult -->
+<h3>New Type PassKit.PKPaymentAuthorizationResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class PKPaymentAuthorizationResult : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected PKPaymentAuthorizationResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PKPaymentAuthorizationResult (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PKPaymentAuthorizationResult (PKPaymentAuthorizationStatus status, Foundation.NSError[] errors);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSError[] Errors { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PKPaymentAuthorizationStatus Status { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PKPaymentAuthorizationResult -->
+<div> <!-- start type PKPaymentAuthorizationResultEventArgs -->
+<h3>New Type PassKit.PKPaymentAuthorizationResultEventArgs</h3>
+<pre class='added' data-is-non-breaking="">
+public class PKPaymentAuthorizationResultEventArgs : System.EventArgs {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PKPaymentAuthorizationResultEventArgs (PKPayment payment, System.Action&lt;PKPaymentAuthorizationResult&gt; completion);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public System.Action&lt;PKPaymentAuthorizationResult&gt; Completion { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public PKPayment Payment { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PKPaymentAuthorizationResultEventArgs -->
+<div> <!-- start type PKPaymentErrorCode -->
+<h3>New Type PassKit.PKPaymentErrorCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PKPaymentErrorCode {
+	<span class='added added-field ' data-is-non-breaking="">BillingContactInvalid = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">ShippingAddressUnserviceable = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">ShippingContactInvalid = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = -1,</span>
+}
+</pre>
+</div> <!-- end type PKPaymentErrorCode -->
+<div> <!-- start type PKPaymentErrorCodeExtensions -->
+<h3>New Type PassKit.PKPaymentErrorCodeExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class PKPaymentErrorCodeExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetDomain (PKPaymentErrorCode self);</span>
+}
+</pre>
+</div> <!-- end type PKPaymentErrorCodeExtensions -->
+<div> <!-- start type PKPaymentErrorKeys -->
+<h3>New Type PassKit.PKPaymentErrorKeys</h3>
+<pre class='added' data-is-non-breaking="">
+public static class PKPaymentErrorKeys {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString ContactFieldUserInfoKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString PostalAddressUserInfoKey { get; }</span>
+}
+</pre>
+</div> <!-- end type PKPaymentErrorKeys -->
+<div> <!-- start type PKPaymentRequestPaymentMethodUpdate -->
+<h3>New Type PassKit.PKPaymentRequestPaymentMethodUpdate</h3>
+<pre class='added' data-is-non-breaking="">
+public class PKPaymentRequestPaymentMethodUpdate : PassKit.PKPaymentRequestUpdate, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected PKPaymentRequestPaymentMethodUpdate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PKPaymentRequestPaymentMethodUpdate (PKPaymentSummaryItem[] paymentSummaryItems);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PKPaymentRequestPaymentMethodUpdate (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type PKPaymentRequestPaymentMethodUpdate -->
+<div> <!-- start type PKPaymentRequestPaymentMethodUpdateEventArgs -->
+<h3>New Type PassKit.PKPaymentRequestPaymentMethodUpdateEventArgs</h3>
+<pre class='added' data-is-non-breaking="">
+public class PKPaymentRequestPaymentMethodUpdateEventArgs : System.EventArgs {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PKPaymentRequestPaymentMethodUpdateEventArgs (PKPaymentMethod paymentMethod, System.Action&lt;PKPaymentRequestPaymentMethodUpdate&gt; completion);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public System.Action&lt;PKPaymentRequestPaymentMethodUpdate&gt; Completion { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public PKPaymentMethod PaymentMethod { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PKPaymentRequestPaymentMethodUpdateEventArgs -->
+<div> <!-- start type PKPaymentRequestShippingContactUpdate -->
+<h3>New Type PassKit.PKPaymentRequestShippingContactUpdate</h3>
+<pre class='added' data-is-non-breaking="">
+public class PKPaymentRequestShippingContactUpdate : PassKit.PKPaymentRequestUpdate, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected PKPaymentRequestShippingContactUpdate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PKPaymentRequestShippingContactUpdate (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PKPaymentRequestShippingContactUpdate (Foundation.NSError[] errors, PKPaymentSummaryItem[] paymentSummaryItems, PKShippingMethod[] shippingMethods);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSError[] Errors { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PKShippingMethod[] ShippingMethods { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PKPaymentRequestShippingContactUpdate -->
+<div> <!-- start type PKPaymentRequestShippingContactUpdateEventArgs -->
+<h3>New Type PassKit.PKPaymentRequestShippingContactUpdateEventArgs</h3>
+<pre class='added' data-is-non-breaking="">
+public class PKPaymentRequestShippingContactUpdateEventArgs : System.EventArgs {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PKPaymentRequestShippingContactUpdateEventArgs (PKContact contact, System.Action&lt;PKPaymentRequestShippingContactUpdate&gt; completion);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public System.Action&lt;PKPaymentRequestShippingContactUpdate&gt; Completion { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public PKContact Contact { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PKPaymentRequestShippingContactUpdateEventArgs -->
+<div> <!-- start type PKPaymentRequestShippingMethodUpdate -->
+<h3>New Type PassKit.PKPaymentRequestShippingMethodUpdate</h3>
+<pre class='added' data-is-non-breaking="">
+public class PKPaymentRequestShippingMethodUpdate : PassKit.PKPaymentRequestUpdate, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected PKPaymentRequestShippingMethodUpdate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PKPaymentRequestShippingMethodUpdate (PKPaymentSummaryItem[] paymentSummaryItems);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PKPaymentRequestShippingMethodUpdate (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type PKPaymentRequestShippingMethodUpdate -->
+<div> <!-- start type PKPaymentRequestShippingMethodUpdateEventArgs -->
+<h3>New Type PassKit.PKPaymentRequestShippingMethodUpdateEventArgs</h3>
+<pre class='added' data-is-non-breaking="">
+public class PKPaymentRequestShippingMethodUpdateEventArgs : System.EventArgs {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PKPaymentRequestShippingMethodUpdateEventArgs (PKShippingMethod shippingMethod, System.Action&lt;PKPaymentRequestShippingMethodUpdate&gt; completion);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public System.Action&lt;PKPaymentRequestShippingMethodUpdate&gt; Completion { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public PKShippingMethod ShippingMethod { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PKPaymentRequestShippingMethodUpdateEventArgs -->
+<div> <!-- start type PKPaymentRequestUpdate -->
+<h3>New Type PassKit.PKPaymentRequestUpdate</h3>
+<pre class='added' data-is-non-breaking="">
+public class PKPaymentRequestUpdate : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected PKPaymentRequestUpdate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PKPaymentRequestUpdate (PKPaymentSummaryItem[] paymentSummaryItems);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PKPaymentRequestUpdate (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PKPaymentSummaryItem[] PaymentSummaryItems { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PKPaymentAuthorizationStatus Status { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PKPaymentRequestUpdate -->
+
+</div> <!-- end namespace PassKit -->
+<!-- start namespace Photos --> <div> 
+<h2>Namespace Photos</h2>
+<!-- start type PHAsset --> <div>
+<h3>Type Changed: Photos.PHAsset</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PHAssetPlaybackStyle PlaybackStyle { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type PHAsset -->
+<!-- start type PHAssetCollectionSubtype --> <div>
+<h3>Type Changed: Photos.PHAssetCollectionSubtype</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">SmartAlbumAnimated = 214,</span>
+	<span class='added added-field ' data-is-non-breaking="">SmartAlbumLongExposures = 215,</span>
+</pre>
+</div>
+
+</div> <!-- end type PHAssetCollectionSubtype -->
+<!-- start type PHContentEditingInput --> <div>
+<h3>Type Changed: Photos.PHContentEditingInput</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PHAssetPlaybackStyle PlaybackStyle { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type PHContentEditingInput -->
+<!-- start type PHLivePhotoEditingContext --> <div>
+<h3>Type Changed: Photos.PHLivePhotoEditingContext</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public void PrepareLivePhotoForPlayback (CoreGraphics.CGSize targetSize, System.Action&lt;PHLivePhoto,Foundation.NSError&gt; handler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public void PrepareLivePhotoForPlayback (CoreGraphics.CGSize targetSize, PHLivePhotoEditingOption options, System.Action&lt;PHLivePhoto,Foundation.NSError&gt; handler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public System.Threading.Tasks.Task&lt;PHLivePhoto&gt; PrepareLivePhotoForPlaybackAsync (CoreGraphics.CGSize targetSize);</span>
+	<span class='added added-method ' data-is-non-breaking="">public System.Threading.Tasks.Task&lt;PHLivePhoto&gt; PrepareLivePhotoForPlaybackAsync (CoreGraphics.CGSize targetSize, PHLivePhotoEditingOption options);</span>
+	<span class='added added-method ' data-is-non-breaking="">public void SaveLivePhoto (PHContentEditingOutput output, System.Action&lt;System.Boolean,Foundation.NSError&gt; handler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public void SaveLivePhoto (PHContentEditingOutput output, PHLivePhotoEditingOption options, System.Action&lt;System.Boolean,Foundation.NSError&gt; handler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public System.Threading.Tasks.Task&lt;System.Tuple&lt;System.Boolean,Foundation.NSError&gt;&gt; SaveLivePhotoAsync (PHContentEditingOutput output);</span>
+	<span class='added added-method ' data-is-non-breaking="">public System.Threading.Tasks.Task&lt;System.Tuple&lt;System.Boolean,Foundation.NSError&gt;&gt; SaveLivePhotoAsync (PHContentEditingOutput output, PHLivePhotoEditingOption options);</span>
+</pre>
+</div>
+
+</div> <!-- end type PHLivePhotoEditingContext -->
+<div> <!-- start type PHAssetPlaybackStyle -->
+<h3>New Type Photos.PHAssetPlaybackStyle</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PHAssetPlaybackStyle {
+	<span class='added added-field ' data-is-non-breaking="">Image = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">ImageAnimated = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">LivePhoto = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unsupported = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Video = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">VideoLooping = 5,</span>
+}
+</pre>
+</div> <!-- end type PHAssetPlaybackStyle -->
+<div> <!-- start type PHLivePhotoEditingOption -->
+<h3>New Type Photos.PHLivePhotoEditingOption</h3>
+<pre class='added' data-is-non-breaking="">
+public class PHLivePhotoEditingOption : Foundation.DictionaryContainer {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PHLivePhotoEditingOption ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PHLivePhotoEditingOption (Foundation.NSDictionary dictionary);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public bool? ShouldRenderAtPlaybackTime { get; }</span>
+}
+</pre>
+</div> <!-- end type PHLivePhotoEditingOption -->
+
+</div> <!-- end namespace Photos -->
+<!-- start namespace PushKit --> <div> 
+<h2>Namespace PushKit</h2>
+<!-- start type PKPushRegistryDelegate --> <div>
+<h3>Type Changed: PushKit.PKPushRegistryDelegate</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidReceiveIncomingPush (PKPushRegistry registry, PKPushPayload payload, string type, System.Action completion);</span>
+</pre>
+</div>
+
+</div> <!-- end type PKPushRegistryDelegate -->
+<!-- start type PKPushRegistryDelegate_Extensions --> <div>
+<h3>Type Changed: PushKit.PKPushRegistryDelegate_Extensions</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidReceiveIncomingPush (IPKPushRegistryDelegate This, PKPushRegistry registry, PKPushPayload payload, string type, System.Action completion);</span>
+</pre>
+</div>
+
+</div> <!-- end type PKPushRegistryDelegate_Extensions -->
+<!-- start type PKPushType --> <div>
+<h3>Type Changed: PushKit.PKPushType</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString FileProvider { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type PKPushType -->
+
+</div> <!-- end namespace PushKit -->
+<!-- start namespace QuickLook --> <div> 
+<h2>Namespace QuickLook</h2>
+<div> <!-- start type IQLPreviewingController -->
+<h3>New Type QuickLook.IQLPreviewingController</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IQLPreviewingController : ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IQLPreviewingController -->
+<div> <!-- start type QLFileThumbnailRequest -->
+<h3>New Type QuickLook.QLFileThumbnailRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public class QLFileThumbnailRequest : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public QLFileThumbnailRequest ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected QLFileThumbnailRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected QLFileThumbnailRequest (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSUrl FileUrl { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGSize MaximumSize { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGSize MinimumSize { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat Scale { get; }</span>
+}
+</pre>
+</div> <!-- end type QLFileThumbnailRequest -->
+<div> <!-- start type QLPreviewingController_Extensions -->
+<h3>New Type QuickLook.QLPreviewingController_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class QLPreviewingController_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void PreparePreviewOfFile (IQLPreviewingController This, Foundation.NSUrl url, System.Action&lt;Foundation.NSError&gt; handler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void PreparePreviewOfSearchableItem (IQLPreviewingController This, string identifier, string queryString, System.Action&lt;Foundation.NSError&gt; handler);</span>
+}
+</pre>
+</div> <!-- end type QLPreviewingController_Extensions -->
+<div> <!-- start type QLThumbnailProvider -->
+<h3>New Type QuickLook.QLThumbnailProvider</h3>
+<pre class='added' data-is-non-breaking="">
+public class QLThumbnailProvider : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public QLThumbnailProvider ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected QLThumbnailProvider (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected QLThumbnailProvider (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ProvideThumbnail (QLFileThumbnailRequest request, System.Action&lt;QLThumbnailReply,Foundation.NSError&gt; handler);</span>
+}
+</pre>
+</div> <!-- end type QLThumbnailProvider -->
+<div> <!-- start type QLThumbnailReply -->
+<h3>New Type QuickLook.QLThumbnailReply</h3>
+<pre class='added' data-is-non-breaking="">
+public class QLThumbnailReply : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected QLThumbnailReply (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected QLThumbnailReply (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static QLThumbnailReply CreateReply (Foundation.NSUrl fileUrl);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static QLThumbnailReply CreateReply (CoreGraphics.CGSize contextSize, System.Func&lt;bool&gt; drawingBlock);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static QLThumbnailReply CreateReply (CoreGraphics.CGSize contextSize, System.Func&lt;CoreGraphics.CGContext,System.Boolean&gt; drawingBlock);</span>
+}
+</pre>
+</div> <!-- end type QLThumbnailReply -->
+
+</div> <!-- end namespace QuickLook -->
+<!-- start namespace ReplayKit --> <div> 
+<h2>Namespace ReplayKit</h2>
+<!-- start type NSExtensionContext_RPBroadcastExtension --> <div>
+<h3>Type Changed: ReplayKit.NSExtensionContext_RPBroadcastExtension</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void CompleteRequest (Foundation.NSExtensionContext This, Foundation.NSUrl broadcastURL, Foundation.NSDictionary&lt;Foundation.NSString,Foundation.INSCoding&gt; setupInfo);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSExtensionContext_RPBroadcastExtension -->
+<!-- start type RPBroadcastActivityViewController --> <div>
+<h3>Type Changed: ReplayKit.RPBroadcastActivityViewController</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void LoadBroadcastActivityViewController (string preferredExtension, System.Action&lt;RPBroadcastActivityViewController,Foundation.NSError&gt; handler);</span>
+</pre>
+</div>
+
+</div> <!-- end type RPBroadcastActivityViewController -->
+<!-- start type RPBroadcastControllerDelegate --> <div>
+<h3>Type Changed: ReplayKit.RPBroadcastControllerDelegate</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidUpdateBroadcastUrl (RPBroadcastController broadcastController, Foundation.NSUrl broadcastUrl);</span>
+</pre>
+</div>
+
+</div> <!-- end type RPBroadcastControllerDelegate -->
+<!-- start type RPBroadcastControllerDelegate_Extensions --> <div>
+<h3>Type Changed: ReplayKit.RPBroadcastControllerDelegate_Extensions</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidUpdateBroadcastUrl (IRPBroadcastControllerDelegate This, RPBroadcastController broadcastController, Foundation.NSUrl broadcastUrl);</span>
+</pre>
+</div>
+
+</div> <!-- end type RPBroadcastControllerDelegate_Extensions -->
+<!-- start type RPRecordingError --> <div>
+<h3>Type Changed: ReplayKit.RPRecordingError</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">ActivePhoneCall = -5811,</span>
+	<span class='added added-field ' data-is-non-breaking="">CarPlay = -5813,</span>
+	<span class='added added-field ' data-is-non-breaking="">Entitlements = -5810,</span>
+	<span class='added added-field ' data-is-non-breaking="">FailedToSave = -5812,</span>
+</pre>
+</div>
+
+</div> <!-- end type RPRecordingError -->
+<!-- start type RPScreenRecorder --> <div>
+<h3>Type Changed: ReplayKit.RPScreenRecorder</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual RPCameraPosition CameraPosition { get; set; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void StartCapture (System.Action&lt;CoreMedia.CMSampleBuffer,ReplayKit.RPSampleBufferType,Foundation.NSError&gt; captureHandler, System.Action&lt;Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task StartCaptureAsync (System.Action&lt;CoreMedia.CMSampleBuffer,ReplayKit.RPSampleBufferType,Foundation.NSError&gt; captureHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void StopCapture (System.Action&lt;Foundation.NSError&gt; handler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task StopCaptureAsync ();</span>
+</pre>
+</div>
+
+</div> <!-- end type RPScreenRecorder -->
+<!-- start type RPScreenRecorderDelegate --> <div>
+<h3>Type Changed: ReplayKit.RPScreenRecorderDelegate</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidStopRecording (RPScreenRecorder screenRecorder, RPPreviewViewController previewViewController, Foundation.NSError error);</span>
+</pre>
+</div>
+
+</div> <!-- end type RPScreenRecorderDelegate -->
+<!-- start type RPScreenRecorderDelegate_Extensions --> <div>
+<h3>Type Changed: ReplayKit.RPScreenRecorderDelegate_Extensions</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidStopRecording (IRPScreenRecorderDelegate This, RPScreenRecorder screenRecorder, RPPreviewViewController previewViewController, Foundation.NSError error);</span>
+</pre>
+</div>
+
+</div> <!-- end type RPScreenRecorderDelegate_Extensions -->
+<div> <!-- start type RPCameraPosition -->
+<h3>New Type ReplayKit.RPCameraPosition</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum RPCameraPosition {
+	<span class='added added-field ' data-is-non-breaking="">Back = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Front = 1,</span>
+}
+</pre>
+</div> <!-- end type RPCameraPosition -->
+
+</div> <!-- end namespace ReplayKit -->
+<!-- start namespace SafariServices --> <div> 
+<h2>Namespace SafariServices</h2>
+<!-- start type SFSafariViewController --> <div>
+<h3>Type Changed: SafariServices.SFSafariViewController</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public SFSafariViewController (Foundation.NSUrl url, SFSafariViewControllerConfiguration configuration);</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual SFSafariViewControllerConfiguration Configuration { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual SFSafariViewControllerDismissButtonStyle DismissButtonStyle { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type SFSafariViewController -->
+<!-- start type SFSafariViewControllerDelegate --> <div>
+<h3>Type Changed: SafariServices.SFSafariViewControllerDelegate</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual string[] GetExcludedActivityTypes (SFSafariViewController controller, Foundation.NSUrl url, string title);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void InitialLoadDidRedirectToUrl (SFSafariViewController controller, Foundation.NSUrl url);</span>
+</pre>
+</div>
+
+</div> <!-- end type SFSafariViewControllerDelegate -->
+<!-- start type SFSafariViewControllerDelegate_Extensions --> <div>
+<h3>Type Changed: SafariServices.SFSafariViewControllerDelegate_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static string[] GetExcludedActivityTypes (ISFSafariViewControllerDelegate This, SFSafariViewController controller, Foundation.NSUrl url, string title);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void InitialLoadDidRedirectToUrl (ISFSafariViewControllerDelegate This, SFSafariViewController controller, Foundation.NSUrl url);</span>
+</pre>
+</div>
+
+</div> <!-- end type SFSafariViewControllerDelegate_Extensions -->
+<div> <!-- start type SFAuthenticationCompletionHandler -->
+<h3>New Type SafariServices.SFAuthenticationCompletionHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate SFAuthenticationCompletionHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public SFAuthenticationCompletionHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (Foundation.NSUrl callbackUrl, Foundation.NSError error, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invoke (Foundation.NSUrl callbackUrl, Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type SFAuthenticationCompletionHandler -->
+<div> <!-- start type SFAuthenticationError -->
+<h3>New Type SafariServices.SFAuthenticationError</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum SFAuthenticationError {
+	<span class='added added-field ' data-is-non-breaking="">CanceledLogin = 1,</span>
+}
+</pre>
+</div> <!-- end type SFAuthenticationError -->
+<div> <!-- start type SFAuthenticationErrorExtensions -->
+<h3>New Type SafariServices.SFAuthenticationErrorExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class SFAuthenticationErrorExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetDomain (SFAuthenticationError self);</span>
+}
+</pre>
+</div> <!-- end type SFAuthenticationErrorExtensions -->
+<div> <!-- start type SFAuthenticationSession -->
+<h3>New Type SafariServices.SFAuthenticationSession</h3>
+<pre class='added' data-is-non-breaking="">
+public class SFAuthenticationSession : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected SFAuthenticationSession (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected SFAuthenticationSession (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public SFAuthenticationSession (Foundation.NSUrl url, string callbackUrlScheme, SFAuthenticationCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Cancel ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Start ();</span>
+}
+</pre>
+</div> <!-- end type SFAuthenticationSession -->
+<div> <!-- start type SFSafariViewControllerConfiguration -->
+<h3>New Type SafariServices.SFSafariViewControllerConfiguration</h3>
+<pre class='added' data-is-non-breaking="">
+public class SFSafariViewControllerConfiguration : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public SFSafariViewControllerConfiguration ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected SFSafariViewControllerConfiguration (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected SFSafariViewControllerConfiguration (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool BarCollapsingEnabled { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool EntersReaderIfAvailable { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type SFSafariViewControllerConfiguration -->
+<div> <!-- start type SFSafariViewControllerDismissButtonStyle -->
+<h3>New Type SafariServices.SFSafariViewControllerDismissButtonStyle</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum SFSafariViewControllerDismissButtonStyle {
+	<span class='added added-field ' data-is-non-breaking="">Cancel = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Close = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Done = 0,</span>
+}
+</pre>
+</div> <!-- end type SFSafariViewControllerDismissButtonStyle -->
+<div> <!-- start type SSReadingListErrorExtensions -->
+<h3>New Type SafariServices.SSReadingListErrorExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class SSReadingListErrorExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetDomain (SSReadingListError self);</span>
+}
+</pre>
+</div> <!-- end type SSReadingListErrorExtensions -->
+
+</div> <!-- end namespace SafariServices -->
+<!-- start namespace SceneKit --> <div> 
+<h2>Namespace SceneKit</h2>
+<!-- start type SCNBlendMode --> <div>
+<h3>Type Changed: SceneKit.SCNBlendMode</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">Max = 6,</span>
+</pre>
+</div>
+
+</div> <!-- end type SCNBlendMode -->
+<!-- start type SCNDebugOptions --> <div>
+<h3>Type Changed: SceneKit.SCNDebugOptions</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">RenderAsWireframe = 64,</span>
+	<span class='added added-field ' data-is-non-breaking="">ShowCameras = 1024,</span>
+	<span class='added added-field ' data-is-non-breaking="">ShowConstraints = 512,</span>
+	<span class='added added-field ' data-is-non-breaking="">ShowCreases = 256,</span>
+	<span class='added added-field ' data-is-non-breaking="">ShowSkeletons = 128,</span>
+</pre>
+</div>
+
+</div> <!-- end type SCNDebugOptions -->
+<!-- start type SCNHitTest --> <div>
+<h3>Type Changed: SceneKit.SCNHitTest</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString OptionSearchModeKey { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type SCNHitTest -->
+<!-- start type SCNHitTestOptions --> <div>
+<h3>Type Changed: SceneKit.SCNHitTestOptions</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public SCNHitTestSearchMode? OptionSearchMode { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type SCNHitTestOptions -->
+<!-- start type SCNTransparencyMode --> <div>
+<h3>Type Changed: SceneKit.SCNTransparencyMode</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">Default = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">DualLayer = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">SingleLayer = 2,</span>
+</pre>
+</div>
+
+</div> <!-- end type SCNTransparencyMode -->
+<div> <!-- start type SCNColorMask -->
+<h3>New Type SceneKit.SCNColorMask</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum SCNColorMask {
+	<span class='added added-field ' data-is-non-breaking="">All = 15,</span>
+	<span class='added added-field ' data-is-non-breaking="">Alpha = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Blue = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Green = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Red = 8,</span>
+}
+</pre>
+</div> <!-- end type SCNColorMask -->
+<div> <!-- start type SCNFillMode -->
+<h3>New Type SceneKit.SCNFillMode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum SCNFillMode {
+	<span class='added added-field ' data-is-non-breaking="">Fill = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Lines = 1,</span>
+}
+</pre>
+</div> <!-- end type SCNFillMode -->
+<div> <!-- start type SCNHitTestSearchMode -->
+<h3>New Type SceneKit.SCNHitTestSearchMode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum SCNHitTestSearchMode {
+	<span class='added added-field ' data-is-non-breaking="">All = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Any = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Closest = 0,</span>
+}
+</pre>
+</div> <!-- end type SCNHitTestSearchMode -->
+<div> <!-- start type SCNInteractionMode -->
+<h3>New Type SceneKit.SCNInteractionMode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum SCNInteractionMode {
+	<span class='added added-field ' data-is-non-breaking="">Fly = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">OrbitAngleMapping = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">OrbitArcball = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">OrbitCenteredArcball = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">OrbitTurntable = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Pan = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">Truck = 6,</span>
+}
+</pre>
+</div> <!-- end type SCNInteractionMode -->
+<div> <!-- start type SCNTessellationSmoothingMode -->
+<h3>New Type SceneKit.SCNTessellationSmoothingMode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum SCNTessellationSmoothingMode {
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">PNTriangles = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Phong = 2,</span>
+}
+</pre>
+</div> <!-- end type SCNTessellationSmoothingMode -->
+
+</div> <!-- end namespace SceneKit -->
+<!-- start namespace Security --> <div> 
+<h2>Namespace Security</h2>
+<!-- start type SslCipherSuite --> <div>
+<h3>Type Changed: Security.SslCipherSuite</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">TLS_AES_128_CCM_8_SHA256 = 4869,</span>
+	<span class='added added-field ' data-is-non-breaking="">TLS_AES_128_CCM_SHA256 = 4868,</span>
+	<span class='added added-field ' data-is-non-breaking="">TLS_AES_128_GCM_SHA256 = 4865,</span>
+	<span class='added added-field ' data-is-non-breaking="">TLS_AES_256_GCM_SHA384 = 4866,</span>
+	<span class='added added-field ' data-is-non-breaking="">TLS_CHACHA20_POLY1305_SHA256 = 4867,</span>
+</pre>
+</div>
+
+</div> <!-- end type SslCipherSuite -->
+
+</div> <!-- end namespace Security -->
+<!-- start namespace SpriteKit --> <div> 
+<h2>Namespace SpriteKit</h2>
+<!-- start type SKLabelNode --> <div>
+<h3>Type Changed: SpriteKit.SKLabelNode</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSAttributedString AttributedText { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UILineBreakMode LineBreakMode { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint NumberOfLines { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat PreferredMaxLayoutWidth { get; set; }</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static SKLabelNode FromText (Foundation.NSAttributedString attributedText);</span>
+</pre>
+</div>
+
+</div> <!-- end type SKLabelNode -->
+<!-- start type SKNode --> <div>
+<h3>Type Changed: SpriteKit.SKNode</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual SKNodeFocusBehavior FocusBehavior { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type SKNode -->
+<div> <!-- start type SKNodeFocusBehavior -->
+<h3>New Type SpriteKit.SKNodeFocusBehavior</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum SKNodeFocusBehavior {
+	<span class='added added-field ' data-is-non-breaking="">Focusable = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Occluding = 1,</span>
+}
+</pre>
+</div> <!-- end type SKNodeFocusBehavior -->
+<div> <!-- start type SKRenderer -->
+<h3>New Type SpriteKit.SKRenderer</h3>
+<pre class='added' data-is-non-breaking="">
+public class SKRenderer : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected SKRenderer (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected SKRenderer (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool IgnoresSiblingOrder { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual SKScene Scene { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ShouldCullNonVisibleNodes { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ShowsDrawCount { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ShowsFields { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ShowsNodeCount { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ShowsPhysics { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ShowsQuadCount { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static SKRenderer FromDevice (Metal.IMTLDevice device);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Render (CoreGraphics.CGRect viewport, Metal.IMTLCommandBuffer commandBuffer, Metal.MTLRenderPassDescriptor renderPassDescriptor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Render (CoreGraphics.CGRect viewport, Metal.IMTLRenderCommandEncoder renderCommandEncoder, Metal.MTLRenderPassDescriptor renderPassDescriptor, Metal.IMTLCommandQueue commandQueue);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Update (double currentTime);</span>
+}
+</pre>
+</div> <!-- end type SKRenderer -->
+<div> <!-- start type SKTransformNode -->
+<h3>New Type SpriteKit.SKTransformNode</h3>
+<pre class='added' data-is-non-breaking="">
+public class SKTransformNode : SpriteKit.SKNode, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.Collections.Generic.IEnumerable&lt;SKNode&gt;, System.Collections.IEnumerable, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIFocusEnvironment, UIKit.IUIFocusItem {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public SKTransformNode ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public SKTransformNode (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected SKTransformNode (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected SKTransformNode (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual OpenTK.Vector3 EulerAngles { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual OpenTK.Quaternion Quaternion { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual OpenTK.Matrix3 RotationMatrix { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat XRotation { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat YRotation { get; set; }</span>
+}
+</pre>
+</div> <!-- end type SKTransformNode -->
+
+</div> <!-- end namespace SpriteKit -->
+<!-- start namespace StoreKit --> <div> 
+<h2>Namespace StoreKit</h2>
+<!-- start type SKCloudServiceController --> <div>
+<h3>Type Changed: StoreKit.SKCloudServiceController</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString StorefrontCountryCodeDidChangeNotification { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RequestStorefrontCountryCode (System.Action&lt;Foundation.NSString,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;Foundation.NSString&gt; RequestStorefrontCountryCodeAsync ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RequestUserToken (string developerToken, System.Action&lt;Foundation.NSString,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;Foundation.NSString&gt; RequestUserTokenAsync (string developerToken);</span>
+</pre>
+</div>
+<!-- start type SKCloudServiceController.Notifications --> <div>
+<h3>Type Changed: StoreKit.SKCloudServiceController.Notifications</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveStorefrontCountryCodeDidChange (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveStorefrontCountryCodeDidChange (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+</pre>
+</div>
+
+</div> <!-- end type SKCloudServiceController.Notifications -->
+
+</div> <!-- end type SKCloudServiceController -->
+<!-- start type SKCloudServiceSetupOptions --> <div>
+<h3>Type Changed: StoreKit.SKCloudServiceSetupOptions</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public string MessageIdentifier { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type SKCloudServiceSetupOptions -->
+<!-- start type SKPaymentTransactionObserver --> <div>
+<h3>Type Changed: StoreKit.SKPaymentTransactionObserver</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldAddStorePayment (SKPaymentQueue queue, SKPayment payment, SKProduct product);</span>
+</pre>
+</div>
+
+</div> <!-- end type SKPaymentTransactionObserver -->
+<!-- start type SKPaymentTransactionObserver_Extensions --> <div>
+<h3>Type Changed: StoreKit.SKPaymentTransactionObserver_Extensions</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static bool ShouldAddStorePayment (ISKPaymentTransactionObserver This, SKPaymentQueue queue, SKPayment payment, SKProduct product);</span>
+</pre>
+</div>
+
+</div> <!-- end type SKPaymentTransactionObserver_Extensions -->
+<!-- start type SKStoreProductParameterKey --> <div>
+<h3>Type Changed: StoreKit.SKStoreProductParameterKey</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString ProductIdentifier { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type SKStoreProductParameterKey -->
+<div> <!-- start type SKCloudServiceSetupMessageIdentifier -->
+<h3>New Type StoreKit.SKCloudServiceSetupMessageIdentifier</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum SKCloudServiceSetupMessageIdentifier {
+	<span class='added added-field ' data-is-non-breaking="">AddMusic = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Connect = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Join = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">PlayMusic = 3,</span>
+}
+</pre>
+</div> <!-- end type SKCloudServiceSetupMessageIdentifier -->
+<div> <!-- start type SKCloudServiceSetupMessageIdentifierExtensions -->
+<h3>New Type StoreKit.SKCloudServiceSetupMessageIdentifierExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class SKCloudServiceSetupMessageIdentifierExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetConstant (SKCloudServiceSetupMessageIdentifier self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static SKCloudServiceSetupMessageIdentifier GetValue (Foundation.NSString constant);</span>
+}
+</pre>
+</div> <!-- end type SKCloudServiceSetupMessageIdentifierExtensions -->
+<div> <!-- start type SKProductStorePromotionController -->
+<h3>New Type StoreKit.SKProductStorePromotionController</h3>
+<pre class='added' data-is-non-breaking="">
+public class SKProductStorePromotionController : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected SKProductStorePromotionController (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected SKProductStorePromotionController (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static SKProductStorePromotionController Default { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void FetchStorePromotionOrder (System.Action&lt;SKProduct[],Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;SKProduct[]&gt; FetchStorePromotionOrderAsync ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void FetchStorePromotionVisibility (SKProduct product, System.Action&lt;SKProductStorePromotionVisibility,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;SKProductStorePromotionVisibility&gt; FetchStorePromotionVisibilityAsync (SKProduct product);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Update (SKProduct[] storePromotionOrder, System.Action&lt;Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Update (SKProductStorePromotionVisibility promotionVisibility, SKProduct product, System.Action&lt;Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task UpdateAsync (SKProduct[] storePromotionOrder);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task UpdateAsync (SKProductStorePromotionVisibility promotionVisibility, SKProduct product);</span>
+}
+</pre>
+</div> <!-- end type SKProductStorePromotionController -->
+<div> <!-- start type SKProductStorePromotionVisibility -->
+<h3>New Type StoreKit.SKProductStorePromotionVisibility</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum SKProductStorePromotionVisibility {
+	<span class='added added-field ' data-is-non-breaking="">Default = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Hide = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Show = 1,</span>
+}
+</pre>
+</div> <!-- end type SKProductStorePromotionVisibility -->
+
+</div> <!-- end namespace StoreKit -->
+<!-- start namespace UIKit --> <div> 
+<h2>Namespace UIKit</h2>
+<!-- start type NSCoder_UIGeometryKeyedCoding --> <div>
+<h3>Type Changed: UIKit.NSCoder_UIGeometryKeyedCoding</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static NSDirectionalEdgeInsets DecodeDirectionalEdgeInsets (Foundation.NSCoder This, string key);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void Encode (Foundation.NSCoder This, NSDirectionalEdgeInsets directionalEdgeInsets, string forKey);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSCoder_UIGeometryKeyedCoding -->
+<!-- start type NSFileProviderExtension --> <div>
+<h3>Type Changed: UIKit.NSFileProviderExtension</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void CreateDirectory (string directoryName, string parentItemIdentifier, System.Action&lt;FileProvider.INSFileProviderItem,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;FileProvider.INSFileProviderItem&gt; CreateDirectoryAsync (string directoryName, string parentItemIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DeleteItem (string itemIdentifier, System.Action&lt;Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task DeleteItemAsync (string itemIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public Foundation.NSProgress FetchThumbnails (FileProvider.NSFileProviderItemIdentifier[] itemIdentifiers, CoreGraphics.CGSize size, NSFileProviderExtensionFetchThumbnailsHandler perThumbnailCompletionHandler, System.Action&lt;Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSProgress FetchThumbnails (Foundation.NSString[] itemIdentifiers, CoreGraphics.CGSize size, NSFileProviderExtensionFetchThumbnailsHandler perThumbnailCompletionHandler, System.Action&lt;Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public System.Threading.Tasks.Task FetchThumbnailsAsync (FileProvider.NSFileProviderItemIdentifier[] itemIdentifiers, CoreGraphics.CGSize size, NSFileProviderExtensionFetchThumbnailsHandler perThumbnailCompletionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task FetchThumbnailsAsync (Foundation.NSString[] itemIdentifiers, CoreGraphics.CGSize size, NSFileProviderExtensionFetchThumbnailsHandler perThumbnailCompletionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public System.Threading.Tasks.Task FetchThumbnailsAsync (FileProvider.NSFileProviderItemIdentifier[] itemIdentifiers, CoreGraphics.CGSize size, NSFileProviderExtensionFetchThumbnailsHandler perThumbnailCompletionHandler, Foundation.NSProgress result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task FetchThumbnailsAsync (Foundation.NSString[] itemIdentifiers, CoreGraphics.CGSize size, NSFileProviderExtensionFetchThumbnailsHandler perThumbnailCompletionHandler, Foundation.NSProgress result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual FileProvider.INSFileProviderEnumerator GetEnumerator (string containerItemIdentifier, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public FileProvider.INSFileProviderItem GetItem (FileProvider.NSFileProviderItemIdentifier identifier, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected virtual FileProvider.INSFileProviderItem GetItem (Foundation.NSString identifier, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ImportDocument (Foundation.NSUrl fileUrl, string parentItemIdentifier, System.Action&lt;FileProvider.INSFileProviderItem,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;FileProvider.INSFileProviderItem&gt; ImportDocumentAsync (Foundation.NSUrl fileUrl, string parentItemIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RenameItem (string itemIdentifier, string itemName, System.Action&lt;FileProvider.INSFileProviderItem,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;FileProvider.INSFileProviderItem&gt; RenameItemAsync (string itemIdentifier, string itemName);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ReparentItem (string itemIdentifier, string parentItemIdentifier, string newName, System.Action&lt;FileProvider.INSFileProviderItem,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;FileProvider.INSFileProviderItem&gt; ReparentItemAsync (string itemIdentifier, string parentItemIdentifier, string newName);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetFavoriteRank (Foundation.NSNumber favoriteRank, string itemIdentifier, System.Action&lt;FileProvider.INSFileProviderItem,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;FileProvider.INSFileProviderItem&gt; SetFavoriteRankAsync (Foundation.NSNumber favoriteRank, string itemIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetLastUsedDate (Foundation.NSDate lastUsedDate, string itemIdentifier, System.Action&lt;FileProvider.INSFileProviderItem,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;FileProvider.INSFileProviderItem&gt; SetLastUsedDateAsync (Foundation.NSDate lastUsedDate, string itemIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetTagData (Foundation.NSData tagData, string itemIdentifier, System.Action&lt;FileProvider.INSFileProviderItem,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;FileProvider.INSFileProviderItem&gt; SetTagDataAsync (Foundation.NSData tagData, string itemIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void TrashItem (string itemIdentifier, System.Action&lt;FileProvider.INSFileProviderItem,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;FileProvider.INSFileProviderItem&gt; TrashItemAsync (string itemIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void UntrashItem (string itemIdentifier, string parentItemIdentifier, System.Action&lt;FileProvider.INSFileProviderItem,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;FileProvider.INSFileProviderItem&gt; UntrashItemAsync (string itemIdentifier, string parentItemIdentifier);</span>
+</pre>
+</div>
+
+</div> <!-- end type NSFileProviderExtension -->
+<!-- start type NSLayoutFormatOptions --> <div>
+<h3>Type Changed: UIKit.NSLayoutFormatOptions</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">SpacingBaselineToBaseline = 524288,</span>
+	<span class='added added-field ' data-is-non-breaking="">SpacingEdgeToEdge = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">SpacingMask = 524288,</span>
+</pre>
+</div>
+
+</div> <!-- end type NSLayoutFormatOptions -->
+<!-- start type UIBezierPath --> <div>
+<h3>Type Changed: UIKit.UIBezierPath</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSSecureCoding</span>
+</pre>
+</div>
+
+</div> <!-- end type UIBezierPath -->
+<!-- start type UIButtonType --> <div>
+<h3>Type Changed: UIKit.UIButtonType</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">Plain = 6,</span>
+</pre>
+</div>
+
+</div> <!-- end type UIButtonType -->
+<!-- start type UICollectionView --> <div>
+<h3>Type Changed: UIKit.UICollectionView</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">IUIDataSourceTranslating</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUICollectionViewDragDelegate DragDelegate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool DragInteractionEnabled { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUICollectionViewDropDelegate DropDelegate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool HasActiveDrag { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool HasActiveDrop { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool HasUncommittedUpdates { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UICollectionViewReorderingCadence ReorderingCadence { get; set; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSIndexPath GetDataSourceIndexPath (Foundation.NSIndexPath presentationIndexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual nint GetDataSourceSectionIndex (nint presentationSectionIndex);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSIndexPath GetPresentationIndexPath (Foundation.NSIndexPath dataSourceIndexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual nint GetPresentationSectionIndex (nint dataSourceSectionIndex);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PerformUsingPresentationValues (System.Action actionsToTranslate);</span>
+</pre>
+</div>
+
+</div> <!-- end type UICollectionView -->
+<!-- start type UICollectionViewCell --> <div>
+<h3>Type Changed: UIKit.UICollectionViewCell</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DragStateDidChange (UICollectionViewCellDragState dragState);</span>
+</pre>
+</div>
+
+</div> <!-- end type UICollectionViewCell -->
+<!-- start type UICollectionViewController --> <div>
+<h3>Type Changed: UIKit.UICollectionViewController</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidChangeAdjustedContentInset (UIScrollView scrollView);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldSpringLoadItem (UICollectionView collectionView, Foundation.NSIndexPath indexPath, IUISpringLoadedInteractionContext context);</span>
+</pre>
+</div>
+
+</div> <!-- end type UICollectionViewController -->
+<!-- start type UICollectionViewDelegate --> <div>
+<h3>Type Changed: UIKit.UICollectionViewDelegate</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidChangeAdjustedContentInset (UIScrollView scrollView);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldSpringLoadItem (UICollectionView collectionView, Foundation.NSIndexPath indexPath, IUISpringLoadedInteractionContext context);</span>
+</pre>
+</div>
+
+</div> <!-- end type UICollectionViewDelegate -->
+<!-- start type UICollectionViewDelegate_Extensions --> <div>
+<h3>Type Changed: UIKit.UICollectionViewDelegate_Extensions</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static bool ShouldSpringLoadItem (IUICollectionViewDelegate This, UICollectionView collectionView, Foundation.NSIndexPath indexPath, IUISpringLoadedInteractionContext context);</span>
+</pre>
+</div>
+
+</div> <!-- end type UICollectionViewDelegate_Extensions -->
+<!-- start type UICollectionViewFlowLayout --> <div>
+<h3>Type Changed: UIKit.UICollectionViewFlowLayout</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UICollectionViewFlowLayoutSectionInsetReference SectionInsetReference { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type UICollectionViewFlowLayout -->
+<!-- start type UICollectionViewFocusUpdateContext --> <div>
+<h3>Type Changed: UIKit.UICollectionViewFocusUpdateContext</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("This cannot be directly created.")]
+	public UICollectionViewFocusUpdateContext ();</span>
+</div></pre>
+
+</div> <!-- end type UICollectionViewFocusUpdateContext -->
+<!-- start type UICollectionViewSource --> <div>
+<h3>Type Changed: UIKit.UICollectionViewSource</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidChangeAdjustedContentInset (UIScrollView scrollView);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldSpringLoadItem (UICollectionView collectionView, Foundation.NSIndexPath indexPath, IUISpringLoadedInteractionContext context);</span>
+</pre>
+</div>
+
+</div> <!-- end type UICollectionViewSource -->
+<!-- start type UIColor --> <div>
+<h3>Type Changed: UIKit.UIColor</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIColor (Foundation.NSData providerData, string typeIdentifier, Foundation.NSError outError);</span>
+</pre>
+</div>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSItemProviderWriting</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static string[] ReadableTypeIdentifiersForItemProvider { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static string[] WritableTypeIdentifiers { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] WritableTypeIdentifiersForItemProvider { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static UIColor FromName (string name);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UIColor FromName (string name, Foundation.NSBundle inBundle, UITraitCollection compatibleWithTraitCollection);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSItemProviderRepresentationVisibility GetItemProviderVisibility (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSProgress LoadData (string typeIdentifier, System.Action&lt;Foundation.NSData,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;Foundation.NSData&gt; LoadDataAsync (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;Foundation.NSData&gt; LoadDataAsync (string typeIdentifier, Foundation.NSProgress result);</span>
+</pre>
+</div>
+
+</div> <!-- end type UIColor -->
+<!-- start type UIControlContentHorizontalAlignment --> <div>
+<h3>Type Changed: UIKit.UIControlContentHorizontalAlignment</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">Leading = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Trailing = 5,</span>
+</pre>
+</div>
+
+</div> <!-- end type UIControlContentHorizontalAlignment -->
+<!-- start type UIDocument --> <div>
+<h3>Type Changed: UIKit.UIDocument</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSSet&lt;Foundation.NSString&gt; PresentedItemObservedUbiquityAttributes { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PresentedItemChangedUbiquityAttributes (Foundation.NSSet&lt;Foundation.NSString&gt; attributes);</span>
+</pre>
+</div>
+
+</div> <!-- end type UIDocument -->
+<!-- start type UIDocumentPickerDelegate --> <div>
+<h3>Type Changed: UIKit.UIDocumentPickerDelegate</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidPickDocument (UIDocumentPickerViewController controller, Foundation.NSUrl[] urls);</span>
+</pre>
+</div>
+
+</div> <!-- end type UIDocumentPickerDelegate -->
+<!-- start type UIDocumentPickerDelegate_Extensions --> <div>
+<h3>Type Changed: UIKit.UIDocumentPickerDelegate_Extensions</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidPickDocument (IUIDocumentPickerDelegate This, UIDocumentPickerViewController controller, Foundation.NSUrl[] urls);</span>
+</pre>
+</div>
+
+</div> <!-- end type UIDocumentPickerDelegate_Extensions -->
+<!-- start type UIDocumentPickerViewController --> <div>
+<h3>Type Changed: UIKit.UIDocumentPickerViewController</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIDocumentPickerViewController (Foundation.NSUrl[] urls, UIDocumentPickerMode mode);</span>
+</pre>
+</div>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AllowsMultipleSelection { get; set; }</span>
+</pre>
+</div>
+<div>
+<p>Added event:</p>
+<pre>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler&lt;UIDocumentPickedAtUrlsEventArgs&gt; DidPickDocumentAtUrls;</span>
+</pre>
+</div>
+
+</div> <!-- end type UIDocumentPickerViewController -->
+<!-- start type UIFocusAnimationCoordinator --> <div>
+<h3>Type Changed: UIKit.UIFocusAnimationCoordinator</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AddCoordinatedFocusingAnimations (System.Action&lt;IUIFocusAnimationContext&gt; animations, System.Action completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task AddCoordinatedFocusingAnimationsAsync (System.Action&lt;IUIFocusAnimationContext&gt; animations);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AddCoordinatedUnfocusingAnimations (System.Action&lt;IUIFocusAnimationContext&gt; animations, System.Action completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task AddCoordinatedUnfocusingAnimationsAsync (System.Action&lt;IUIFocusAnimationContext&gt; animations);</span>
+</pre>
+</div>
+
+</div> <!-- end type UIFocusAnimationCoordinator -->
+<!-- start type UIFocusUpdateContext --> <div>
+<h3>Type Changed: UIKit.UIFocusUpdateContext</h3>
+<p>Obsoleted constructors:</p>
+<pre>
+<div data-is-non-breaking="">	<span class='obsolete obsolete-constructor' data-is-non-breaking="">[Obsolete ("This cannot be directly created.")]
+	public UIFocusUpdateContext ();</span>
+</div></pre>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString AnimationCoordinatorKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DidUpdateNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString Key { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString MovementDidFailNotification { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type UIFocusUpdateContext -->
+<!-- start type UIFontTextStyle --> <div>
+<h3>Type Changed: UIKit.UIFontTextStyle</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">LargeTitle = 10,</span>
+</pre>
+</div>
+
+</div> <!-- end type UIFontTextStyle -->
+<!-- start type UIImage --> <div>
+<h3>Type Changed: UIKit.UIImage</h3>
+<div>
+<p>Added constructor:</p>
+<pre>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIImage (Foundation.NSData providerData, string typeIdentifier, Foundation.NSError outError);</span>
+</pre>
+</div>
+<div>
+<p>Added interfaces:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSItemProviderReading</span>
+	<span class='added added-interface ' data-is-non-breaking="">Foundation.INSItemProviderWriting</span>
+	<span class='added added-interface ' data-is-non-breaking="">IUIItemProviderPresentationSizeProviding</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGSize PreferredPresentationSizeForItemProvider { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static string[] ReadableTypeIdentifiersForItemProvider { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static string[] WritableTypeIdentifiers { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] WritableTypeIdentifiersForItemProvider { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSItemProviderRepresentationVisibility GetItemProviderVisibility (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSProgress LoadData (string typeIdentifier, System.Action&lt;Foundation.NSData,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;Foundation.NSData&gt; LoadDataAsync (string typeIdentifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;Foundation.NSData&gt; LoadDataAsync (string typeIdentifier, Foundation.NSProgress result);</span>
+</pre>
+</div>
+
+</div> <!-- end type UIImage -->
+<!-- start type UIImagePickerController --> <div>
+<h3>Type Changed: UIKit.UIImagePickerController</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIImagePickerControllerImageUrlExportPreset ImageExportPreset { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString ImageUrl { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString PHAsset { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string VideoExportPreset { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type UIImagePickerController -->
+<!-- start type UIImagePickerMediaPickedEventArgs --> <div>
+<h3>Type Changed: UIKit.UIImagePickerMediaPickedEventArgs</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public Foundation.NSUrl ImageUrl { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public Photos.PHAsset PHAsset { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type UIImagePickerMediaPickedEventArgs -->
+<!-- start type UIModalPresentationStyle --> <div>
+<h3>Type Changed: UIKit.UIModalPresentationStyle</h3>
+<div>
+<p>Added value:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">BlurOverFullScreen = 8,</span>
+</pre>
+</div>
+
+</div> <!-- end type UIModalPresentationStyle -->
+<!-- start type UINavigationBar --> <div>
+<h3>Type Changed: UIKit.UINavigationBar</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool PrefersLargeTitles { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type UINavigationBar -->
+<!-- start type UINavigationItem --> <div>
+<h3>Type Changed: UIKit.UINavigationItem</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool HidesSearchBarWhenScrolling { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UINavigationItemLargeTitleDisplayMode LargeTitleDisplayMode { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UISearchController SearchController { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type UINavigationItem -->
+<!-- start type UIPasteboard --> <div>
+<h3>Type Changed: UIKit.UIPasteboard</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSItemProvider[] ItemProviders { get; set; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetItemProviders (Foundation.NSItemProvider[] itemProviders, bool localOnly, Foundation.NSDate expirationDate);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetObjects (Foundation.INSItemProviderWriting[] objects);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetObjects (Foundation.INSItemProviderWriting[] objects, bool localOnly, Foundation.NSDate expirationDate);</span>
+</pre>
+</div>
+
+</div> <!-- end type UIPasteboard -->
+<!-- start type UIScrollView --> <div>
+<h3>Type Changed: UIKit.UIScrollView</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIEdgeInsets AdjustedContentInset { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIScrollViewContentInsetAdjustmentBehavior ContentInsetAdjustmentBehavior { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UILayoutGuide ContentLayoutGuide { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UILayoutGuide FrameLayoutGuide { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added event:</p>
+<pre>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler DidChangeAdjustedContentInset;</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AdjustedContentInsetDidChange ();</span>
+</pre>
+</div>
+
+</div> <!-- end type UIScrollView -->
+<!-- start type UIScrollViewDelegate --> <div>
+<h3>Type Changed: UIKit.UIScrollViewDelegate</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidChangeAdjustedContentInset (UIScrollView scrollView);</span>
+</pre>
+</div>
+
+</div> <!-- end type UIScrollViewDelegate -->
+<!-- start type UIScrollViewDelegate_Extensions --> <div>
+<h3>Type Changed: UIKit.UIScrollViewDelegate_Extensions</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidChangeAdjustedContentInset (IUIScrollViewDelegate This, UIScrollView scrollView);</span>
+</pre>
+</div>
+
+</div> <!-- end type UIScrollViewDelegate_Extensions -->
+<!-- start type UISearchBar --> <div>
+<h3>Type Changed: UIKit.UISearchBar</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextSmartDashesType SmartDashesType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextSmartInsertDeleteType SmartInsertDeleteType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextSmartQuotesType SmartQuotesType { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type UISearchBar -->
+<!-- start type UISplitViewController --> <div>
+<h3>Type Changed: UIKit.UISplitViewController</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UISplitViewControllerPrimaryEdge PrimaryEdge { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type UISplitViewController -->
+<!-- start type UIStackView --> <div>
+<h3>Type Changed: UIKit.UIStackView</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual nfloat GetCustomSpacing (UIView arrangedSubview);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetCustomSpacing (nfloat spacing, UIView arrangedSubview);</span>
+</pre>
+</div>
+
+</div> <!-- end type UIStackView -->
+<!-- start type UITableView --> <div>
+<h3>Type Changed: UIKit.UITableView</h3>
+<div>
+<p>Added interface:</p>
+<pre>
+	<span class='added added-interface ' data-is-non-breaking="">IUIDataSourceTranslating</span>
+</pre>
+</div>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUITableViewDragDelegate DragDelegate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool DragInteractionEnabled { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUITableViewDropDelegate DropDelegate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool HasActiveDrag { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool HasActiveDrop { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool HasUncommittedUpdates { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool InsetsContentViewsToSafeArea { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITableViewSeparatorInsetReference SeparatorInsetReference { get; set; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSIndexPath GetDataSourceIndexPath (Foundation.NSIndexPath presentationIndexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual nint GetDataSourceSectionIndex (nint presentationSectionIndex);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSIndexPath GetPresentationIndexPath (Foundation.NSIndexPath dataSourceIndexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual nint GetPresentationSectionIndex (nint dataSourceSectionIndex);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PerformBatchUpdates (System.Action updates, System.Action&lt;bool&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;bool&gt; PerformBatchUpdatesAsync (System.Action updates);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PerformUsingPresentationValues (System.Action actionsToTranslate);</span>
+</pre>
+</div>
+
+</div> <!-- end type UITableView -->
+<!-- start type UITableViewCell --> <div>
+<h3>Type Changed: UIKit.UITableViewCell</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool UserInteractionEnabledWhileDragging { get; set; }</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DragStateDidChange (UITableViewCellDragState dragState);</span>
+</pre>
+</div>
+
+</div> <!-- end type UITableViewCell -->
+<!-- start type UITableViewController --> <div>
+<h3>Type Changed: UIKit.UITableViewController</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UISwipeActionsConfiguration GetLeadingSwipeActionsConfiguration (UITableView tableView, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UISwipeActionsConfiguration GetTrailingSwipeActionsConfiguration (UITableView tableView, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldSpringLoadRow (UITableView tableView, Foundation.NSIndexPath indexPath, IUISpringLoadedInteractionContext context);</span>
+</pre>
+</div>
+
+</div> <!-- end type UITableViewController -->
+<!-- start type UITableViewDelegate --> <div>
+<h3>Type Changed: UIKit.UITableViewDelegate</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UISwipeActionsConfiguration GetLeadingSwipeActionsConfiguration (UITableView tableView, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UISwipeActionsConfiguration GetTrailingSwipeActionsConfiguration (UITableView tableView, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldSpringLoadRow (UITableView tableView, Foundation.NSIndexPath indexPath, IUISpringLoadedInteractionContext context);</span>
+</pre>
+</div>
+
+</div> <!-- end type UITableViewDelegate -->
+<!-- start type UITableViewDelegate_Extensions --> <div>
+<h3>Type Changed: UIKit.UITableViewDelegate_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static UISwipeActionsConfiguration GetLeadingSwipeActionsConfiguration (IUITableViewDelegate This, UITableView tableView, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UISwipeActionsConfiguration GetTrailingSwipeActionsConfiguration (IUITableViewDelegate This, UITableView tableView, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool ShouldSpringLoadRow (IUITableViewDelegate This, UITableView tableView, Foundation.NSIndexPath indexPath, IUISpringLoadedInteractionContext context);</span>
+</pre>
+</div>
+
+</div> <!-- end type UITableViewDelegate_Extensions -->
+<!-- start type UITableViewSource --> <div>
+<h3>Type Changed: UIKit.UITableViewSource</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UISwipeActionsConfiguration GetLeadingSwipeActionsConfiguration (UITableView tableView, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UISwipeActionsConfiguration GetTrailingSwipeActionsConfiguration (UITableView tableView, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldSpringLoadRow (UITableView tableView, Foundation.NSIndexPath indexPath, IUISpringLoadedInteractionContext context);</span>
+</pre>
+</div>
+
+</div> <!-- end type UITableViewSource -->
+<!-- start type UITextContentType --> <div>
+<h3>Type Changed: UIKit.UITextContentType</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString Password { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString Username { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type UITextContentType -->
+<!-- start type UITextDocumentProxy --> <div>
+<h3>Type Changed: UIKit.UITextDocumentProxy</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSUuid DocumentIdentifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string SelectedText { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextSmartDashesType SmartDashesType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextSmartInsertDeleteType SmartInsertDeleteType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextSmartQuotesType SmartQuotesType { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type UITextDocumentProxy -->
+<!-- start type UITextDocumentProxy_Extensions --> <div>
+<h3>Type Changed: UIKit.UITextDocumentProxy_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSUuid GetDocumentIdentifier (IUITextDocumentProxy This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static string GetSelectedText (IUITextDocumentProxy This);</span>
+</pre>
+</div>
+
+</div> <!-- end type UITextDocumentProxy_Extensions -->
+<!-- start type UITextField --> <div>
+<h3>Type Changed: UIKit.UITextField</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextSmartDashesType SmartDashesType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextSmartInsertDeleteType SmartInsertDeleteType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextSmartQuotesType SmartQuotesType { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type UITextField -->
+<!-- start type UITextInputTraits_Extensions --> <div>
+<h3>Type Changed: UIKit.UITextInputTraits_Extensions</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static UITextSmartDashesType GetSmartDashesType (IUITextInputTraits This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UITextSmartInsertDeleteType GetSmartInsertDeleteType (IUITextInputTraits This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UITextSmartQuotesType GetSmartQuotesType (IUITextInputTraits This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SetSmartDashesType (IUITextInputTraits This, UITextSmartDashesType value);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SetSmartInsertDeleteType (IUITextInputTraits This, UITextSmartInsertDeleteType value);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SetSmartQuotesType (IUITextInputTraits This, UITextSmartQuotesType value);</span>
+</pre>
+</div>
+
+</div> <!-- end type UITextInputTraits_Extensions -->
+<!-- start type UITextView --> <div>
+<h3>Type Changed: UIKit.UITextView</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextSmartDashesType SmartDashesType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextSmartInsertDeleteType SmartInsertDeleteType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextSmartQuotesType SmartQuotesType { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type UITextView -->
+<!-- start type UIView --> <div>
+<h3>Type Changed: UIKit.UIView</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSDirectionalEdgeInsets DirectionalLayoutMargins { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool InsetsLayoutMarginsFromSafeArea { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUIInteraction[] Interactions { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIEdgeInsets SafeAreaInsets { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UILayoutGuide SafeAreaLayoutGuide { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AddInteraction (IUIInteraction interaction);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveInteraction (IUIInteraction interaction);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SafeAreaInsetsDidChange ();</span>
+</pre>
+</div>
+
+</div> <!-- end type UIView -->
+<!-- start type UIViewController --> <div>
+<h3>Type Changed: UIKit.UIViewController</h3>
+<div>
+<p>Added properties:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIEdgeInsets AdditionalSafeAreaInsets { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIViewController ChildViewControllerForScreenEdgesDeferringSystemGestures { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIRectEdge PreferredScreenEdgesDeferringSystemGestures { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSDirectionalEdgeInsets SystemMinimumLayoutMargins { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ViewRespectsSystemMinimumLayoutMargins { get; set; }</span>
+</pre>
+</div>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetNeedsUpdateOfScreenEdgesDeferringSystemGestures ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ViewLayoutMarginsDidChange ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ViewSafeAreaInsetsDidChange ();</span>
+</pre>
+</div>
+
+</div> <!-- end type UIViewController -->
+<!-- start type UIWebView --> <div>
+<h3>Type Changed: UIKit.UIWebView</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidChangeAdjustedContentInset (UIScrollView scrollView);</span>
+</pre>
+</div>
+
+</div> <!-- end type UIWebView -->
+<div> <!-- start type IUICollectionViewDragDelegate -->
+<h3>New Type UIKit.IUICollectionViewDragDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUICollectionViewDragDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDragItem[] GetItemsForBeginningDragSession (UICollectionView collectionView, IUIDragSession session, Foundation.NSIndexPath indexPath);</span>
+}
+</pre>
+</div> <!-- end type IUICollectionViewDragDelegate -->
+<div> <!-- start type IUICollectionViewDropCoordinator -->
+<h3>New Type UIKit.IUICollectionViewDropCoordinator</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUICollectionViewDropCoordinator : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSIndexPath DestinationIndexPath { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUICollectionViewDropItem[] Items { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UICollectionViewDropProposal Proposal { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUIDropSession Session { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual IUIDragAnimating DropItemIntoItem (UIDragItem dragItem, Foundation.NSIndexPath itemIndexPath, CoreGraphics.CGRect rect);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual IUIDragAnimating DropItemToItem (UIDragItem dragItem, Foundation.NSIndexPath itemIndexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual IUICollectionViewDropPlaceholderContext DropItemToPlaceholder (UIDragItem dragItem, UICollectionViewDropPlaceholder placeholder);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual IUIDragAnimating DropItemToTarget (UIDragItem dragItem, UIDragPreviewTarget target);</span>
+}
+</pre>
+</div> <!-- end type IUICollectionViewDropCoordinator -->
+<div> <!-- start type IUICollectionViewDropDelegate -->
+<h3>New Type UIKit.IUICollectionViewDropDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUICollectionViewDropDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PerformDrop (UICollectionView collectionView, IUICollectionViewDropCoordinator coordinator);</span>
+}
+</pre>
+</div> <!-- end type IUICollectionViewDropDelegate -->
+<div> <!-- start type IUICollectionViewDropItem -->
+<h3>New Type UIKit.IUICollectionViewDropItem</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUICollectionViewDropItem : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIDragItem DragItem { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGSize PreviewSize { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSIndexPath SourceIndexPath { get; }</span>
+}
+</pre>
+</div> <!-- end type IUICollectionViewDropItem -->
+<div> <!-- start type IUICollectionViewDropPlaceholderContext -->
+<h3>New Type UIKit.IUICollectionViewDropPlaceholderContext</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUICollectionViewDropPlaceholderContext : ObjCRuntime.INativeObject, System.IDisposable, IUIDragAnimating {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIDragItem DragItem { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool CommitInsertion (System.Action&lt;Foundation.NSIndexPath&gt; dataSourceUpdates);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool DeletePlaceholder ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetNeedsCellUpdate ();</span>
+}
+</pre>
+</div> <!-- end type IUICollectionViewDropPlaceholderContext -->
+<div> <!-- start type IUIDataSourceTranslating -->
+<h3>New Type UIKit.IUIDataSourceTranslating</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUIDataSourceTranslating : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSIndexPath GetDataSourceIndexPath (Foundation.NSIndexPath presentationIndexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual nint GetDataSourceSectionIndex (nint presentationSectionIndex);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSIndexPath GetPresentationIndexPath (Foundation.NSIndexPath dataSourceIndexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual nint GetPresentationSectionIndex (nint dataSourceSectionIndex);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PerformUsingPresentationValues (System.Action actionsToTranslate);</span>
+}
+</pre>
+</div> <!-- end type IUIDataSourceTranslating -->
+<div> <!-- start type IUIDragAnimating -->
+<h3>New Type UIKit.IUIDragAnimating</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUIDragAnimating : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AddAnimations (System.Action animations);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AddCompletion (System.Action&lt;UIViewAnimatingPosition&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type IUIDragAnimating -->
+<div> <!-- start type IUIDragDropSession -->
+<h3>New Type UIKit.IUIDragDropSession</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUIDragDropSession : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AllowsMoveOperation { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIDragItem[] Items { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool RestrictedToDraggingApplication { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool CanLoadObjects (ObjCRuntime.Class itemProviderReadingClass);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool HasConformingItems (string[] typeIdentifiers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint LocationInView (UIView view);</span>
+}
+</pre>
+</div> <!-- end type IUIDragDropSession -->
+<div> <!-- start type IUIDragInteractionDelegate -->
+<h3>New Type UIKit.IUIDragInteractionDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUIDragInteractionDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDragItem[] GetItemsForBeginningSession (UIDragInteraction interaction, IUIDragSession session);</span>
+}
+</pre>
+</div> <!-- end type IUIDragInteractionDelegate -->
+<div> <!-- start type IUIDragSession -->
+<h3>New Type UIKit.IUIDragSession</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUIDragSession : ObjCRuntime.INativeObject, System.IDisposable, IUIDragDropSession {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSObject LocalContext { get; set; }</span>
+}
+</pre>
+</div> <!-- end type IUIDragSession -->
+<div> <!-- start type IUIDropInteractionDelegate -->
+<h3>New Type UIKit.IUIDropInteractionDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUIDropInteractionDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IUIDropInteractionDelegate -->
+<div> <!-- start type IUIDropSession -->
+<h3>New Type UIKit.IUIDropSession</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUIDropSession : Foundation.INSProgressReporting, ObjCRuntime.INativeObject, System.IDisposable, IUIDragDropSession {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUIDragSession LocalDragSession { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIDropSessionProgressIndicatorStyle ProgressIndicatorStyle { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSProgress LoadObjects (ObjCRuntime.Class itemProviderReadingClass, System.Action&lt;Foundation.INSItemProviderReading[]&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type IUIDropSession -->
+<div> <!-- start type IUIFocusAnimationContext -->
+<h3>New Type UIKit.IUIFocusAnimationContext</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUIFocusAnimationContext : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual double Duration { get; }</span>
+}
+</pre>
+</div> <!-- end type IUIFocusAnimationContext -->
+<div> <!-- start type IUIFocusDebuggerOutput -->
+<h3>New Type UIKit.IUIFocusDebuggerOutput</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUIFocusDebuggerOutput : ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IUIFocusDebuggerOutput -->
+<div> <!-- start type IUIInteraction -->
+<h3>New Type UIKit.IUIInteraction</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUIInteraction : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIView View { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidMoveToView (UIView view);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillMoveToView (UIView view);</span>
+}
+</pre>
+</div> <!-- end type IUIInteraction -->
+<div> <!-- start type IUIItemProviderPresentationSizeProviding -->
+<h3>New Type UIKit.IUIItemProviderPresentationSizeProviding</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUIItemProviderPresentationSizeProviding : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGSize PreferredPresentationSizeForItemProvider { get; }</span>
+}
+</pre>
+</div> <!-- end type IUIItemProviderPresentationSizeProviding -->
+<div> <!-- start type IUIPasteConfigurationSupporting -->
+<h3>New Type UIKit.IUIPasteConfigurationSupporting</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUIPasteConfigurationSupporting : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIPasteConfiguration PasteConfiguration { get; set; }</span>
+}
+</pre>
+</div> <!-- end type IUIPasteConfigurationSupporting -->
+<div> <!-- start type IUISpringLoadedInteractionBehavior -->
+<h3>New Type UIKit.IUISpringLoadedInteractionBehavior</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUISpringLoadedInteractionBehavior : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldAllowInteraction (UISpringLoadedInteraction interaction, IUISpringLoadedInteractionContext context);</span>
+}
+</pre>
+</div> <!-- end type IUISpringLoadedInteractionBehavior -->
+<div> <!-- start type IUISpringLoadedInteractionContext -->
+<h3>New Type UIKit.IUISpringLoadedInteractionContext</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUISpringLoadedInteractionContext : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual UISpringLoadedInteractionEffectState State { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSObject TargetItem { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIView TargetView { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint LocationInView (UIView view);</span>
+}
+</pre>
+</div> <!-- end type IUISpringLoadedInteractionContext -->
+<div> <!-- start type IUISpringLoadedInteractionEffect -->
+<h3>New Type UIKit.IUISpringLoadedInteractionEffect</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUISpringLoadedInteractionEffect : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidChange (UISpringLoadedInteraction interaction, IUISpringLoadedInteractionContext context);</span>
+}
+</pre>
+</div> <!-- end type IUISpringLoadedInteractionEffect -->
+<div> <!-- start type IUISpringLoadedInteractionSupporting -->
+<h3>New Type UIKit.IUISpringLoadedInteractionSupporting</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUISpringLoadedInteractionSupporting : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool SpringLoaded { get; set; }</span>
+}
+</pre>
+</div> <!-- end type IUISpringLoadedInteractionSupporting -->
+<div> <!-- start type IUITableViewDragDelegate -->
+<h3>New Type UIKit.IUITableViewDragDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUITableViewDragDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDragItem[] GetItemsForBeginningDragSession (UITableView tableView, IUIDragSession session, Foundation.NSIndexPath indexPath);</span>
+}
+</pre>
+</div> <!-- end type IUITableViewDragDelegate -->
+<div> <!-- start type IUITableViewDropCoordinator -->
+<h3>New Type UIKit.IUITableViewDropCoordinator</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUITableViewDropCoordinator : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSIndexPath DestinationIndexPath { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUITableViewDropItem[] Items { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITableViewDropProposal Proposal { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUIDropSession Session { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual IUIDragAnimating DropItemIntoRow (UIDragItem dragItem, Foundation.NSIndexPath indexPath, CoreGraphics.CGRect rect);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual IUITableViewDropPlaceholderContext DropItemToPlaceholder (UIDragItem dragItem, UITableViewDropPlaceholder placeholder);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual IUIDragAnimating DropItemToRow (UIDragItem dragItem, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual IUIDragAnimating DropItemToTarget (UIDragItem dragItem, UIDragPreviewTarget target);</span>
+}
+</pre>
+</div> <!-- end type IUITableViewDropCoordinator -->
+<div> <!-- start type IUITableViewDropDelegate -->
+<h3>New Type UIKit.IUITableViewDropDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUITableViewDropDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PerformDrop (UITableView tableView, IUITableViewDropCoordinator coordinator);</span>
+}
+</pre>
+</div> <!-- end type IUITableViewDropDelegate -->
+<div> <!-- start type IUITableViewDropItem -->
+<h3>New Type UIKit.IUITableViewDropItem</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUITableViewDropItem : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIDragItem DragItem { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGSize PreviewSize { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSIndexPath SourceIndexPath { get; }</span>
+}
+</pre>
+</div> <!-- end type IUITableViewDropItem -->
+<div> <!-- start type IUITableViewDropPlaceholderContext -->
+<h3>New Type UIKit.IUITableViewDropPlaceholderContext</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUITableViewDropPlaceholderContext : ObjCRuntime.INativeObject, System.IDisposable, IUIDragAnimating {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIDragItem DragItem { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool CommitInsertion (System.Action&lt;Foundation.NSIndexPath&gt; dataSourceUpdates);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool DeletePlaceholder ();</span>
+}
+</pre>
+</div> <!-- end type IUITableViewDropPlaceholderContext -->
+<div> <!-- start type IUITextDragDelegate -->
+<h3>New Type UIKit.IUITextDragDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUITextDragDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IUITextDragDelegate -->
+<div> <!-- start type IUITextDragRequest -->
+<h3>New Type UIKit.IUITextDragRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUITextDragRequest : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextRange DragRange { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUIDragSession DragSession { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIDragItem[] ExistingItems { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Selected { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIDragItem[] SuggestedItems { get; }</span>
+}
+</pre>
+</div> <!-- end type IUITextDragRequest -->
+<div> <!-- start type IUITextDraggable -->
+<h3>New Type UIKit.IUITextDraggable</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUITextDraggable : ObjCRuntime.INativeObject, System.IDisposable, IUIKeyInput, IUITextInput, IUITextInputTraits {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool TextDragActive { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUITextDragDelegate TextDragDelegate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIDragInteraction TextDragInteraction { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextDragOptions TextDragOptions { get; set; }</span>
+}
+</pre>
+</div> <!-- end type IUITextDraggable -->
+<div> <!-- start type IUITextDropDelegate -->
+<h3>New Type UIKit.IUITextDropDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUITextDropDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IUITextDropDelegate -->
+<div> <!-- start type IUITextDropRequest -->
+<h3>New Type UIKit.IUITextDropRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUITextDropRequest : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextPosition DropPosition { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUIDropSession DropSession { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool SameView { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextDropProposal SuggestedProposal { get; }</span>
+}
+</pre>
+</div> <!-- end type IUITextDropRequest -->
+<div> <!-- start type IUITextDroppable -->
+<h3>New Type UIKit.IUITextDroppable</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUITextDroppable : ObjCRuntime.INativeObject, System.IDisposable, IUIKeyInput, IUIPasteConfigurationSupporting, IUITextInput, IUITextInputTraits, IUITextPasteConfigurationSupporting {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool TextDropActive { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUITextDropDelegate TextDropDelegate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIDropInteraction TextDropInteraction { get; }</span>
+}
+</pre>
+</div> <!-- end type IUITextDroppable -->
+<div> <!-- start type IUITextPasteConfigurationSupporting -->
+<h3>New Type UIKit.IUITextPasteConfigurationSupporting</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUITextPasteConfigurationSupporting : ObjCRuntime.INativeObject, System.IDisposable, IUIPasteConfigurationSupporting {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUITextPasteDelegate PasteDelegate { get; set; }</span>
+}
+</pre>
+</div> <!-- end type IUITextPasteConfigurationSupporting -->
+<div> <!-- start type IUITextPasteDelegate -->
+<h3>New Type UIKit.IUITextPasteDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUITextPasteDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IUITextPasteDelegate -->
+<div> <!-- start type IUITextPasteItem -->
+<h3>New Type UIKit.IUITextPasteItem</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IUITextPasteItem : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDictionary&lt;Foundation.NSString,Foundation.NSObject&gt; DefaultAttributes { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSItemProvider ItemProvider { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSObject LocalObject { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetAttachmentResult (NSTextAttachment textAttachment);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetAttributedStringResult (Foundation.NSAttributedString string);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetDefaultResult ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetNoResult ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetStringResult (string string);</span>
+}
+</pre>
+</div> <!-- end type IUITextPasteItem -->
+<div> <!-- start type NSDirectionalEdgeInsets -->
+<h3>New Type UIKit.NSDirectionalEdgeInsets</h3>
+<pre class='added' data-is-non-breaking="">
+public struct NSDirectionalEdgeInsets {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public NSDirectionalEdgeInsets (nfloat top, nfloat leading, nfloat bottom, nfloat trailing);</span>
+	// fields
+	<span class='added added-field ' data-is-non-breaking="">public nfloat Bottom;</span>
+	<span class='added added-field ' data-is-non-breaking="">public nfloat Leading;</span>
+	<span class='added added-field ' data-is-non-breaking="">public nfloat Top;</span>
+	<span class='added added-field ' data-is-non-breaking="">public nfloat Trailing;</span>
+	<span class='added added-field ' data-is-non-breaking="">public static NSDirectionalEdgeInsets Zero;</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public override bool Equals (object obj);</span>
+	<span class='added added-method ' data-is-non-breaking="">public bool Equals (NSDirectionalEdgeInsets other);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static NSDirectionalEdgeInsets FromString (string s);</span>
+	<span class='added added-method ' data-is-non-breaking="">public override int GetHashCode ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public override string ToString ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool op_Equality (NSDirectionalEdgeInsets insets1, NSDirectionalEdgeInsets insets2);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool op_Inequality (NSDirectionalEdgeInsets insets1, NSDirectionalEdgeInsets insets2);</span>
+}
+</pre>
+</div> <!-- end type NSDirectionalEdgeInsets -->
+<div> <!-- start type NSFileProviderExtensionFetchThumbnailsHandler -->
+<h3>New Type UIKit.NSFileProviderExtensionFetchThumbnailsHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate NSFileProviderExtensionFetchThumbnailsHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public NSFileProviderExtensionFetchThumbnailsHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (Foundation.NSString identifier, Foundation.NSData imageData, Foundation.NSError error, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invoke (Foundation.NSString identifier, Foundation.NSData imageData, Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type NSFileProviderExtensionFetchThumbnailsHandler -->
+<div> <!-- start type NSItemProvider_UIKitAdditions -->
+<h3>New Type UIKit.NSItemProvider_UIKitAdditions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class NSItemProvider_UIKitAdditions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static CoreGraphics.CGSize GetPreferredPresentationSize (Foundation.NSItemProvider This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UIPreferredPresentationStyle GetPreferredPresentationStyle (Foundation.NSItemProvider This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSData GetTeamData (Foundation.NSItemProvider This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static CoreGraphics.CGSize SetPreferredPresentationSize (Foundation.NSItemProvider This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UIPreferredPresentationStyle SetPreferredPresentationStyle (Foundation.NSItemProvider This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSData SetTeamData (Foundation.NSItemProvider This);</span>
+}
+</pre>
+</div> <!-- end type NSItemProvider_UIKitAdditions -->
+<div> <!-- start type UIAccessibilityContainerType -->
+<h3>New Type UIKit.UIAccessibilityContainerType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UIAccessibilityContainerType {
+	<span class='added added-field ' data-is-non-breaking="">DataTable = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Landmark = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">List = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+}
+</pre>
+</div> <!-- end type UIAccessibilityContainerType -->
+<div> <!-- start type UIAccessibilityCustomSystemRotorType -->
+<h3>New Type UIKit.UIAccessibilityCustomSystemRotorType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UIAccessibilityCustomSystemRotorType {
+	<span class='added added-field ' data-is-non-breaking="">BoldText = 10,</span>
+	<span class='added added-field ' data-is-non-breaking="">Heading = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">HeadingLevel1 = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">HeadingLevel2 = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">HeadingLevel3 = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">HeadingLevel4 = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">HeadingLevel5 = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">HeadingLevel6 = 9,</span>
+	<span class='added added-field ' data-is-non-breaking="">Image = 14,</span>
+	<span class='added added-field ' data-is-non-breaking="">ItalicText = 11,</span>
+	<span class='added added-field ' data-is-non-breaking="">Landmark = 18,</span>
+	<span class='added added-field ' data-is-non-breaking="">Link = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">List = 17,</span>
+	<span class='added added-field ' data-is-non-breaking="">MisspelledWord = 13,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Table = 16,</span>
+	<span class='added added-field ' data-is-non-breaking="">TextField = 15,</span>
+	<span class='added added-field ' data-is-non-breaking="">UnderlineText = 12,</span>
+	<span class='added added-field ' data-is-non-breaking="">VisitedLink = 2,</span>
+}
+</pre>
+</div> <!-- end type UIAccessibilityCustomSystemRotorType -->
+<div> <!-- start type UICollectionViewCellDragState -->
+<h3>New Type UIKit.UICollectionViewCellDragState</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UICollectionViewCellDragState {
+	<span class='added added-field ' data-is-non-breaking="">Dragging = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Lifting = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+}
+</pre>
+</div> <!-- end type UICollectionViewCellDragState -->
+<div> <!-- start type UICollectionViewDragDelegate -->
+<h3>New Type UIKit.UICollectionViewDragDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class UICollectionViewDragDelegate : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, IUICollectionViewDragDelegate {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UICollectionViewDragDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UICollectionViewDragDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UICollectionViewDragDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool DragSessionAllowsMoveOperation (UICollectionView collectionView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DragSessionDidEnd (UICollectionView collectionView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool DragSessionIsRestrictedToDraggingApplication (UICollectionView collectionView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DragSessionWillBegin (UICollectionView collectionView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDragPreviewParameters GetDragPreviewParameters (UICollectionView collectionView, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDragItem[] GetItemsForAddingToDragSession (UICollectionView collectionView, IUIDragSession session, Foundation.NSIndexPath indexPath, CoreGraphics.CGPoint point);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDragItem[] GetItemsForBeginningDragSession (UICollectionView collectionView, IUIDragSession session, Foundation.NSIndexPath indexPath);</span>
+}
+</pre>
+</div> <!-- end type UICollectionViewDragDelegate -->
+<div> <!-- start type UICollectionViewDragDelegate_Extensions -->
+<h3>New Type UIKit.UICollectionViewDragDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class UICollectionViewDragDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static bool DragSessionAllowsMoveOperation (IUICollectionViewDragDelegate This, UICollectionView collectionView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DragSessionDidEnd (IUICollectionViewDragDelegate This, UICollectionView collectionView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool DragSessionIsRestrictedToDraggingApplication (IUICollectionViewDragDelegate This, UICollectionView collectionView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DragSessionWillBegin (IUICollectionViewDragDelegate This, UICollectionView collectionView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UIDragPreviewParameters GetDragPreviewParameters (IUICollectionViewDragDelegate This, UICollectionView collectionView, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UIDragItem[] GetItemsForAddingToDragSession (IUICollectionViewDragDelegate This, UICollectionView collectionView, IUIDragSession session, Foundation.NSIndexPath indexPath, CoreGraphics.CGPoint point);</span>
+}
+</pre>
+</div> <!-- end type UICollectionViewDragDelegate_Extensions -->
+<div> <!-- start type UICollectionViewDropDelegate -->
+<h3>New Type UIKit.UICollectionViewDropDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class UICollectionViewDropDelegate : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, IUICollectionViewDropDelegate {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UICollectionViewDropDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UICollectionViewDropDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UICollectionViewDropDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool CanHandleDropSession (UICollectionView collectionView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DropSessionDidEnd (UICollectionView collectionView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DropSessionDidEnter (UICollectionView collectionView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DropSessionDidExit (UICollectionView collectionView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UICollectionViewDropProposal DropSessionDidUpdate (UICollectionView collectionView, IUIDropSession session, Foundation.NSIndexPath destinationIndexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDragPreviewParameters GetDropPreviewParameters (UICollectionView collectionView, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PerformDrop (UICollectionView collectionView, IUICollectionViewDropCoordinator coordinator);</span>
+}
+</pre>
+</div> <!-- end type UICollectionViewDropDelegate -->
+<div> <!-- start type UICollectionViewDropDelegate_Extensions -->
+<h3>New Type UIKit.UICollectionViewDropDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class UICollectionViewDropDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static bool CanHandleDropSession (IUICollectionViewDropDelegate This, UICollectionView collectionView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DropSessionDidEnd (IUICollectionViewDropDelegate This, UICollectionView collectionView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DropSessionDidEnter (IUICollectionViewDropDelegate This, UICollectionView collectionView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DropSessionDidExit (IUICollectionViewDropDelegate This, UICollectionView collectionView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UICollectionViewDropProposal DropSessionDidUpdate (IUICollectionViewDropDelegate This, UICollectionView collectionView, IUIDropSession session, Foundation.NSIndexPath destinationIndexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UIDragPreviewParameters GetDropPreviewParameters (IUICollectionViewDropDelegate This, UICollectionView collectionView, Foundation.NSIndexPath indexPath);</span>
+}
+</pre>
+</div> <!-- end type UICollectionViewDropDelegate_Extensions -->
+<div> <!-- start type UICollectionViewDropIntent -->
+<h3>New Type UIKit.UICollectionViewDropIntent</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UICollectionViewDropIntent {
+	<span class='added added-field ' data-is-non-breaking="">InsertAtDestinationIndexPath = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">InsertIntoDestinationIndexPath = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type UICollectionViewDropIntent -->
+<div> <!-- start type UICollectionViewDropPlaceholder -->
+<h3>New Type UIKit.UICollectionViewDropPlaceholder</h3>
+<pre class='added' data-is-non-breaking="">
+public class UICollectionViewDropPlaceholder : UIKit.UICollectionViewPlaceholder, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public UICollectionViewDropPlaceholder ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UICollectionViewDropPlaceholder (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UICollectionViewDropPlaceholder (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UICollectionViewDropPlaceholder (Foundation.NSIndexPath insertionIndexPath, string reuseIdentifier);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual System.Func&lt;UICollectionViewCell,UIKit.UIDragPreviewParameters&gt; PreviewParametersProvider { get; set; }</span>
+}
+</pre>
+</div> <!-- end type UICollectionViewDropPlaceholder -->
+<div> <!-- start type UICollectionViewDropProposal -->
+<h3>New Type UIKit.UICollectionViewDropProposal</h3>
+<pre class='added' data-is-non-breaking="">
+public class UICollectionViewDropProposal : UIKit.UIDropProposal, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UICollectionViewDropProposal (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UICollectionViewDropProposal (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UICollectionViewDropProposal (UIDropOperation operation);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UICollectionViewDropProposal (UIDropOperation operation, UICollectionViewDropIntent intent);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UICollectionViewDropIntent Intent { get; }</span>
+}
+</pre>
+</div> <!-- end type UICollectionViewDropProposal -->
+<div> <!-- start type UICollectionViewFlowLayoutSectionInsetReference -->
+<h3>New Type UIKit.UICollectionViewFlowLayoutSectionInsetReference</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UICollectionViewFlowLayoutSectionInsetReference {
+	<span class='added added-field ' data-is-non-breaking="">ContentInset = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">LayoutMargins = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">SafeArea = 1,</span>
+}
+</pre>
+</div> <!-- end type UICollectionViewFlowLayoutSectionInsetReference -->
+<div> <!-- start type UICollectionViewPlaceholder -->
+<h3>New Type UIKit.UICollectionViewPlaceholder</h3>
+<pre class='added' data-is-non-breaking="">
+public class UICollectionViewPlaceholder : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UICollectionViewPlaceholder (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UICollectionViewPlaceholder (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UICollectionViewPlaceholder (Foundation.NSIndexPath insertionIndexPath, string reuseIdentifier);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual System.Action&lt;UICollectionViewCell&gt; CellUpdateHandler { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type UICollectionViewPlaceholder -->
+<div> <!-- start type UICollectionViewReorderingCadence -->
+<h3>New Type UIKit.UICollectionViewReorderingCadence</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UICollectionViewReorderingCadence {
+	<span class='added added-field ' data-is-non-breaking="">Fast = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Immediate = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Slow = 2,</span>
+}
+</pre>
+</div> <!-- end type UICollectionViewReorderingCadence -->
+<div> <!-- start type UIContextualAction -->
+<h3>New Type UIKit.UIContextualAction</h3>
+<pre class='added' data-is-non-breaking="">
+public class UIContextualAction : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIContextualAction (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIContextualAction (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIColor BackgroundColor { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIContextualActionHandler Handler { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIImage Image { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIContextualActionStyle Style { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Title { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static UIContextualAction FromContextualActionStyle (UIContextualActionStyle style, string title, UIContextualActionHandler handler);</span>
+}
+</pre>
+</div> <!-- end type UIContextualAction -->
+<div> <!-- start type UIContextualActionCompletionHandler -->
+<h3>New Type UIKit.UIContextualActionCompletionHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate UIContextualActionCompletionHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public UIContextualActionCompletionHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (bool finished, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invoke (bool finished);</span>
+}
+</pre>
+</div> <!-- end type UIContextualActionCompletionHandler -->
+<div> <!-- start type UIContextualActionHandler -->
+<h3>New Type UIKit.UIContextualActionHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate UIContextualActionHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public UIContextualActionHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (UIContextualAction action, UIView sourceView, UIContextualActionCompletionHandler completionHandler, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invoke (UIContextualAction action, UIView sourceView, UIContextualActionCompletionHandler completionHandler);</span>
+}
+</pre>
+</div> <!-- end type UIContextualActionHandler -->
+<div> <!-- start type UIContextualActionStyle -->
+<h3>New Type UIKit.UIContextualActionStyle</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UIContextualActionStyle {
+	<span class='added added-field ' data-is-non-breaking="">Destructive = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Normal = 0,</span>
+}
+</pre>
+</div> <!-- end type UIContextualActionStyle -->
+<div> <!-- start type UIDataSourceTranslating -->
+<h3>New Type UIKit.UIDataSourceTranslating</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class UIDataSourceTranslating : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, IUIDataSourceTranslating {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDataSourceTranslating ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDataSourceTranslating (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDataSourceTranslating (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSIndexPath GetDataSourceIndexPath (Foundation.NSIndexPath presentationIndexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual nint GetDataSourceSectionIndex (nint presentationSectionIndex);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSIndexPath GetPresentationIndexPath (Foundation.NSIndexPath dataSourceIndexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual nint GetPresentationSectionIndex (nint dataSourceSectionIndex);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PerformUsingPresentationValues (System.Action actionsToTranslate);</span>
+}
+</pre>
+</div> <!-- end type UIDataSourceTranslating -->
+<div> <!-- start type UIDocumentBrowserActionAvailability -->
+<h3>New Type UIKit.UIDocumentBrowserActionAvailability</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+[Flags]
+public enum UIDocumentBrowserActionAvailability {
+	<span class='added added-field ' data-is-non-breaking="">Menu = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">NavigationBar = 2,</span>
+}
+</pre>
+</div> <!-- end type UIDocumentBrowserActionAvailability -->
+<div> <!-- start type UIDocumentBrowserImportMode -->
+<h3>New Type UIKit.UIDocumentBrowserImportMode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UIDocumentBrowserImportMode {
+	<span class='added added-field ' data-is-non-breaking="">Copy = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Move = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+}
+</pre>
+</div> <!-- end type UIDocumentBrowserImportMode -->
+<div> <!-- start type UIDocumentBrowserUserInterfaceStyle -->
+<h3>New Type UIKit.UIDocumentBrowserUserInterfaceStyle</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UIDocumentBrowserUserInterfaceStyle {
+	<span class='added added-field ' data-is-non-breaking="">Dark = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Light = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">White = 0,</span>
+}
+</pre>
+</div> <!-- end type UIDocumentBrowserUserInterfaceStyle -->
+<div> <!-- start type UIDocumentPickedAtUrlsEventArgs -->
+<h3>New Type UIKit.UIDocumentPickedAtUrlsEventArgs</h3>
+<pre class='added' data-is-non-breaking="">
+public class UIDocumentPickedAtUrlsEventArgs : System.EventArgs {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public UIDocumentPickedAtUrlsEventArgs (Foundation.NSUrl[] urls);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public Foundation.NSUrl[] Urls { get; set; }</span>
+}
+</pre>
+</div> <!-- end type UIDocumentPickedAtUrlsEventArgs -->
+<div> <!-- start type UIDragDropSessionExtensions -->
+<h3>New Type UIKit.UIDragDropSessionExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class UIDragDropSessionExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static bool CanLoadObjects (IUIDragDropSession session, System.Type type);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSProgress LoadObjects (IUIDropSession session, System.Type type, System.Action&lt;Foundation.INSItemProviderReading[]&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type UIDragDropSessionExtensions -->
+<div> <!-- start type UIDragInteraction -->
+<h3>New Type UIKit.UIDragInteraction</h3>
+<pre class='added' data-is-non-breaking="">
+public class UIDragInteraction : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, IUIInteraction {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDragInteraction (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDragInteraction (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIDragInteraction (IUIDragInteractionDelegate delegate);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AllowsSimultaneousRecognitionDuringLift { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUIDragInteractionDelegate Delegate { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Enabled { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static bool EnabledByDefault { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIView View { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidMoveToView (UIView view);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillMoveToView (UIView view);</span>
+}
+</pre>
+</div> <!-- end type UIDragInteraction -->
+<div> <!-- start type UIDragInteractionDelegate -->
+<h3>New Type UIKit.UIDragInteractionDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class UIDragInteractionDelegate : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, IUIDragInteractionDelegate {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDragInteractionDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDragInteractionDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDragInteractionDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDragItem[] GetItemsForAddingToSession (UIDragInteraction interaction, IUIDragSession session, CoreGraphics.CGPoint point);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDragItem[] GetItemsForBeginningSession (UIDragInteraction interaction, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UITargetedDragPreview GetPreviewForCancellingItem (UIDragInteraction interaction, UIDragItem item, UITargetedDragPreview defaultPreview);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UITargetedDragPreview GetPreviewForLiftingItem (UIDragInteraction interaction, UIDragItem item, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual IUIDragSession GetSessionForAddingItems (UIDragInteraction interaction, IUIDragSession[] sessions, CoreGraphics.CGPoint point);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool PrefersFullSizePreviews (UIDragInteraction interaction, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool SessionAllowsMoveOperation (UIDragInteraction interaction, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SessionDidEnd (UIDragInteraction interaction, IUIDragSession session, UIDropOperation operation);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SessionDidMove (UIDragInteraction interaction, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SessionDidTransferItems (UIDragInteraction interaction, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool SessionIsRestrictedToDraggingApplication (UIDragInteraction interaction, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SessionWillBegin (UIDragInteraction interaction, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SessionWillEnd (UIDragInteraction interaction, IUIDragSession session, UIDropOperation operation);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillAddItems (UIDragInteraction interaction, IUIDragSession session, UIDragItem[] items, UIDragInteraction addingInteraction);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillAnimateCancel (UIDragInteraction interaction, UIDragItem item, IUIDragAnimating animator);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillAnimateLift (UIDragInteraction interaction, IUIDragAnimating animator, IUIDragSession session);</span>
+}
+</pre>
+</div> <!-- end type UIDragInteractionDelegate -->
+<div> <!-- start type UIDragInteractionDelegate_Extensions -->
+<h3>New Type UIKit.UIDragInteractionDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class UIDragInteractionDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static UIDragItem[] GetItemsForAddingToSession (IUIDragInteractionDelegate This, UIDragInteraction interaction, IUIDragSession session, CoreGraphics.CGPoint point);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UITargetedDragPreview GetPreviewForCancellingItem (IUIDragInteractionDelegate This, UIDragInteraction interaction, UIDragItem item, UITargetedDragPreview defaultPreview);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UITargetedDragPreview GetPreviewForLiftingItem (IUIDragInteractionDelegate This, UIDragInteraction interaction, UIDragItem item, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static IUIDragSession GetSessionForAddingItems (IUIDragInteractionDelegate This, UIDragInteraction interaction, IUIDragSession[] sessions, CoreGraphics.CGPoint point);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool PrefersFullSizePreviews (IUIDragInteractionDelegate This, UIDragInteraction interaction, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool SessionAllowsMoveOperation (IUIDragInteractionDelegate This, UIDragInteraction interaction, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SessionDidEnd (IUIDragInteractionDelegate This, UIDragInteraction interaction, IUIDragSession session, UIDropOperation operation);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SessionDidMove (IUIDragInteractionDelegate This, UIDragInteraction interaction, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SessionDidTransferItems (IUIDragInteractionDelegate This, UIDragInteraction interaction, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool SessionIsRestrictedToDraggingApplication (IUIDragInteractionDelegate This, UIDragInteraction interaction, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SessionWillBegin (IUIDragInteractionDelegate This, UIDragInteraction interaction, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SessionWillEnd (IUIDragInteractionDelegate This, UIDragInteraction interaction, IUIDragSession session, UIDropOperation operation);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void WillAddItems (IUIDragInteractionDelegate This, UIDragInteraction interaction, IUIDragSession session, UIDragItem[] items, UIDragInteraction addingInteraction);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void WillAnimateCancel (IUIDragInteractionDelegate This, UIDragInteraction interaction, UIDragItem item, IUIDragAnimating animator);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void WillAnimateLift (IUIDragInteractionDelegate This, UIDragInteraction interaction, IUIDragAnimating animator, IUIDragSession session);</span>
+}
+</pre>
+</div> <!-- end type UIDragInteractionDelegate_Extensions -->
+<div> <!-- start type UIDragItem -->
+<h3>New Type UIKit.UIDragItem</h3>
+<pre class='added' data-is-non-breaking="">
+public class UIDragItem : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public UIDragItem (Foundation.NSItemProvider itemProvider);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDragItem (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDragItem (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSItemProvider ItemProvider { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSObject LocalObject { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual System.Func&lt;UIDragPreview&gt; PreviewProvider { get; set; }</span>
+}
+</pre>
+</div> <!-- end type UIDragItem -->
+<div> <!-- start type UIDragPreview -->
+<h3>New Type UIKit.UIDragPreview</h3>
+<pre class='added' data-is-non-breaking="">
+public class UIDragPreview : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDragPreview (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDragPreview (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIDragPreview (UIView view);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIDragPreview (UIView view, UIDragPreviewParameters parameters);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIDragPreviewParameters Parameters { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIView View { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UIDragPreview GetPreview (Foundation.NSUrl url);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UIDragPreview GetPreview (Foundation.NSUrl url, string title);</span>
+}
+</pre>
+</div> <!-- end type UIDragPreview -->
+<div> <!-- start type UIDragPreviewParameters -->
+<h3>New Type UIKit.UIDragPreviewParameters</h3>
+<pre class='added' data-is-non-breaking="">
+public class UIDragPreviewParameters : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public UIDragPreviewParameters ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDragPreviewParameters (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIDragPreviewParameters (Foundation.NSValue[] textLineRects);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDragPreviewParameters (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIColor BackgroundColor { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIBezierPath VisiblePath { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type UIDragPreviewParameters -->
+<div> <!-- start type UIDragPreviewTarget -->
+<h3>New Type UIKit.UIDragPreviewTarget</h3>
+<pre class='added' data-is-non-breaking="">
+public class UIDragPreviewTarget : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDragPreviewTarget (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDragPreviewTarget (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIDragPreviewTarget (UIView container, CoreGraphics.CGPoint center);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIDragPreviewTarget (UIView container, CoreGraphics.CGPoint center, CoreGraphics.CGAffineTransform transform);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint Center { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIView Container { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGAffineTransform Transform { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type UIDragPreviewTarget -->
+<div> <!-- start type UIDropInteraction -->
+<h3>New Type UIKit.UIDropInteraction</h3>
+<pre class='added' data-is-non-breaking="">
+public class UIDropInteraction : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, IUIInteraction {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDropInteraction (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDropInteraction (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIDropInteraction (IUIDropInteractionDelegate delegate);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AllowsSimultaneousDropSessions { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUIDropInteractionDelegate Delegate { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIView View { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidMoveToView (UIView view);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillMoveToView (UIView view);</span>
+}
+</pre>
+</div> <!-- end type UIDropInteraction -->
+<div> <!-- start type UIDropInteractionDelegate -->
+<h3>New Type UIKit.UIDropInteractionDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public class UIDropInteractionDelegate : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, IUIDropInteractionDelegate {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public UIDropInteractionDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDropInteractionDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDropInteractionDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool CanHandleSession (UIDropInteraction interaction, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ConcludeDrop (UIDropInteraction interaction, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UITargetedDragPreview GetPreviewForDroppingItem (UIDropInteraction interaction, UIDragItem item, UITargetedDragPreview defaultPreview);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PerformDrop (UIDropInteraction interaction, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SessionDidEnd (UIDropInteraction interaction, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SessionDidEnter (UIDropInteraction interaction, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SessionDidExit (UIDropInteraction interaction, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDropProposal SessionDidUpdate (UIDropInteraction interaction, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillAnimateDrop (UIDropInteraction interaction, UIDragItem item, IUIDragAnimating animator);</span>
+}
+</pre>
+</div> <!-- end type UIDropInteractionDelegate -->
+<div> <!-- start type UIDropInteractionDelegate_Extensions -->
+<h3>New Type UIKit.UIDropInteractionDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class UIDropInteractionDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static bool CanHandleSession (IUIDropInteractionDelegate This, UIDropInteraction interaction, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void ConcludeDrop (IUIDropInteractionDelegate This, UIDropInteraction interaction, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UITargetedDragPreview GetPreviewForDroppingItem (IUIDropInteractionDelegate This, UIDropInteraction interaction, UIDragItem item, UITargetedDragPreview defaultPreview);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void PerformDrop (IUIDropInteractionDelegate This, UIDropInteraction interaction, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SessionDidEnd (IUIDropInteractionDelegate This, UIDropInteraction interaction, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SessionDidEnter (IUIDropInteractionDelegate This, UIDropInteraction interaction, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SessionDidExit (IUIDropInteractionDelegate This, UIDropInteraction interaction, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UIDropProposal SessionDidUpdate (IUIDropInteractionDelegate This, UIDropInteraction interaction, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void WillAnimateDrop (IUIDropInteractionDelegate This, UIDropInteraction interaction, UIDragItem item, IUIDragAnimating animator);</span>
+}
+</pre>
+</div> <!-- end type UIDropInteractionDelegate_Extensions -->
+<div> <!-- start type UIDropOperation -->
+<h3>New Type UIKit.UIDropOperation</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UIDropOperation {
+	<span class='added added-field ' data-is-non-breaking="">Cancel = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Copy = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Forbidden = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Move = 3,</span>
+}
+</pre>
+</div> <!-- end type UIDropOperation -->
+<div> <!-- start type UIDropProposal -->
+<h3>New Type UIKit.UIDropProposal</h3>
+<pre class='added' data-is-non-breaking="">
+public class UIDropProposal : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDropProposal (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIDropProposal (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIDropProposal (UIDropOperation operation);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIDropOperation Operation { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Precise { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool PrefersFullSizePreview { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type UIDropProposal -->
+<div> <!-- start type UIDropSessionProgressIndicatorStyle -->
+<h3>New Type UIKit.UIDropSessionProgressIndicatorStyle</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UIDropSessionProgressIndicatorStyle {
+	<span class='added added-field ' data-is-non-breaking="">Default = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+}
+</pre>
+</div> <!-- end type UIDropSessionProgressIndicatorStyle -->
+<div> <!-- start type UIFocusDebugger -->
+<h3>New Type UIKit.UIFocusDebugger</h3>
+<pre class='added' data-is-non-breaking="">
+public class UIFocusDebugger : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public UIFocusDebugger ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIFocusDebugger (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIFocusDebugger (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static IUIFocusDebuggerOutput Help { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static IUIFocusDebuggerOutput Status { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static IUIFocusDebuggerOutput CheckFocusability (IUIFocusItem item);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static IUIFocusDebuggerOutput SimulateFocusUpdateRequest (IUIFocusEnvironment environment);</span>
+}
+</pre>
+</div> <!-- end type UIFocusDebugger -->
+<div> <!-- start type UIFocusSystem -->
+<h3>New Type UIKit.UIFocusSystem</h3>
+<pre class='added' data-is-non-breaking="">
+public class UIFocusSystem : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIFocusSystem (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIFocusSystem (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static bool Contains (IUIFocusEnvironment environment, IUIFocusEnvironment otherEnvironment);</span>
+}
+</pre>
+</div> <!-- end type UIFocusSystem -->
+<div> <!-- start type UIImagePickerControllerImageUrlExportPreset -->
+<h3>New Type UIKit.UIImagePickerControllerImageUrlExportPreset</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UIImagePickerControllerImageUrlExportPreset {
+	<span class='added added-field ' data-is-non-breaking="">Compatible = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Current = 1,</span>
+}
+</pre>
+</div> <!-- end type UIImagePickerControllerImageUrlExportPreset -->
+<div> <!-- start type UINavigationItemLargeTitleDisplayMode -->
+<h3>New Type UIKit.UINavigationItemLargeTitleDisplayMode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UINavigationItemLargeTitleDisplayMode {
+	<span class='added added-field ' data-is-non-breaking="">Always = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Automatic = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Never = 2,</span>
+}
+</pre>
+</div> <!-- end type UINavigationItemLargeTitleDisplayMode -->
+<div> <!-- start type UIPasteConfiguration -->
+<h3>New Type UIKit.UIPasteConfiguration</h3>
+<pre class='added' data-is-non-breaking="">
+public class UIPasteConfiguration : Foundation.NSObject, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public UIPasteConfiguration ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIPasteConfiguration (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIPasteConfiguration (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIPasteConfiguration (ObjCRuntime.Class itemProviderReadingClass);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UIPasteConfiguration (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIPasteConfiguration (string[] acceptableTypeIdentifiers);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UIPasteConfiguration (System.Type itemProviderReadingType);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] AcceptableTypeIdentifiers { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AddAcceptableTypeIdentifiers (string[] acceptableTypeIdentifiers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AddTypeIdentifiers (ObjCRuntime.Class itemProviderReadingClass);</span>
+	<span class='added added-method ' data-is-non-breaking="">public void AddTypeIdentifiers (System.Type itemProviderReadingType);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type UIPasteConfiguration -->
+<div> <!-- start type UIPasteConfigurationSupporting_Extensions -->
+<h3>New Type UIKit.UIPasteConfigurationSupporting_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class UIPasteConfigurationSupporting_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static bool CanPasteItemProviders (IUIPasteConfigurationSupporting This, Foundation.NSItemProvider[] itemProviders);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void PasteItemProviders (IUIPasteConfigurationSupporting This, Foundation.NSItemProvider[] itemProviders);</span>
+}
+</pre>
+</div> <!-- end type UIPasteConfigurationSupporting_Extensions -->
+<div> <!-- start type UIPreferredPresentationStyle -->
+<h3>New Type UIKit.UIPreferredPresentationStyle</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UIPreferredPresentationStyle {
+	<span class='added added-field ' data-is-non-breaking="">Attachment = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Inline = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type UIPreferredPresentationStyle -->
+<div> <!-- start type UIScrollViewContentInsetAdjustmentBehavior -->
+<h3>New Type UIKit.UIScrollViewContentInsetAdjustmentBehavior</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UIScrollViewContentInsetAdjustmentBehavior {
+	<span class='added added-field ' data-is-non-breaking="">Always = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Automatic = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Never = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">ScrollableAxes = 1,</span>
+}
+</pre>
+</div> <!-- end type UIScrollViewContentInsetAdjustmentBehavior -->
+<div> <!-- start type UISplitViewControllerPrimaryEdge -->
+<h3>New Type UIKit.UISplitViewControllerPrimaryEdge</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UISplitViewControllerPrimaryEdge {
+	<span class='added added-field ' data-is-non-breaking="">Leading = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Trailing = 1,</span>
+}
+</pre>
+</div> <!-- end type UISplitViewControllerPrimaryEdge -->
+<div> <!-- start type UISpringLoadedInteraction -->
+<h3>New Type UIKit.UISpringLoadedInteraction</h3>
+<pre class='added' data-is-non-breaking="">
+public class UISpringLoadedInteraction : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, IUIInteraction {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UISpringLoadedInteraction (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UISpringLoadedInteraction (System.Action&lt;UISpringLoadedInteraction,UIKit.IUISpringLoadedInteractionContext&gt; handler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UISpringLoadedInteraction (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UISpringLoadedInteraction (IUISpringLoadedInteractionBehavior interactionBehavior, IUISpringLoadedInteractionEffect interactionEffect, System.Action&lt;UISpringLoadedInteraction,UIKit.IUISpringLoadedInteractionContext&gt; handler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUISpringLoadedInteractionBehavior InteractionBehavior { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IUISpringLoadedInteractionEffect InteractionEffect { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIView View { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidMoveToView (UIView view);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillMoveToView (UIView view);</span>
+}
+</pre>
+</div> <!-- end type UISpringLoadedInteraction -->
+<div> <!-- start type UISpringLoadedInteractionBehavior_Extensions -->
+<h3>New Type UIKit.UISpringLoadedInteractionBehavior_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class UISpringLoadedInteractionBehavior_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void InteractionDidFinish (IUISpringLoadedInteractionBehavior This, UISpringLoadedInteraction interaction);</span>
+}
+</pre>
+</div> <!-- end type UISpringLoadedInteractionBehavior_Extensions -->
+<div> <!-- start type UISpringLoadedInteractionEffectState -->
+<h3>New Type UIKit.UISpringLoadedInteractionEffectState</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UISpringLoadedInteractionEffectState {
+	<span class='added added-field ' data-is-non-breaking="">Activated = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Activating = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Inactive = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Possible = 1,</span>
+}
+</pre>
+</div> <!-- end type UISpringLoadedInteractionEffectState -->
+<div> <!-- start type UISwipeActionsConfiguration -->
+<h3>New Type UIKit.UISwipeActionsConfiguration</h3>
+<pre class='added' data-is-non-breaking="">
+public class UISwipeActionsConfiguration : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UISwipeActionsConfiguration (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UISwipeActionsConfiguration (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIContextualAction[] Actions { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool PerformsFirstActionWithFullSwipe { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static UISwipeActionsConfiguration FromActions (UIContextualAction[] actions);</span>
+}
+</pre>
+</div> <!-- end type UISwipeActionsConfiguration -->
+<div> <!-- start type UITableViewCellDragState -->
+<h3>New Type UIKit.UITableViewCellDragState</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UITableViewCellDragState {
+	<span class='added added-field ' data-is-non-breaking="">Dragging = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Lifting = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+}
+</pre>
+</div> <!-- end type UITableViewCellDragState -->
+<div> <!-- start type UITableViewDragDelegate -->
+<h3>New Type UIKit.UITableViewDragDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class UITableViewDragDelegate : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, IUITableViewDragDelegate {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITableViewDragDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITableViewDragDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITableViewDragDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool DragSessionAllowsMoveOperation (UITableView tableView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DragSessionDidEnd (UITableView tableView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool DragSessionIsRestrictedToDraggingApplication (UITableView tableView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DragSessionWillBegin (UITableView tableView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDragPreviewParameters GetDragPreviewParameters (UITableView tableView, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDragItem[] GetItemsForAddingToDragSession (UITableView tableView, IUIDragSession session, Foundation.NSIndexPath indexPath, CoreGraphics.CGPoint point);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDragItem[] GetItemsForBeginningDragSession (UITableView tableView, IUIDragSession session, Foundation.NSIndexPath indexPath);</span>
+}
+</pre>
+</div> <!-- end type UITableViewDragDelegate -->
+<div> <!-- start type UITableViewDragDelegate_Extensions -->
+<h3>New Type UIKit.UITableViewDragDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class UITableViewDragDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static bool DragSessionAllowsMoveOperation (IUITableViewDragDelegate This, UITableView tableView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DragSessionDidEnd (IUITableViewDragDelegate This, UITableView tableView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool DragSessionIsRestrictedToDraggingApplication (IUITableViewDragDelegate This, UITableView tableView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DragSessionWillBegin (IUITableViewDragDelegate This, UITableView tableView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UIDragPreviewParameters GetDragPreviewParameters (IUITableViewDragDelegate This, UITableView tableView, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UIDragItem[] GetItemsForAddingToDragSession (IUITableViewDragDelegate This, UITableView tableView, IUIDragSession session, Foundation.NSIndexPath indexPath, CoreGraphics.CGPoint point);</span>
+}
+</pre>
+</div> <!-- end type UITableViewDragDelegate_Extensions -->
+<div> <!-- start type UITableViewDropDelegate -->
+<h3>New Type UIKit.UITableViewDropDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class UITableViewDropDelegate : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, IUITableViewDropDelegate {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITableViewDropDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITableViewDropDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITableViewDropDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool CanHandleDropSession (UITableView tableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DropSessionDidEnd (UITableView tableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DropSessionDidEnter (UITableView tableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DropSessionDidExit (UITableView tableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UITableViewDropProposal DropSessionDidUpdate (UITableView tableView, IUIDropSession session, Foundation.NSIndexPath destinationIndexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDragPreviewParameters GetDropPreviewParameters (UITableView tableView, Foundation.NSIndexPath indexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PerformDrop (UITableView tableView, IUITableViewDropCoordinator coordinator);</span>
+}
+</pre>
+</div> <!-- end type UITableViewDropDelegate -->
+<div> <!-- start type UITableViewDropDelegate_Extensions -->
+<h3>New Type UIKit.UITableViewDropDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class UITableViewDropDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static bool CanHandleDropSession (IUITableViewDropDelegate This, UITableView tableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DropSessionDidEnd (IUITableViewDropDelegate This, UITableView tableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DropSessionDidEnter (IUITableViewDropDelegate This, UITableView tableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DropSessionDidExit (IUITableViewDropDelegate This, UITableView tableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UITableViewDropProposal DropSessionDidUpdate (IUITableViewDropDelegate This, UITableView tableView, IUIDropSession session, Foundation.NSIndexPath destinationIndexPath);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UIDragPreviewParameters GetDropPreviewParameters (IUITableViewDropDelegate This, UITableView tableView, Foundation.NSIndexPath indexPath);</span>
+}
+</pre>
+</div> <!-- end type UITableViewDropDelegate_Extensions -->
+<div> <!-- start type UITableViewDropIntent -->
+<h3>New Type UIKit.UITableViewDropIntent</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UITableViewDropIntent {
+	<span class='added added-field ' data-is-non-breaking="">Automatic = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">InsertAtDestinationIndexPath = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">InsertIntoDestinationIndexPath = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unspecified = 0,</span>
+}
+</pre>
+</div> <!-- end type UITableViewDropIntent -->
+<div> <!-- start type UITableViewDropPlaceholder -->
+<h3>New Type UIKit.UITableViewDropPlaceholder</h3>
+<pre class='added' data-is-non-breaking="">
+public class UITableViewDropPlaceholder : UIKit.UITableViewPlaceholder, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public UITableViewDropPlaceholder ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITableViewDropPlaceholder (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITableViewDropPlaceholder (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UITableViewDropPlaceholder (Foundation.NSIndexPath insertionIndexPath, string reuseIdentifier, nfloat rowHeight);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual System.Func&lt;UITableViewCell,UIKit.UIDragPreviewParameters&gt; PreviewParametersProvider { get; set; }</span>
+}
+</pre>
+</div> <!-- end type UITableViewDropPlaceholder -->
+<div> <!-- start type UITableViewDropProposal -->
+<h3>New Type UIKit.UITableViewDropProposal</h3>
+<pre class='added' data-is-non-breaking="">
+public class UITableViewDropProposal : UIKit.UIDropProposal, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITableViewDropProposal (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITableViewDropProposal (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UITableViewDropProposal (UIDropOperation operation);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UITableViewDropProposal (UIDropOperation operation, UITableViewDropIntent intent);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITableViewDropIntent Intent { get; }</span>
+}
+</pre>
+</div> <!-- end type UITableViewDropProposal -->
+<div> <!-- start type UITableViewPlaceholder -->
+<h3>New Type UIKit.UITableViewPlaceholder</h3>
+<pre class='added' data-is-non-breaking="">
+public class UITableViewPlaceholder : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITableViewPlaceholder (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITableViewPlaceholder (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UITableViewPlaceholder (Foundation.NSIndexPath insertionIndexPath, string reuseIdentifier, nfloat rowHeight);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual System.Action&lt;UITableViewCell&gt; CellUpdateHandler { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type UITableViewPlaceholder -->
+<div> <!-- start type UITableViewSeparatorInsetReference -->
+<h3>New Type UIKit.UITableViewSeparatorInsetReference</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UITableViewSeparatorInsetReference {
+	<span class='added added-field ' data-is-non-breaking="">AutomaticInsets = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">CellEdges = 0,</span>
+}
+</pre>
+</div> <!-- end type UITableViewSeparatorInsetReference -->
+<div> <!-- start type UITargetedDragPreview -->
+<h3>New Type UIKit.UITargetedDragPreview</h3>
+<pre class='added' data-is-non-breaking="">
+public class UITargetedDragPreview : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITargetedDragPreview (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITargetedDragPreview (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UITargetedDragPreview (UIView view);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UITargetedDragPreview (UIView view, UIDragPreviewParameters parameters);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UITargetedDragPreview (UIView view, UIDragPreviewParameters parameters, UIDragPreviewTarget target);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIDragPreviewParameters Parameters { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGSize Size { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIDragPreviewTarget Target { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIView View { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UITargetedDragPreview GetPreview (Foundation.NSUrl url, UIDragPreviewTarget target);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UITargetedDragPreview GetPreview (Foundation.NSUrl url, string title, UIDragPreviewTarget target);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UITargetedDragPreview GetRetargetedPreview (UIDragPreviewTarget newTarget);</span>
+}
+</pre>
+</div> <!-- end type UITargetedDragPreview -->
+<div> <!-- start type UITextDragDelegate -->
+<h3>New Type UIKit.UITextDragDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public class UITextDragDelegate : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, IUITextDragDelegate {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public UITextDragDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITextDragDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITextDragDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DragSessionDidEnd (IUITextDraggable textDraggableView, IUIDragSession session, UIDropOperation operation);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DragSessionWillBegin (IUITextDraggable textDraggableView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIDragItem[] GetItemsForDrag (IUITextDraggable textDraggableView, IUITextDragRequest dragRequest);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UITargetedDragPreview GetPreviewForLiftingItem (IUITextDraggable textDraggableView, UIDragItem item, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillAnimateLift (IUITextDraggable textDraggableView, IUIDragAnimating animator, IUIDragSession session);</span>
+}
+</pre>
+</div> <!-- end type UITextDragDelegate -->
+<div> <!-- start type UITextDragDelegate_Extensions -->
+<h3>New Type UIKit.UITextDragDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class UITextDragDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void DragSessionDidEnd (IUITextDragDelegate This, IUITextDraggable textDraggableView, IUIDragSession session, UIDropOperation operation);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DragSessionWillBegin (IUITextDragDelegate This, IUITextDraggable textDraggableView, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UIDragItem[] GetItemsForDrag (IUITextDragDelegate This, IUITextDraggable textDraggableView, IUITextDragRequest dragRequest);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UITargetedDragPreview GetPreviewForLiftingItem (IUITextDragDelegate This, IUITextDraggable textDraggableView, UIDragItem item, IUIDragSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void WillAnimateLift (IUITextDragDelegate This, IUITextDraggable textDraggableView, IUIDragAnimating animator, IUIDragSession session);</span>
+}
+</pre>
+</div> <!-- end type UITextDragDelegate_Extensions -->
+<div> <!-- start type UITextDragOptions -->
+<h3>New Type UIKit.UITextDragOptions</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+[Flags]
+public enum UITextDragOptions {
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">StripTextColorFromPreviews = 1,</span>
+}
+</pre>
+</div> <!-- end type UITextDragOptions -->
+<div> <!-- start type UITextDragPreviewRenderer -->
+<h3>New Type UIKit.UITextDragPreviewRenderer</h3>
+<pre class='added' data-is-non-breaking="">
+public class UITextDragPreviewRenderer : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITextDragPreviewRenderer (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITextDragPreviewRenderer (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UITextDragPreviewRenderer (NSLayoutManager layoutManager, Foundation.NSRange range);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UITextDragPreviewRenderer (NSLayoutManager layoutManager, Foundation.NSRange range, bool unifyRects);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGRect BodyRect { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGRect FirstLineRect { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIImage Image { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGRect LastLineRect { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NSLayoutManager LayoutManager { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Adjust (CoreGraphics.CGRect firstLineRect, CoreGraphics.CGRect bodyRect, CoreGraphics.CGRect lastLineRect, CoreGraphics.CGPoint origin);</span>
+}
+</pre>
+</div> <!-- end type UITextDragPreviewRenderer -->
+<div> <!-- start type UITextDropAction -->
+<h3>New Type UIKit.UITextDropAction</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UITextDropAction {
+	<span class='added added-field ' data-is-non-breaking="">Insert = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">ReplaceAll = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">ReplaceSelection = 1,</span>
+}
+</pre>
+</div> <!-- end type UITextDropAction -->
+<div> <!-- start type UITextDropDelegate -->
+<h3>New Type UIKit.UITextDropDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public class UITextDropDelegate : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, IUITextDropDelegate {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public UITextDropDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITextDropDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITextDropDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DropSessionDidEnd (IUITextDroppable textDroppableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DropSessionDidEnter (IUITextDroppable textDroppableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DropSessionDidExit (IUITextDroppable textDroppableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DropSessionDidUpdate (IUITextDroppable textDroppableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UITargetedDragPreview GetPreviewForDroppingAllItems (IUITextDroppable textDroppableView, UITargetedDragPreview defaultPreview);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UITextDropProposal GetProposalForDrop (IUITextDroppable textDroppableView, IUITextDropRequest drop);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UITextDropEditability WillBecomeEditable (IUITextDroppable textDroppableView, IUITextDropRequest drop);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillPerformDrop (IUITextDroppable textDroppableView, IUITextDropRequest drop);</span>
+}
+</pre>
+</div> <!-- end type UITextDropDelegate -->
+<div> <!-- start type UITextDropDelegate_Extensions -->
+<h3>New Type UIKit.UITextDropDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class UITextDropDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void DropSessionDidEnd (IUITextDropDelegate This, IUITextDroppable textDroppableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DropSessionDidEnter (IUITextDropDelegate This, IUITextDroppable textDroppableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DropSessionDidExit (IUITextDropDelegate This, IUITextDroppable textDroppableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DropSessionDidUpdate (IUITextDropDelegate This, IUITextDroppable textDroppableView, IUIDropSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UITargetedDragPreview GetPreviewForDroppingAllItems (IUITextDropDelegate This, IUITextDroppable textDroppableView, UITargetedDragPreview defaultPreview);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UITextDropProposal GetProposalForDrop (IUITextDropDelegate This, IUITextDroppable textDroppableView, IUITextDropRequest drop);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UITextDropEditability WillBecomeEditable (IUITextDropDelegate This, IUITextDroppable textDroppableView, IUITextDropRequest drop);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void WillPerformDrop (IUITextDropDelegate This, IUITextDroppable textDroppableView, IUITextDropRequest drop);</span>
+}
+</pre>
+</div> <!-- end type UITextDropDelegate_Extensions -->
+<div> <!-- start type UITextDropEditability -->
+<h3>New Type UIKit.UITextDropEditability</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UITextDropEditability {
+	<span class='added added-field ' data-is-non-breaking="">No = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Temporary = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Yes = 2,</span>
+}
+</pre>
+</div> <!-- end type UITextDropEditability -->
+<div> <!-- start type UITextDropPerformer -->
+<h3>New Type UIKit.UITextDropPerformer</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UITextDropPerformer {
+	<span class='added added-field ' data-is-non-breaking="">Delegate = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">View = 0,</span>
+}
+</pre>
+</div> <!-- end type UITextDropPerformer -->
+<div> <!-- start type UITextDropProgressMode -->
+<h3>New Type UIKit.UITextDropProgressMode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UITextDropProgressMode {
+	<span class='added added-field ' data-is-non-breaking="">Custom = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">System = 0,</span>
+}
+</pre>
+</div> <!-- end type UITextDropProgressMode -->
+<div> <!-- start type UITextDropProposal -->
+<h3>New Type UIKit.UITextDropProposal</h3>
+<pre class='added' data-is-non-breaking="">
+public class UITextDropProposal : UIKit.UIDropProposal, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITextDropProposal (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITextDropProposal (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public UITextDropProposal (UIDropOperation operation);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextDropAction DropAction { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextDropPerformer DropPerformer { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UITextDropProgressMode DropProgressMode { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool UseFastSameViewOperations { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type UITextDropProposal -->
+<div> <!-- start type UITextPasteDelegate -->
+<h3>New Type UIKit.UITextPasteDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public class UITextPasteDelegate : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, IUITextPasteDelegate {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public UITextPasteDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITextPasteDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected UITextPasteDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSAttributedString CombineItemAttributedStrings (IUITextPasteConfigurationSupporting textPasteConfigurationSupporting, Foundation.NSAttributedString[] itemStrings, UITextRange textRange);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UITextRange PerformPaste (IUITextPasteConfigurationSupporting textPasteConfigurationSupporting, Foundation.NSAttributedString attributedString, UITextRange textRange);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldAnimatePaste (IUITextPasteConfigurationSupporting textPasteConfigurationSupporting, Foundation.NSAttributedString attributedString, UITextRange textRange);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void TransformPasteItem (IUITextPasteConfigurationSupporting textPasteConfigurationSupporting, IUITextPasteItem item);</span>
+}
+</pre>
+</div> <!-- end type UITextPasteDelegate -->
+<div> <!-- start type UITextPasteDelegate_Extensions -->
+<h3>New Type UIKit.UITextPasteDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class UITextPasteDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSAttributedString CombineItemAttributedStrings (IUITextPasteDelegate This, IUITextPasteConfigurationSupporting textPasteConfigurationSupporting, Foundation.NSAttributedString[] itemStrings, UITextRange textRange);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static UITextRange PerformPaste (IUITextPasteDelegate This, IUITextPasteConfigurationSupporting textPasteConfigurationSupporting, Foundation.NSAttributedString attributedString, UITextRange textRange);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool ShouldAnimatePaste (IUITextPasteDelegate This, IUITextPasteConfigurationSupporting textPasteConfigurationSupporting, Foundation.NSAttributedString attributedString, UITextRange textRange);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void TransformPasteItem (IUITextPasteDelegate This, IUITextPasteConfigurationSupporting textPasteConfigurationSupporting, IUITextPasteItem item);</span>
+}
+</pre>
+</div> <!-- end type UITextPasteDelegate_Extensions -->
+<div> <!-- start type UITextSmartDashesType -->
+<h3>New Type UIKit.UITextSmartDashesType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UITextSmartDashesType {
+	<span class='added added-field ' data-is-non-breaking="">Default = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">No = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Yes = 2,</span>
+}
+</pre>
+</div> <!-- end type UITextSmartDashesType -->
+<div> <!-- start type UITextSmartInsertDeleteType -->
+<h3>New Type UIKit.UITextSmartInsertDeleteType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UITextSmartInsertDeleteType {
+	<span class='added added-field ' data-is-non-breaking="">Default = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">No = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Yes = 2,</span>
+}
+</pre>
+</div> <!-- end type UITextSmartInsertDeleteType -->
+<div> <!-- start type UITextSmartQuotesType -->
+<h3>New Type UIKit.UITextSmartQuotesType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UITextSmartQuotesType {
+	<span class='added added-field ' data-is-non-breaking="">Default = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">No = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Yes = 2,</span>
+}
+</pre>
+</div> <!-- end type UITextSmartQuotesType -->
+
+</div> <!-- end namespace UIKit -->
+<!-- start namespace UserNotifications --> <div> 
+<h2>Namespace UserNotifications</h2>
+<!-- start type UNNotificationCategory --> <div>
+<h3>Type Changed: UserNotifications.UNNotificationCategory</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string HiddenPreviewsBodyPlaceholder { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static UNNotificationCategory FromIdentifier (string identifier, UNNotificationAction[] actions, string[] intentIdentifiers, string hiddenPreviewsBodyPlaceholder, UNNotificationCategoryOptions options);</span>
+</pre>
+</div>
+
+</div> <!-- end type UNNotificationCategory -->
+<!-- start type UNNotificationCategoryOptions --> <div>
+<h3>Type Changed: UserNotifications.UNNotificationCategoryOptions</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">HiddenPreviewsShowSubtitle = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">HiddenPreviewsShowTitle = 4,</span>
+</pre>
+</div>
+
+</div> <!-- end type UNNotificationCategoryOptions -->
+<!-- start type UNNotificationSettings --> <div>
+<h3>Type Changed: UserNotifications.UNNotificationSettings</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UNShowPreviewsSetting ShowPreviewsSetting { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type UNNotificationSettings -->
+<div> <!-- start type UNShowPreviewsSetting -->
+<h3>New Type UserNotifications.UNShowPreviewsSetting</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum UNShowPreviewsSetting {
+	<span class='added added-field ' data-is-non-breaking="">Always = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Never = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">WhenAuthenticated = 1,</span>
+}
+</pre>
+</div> <!-- end type UNShowPreviewsSetting -->
+
+</div> <!-- end namespace UserNotifications -->
+<!-- start namespace VideoSubscriberAccount --> <div> 
+<h2>Namespace VideoSubscriberAccount</h2>
+<!-- start type VSAccountManagerDelegate --> <div>
+<h3>Type Changed: VideoSubscriberAccount.VSAccountManagerDelegate</h3>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldAuthenticateAccountProvider (VSAccountManager accountManager, string accountProviderIdentifier);</span>
+</pre>
+</div>
+
+</div> <!-- end type VSAccountManagerDelegate -->
+<!-- start type VSAccountMetadataRequest --> <div>
+<h3>Type Changed: VideoSubscriberAccount.VSAccountMetadataRequest</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] FeaturedAccountProviderIdentifiers { get; set; }</span>
+</pre>
+</div>
+
+</div> <!-- end type VSAccountMetadataRequest -->
+<div> <!-- start type VSAccountManagerDelegate_Extensions -->
+<h3>New Type VideoSubscriberAccount.VSAccountManagerDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class VSAccountManagerDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static bool ShouldAuthenticateAccountProvider (IVSAccountManagerDelegate This, VSAccountManager accountManager, string accountProviderIdentifier);</span>
+}
+</pre>
+</div> <!-- end type VSAccountManagerDelegate_Extensions -->
+<div> <!-- start type VSSubscription -->
+<h3>New Type VideoSubscriberAccount.VSSubscription</h3>
+<pre class='added' data-is-non-breaking="">
+public class VSSubscription : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VSSubscription ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VSSubscription (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VSSubscription (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual VSSubscriptionAccessLevel AccessLevel { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDate ExpirationDate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] TierIdentifiers { get; set; }</span>
+}
+</pre>
+</div> <!-- end type VSSubscription -->
+<div> <!-- start type VSSubscriptionAccessLevel -->
+<h3>New Type VideoSubscriberAccount.VSSubscriptionAccessLevel</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum VSSubscriptionAccessLevel {
+	<span class='added added-field ' data-is-non-breaking="">FreeWithAccount = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Paid = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 0,</span>
+}
+</pre>
+</div> <!-- end type VSSubscriptionAccessLevel -->
+<div> <!-- start type VSSubscriptionRegistrationCenter -->
+<h3>New Type VideoSubscriberAccount.VSSubscriptionRegistrationCenter</h3>
+<pre class='added' data-is-non-breaking="">
+public class VSSubscriptionRegistrationCenter : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VSSubscriptionRegistrationCenter (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VSSubscriptionRegistrationCenter (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static VSSubscriptionRegistrationCenter Default { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetCurrentSubscription (VSSubscription currentSubscription);</span>
+}
+</pre>
+</div> <!-- end type VSSubscriptionRegistrationCenter -->
+
+</div> <!-- end namespace VideoSubscriberAccount -->
+<!-- start namespace WebKit --> <div> 
+<h2>Namespace WebKit</h2>
+<!-- start type WKErrorCode --> <div>
+<h3>Type Changed: WebKit.WKErrorCode</h3>
+<div>
+<p>Added values:</p>
+<pre class='added' data-is-non-breaking="">
+	<span class='added added-field ' data-is-non-breaking="">ContentRuleListStoreCompileFailed = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">ContentRuleListStoreLookUpFailed = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">ContentRuleListStoreRemoveFailed = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">ContentRuleListStoreVersionMismatch = 9,</span>
+</pre>
+</div>
+
+</div> <!-- end type WKErrorCode -->
+<!-- start type WKFrameInfo --> <div>
+<h3>Type Changed: WebKit.WKFrameInfo</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual WKWebView WebView { get; }</span>
+</pre>
+</div>
+<div>
+<p>Added method:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+</pre>
+</div>
+
+</div> <!-- end type WKFrameInfo -->
+<!-- start type WKUserContentController --> <div>
+<h3>Type Changed: WebKit.WKUserContentController</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AddContentRuleList (WKContentRuleList contentRuleList);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveAllContentRuleLists ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveContentRuleList (WKContentRuleList contentRuleList);</span>
+</pre>
+</div>
+
+</div> <!-- end type WKUserContentController -->
+<!-- start type WKWebView --> <div>
+<h3>Type Changed: WebKit.WKWebView</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public static bool HandlesUrlScheme (string urlScheme);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void TakeSnapshot (WKSnapshotConfiguration snapshotConfiguration, System.Action&lt;UIKit.UIImage,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;UIKit.UIImage&gt; TakeSnapshotAsync (WKSnapshotConfiguration snapshotConfiguration);</span>
+</pre>
+</div>
+
+</div> <!-- end type WKWebView -->
+<!-- start type WKWebViewConfiguration --> <div>
+<h3>Type Changed: WebKit.WKWebViewConfiguration</h3>
+<div>
+<p>Added methods:</p>
+<pre>
+	<span class='added added-method ' data-is-non-breaking="">public virtual IWKUrlSchemeHandler GetUrlSchemeHandler (string urlScheme);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetUrlSchemeHandler (IWKUrlSchemeHandler urlSchemeHandler, string urlScheme);</span>
+</pre>
+</div>
+
+</div> <!-- end type WKWebViewConfiguration -->
+<!-- start type WKWebsiteDataStore --> <div>
+<h3>Type Changed: WebKit.WKWebsiteDataStore</h3>
+<div>
+<p>Added property:</p>
+<pre>
+	<span class='added added-property ' data-is-non-breaking="">public virtual WKHttpCookieStore HttpCookieStore { get; }</span>
+</pre>
+</div>
+
+</div> <!-- end type WKWebsiteDataStore -->
+<div> <!-- start type IWKHttpCookieStoreObserver -->
+<h3>New Type WebKit.IWKHttpCookieStoreObserver</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IWKHttpCookieStoreObserver : ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IWKHttpCookieStoreObserver -->
+<div> <!-- start type IWKUrlSchemeHandler -->
+<h3>New Type WebKit.IWKUrlSchemeHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IWKUrlSchemeHandler : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void StartUrlSchemeTask (WKWebView webView, IWKUrlSchemeTask urlSchemeTask);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void StopUrlSchemeTask (WKWebView webView, IWKUrlSchemeTask urlSchemeTask);</span>
+}
+</pre>
+</div> <!-- end type IWKUrlSchemeHandler -->
+<div> <!-- start type IWKUrlSchemeTask -->
+<h3>New Type WebKit.IWKUrlSchemeTask</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IWKUrlSchemeTask : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSUrlRequest Request { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidFailWithError (Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidFinish ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidReceiveData (Foundation.NSData data);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidReceiveResponse (Foundation.NSUrlResponse response);</span>
+}
+</pre>
+</div> <!-- end type IWKUrlSchemeTask -->
+<div> <!-- start type WKContentRuleList -->
+<h3>New Type WebKit.WKContentRuleList</h3>
+<pre class='added' data-is-non-breaking="">
+public class WKContentRuleList : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public WKContentRuleList ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected WKContentRuleList (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected WKContentRuleList (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Identifier { get; }</span>
+}
+</pre>
+</div> <!-- end type WKContentRuleList -->
+<div> <!-- start type WKContentRuleListStore -->
+<h3>New Type WebKit.WKContentRuleListStore</h3>
+<pre class='added' data-is-non-breaking="">
+public class WKContentRuleListStore : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public WKContentRuleListStore ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected WKContentRuleListStore (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected WKContentRuleListStore (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static WKContentRuleListStore DefaultStore { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void CompileContentRuleList (string identifier, string encodedContentRuleList, System.Action&lt;WKContentRuleList,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;WKContentRuleList&gt; CompileContentRuleListAsync (string identifier, string encodedContentRuleList);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static WKContentRuleListStore FromUrl (Foundation.NSUrl url);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GetAvailableContentRuleListIdentifiers (System.Action&lt;System.String[]&gt; callback);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;System.String[]&gt; GetAvailableContentRuleListIdentifiersAsync ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void LookUpContentRuleList (string identifier, System.Action&lt;WKContentRuleList,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;WKContentRuleList&gt; LookUpContentRuleListAsync (string identifier);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveContentRuleList (string identifier, System.Action&lt;Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task RemoveContentRuleListAsync (string identifier);</span>
+}
+</pre>
+</div> <!-- end type WKContentRuleListStore -->
+<div> <!-- start type WKHttpCookieStore -->
+<h3>New Type WebKit.WKHttpCookieStore</h3>
+<pre class='added' data-is-non-breaking="">
+public class WKHttpCookieStore : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected WKHttpCookieStore (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected WKHttpCookieStore (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AddObserver (IWKHttpCookieStoreObserver observer);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DeleteCookie (Foundation.NSHttpCookie cookie, System.Action completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task DeleteCookieAsync (Foundation.NSHttpCookie cookie);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GetAllCookies (System.Action&lt;Foundation.NSHttpCookie[]&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;Foundation.NSHttpCookie[]&gt; GetAllCookiesAsync ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveObserver (IWKHttpCookieStoreObserver observer);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetCookie (Foundation.NSHttpCookie cookie, System.Action completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task SetCookieAsync (Foundation.NSHttpCookie cookie);</span>
+}
+</pre>
+</div> <!-- end type WKHttpCookieStore -->
+<div> <!-- start type WKHttpCookieStoreObserver_Extensions -->
+<h3>New Type WebKit.WKHttpCookieStoreObserver_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class WKHttpCookieStoreObserver_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void CookiesDidChangeInCookieStore (IWKHttpCookieStoreObserver This, WKHttpCookieStore cookieStore);</span>
+}
+</pre>
+</div> <!-- end type WKHttpCookieStoreObserver_Extensions -->
+<div> <!-- start type WKSnapshotConfiguration -->
+<h3>New Type WebKit.WKSnapshotConfiguration</h3>
+<pre class='added' data-is-non-breaking="">
+public class WKSnapshotConfiguration : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public WKSnapshotConfiguration ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected WKSnapshotConfiguration (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected WKSnapshotConfiguration (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGRect Rect { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSNumber SnapshotWidth { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type WKSnapshotConfiguration -->
+
+</div> <!-- end namespace WebKit -->
+<!-- start namespace ARKit --> <div> 
+<h2>New Namespace ARKit</h2>
+
+<div> <!-- start type ARAnchor -->
+<h3>New Type ARKit.ARAnchor</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARAnchor : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARAnchor (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public ARAnchor (OpenTK.Matrix4 transform);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARAnchor (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSUuid Identifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual OpenTK.Matrix4 Transform { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type ARAnchor -->
+<div> <!-- start type ARCamera -->
+<h3>New Type ARKit.ARCamera</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARCamera : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARCamera (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARCamera (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual OpenTK.Vector3 EulerAngles { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGSize ImageResolution { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual OpenTK.Matrix3 Intrinsics { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual OpenTK.Matrix4 ProjectionMatrix { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARTrackingState TrackingState { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARTrackingStateReason TrackingStateReason { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual OpenTK.Matrix4 Transform { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint GetProjectPoint (OpenTK.Vector3 point, UIKit.UIInterfaceOrientation orientation, CoreGraphics.CGSize viewportSize);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual OpenTK.Matrix4 GetProjectionMatrix (UIKit.UIInterfaceOrientation orientation, CoreGraphics.CGSize viewportSize, nfloat zNear, nfloat zFar);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual OpenTK.Matrix4 GetViewMatrix (UIKit.UIInterfaceOrientation orientation);</span>
+}
+</pre>
+</div> <!-- end type ARCamera -->
+<div> <!-- start type ARConfiguration -->
+<h3>New Type ARKit.ARConfiguration</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARConfiguration : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARConfiguration (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARConfiguration (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static bool IsSupported { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool LightEstimationEnabled { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ProvidesAudioData { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARWorldAlignment WorldAlignment { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type ARConfiguration -->
+<div> <!-- start type ARErrorCode -->
+<h3>New Type ARKit.ARErrorCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum ARErrorCode {
+	<span class='added added-field ' data-is-non-breaking="">CameraUnauthorized = 103,</span>
+	<span class='added added-field ' data-is-non-breaking="">SensorFailed = 102,</span>
+	<span class='added added-field ' data-is-non-breaking="">SensorUnavailable = 101,</span>
+	<span class='added added-field ' data-is-non-breaking="">UnsupportedConfiguration = 100,</span>
+	<span class='added added-field ' data-is-non-breaking="">WorldTrackingFailed = 200,</span>
+}
+</pre>
+</div> <!-- end type ARErrorCode -->
+<div> <!-- start type ARErrorCodeExtensions -->
+<h3>New Type ARKit.ARErrorCodeExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class ARErrorCodeExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetDomain (ARErrorCode self);</span>
+}
+</pre>
+</div> <!-- end type ARErrorCodeExtensions -->
+<div> <!-- start type ARFrame -->
+<h3>New Type ARKit.ARFrame</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARFrame : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARFrame (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARFrame (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARAnchor[] Anchors { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARCamera Camera { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreVideo.CVPixelBuffer CapturedImage { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARLightEstimate LightEstimate { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARPointCloud RawFeaturePoints { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual double Timestamp { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGAffineTransform DisplayTransform (UIKit.UIInterfaceOrientation orientation, CoreGraphics.CGSize viewportSize);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual ARHitTestResult[] HitTest (CoreGraphics.CGPoint point, ARHitTestResultType types);</span>
+}
+</pre>
+</div> <!-- end type ARFrame -->
+<div> <!-- start type ARHitTestResult -->
+<h3>New Type ARKit.ARHitTestResult</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARHitTestResult : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARHitTestResult (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARHitTestResult (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARAnchor Anchor { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat Distance { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual OpenTK.Matrix4 LocalTransform { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARHitTestResultType Type { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual OpenTK.Matrix4 WorldTransform { get; }</span>
+}
+</pre>
+</div> <!-- end type ARHitTestResult -->
+<div> <!-- start type ARHitTestResultType -->
+<h3>New Type ARKit.ARHitTestResultType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+[Flags]
+public enum ARHitTestResultType {
+	<span class='added added-field ' data-is-non-breaking="">EstimatedHorizontalPlane = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">ExistingPlane = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">ExistingPlaneUsingExtent = 16,</span>
+	<span class='added added-field ' data-is-non-breaking="">FeaturePoint = 1,</span>
+}
+</pre>
+</div> <!-- end type ARHitTestResultType -->
+<div> <!-- start type ARLightEstimate -->
+<h3>New Type ARKit.ARLightEstimate</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARLightEstimate : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARLightEstimate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARLightEstimate (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat AmbientColorTemperature { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat AmbientIntensity { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type ARLightEstimate -->
+<div> <!-- start type AROrientationTrackingConfiguration -->
+<h3>New Type ARKit.AROrientationTrackingConfiguration</h3>
+<pre class='added' data-is-non-breaking="">
+public class AROrientationTrackingConfiguration : ARKit.ARConfiguration, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public AROrientationTrackingConfiguration ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected AROrientationTrackingConfiguration (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected AROrientationTrackingConfiguration (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type AROrientationTrackingConfiguration -->
+<div> <!-- start type ARPlaneAnchor -->
+<h3>New Type ARKit.ARPlaneAnchor</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARPlaneAnchor : ARKit.ARAnchor, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARPlaneAnchor (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARPlaneAnchor (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARPlaneAnchorAlignment Alignment { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual OpenTK.Vector3 Center { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual OpenTK.Vector3 Extent { get; }</span>
+}
+</pre>
+</div> <!-- end type ARPlaneAnchor -->
+<div> <!-- start type ARPlaneAnchorAlignment -->
+<h3>New Type ARKit.ARPlaneAnchorAlignment</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum ARPlaneAnchorAlignment {
+	<span class='added added-field ' data-is-non-breaking="">Horizontal = 0,</span>
+}
+</pre>
+</div> <!-- end type ARPlaneAnchorAlignment -->
+<div> <!-- start type ARPlaneDetection -->
+<h3>New Type ARKit.ARPlaneDetection</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+[Flags]
+public enum ARPlaneDetection {
+	<span class='added added-field ' data-is-non-breaking="">Horizontal = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+}
+</pre>
+</div> <!-- end type ARPlaneDetection -->
+<div> <!-- start type ARPointCloud -->
+<h3>New Type ARKit.ARPointCloud</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARPointCloud : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARPointCloud (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARPointCloud (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual uint Count { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public OpenTK.Vector3[] Points { get; }</span>
+}
+</pre>
+</div> <!-- end type ARPointCloud -->
+<div> <!-- start type ARSCNDebugOptions -->
+<h3>New Type ARKit.ARSCNDebugOptions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class ARSCNDebugOptions {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public static SceneKit.SCNDebugOptions ShowFeaturePoints { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static SceneKit.SCNDebugOptions ShowWorldOrigin { get; }</span>
+}
+</pre>
+</div> <!-- end type ARSCNDebugOptions -->
+<div> <!-- start type ARSCNView -->
+<h3>New Type ARKit.ARSCNView</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARSCNView : SceneKit.SCNView, CoreAnimation.ICALayerDelegate, Foundation.INSCoding, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, SceneKit.ISCNSceneRenderer, SceneKit.ISCNTechniqueSupport, System.Collections.IEnumerable, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAccessibilityIdentification, UIKit.IUIAppearance, UIKit.IUIAppearanceContainer, UIKit.IUICoordinateSpace, UIKit.IUIDynamicItem, UIKit.IUIFocusEnvironment, UIKit.IUIFocusItem, UIKit.IUITraitEnvironment {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public ARSCNView ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public ARSCNView (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARSCNView (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARSCNView (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public static ARSCNView.ARSCNViewAppearance Appearance { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AutomaticallyUpdatesLighting { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IARSCNViewDelegate Delegate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual SceneKit.SCNScene Scene { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARSession Session { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static ARSCNView.ARSCNViewAppearance AppearanceWhenContainedIn (System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual ARAnchor GetAnchor (SceneKit.SCNNode node);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static ARSCNView.ARSCNViewAppearance GetAppearance&lt;T&gt; ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public static ARSCNView.ARSCNViewAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static ARSCNView.ARSCNViewAppearance GetAppearance (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static ARSCNView.ARSCNViewAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static ARSCNView.ARSCNViewAppearance GetAppearance (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual SceneKit.SCNNode GetNode (ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual ARHitTestResult[] HitTest (CoreGraphics.CGPoint point, ARHitTestResultType types);</span>
+
+	// inner types
+	public class ARSCNViewAppearance : SceneKit.SCNView+SCNViewAppearance, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAppearance {
+		// constructors
+		<span class='added added-constructor ' data-is-non-breaking="">protected ARSCNView (IntPtr handle);</span>
+	}
+}
+</pre>
+</div> <!-- end type ARSCNView -->
+<div> <!-- start type ARSCNViewDelegate -->
+<h3>New Type ARKit.ARSCNViewDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARSCNViewDelegate : Foundation.NSObject, IARSCNViewDelegate, IARSessionObserver, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, SceneKit.ISCNSceneRendererDelegate, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public ARSCNViewDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARSCNViewDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARSCNViewDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void CameraDidChangeTrackingState (ARSession session, ARCamera camera);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidAddNode (SceneKit.ISCNSceneRenderer renderer, SceneKit.SCNNode node, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidApplyAnimations (SceneKit.ISCNSceneRenderer renderer, double timeInSeconds);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidFail (ARSession session, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidOutputAudioSampleBuffer (ARSession session, CoreMedia.CMSampleBuffer audioSampleBuffer);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidRemoveNode (SceneKit.ISCNSceneRenderer renderer, SceneKit.SCNNode node, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidRenderScene (SceneKit.ISCNSceneRenderer renderer, SceneKit.SCNScene scene, double timeInSeconds);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidSimulatePhysics (SceneKit.ISCNSceneRenderer renderer, double timeInSeconds);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidUpdateNode (SceneKit.ISCNSceneRenderer renderer, SceneKit.SCNNode node, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual SceneKit.SCNNode GetNode (SceneKit.ISCNSceneRenderer renderer, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SessionInterruptionEnded (ARSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SessionWasInterrupted (ARSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Update (SceneKit.ISCNSceneRenderer renderer, double timeInSeconds);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillRenderScene (SceneKit.ISCNSceneRenderer renderer, SceneKit.SCNScene scene, double timeInSeconds);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillUpdateNode (SceneKit.ISCNSceneRenderer renderer, SceneKit.SCNNode node, ARAnchor anchor);</span>
+}
+</pre>
+</div> <!-- end type ARSCNViewDelegate -->
+<div> <!-- start type ARSCNViewDelegate_Extensions -->
+<h3>New Type ARKit.ARSCNViewDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class ARSCNViewDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void DidAddNode (IARSCNViewDelegate This, SceneKit.ISCNSceneRenderer renderer, SceneKit.SCNNode node, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidRemoveNode (IARSCNViewDelegate This, SceneKit.ISCNSceneRenderer renderer, SceneKit.SCNNode node, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidUpdateNode (IARSCNViewDelegate This, SceneKit.ISCNSceneRenderer renderer, SceneKit.SCNNode node, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static SceneKit.SCNNode GetNode (IARSCNViewDelegate This, SceneKit.ISCNSceneRenderer renderer, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void WillUpdateNode (IARSCNViewDelegate This, SceneKit.ISCNSceneRenderer renderer, SceneKit.SCNNode node, ARAnchor anchor);</span>
+}
+</pre>
+</div> <!-- end type ARSCNViewDelegate_Extensions -->
+<div> <!-- start type ARSKView -->
+<h3>New Type ARKit.ARSKView</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARSKView : SpriteKit.SKView, CoreAnimation.ICALayerDelegate, Foundation.INSCoding, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.Collections.IEnumerable, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAccessibilityIdentification, UIKit.IUIAppearance, UIKit.IUIAppearanceContainer, UIKit.IUICoordinateSpace, UIKit.IUIDynamicItem, UIKit.IUIFocusEnvironment, UIKit.IUIFocusItem, UIKit.IUITraitEnvironment {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public ARSKView ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public ARSKView (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARSKView (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARSKView (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public static ARSKView.ARSKViewAppearance Appearance { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IARSKViewDelegate Delegate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARSession Session { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static ARSKView.ARSKViewAppearance AppearanceWhenContainedIn (System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual ARAnchor GetAnchor (SpriteKit.SKNode node);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static ARSKView.ARSKViewAppearance GetAppearance&lt;T&gt; ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public static ARSKView.ARSKViewAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static ARSKView.ARSKViewAppearance GetAppearance (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static ARSKView.ARSKViewAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static ARSKView.ARSKViewAppearance GetAppearance (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual SpriteKit.SKNode GetNode (ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual ARHitTestResult[] HitTest (CoreGraphics.CGPoint point, ARHitTestResultType types);</span>
+
+	// inner types
+	public class ARSKViewAppearance : SpriteKit.SKView+SKViewAppearance, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAppearance {
+		// constructors
+		<span class='added added-constructor ' data-is-non-breaking="">protected ARSKView (IntPtr handle);</span>
+	}
+}
+</pre>
+</div> <!-- end type ARSKView -->
+<div> <!-- start type ARSKViewDelegate -->
+<h3>New Type ARKit.ARSKViewDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARSKViewDelegate : Foundation.NSObject, IARSKViewDelegate, IARSessionObserver, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, SpriteKit.ISKViewDelegate, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public ARSKViewDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARSKViewDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARSKViewDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void CameraDidChangeTrackingState (ARSession session, ARCamera camera);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidAddNode (ARSKView view, SpriteKit.SKNode node, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidFail (ARSession session, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidOutputAudioSampleBuffer (ARSession session, CoreMedia.CMSampleBuffer audioSampleBuffer);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidRemoveNode (ARSKView view, SpriteKit.SKNode node, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidUpdateNode (ARSKView view, SpriteKit.SKNode node, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual SpriteKit.SKNode GetNode (ARSKView view, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SessionInterruptionEnded (ARSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SessionWasInterrupted (ARSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldRender (SpriteKit.SKView view, double time);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillUpdateNode (ARSKView view, SpriteKit.SKNode node, ARAnchor anchor);</span>
+}
+</pre>
+</div> <!-- end type ARSKViewDelegate -->
+<div> <!-- start type ARSKViewDelegate_Extensions -->
+<h3>New Type ARKit.ARSKViewDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class ARSKViewDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void DidAddNode (IARSKViewDelegate This, ARSKView view, SpriteKit.SKNode node, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidRemoveNode (IARSKViewDelegate This, ARSKView view, SpriteKit.SKNode node, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidUpdateNode (IARSKViewDelegate This, ARSKView view, SpriteKit.SKNode node, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static SpriteKit.SKNode GetNode (IARSKViewDelegate This, ARSKView view, ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void WillUpdateNode (IARSKViewDelegate This, ARSKView view, SpriteKit.SKNode node, ARAnchor anchor);</span>
+}
+</pre>
+</div> <!-- end type ARSKViewDelegate_Extensions -->
+<div> <!-- start type ARSession -->
+<h3>New Type ARKit.ARSession</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARSession : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public ARSession ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARSession (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARSession (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARConfiguration Configuration { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARFrame CurrentFrame { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IARSessionDelegate Delegate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreFoundation.DispatchQueue DelegateQueue { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AddAnchor (ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Pause ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveAnchor (ARAnchor anchor);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Run (ARConfiguration configuration, ARSessionRunOptions options);</span>
+}
+</pre>
+</div> <!-- end type ARSession -->
+<div> <!-- start type ARSessionDelegate -->
+<h3>New Type ARKit.ARSessionDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARSessionDelegate : Foundation.NSObject, IARSessionDelegate, IARSessionObserver, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public ARSessionDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARSessionDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARSessionDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void CameraDidChangeTrackingState (ARSession session, ARCamera camera);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidAddAnchors (ARSession session, ARAnchor[] anchors);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidFail (ARSession session, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidOutputAudioSampleBuffer (ARSession session, CoreMedia.CMSampleBuffer audioSampleBuffer);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidRemoveAnchors (ARSession session, ARAnchor[] anchors);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidUpdateAnchors (ARSession session, ARAnchor[] anchors);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidUpdateFrame (ARSession session, ARFrame frame);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SessionInterruptionEnded (ARSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SessionWasInterrupted (ARSession session);</span>
+}
+</pre>
+</div> <!-- end type ARSessionDelegate -->
+<div> <!-- start type ARSessionDelegate_Extensions -->
+<h3>New Type ARKit.ARSessionDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class ARSessionDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void DidAddAnchors (IARSessionDelegate This, ARSession session, ARAnchor[] anchors);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidRemoveAnchors (IARSessionDelegate This, ARSession session, ARAnchor[] anchors);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidUpdateAnchors (IARSessionDelegate This, ARSession session, ARAnchor[] anchors);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidUpdateFrame (IARSessionDelegate This, ARSession session, ARFrame frame);</span>
+}
+</pre>
+</div> <!-- end type ARSessionDelegate_Extensions -->
+<div> <!-- start type ARSessionObserver_Extensions -->
+<h3>New Type ARKit.ARSessionObserver_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class ARSessionObserver_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void CameraDidChangeTrackingState (IARSessionObserver This, ARSession session, ARCamera camera);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidFail (IARSessionObserver This, ARSession session, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidOutputAudioSampleBuffer (IARSessionObserver This, ARSession session, CoreMedia.CMSampleBuffer audioSampleBuffer);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SessionInterruptionEnded (IARSessionObserver This, ARSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void SessionWasInterrupted (IARSessionObserver This, ARSession session);</span>
+}
+</pre>
+</div> <!-- end type ARSessionObserver_Extensions -->
+<div> <!-- start type ARSessionRunOptions -->
+<h3>New Type ARKit.ARSessionRunOptions</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+[Flags]
+public enum ARSessionRunOptions {
+	<span class='added added-field ' data-is-non-breaking="">RemoveExistingAnchors = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">ResetTracking = 1,</span>
+}
+</pre>
+</div> <!-- end type ARSessionRunOptions -->
+<div> <!-- start type ARTrackingState -->
+<h3>New Type ARKit.ARTrackingState</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum ARTrackingState {
+	<span class='added added-field ' data-is-non-breaking="">Limited = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Normal = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">NotAvailable = 0,</span>
+}
+</pre>
+</div> <!-- end type ARTrackingState -->
+<div> <!-- start type ARTrackingStateReason -->
+<h3>New Type ARKit.ARTrackingStateReason</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum ARTrackingStateReason {
+	<span class='added added-field ' data-is-non-breaking="">ExcessiveMotion = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Initializing = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">InsufficientFeatures = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+}
+</pre>
+</div> <!-- end type ARTrackingStateReason -->
+<div> <!-- start type ARWorldAlignment -->
+<h3>New Type ARKit.ARWorldAlignment</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum ARWorldAlignment {
+	<span class='added added-field ' data-is-non-breaking="">Camera = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Gravity = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">GravityAndHeading = 1,</span>
+}
+</pre>
+</div> <!-- end type ARWorldAlignment -->
+<div> <!-- start type ARWorldTrackingConfiguration -->
+<h3>New Type ARKit.ARWorldTrackingConfiguration</h3>
+<pre class='added' data-is-non-breaking="">
+public class ARWorldTrackingConfiguration : ARKit.ARConfiguration, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public ARWorldTrackingConfiguration ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARWorldTrackingConfiguration (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ARWorldTrackingConfiguration (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual ARPlaneDetection PlaneDetection { get; set; }</span>
+}
+</pre>
+</div> <!-- end type ARWorldTrackingConfiguration -->
+<div> <!-- start type IARSCNViewDelegate -->
+<h3>New Type ARKit.IARSCNViewDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IARSCNViewDelegate : IARSessionObserver, ObjCRuntime.INativeObject, SceneKit.ISCNSceneRendererDelegate, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IARSCNViewDelegate -->
+<div> <!-- start type IARSKViewDelegate -->
+<h3>New Type ARKit.IARSKViewDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IARSKViewDelegate : IARSessionObserver, ObjCRuntime.INativeObject, SpriteKit.ISKViewDelegate, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IARSKViewDelegate -->
+<div> <!-- start type IARSessionDelegate -->
+<h3>New Type ARKit.IARSessionDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IARSessionDelegate : IARSessionObserver, ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IARSessionDelegate -->
+<div> <!-- start type IARSessionObserver -->
+<h3>New Type ARKit.IARSessionObserver</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IARSessionObserver : ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IARSessionObserver -->
+</div> <!-- end namespace ARKit -->
+
+<!-- start namespace CoreML --> <div> 
+<h2>New Namespace CoreML</h2>
+
+<div> <!-- start type IMLFeatureProvider -->
+<h3>New Type CoreML.IMLFeatureProvider</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IMLFeatureProvider : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSSet&lt;Foundation.NSString&gt; FeatureNames { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual MLFeatureValue GetFeatureValue (string featureName);</span>
+}
+</pre>
+</div> <!-- end type IMLFeatureProvider -->
+<div> <!-- start type MLDictionaryConstraint -->
+<h3>New Type CoreML.MLDictionaryConstraint</h3>
+<pre class='added' data-is-non-breaking="">
+public class MLDictionaryConstraint : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLDictionaryConstraint (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLDictionaryConstraint (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MLFeatureType KeyType { get; }</span>
+}
+</pre>
+</div> <!-- end type MLDictionaryConstraint -->
+<div> <!-- start type MLDictionaryFeatureProvider -->
+<h3>New Type CoreML.MLDictionaryFeatureProvider</h3>
+<pre class='added' data-is-non-breaking="">
+public class MLDictionaryFeatureProvider : Foundation.NSObject, IMLFeatureProvider, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public MLDictionaryFeatureProvider ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLDictionaryFeatureProvider (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLDictionaryFeatureProvider (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public MLDictionaryFeatureProvider (Foundation.NSDictionary&lt;Foundation.NSString,Foundation.NSObject&gt; dictionary, Foundation.NSError error);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDictionary&lt;Foundation.NSString,CoreML.MLFeatureValue&gt; Dictionary { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSSet&lt;Foundation.NSString&gt; FeatureNames { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public MLFeatureValue Item { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual MLFeatureValue GetFeatureValue (string featureName);</span>
+}
+</pre>
+</div> <!-- end type MLDictionaryFeatureProvider -->
+<div> <!-- start type MLFeatureDescription -->
+<h3>New Type CoreML.MLFeatureDescription</h3>
+<pre class='added' data-is-non-breaking="">
+public class MLFeatureDescription : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public MLFeatureDescription ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLFeatureDescription (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLFeatureDescription (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MLDictionaryConstraint DictionaryConstraint { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MLImageConstraint ImageConstraint { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MLMultiArrayConstraint MultiArrayConstraint { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Name { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Optional { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MLFeatureType Type { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool IsAllowed (MLFeatureValue value);</span>
+}
+</pre>
+</div> <!-- end type MLFeatureDescription -->
+<div> <!-- start type MLFeatureType -->
+<h3>New Type CoreML.MLFeatureType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum MLFeatureType {
+	<span class='added added-field ' data-is-non-breaking="">Dictionary = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">Double = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Image = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Int64 = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Invalid = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">MultiArray = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">String = 3,</span>
+}
+</pre>
+</div> <!-- end type MLFeatureType -->
+<div> <!-- start type MLFeatureValue -->
+<h3>New Type CoreML.MLFeatureValue</h3>
+<pre class='added' data-is-non-breaking="">
+public class MLFeatureValue : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public MLFeatureValue ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLFeatureValue (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLFeatureValue (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDictionary&lt;Foundation.NSObject,Foundation.NSNumber&gt; DictionaryValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual double DoubleValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreVideo.CVPixelBuffer ImageBufferValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual long Int64Value { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MLMultiArray MultiArrayValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string StringValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MLFeatureType Type { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Undefined { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MLFeatureValue CreateUndefined (MLFeatureType type);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MLFeatureValue FromDictionary (Foundation.NSDictionary&lt;Foundation.NSObject,Foundation.NSNumber&gt; value, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MLFeatureValue FromDouble (double value);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MLFeatureValue FromInt64 (long value);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MLFeatureValue FromMultiArray (MLMultiArray value);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MLFeatureValue FromPixelBuffer (CoreVideo.CVPixelBuffer value);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MLFeatureValue FromString (string value);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool IsEqual (MLFeatureValue value);</span>
+}
+</pre>
+</div> <!-- end type MLFeatureValue -->
+<div> <!-- start type MLImageConstraint -->
+<h3>New Type CoreML.MLImageConstraint</h3>
+<pre class='added' data-is-non-breaking="">
+public class MLImageConstraint : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLImageConstraint (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLImageConstraint (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual uint PixelFormatType { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint PixelsHigh { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint PixelsWide { get; }</span>
+}
+</pre>
+</div> <!-- end type MLImageConstraint -->
+<div> <!-- start type MLModel -->
+<h3>New Type CoreML.MLModel</h3>
+<pre class='added' data-is-non-breaking="">
+public class MLModel : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public MLModel ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLModel (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLModel (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MLModelDescription ModelDescription { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSUrl CompileModel (Foundation.NSUrl modelUrl, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static MLModel FromUrl (Foundation.NSUrl url, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual IMLFeatureProvider GetPrediction (IMLFeatureProvider input, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual IMLFeatureProvider GetPrediction (IMLFeatureProvider input, MLPredictionOptions options, Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type MLModel -->
+<div> <!-- start type MLModelDescription -->
+<h3>New Type CoreML.MLModelDescription</h3>
+<pre class='added' data-is-non-breaking="">
+public class MLModelDescription : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public MLModelDescription ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLModelDescription (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLModelDescription (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDictionary&lt;Foundation.NSString,CoreML.MLFeatureDescription&gt; InputDescriptionsByName { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public MLModelMetadata Metadata { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDictionary&lt;Foundation.NSString,CoreML.MLFeatureDescription&gt; OutputDescriptionsByName { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string PredictedFeatureName { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string PredictedProbabilitiesName { get; }</span>
+}
+</pre>
+</div> <!-- end type MLModelDescription -->
+<div> <!-- start type MLModelError -->
+<h3>New Type CoreML.MLModelError</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum MLModelError {
+	<span class='added added-field ' data-is-non-breaking="">FeatureType = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Generic = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">IO = 3,</span>
+}
+</pre>
+</div> <!-- end type MLModelError -->
+<div> <!-- start type MLModelErrorExtensions -->
+<h3>New Type CoreML.MLModelErrorExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class MLModelErrorExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetDomain (MLModelError self);</span>
+}
+</pre>
+</div> <!-- end type MLModelErrorExtensions -->
+<div> <!-- start type MLModelMetadata -->
+<h3>New Type CoreML.MLModelMetadata</h3>
+<pre class='added' data-is-non-breaking="">
+public class MLModelMetadata : Foundation.DictionaryContainer {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public MLModelMetadata ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public MLModelMetadata (Foundation.NSDictionary dictionary);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public string Author { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string CreatorDefined { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string Description { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string License { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string VersionString { get; }</span>
+}
+</pre>
+</div> <!-- end type MLModelMetadata -->
+<div> <!-- start type MLMultiArray -->
+<h3>New Type CoreML.MLMultiArray</h3>
+<pre class='added' data-is-non-breaking="">
+public class MLMultiArray : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLMultiArray (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLMultiArray (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public MLMultiArray (Foundation.NSNumber[] shape, MLMultiArrayDataType dataType, Foundation.NSError error);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public MLMultiArray (IntPtr dataPointer, Foundation.NSNumber[] shape, MLMultiArrayDataType dataType, Foundation.NSNumber[] strides, System.Action&lt;IntPtr&gt; deallocator, Foundation.NSError error);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint Count { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual IntPtr DataPointer { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MLMultiArrayDataType DataType { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public Foundation.NSNumber Item { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public Foundation.NSNumber Item { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSNumber[] Shape { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSNumber[] Strides { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSNumber GetObject (Foundation.NSNumber[] key);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSNumber GetObject (nint idx);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetObject (Foundation.NSNumber obj, Foundation.NSNumber[] key);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetObject (Foundation.NSNumber obj, nint idx);</span>
+}
+</pre>
+</div> <!-- end type MLMultiArray -->
+<div> <!-- start type MLMultiArrayConstraint -->
+<h3>New Type CoreML.MLMultiArrayConstraint</h3>
+<pre class='added' data-is-non-breaking="">
+public class MLMultiArrayConstraint : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLMultiArrayConstraint (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLMultiArrayConstraint (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual MLMultiArrayDataType DataType { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSNumber[] Shape { get; }</span>
+}
+</pre>
+</div> <!-- end type MLMultiArrayConstraint -->
+<div> <!-- start type MLMultiArrayDataType -->
+<h3>New Type CoreML.MLMultiArrayDataType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum MLMultiArrayDataType {
+	<span class='added added-field ' data-is-non-breaking="">Double = 65600,</span>
+	<span class='added added-field ' data-is-non-breaking="">Float32 = 65568,</span>
+	<span class='added added-field ' data-is-non-breaking="">Int32 = 131104,</span>
+}
+</pre>
+</div> <!-- end type MLMultiArrayDataType -->
+<div> <!-- start type MLPredictionOptions -->
+<h3>New Type CoreML.MLPredictionOptions</h3>
+<pre class='added' data-is-non-breaking="">
+public class MLPredictionOptions : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public MLPredictionOptions ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLPredictionOptions (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected MLPredictionOptions (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool UsesCpuOnly { get; set; }</span>
+}
+</pre>
+</div> <!-- end type MLPredictionOptions -->
+</div> <!-- end namespace CoreML -->
+
+<!-- start namespace CoreNFC --> <div> 
+<h2>New Namespace CoreNFC</h2>
+
+<div> <!-- start type INFCIso15693Tag -->
+<h3>New Type CoreNFC.INFCIso15693Tag</h3>
+<pre class='added' data-is-non-breaking="">
+public interface INFCIso15693Tag : INFCTag, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual uint IcManufacturerCode { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSData IcSerialNumber { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSData Identifier { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ReadMultipleBlocks (NFCIso15693ReadMultipleBlocksConfiguration readConfiguration, System.Action&lt;Foundation.NSData,Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SendCustomCommand (NFCIso15693CustomCommandConfiguration commandConfiguration, System.Action&lt;Foundation.NSData,Foundation.NSError&gt; completionHandler);</span>
+}
+</pre>
+</div> <!-- end type INFCIso15693Tag -->
+<div> <!-- start type INFCNdefReaderSessionDelegate -->
+<h3>New Type CoreNFC.INFCNdefReaderSessionDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface INFCNdefReaderSessionDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidDetect (NFCNdefReaderSession session, NFCNdefMessage[] messages);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidInvalidate (NFCNdefReaderSession session, Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type INFCNdefReaderSessionDelegate -->
+<div> <!-- start type INFCReaderSessionContract -->
+<h3>New Type CoreNFC.INFCReaderSessionContract</h3>
+<pre class='added' data-is-non-breaking="">
+public interface INFCReaderSessionContract : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual string AlertMessage { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Ready { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void BeginSession ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void InvalidateSession ();</span>
+}
+</pre>
+</div> <!-- end type INFCReaderSessionContract -->
+<div> <!-- start type INFCReaderSessionDelegate -->
+<h3>New Type CoreNFC.INFCReaderSessionDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface INFCReaderSessionDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidBecomeActive (NFCReaderSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidDetectTags (NFCReaderSession session, INFCTag[] tags);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidInvalidate (NFCReaderSession session, Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type INFCReaderSessionDelegate -->
+<div> <!-- start type INFCTag -->
+<h3>New Type CoreNFC.INFCTag</h3>
+<pre class='added' data-is-non-breaking="">
+public interface INFCTag : Foundation.INSCoding, Foundation.INSCopying, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Available { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NFCReaderSession Session { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NFCTagType Type { get; }</span>
+}
+</pre>
+</div> <!-- end type INFCTag -->
+<div> <!-- start type NFCIso15693CustomCommandConfiguration -->
+<h3>New Type CoreNFC.NFCIso15693CustomCommandConfiguration</h3>
+<pre class='added' data-is-non-breaking="">
+public class NFCIso15693CustomCommandConfiguration : CoreNFC.NFCTagCommandConfiguration, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public NFCIso15693CustomCommandConfiguration ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCIso15693CustomCommandConfiguration (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCIso15693CustomCommandConfiguration (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NFCIso15693CustomCommandConfiguration (uint manufacturerCode, uint customCommandCode, Foundation.NSData requestParameters);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NFCIso15693CustomCommandConfiguration (uint manufacturerCode, uint customCommandCode, Foundation.NSData requestParameters, uint maximumRetries, double retryInterval);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual uint CustomCommandCode { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual uint ManufacturerCode { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSData RequestParameters { get; set; }</span>
+}
+</pre>
+</div> <!-- end type NFCIso15693CustomCommandConfiguration -->
+<div> <!-- start type NFCIso15693ReadMultipleBlocksConfiguration -->
+<h3>New Type CoreNFC.NFCIso15693ReadMultipleBlocksConfiguration</h3>
+<pre class='added' data-is-non-breaking="">
+public class NFCIso15693ReadMultipleBlocksConfiguration : CoreNFC.NFCTagCommandConfiguration, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public NFCIso15693ReadMultipleBlocksConfiguration ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCIso15693ReadMultipleBlocksConfiguration (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCIso15693ReadMultipleBlocksConfiguration (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NFCIso15693ReadMultipleBlocksConfiguration (Foundation.NSRange range, uint chunkSize);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NFCIso15693ReadMultipleBlocksConfiguration (Foundation.NSRange range, uint chunkSize, uint maximumRetries, double retryInterval);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual uint ChunkSize { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSRange Range { get; set; }</span>
+}
+</pre>
+</div> <!-- end type NFCIso15693ReadMultipleBlocksConfiguration -->
+<div> <!-- start type NFCIso15693ReaderSession -->
+<h3>New Type CoreNFC.NFCIso15693ReaderSession</h3>
+<pre class='added' data-is-non-breaking="">
+public class NFCIso15693ReaderSession : CoreNFC.NFCReaderSession, INFCReaderSessionContract, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCIso15693ReaderSession (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCIso15693ReaderSession (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NFCIso15693ReaderSession (INFCReaderSessionDelegate delegate, CoreFoundation.DispatchQueue queue);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static bool ReadingAvailable { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString TagResponseErrorKey { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RestartPolling ();</span>
+}
+</pre>
+</div> <!-- end type NFCIso15693ReaderSession -->
+<div> <!-- start type NFCNdefMessage -->
+<h3>New Type CoreNFC.NFCNdefMessage</h3>
+<pre class='added' data-is-non-breaking="">
+public class NFCNdefMessage : Foundation.NSObject, Foundation.INSCoding, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public NFCNdefMessage (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCNdefMessage (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCNdefMessage (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NFCNdefPayload[] Records { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type NFCNdefMessage -->
+<div> <!-- start type NFCNdefPayload -->
+<h3>New Type CoreNFC.NFCNdefPayload</h3>
+<pre class='added' data-is-non-breaking="">
+public class NFCNdefPayload : Foundation.NSObject, Foundation.INSCoding, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public NFCNdefPayload (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCNdefPayload (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCNdefPayload (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSData Identifier { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSData Payload { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSData Type { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual NFCTypeNameFormat TypeNameFormat { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type NFCNdefPayload -->
+<div> <!-- start type NFCNdefReaderSession -->
+<h3>New Type CoreNFC.NFCNdefReaderSession</h3>
+<pre class='added' data-is-non-breaking="">
+public class NFCNdefReaderSession : CoreNFC.NFCReaderSession, INFCReaderSessionContract, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCNdefReaderSession (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCNdefReaderSession (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NFCNdefReaderSession (INFCNdefReaderSessionDelegate delegate, CoreFoundation.DispatchQueue queue, bool invalidateAfterFirstRead);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static bool ReadingAvailable { get; }</span>
+}
+</pre>
+</div> <!-- end type NFCNdefReaderSession -->
+<div> <!-- start type NFCNdefReaderSessionDelegate -->
+<h3>New Type CoreNFC.NFCNdefReaderSessionDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class NFCNdefReaderSessionDelegate : Foundation.NSObject, INFCNdefReaderSessionDelegate, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCNdefReaderSessionDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCNdefReaderSessionDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCNdefReaderSessionDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidDetect (NFCNdefReaderSession session, NFCNdefMessage[] messages);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidInvalidate (NFCNdefReaderSession session, Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type NFCNdefReaderSessionDelegate -->
+<div> <!-- start type NFCReaderError -->
+<h3>New Type CoreNFC.NFCReaderError</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum NFCReaderError {
+	<span class='added added-field ' data-is-non-breaking="">ReaderSessionInvalidationErrorFirstNDEFTagRead = 204,</span>
+	<span class='added added-field ' data-is-non-breaking="">ReaderSessionInvalidationErrorSessionTerminatedUnexpectedly = 202,</span>
+	<span class='added added-field ' data-is-non-breaking="">ReaderSessionInvalidationErrorSessionTimeout = 201,</span>
+	<span class='added added-field ' data-is-non-breaking="">ReaderSessionInvalidationErrorSystemIsBusy = 203,</span>
+	<span class='added added-field ' data-is-non-breaking="">ReaderSessionInvalidationErrorUserCanceled = 200,</span>
+	<span class='added added-field ' data-is-non-breaking="">ReaderTransceiveErrorRetryExceeded = 101,</span>
+	<span class='added added-field ' data-is-non-breaking="">ReaderTransceiveErrorTagConnectionLost = 100,</span>
+	<span class='added added-field ' data-is-non-breaking="">ReaderTransceiveErrorTagResponseError = 102,</span>
+	<span class='added added-field ' data-is-non-breaking="">SecurityViolation = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">TagCommandConfigurationErrorInvalidParameters = 300,</span>
+	<span class='added added-field ' data-is-non-breaking="">UnsupportedFeature = 1,</span>
+}
+</pre>
+</div> <!-- end type NFCReaderError -->
+<div> <!-- start type NFCReaderErrorExtensions -->
+<h3>New Type CoreNFC.NFCReaderErrorExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class NFCReaderErrorExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetDomain (NFCReaderError self);</span>
+}
+</pre>
+</div> <!-- end type NFCReaderErrorExtensions -->
+<div> <!-- start type NFCReaderSession -->
+<h3>New Type CoreNFC.NFCReaderSession</h3>
+<pre class='added' data-is-non-breaking="">
+public class NFCReaderSession : Foundation.NSObject, INFCReaderSessionContract, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCReaderSession (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCReaderSession (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual string AlertMessage { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual INFCReaderSessionDelegate Delegate { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Ready { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreFoundation.DispatchQueue SessionQueue { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void BeginSession ();</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void InvalidateSession ();</span>
+}
+</pre>
+</div> <!-- end type NFCReaderSession -->
+<div> <!-- start type NFCReaderSessionDelegate -->
+<h3>New Type CoreNFC.NFCReaderSessionDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class NFCReaderSessionDelegate : Foundation.NSObject, INFCReaderSessionDelegate, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCReaderSessionDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCReaderSessionDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCReaderSessionDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidBecomeActive (NFCReaderSession session);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidDetectTags (NFCReaderSession session, INFCTag[] tags);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidInvalidate (NFCReaderSession session, Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type NFCReaderSessionDelegate -->
+<div> <!-- start type NFCTagCommandConfiguration -->
+<h3>New Type CoreNFC.NFCTagCommandConfiguration</h3>
+<pre class='added' data-is-non-breaking="">
+public class NFCTagCommandConfiguration : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public NFCTagCommandConfiguration ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCTagCommandConfiguration (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NFCTagCommandConfiguration (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual uint MaximumRetries { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual double RetryInterval { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type NFCTagCommandConfiguration -->
+<div> <!-- start type NFCTagType -->
+<h3>New Type CoreNFC.NFCTagType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum NFCTagType {
+	<span class='added added-field ' data-is-non-breaking="">Iso15693 = 1,</span>
+}
+</pre>
+</div> <!-- end type NFCTagType -->
+<div> <!-- start type NFCTypeNameFormat -->
+<h3>New Type CoreNFC.NFCTypeNameFormat</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum NFCTypeNameFormat {
+	<span class='added added-field ' data-is-non-breaking="">AbsoluteUri = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Empty = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Media = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">NFCExternal = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">NFCWellKnown = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unchanged = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = 5,</span>
+}
+</pre>
+</div> <!-- end type NFCTypeNameFormat -->
+</div> <!-- end namespace CoreNFC -->
+
+<!-- start namespace DeviceCheck --> <div> 
+<h2>New Namespace DeviceCheck</h2>
+
+<div> <!-- start type DCDevice -->
+<h3>New Type DeviceCheck.DCDevice</h3>
+<pre class='added' data-is-non-breaking="">
+public class DCDevice : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public DCDevice ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected DCDevice (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected DCDevice (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static DCDevice CurrentDevice { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Supported { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GenerateToken (DCDeviceGenerateTokenCompletionHandler completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;Foundation.NSData&gt; GenerateTokenAsync ();</span>
+}
+</pre>
+</div> <!-- end type DCDevice -->
+<div> <!-- start type DCDeviceGenerateTokenCompletionHandler -->
+<h3>New Type DeviceCheck.DCDeviceGenerateTokenCompletionHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate DCDeviceGenerateTokenCompletionHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public DCDeviceGenerateTokenCompletionHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (Foundation.NSData token, Foundation.NSError error, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invoke (Foundation.NSData token, Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type DCDeviceGenerateTokenCompletionHandler -->
+<div> <!-- start type DCError -->
+<h3>New Type DeviceCheck.DCError</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum DCError {
+	<span class='added added-field ' data-is-non-breaking="">FeatureUnsupported = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">UnknownSystemFailure = 0,</span>
+}
+</pre>
+</div> <!-- end type DCError -->
+<div> <!-- start type DCErrorExtensions -->
+<h3>New Type DeviceCheck.DCErrorExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class DCErrorExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetDomain (DCError self);</span>
+}
+</pre>
+</div> <!-- end type DCErrorExtensions -->
+</div> <!-- end namespace DeviceCheck -->
+
+<!-- start namespace FileProvider --> <div> 
+<h2>New Namespace FileProvider</h2>
+
+<div> <!-- start type INSFileProviderChangeObserver -->
+<h3>New Type FileProvider.INSFileProviderChangeObserver</h3>
+<pre class='added' data-is-non-breaking="">
+public interface INSFileProviderChangeObserver : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidDeleteItems (string[] deletedItemIdentifiers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidUpdateItems (INSFileProviderItem[] updatedItems);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void FinishEnumerating (Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void FinishEnumeratingChanges (Foundation.NSData anchor, bool moreComing);</span>
+}
+</pre>
+</div> <!-- end type INSFileProviderChangeObserver -->
+<div> <!-- start type INSFileProviderEnumerationObserver -->
+<h3>New Type FileProvider.INSFileProviderEnumerationObserver</h3>
+<pre class='added' data-is-non-breaking="">
+public interface INSFileProviderEnumerationObserver : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidEnumerateItems (INSFileProviderItem[] updatedItems);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void FinishEnumerating (Foundation.NSData upToPage);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void FinishEnumerating (Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type INSFileProviderEnumerationObserver -->
+<div> <!-- start type INSFileProviderEnumerator -->
+<h3>New Type FileProvider.INSFileProviderEnumerator</h3>
+<pre class='added' data-is-non-breaking="">
+public interface INSFileProviderEnumerator : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EnumerateItems (INSFileProviderEnumerationObserver observer, Foundation.NSData startPage);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invalidate ();</span>
+}
+</pre>
+</div> <!-- end type INSFileProviderEnumerator -->
+<div> <!-- start type INSFileProviderItem -->
+<h3>New Type FileProvider.INSFileProviderItem</h3>
+<pre class='added' data-is-non-breaking="">
+public interface INSFileProviderItem : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Filename { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSString Identifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSString ParentIdentifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string TypeIdentifier { get; }</span>
+}
+</pre>
+</div> <!-- end type INSFileProviderItem -->
+<div> <!-- start type NSFileProviderDomain -->
+<h3>New Type FileProvider.NSFileProviderDomain</h3>
+<pre class='added' data-is-non-breaking="">
+public class NSFileProviderDomain : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSFileProviderDomain (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSFileProviderDomain (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public NSFileProviderDomain (string identifier, string displayName, string pathRelativeToDocumentStorage);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string DisplayName { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Identifier { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string PathRelativeToDocumentStorage { get; }</span>
+}
+</pre>
+</div> <!-- end type NSFileProviderDomain -->
+<div> <!-- start type NSFileProviderEnumerator_Extensions -->
+<h3>New Type FileProvider.NSFileProviderEnumerator_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class NSFileProviderEnumerator_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void CurrentSyncAnchor (INSFileProviderEnumerator This, System.Action&lt;Foundation.NSData&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void EnumerateChanges (INSFileProviderEnumerator This, INSFileProviderChangeObserver observer, Foundation.NSData syncAnchor);</span>
+}
+</pre>
+</div> <!-- end type NSFileProviderEnumerator_Extensions -->
+<div> <!-- start type NSFileProviderError -->
+<h3>New Type FileProvider.NSFileProviderError</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum NSFileProviderError {
+	<span class='added added-field ' data-is-non-breaking="">FilenameCollision = -1001,</span>
+	<span class='added added-field ' data-is-non-breaking="">InsufficientQuota = -1003,</span>
+	<span class='added added-field ' data-is-non-breaking="">NoSuchItem = -1005,</span>
+	<span class='added added-field ' data-is-non-breaking="">NotAuthenticated = -1000,</span>
+	<span class='added added-field ' data-is-non-breaking="">PageExpired = -1002,</span>
+	<span class='added added-field ' data-is-non-breaking="">ServerUnreachable = -1004,</span>
+	<span class='added added-field ' data-is-non-breaking="">SyncAnchorExpired = -1002,</span>
+}
+</pre>
+</div> <!-- end type NSFileProviderError -->
+<div> <!-- start type NSFileProviderErrorExtensions -->
+<h3>New Type FileProvider.NSFileProviderErrorExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class NSFileProviderErrorExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetDomain (NSFileProviderError self);</span>
+}
+</pre>
+</div> <!-- end type NSFileProviderErrorExtensions -->
+<div> <!-- start type NSFileProviderItemCapabilities -->
+<h3>New Type FileProvider.NSFileProviderItemCapabilities</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+[Flags]
+public enum NSFileProviderItemCapabilities {
+	<span class='added added-field ' data-is-non-breaking="">AddingSubItems = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">All = 63,</span>
+	<span class='added added-field ' data-is-non-breaking="">ContentEnumerating = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Deleting = 32,</span>
+	<span class='added added-field ' data-is-non-breaking="">Reading = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Renaming = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">Reparenting = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Trashing = 16,</span>
+	<span class='added added-field ' data-is-non-breaking="">Writing = 2,</span>
+}
+</pre>
+</div> <!-- end type NSFileProviderItemCapabilities -->
+<div> <!-- start type NSFileProviderItemIdentifier -->
+<h3>New Type FileProvider.NSFileProviderItemIdentifier</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum NSFileProviderItemIdentifier {
+	<span class='added added-field ' data-is-non-breaking="">RootContainer = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">WorkingSetContainer = 1,</span>
+}
+</pre>
+</div> <!-- end type NSFileProviderItemIdentifier -->
+<div> <!-- start type NSFileProviderItemIdentifierExtensions -->
+<h3>New Type FileProvider.NSFileProviderItemIdentifierExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class NSFileProviderItemIdentifierExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetConstant (NSFileProviderItemIdentifier self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString[] GetConstants (NSFileProviderItemIdentifier[] self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static NSFileProviderItemIdentifier GetValue (Foundation.NSString constant);</span>
+}
+</pre>
+</div> <!-- end type NSFileProviderItemIdentifierExtensions -->
+<div> <!-- start type NSFileProviderItem_Extensions -->
+<h3>New Type FileProvider.NSFileProviderItem_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class NSFileProviderItem_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static NSFileProviderItemCapabilities GetCapabilities (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSNumber GetChildItemCount (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSDate GetContentModificationDate (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSDate GetCreationDate (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSNumber GetDocumentSize (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSError GetDownloadingError (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSNumber GetFavoriteRank (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSDate GetLastUsedDate (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSPersonNameComponents GetMostRecentEditorNameComponents (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSPersonNameComponents GetOwnerNameComponents (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSData GetTagData (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSError GetUploadingError (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSDictionary GetUserInfo (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSData GetVersionIdentifier (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool IsDownloaded (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool IsDownloading (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool IsMostRecentVersionDownloaded (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool IsShared (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool IsSharedByCurrentUser (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool IsTrashed (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool IsUploaded (INSFileProviderItem This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool IsUploading (INSFileProviderItem This);</span>
+}
+</pre>
+</div> <!-- end type NSFileProviderItem_Extensions -->
+<div> <!-- start type NSFileProviderManager -->
+<h3>New Type FileProvider.NSFileProviderManager</h3>
+<pre class='added' data-is-non-breaking="">
+public class NSFileProviderManager : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSFileProviderManager (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected NSFileProviderManager (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static NSFileProviderManager DefaultManager { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSUrl DocumentStorageUrl { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string ProviderIdentifier { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void AddDomain (NSFileProviderDomain domain, System.Action&lt;Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static System.Threading.Tasks.Task AddDomainAsync (NSFileProviderDomain domain);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static NSFileProviderManager FromDomain (NSFileProviderDomain domain);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void GetDomains (System.Action&lt;NSFileProviderDomain[],Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static System.Threading.Tasks.Task&lt;NSFileProviderDomain[]&gt; GetDomainsAsync ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSUrl GetPlaceholderUrl (Foundation.NSUrl url);</span>
+	<span class='added added-method ' data-is-non-breaking="">public void Register (Foundation.NSUrlSessionTask task, NSFileProviderItemIdentifier identifier, System.Action&lt;Foundation.NSError&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected virtual void Register (Foundation.NSUrlSessionTask task, Foundation.NSString identifier, System.Action&lt;Foundation.NSError&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void RemoveAllDomains (System.Action&lt;Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static System.Threading.Tasks.Task RemoveAllDomainsAsync ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void RemoveDomain (NSFileProviderDomain domain, System.Action&lt;Foundation.NSError&gt; completionHandler);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static System.Threading.Tasks.Task RemoveDomainAsync (NSFileProviderDomain domain);</span>
+	<span class='added added-method ' data-is-non-breaking="">public void SignalEnumerator (NSFileProviderItemIdentifier containerItemIdentifier, System.Action&lt;Foundation.NSError&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected virtual void SignalEnumerator (Foundation.NSString containerItemIdentifier, System.Action&lt;Foundation.NSError&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool WritePlaceholder (Foundation.NSUrl placeholderUrl, INSFileProviderItem metadata, Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type NSFileProviderManager -->
+</div> <!-- end namespace FileProvider -->
+
+<!-- start namespace FileProviderUI --> <div> 
+<h2>New Namespace FileProviderUI</h2>
+
+<div> <!-- start type FPUIActionExtensionContext -->
+<h3>New Type FileProviderUI.FPUIActionExtensionContext</h3>
+<pre class='added' data-is-non-breaking="">
+public class FPUIActionExtensionContext : Foundation.NSExtensionContext, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected FPUIActionExtensionContext (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected FPUIActionExtensionContext (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string DomainIdentifier { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void CancelRequest (Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void CompleteRequest ();</span>
+}
+</pre>
+</div> <!-- end type FPUIActionExtensionContext -->
+<div> <!-- start type FPUIActionExtensionViewController -->
+<h3>New Type FileProviderUI.FPUIActionExtensionViewController</h3>
+<pre class='added' data-is-non-breaking="">
+public class FPUIActionExtensionViewController : UIKit.UIViewController, Foundation.INSCoding, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.Collections.IEnumerable, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAppearanceContainer, UIKit.IUIContentContainer, UIKit.IUIFocusEnvironment, UIKit.IUITraitEnvironment {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public FPUIActionExtensionViewController ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public FPUIActionExtensionViewController (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected FPUIActionExtensionViewController (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected FPUIActionExtensionViewController (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public FPUIActionExtensionViewController (string nibName, Foundation.NSBundle bundle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual FPUIActionExtensionContext ExtensionContext { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Prepare (Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public void Prepare (string actionIdentifier, FileProvider.NSFileProviderItemIdentifier[] itemIdentifiers);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected virtual void Prepare (string actionIdentifier, Foundation.NSString[] itemIdentifiers);</span>
+}
+</pre>
+</div> <!-- end type FPUIActionExtensionViewController -->
+<div> <!-- start type FPUIExtensionErrorCode -->
+<h3>New Type FileProviderUI.FPUIExtensionErrorCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum FPUIExtensionErrorCode {
+	<span class='added added-field ' data-is-non-breaking="">Failed = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">UserCancelled = 0,</span>
+}
+</pre>
+</div> <!-- end type FPUIExtensionErrorCode -->
+<div> <!-- start type FPUIExtensionErrorCodeExtensions -->
+<h3>New Type FileProviderUI.FPUIExtensionErrorCodeExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class FPUIExtensionErrorCodeExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetDomain (FPUIExtensionErrorCode self);</span>
+}
+</pre>
+</div> <!-- end type FPUIExtensionErrorCodeExtensions -->
+</div> <!-- end namespace FileProviderUI -->
+
+<!-- start namespace IdentityLookup --> <div> 
+<h2>New Namespace IdentityLookup</h2>
+
+<div> <!-- start type IILMessageFilterQueryHandling -->
+<h3>New Type IdentityLookup.IILMessageFilterQueryHandling</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IILMessageFilterQueryHandling : ObjCRuntime.INativeObject, System.IDisposable {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void HandleQueryRequest (ILMessageFilterQueryRequest queryRequest, ILMessageFilterExtensionContext context, System.Action&lt;ILMessageFilterQueryResponse&gt; completion);</span>
+}
+</pre>
+</div> <!-- end type IILMessageFilterQueryHandling -->
+<div> <!-- start type ILMessageFilterAction -->
+<h3>New Type IdentityLookup.ILMessageFilterAction</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum ILMessageFilterAction {
+	<span class='added added-field ' data-is-non-breaking="">Allow = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Filter = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+}
+</pre>
+</div> <!-- end type ILMessageFilterAction -->
+<div> <!-- start type ILMessageFilterError -->
+<h3>New Type IdentityLookup.ILMessageFilterError</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum ILMessageFilterError {
+	<span class='added added-field ' data-is-non-breaking="">InvalidNetworkUrl = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">NetworkRequestFailed = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">NetworkUrlUnauthorized = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">RedundantNetworkDeferral = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">System = 1,</span>
+}
+</pre>
+</div> <!-- end type ILMessageFilterError -->
+<div> <!-- start type ILMessageFilterErrorExtensions -->
+<h3>New Type IdentityLookup.ILMessageFilterErrorExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class ILMessageFilterErrorExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetDomain (ILMessageFilterError self);</span>
+}
+</pre>
+</div> <!-- end type ILMessageFilterErrorExtensions -->
+<div> <!-- start type ILMessageFilterExtension -->
+<h3>New Type IdentityLookup.ILMessageFilterExtension</h3>
+<pre class='added' data-is-non-breaking="">
+public class ILMessageFilterExtension : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected ILMessageFilterExtension (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ILMessageFilterExtension (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type ILMessageFilterExtension -->
+<div> <!-- start type ILMessageFilterExtensionContext -->
+<h3>New Type IdentityLookup.ILMessageFilterExtensionContext</h3>
+<pre class='added' data-is-non-breaking="">
+public class ILMessageFilterExtensionContext : Foundation.NSExtensionContext, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected ILMessageFilterExtensionContext (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ILMessageFilterExtensionContext (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DeferQueryRequestToNetwork (System.Action&lt;ILNetworkResponse,Foundation.NSError&gt; completion);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.Threading.Tasks.Task&lt;ILNetworkResponse&gt; DeferQueryRequestToNetworkAsync ();</span>
+}
+</pre>
+</div> <!-- end type ILMessageFilterExtensionContext -->
+<div> <!-- start type ILMessageFilterQueryRequest -->
+<h3>New Type IdentityLookup.ILMessageFilterQueryRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public class ILMessageFilterQueryRequest : Foundation.NSObject, Foundation.INSCoding, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public ILMessageFilterQueryRequest (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ILMessageFilterQueryRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ILMessageFilterQueryRequest (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string MessageBody { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Sender { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type ILMessageFilterQueryRequest -->
+<div> <!-- start type ILMessageFilterQueryResponse -->
+<h3>New Type IdentityLookup.ILMessageFilterQueryResponse</h3>
+<pre class='added' data-is-non-breaking="">
+public class ILMessageFilterQueryResponse : Foundation.NSObject, Foundation.INSCoding, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public ILMessageFilterQueryResponse (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ILMessageFilterQueryResponse (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ILMessageFilterQueryResponse (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual ILMessageFilterAction Action { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type ILMessageFilterQueryResponse -->
+<div> <!-- start type ILNetworkResponse -->
+<h3>New Type IdentityLookup.ILNetworkResponse</h3>
+<pre class='added' data-is-non-breaking="">
+public class ILNetworkResponse : Foundation.NSObject, Foundation.INSCoding, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public ILNetworkResponse (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ILNetworkResponse (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected ILNetworkResponse (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSData Data { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSHttpUrlResponse UrlResponse { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type ILNetworkResponse -->
+</div> <!-- end namespace IdentityLookup -->
+
+<!-- start namespace PdfKit --> <div> 
+<h2>New Namespace PdfKit</h2>
+
+<div> <!-- start type ClassForAnnotationTypeDelegate -->
+<h3>New Type PdfKit.ClassForAnnotationTypeDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate ClassForAnnotationTypeDelegate : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public ClassForAnnotationTypeDelegate (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (string annotationType, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual ObjCRuntime.Class EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual ObjCRuntime.Class Invoke (string annotationType);</span>
+}
+</pre>
+</div> <!-- end type ClassForAnnotationTypeDelegate -->
+<div> <!-- start type IPdfDocumentDelegate -->
+<h3>New Type PdfKit.IPdfDocumentDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IPdfDocumentDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IPdfDocumentDelegate -->
+<div> <!-- start type IPdfViewDelegate -->
+<h3>New Type PdfKit.IPdfViewDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IPdfViewDelegate : ObjCRuntime.INativeObject, System.IDisposable {
+}
+</pre>
+</div> <!-- end type IPdfViewDelegate -->
+<div> <!-- start type PdfAction -->
+<h3>New Type PdfKit.PdfAction</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class PdfAction : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfAction ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfAction (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfAction (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Type { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type PdfAction -->
+<div> <!-- start type PdfActionGoTo -->
+<h3>New Type PdfKit.PdfActionGoTo</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfActionGoTo : PdfKit.PdfAction, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfActionGoTo ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfActionGoTo (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfActionGoTo (PdfDestination destination);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfActionGoTo (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfDestination Destination { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PdfActionGoTo -->
+<div> <!-- start type PdfActionNamed -->
+<h3>New Type PdfKit.PdfActionNamed</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfActionNamed : PdfKit.PdfAction, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfActionNamed ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfActionNamed (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfActionNamed (PdfActionNamedName name);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfActionNamed (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfActionNamedName Name { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PdfActionNamed -->
+<div> <!-- start type PdfActionNamedName -->
+<h3>New Type PdfKit.PdfActionNamedName</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfActionNamedName {
+	<span class='added added-field ' data-is-non-breaking="">Find = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">FirstPage = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">GoBack = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">GoForward = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">GoToPage = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">LastPage = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">NextPage = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">PreviousPage = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Print = 9,</span>
+	<span class='added added-field ' data-is-non-breaking="">ZoomIn = 10,</span>
+	<span class='added added-field ' data-is-non-breaking="">ZoomOut = 11,</span>
+}
+</pre>
+</div> <!-- end type PdfActionNamedName -->
+<div> <!-- start type PdfActionRemoteGoTo -->
+<h3>New Type PdfKit.PdfActionRemoteGoTo</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfActionRemoteGoTo : PdfKit.PdfAction, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfActionRemoteGoTo ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfActionRemoteGoTo (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfActionRemoteGoTo (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfActionRemoteGoTo (nint pageIndex, CoreGraphics.CGPoint point, Foundation.NSUrl fileUrl);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint PageIndex { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint Point { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSUrl Url { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PdfActionRemoteGoTo -->
+<div> <!-- start type PdfActionResetForm -->
+<h3>New Type PdfKit.PdfActionResetForm</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfActionResetForm : PdfKit.PdfAction, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfActionResetForm ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfActionResetForm (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfActionResetForm (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] Fields { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool FieldsIncludedAreCleared { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PdfActionResetForm -->
+<div> <!-- start type PdfActionUrl -->
+<h3>New Type PdfKit.PdfActionUrl</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfActionUrl : PdfKit.PdfAction, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfActionUrl ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfActionUrl (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfActionUrl (Foundation.NSUrl url);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfActionUrl (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSUrl Url { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PdfActionUrl -->
+<div> <!-- start type PdfAnnotation -->
+<h3>New Type PdfKit.PdfAnnotation</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfAnnotation : Foundation.NSObject, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfAnnotation ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfAnnotation (CoreGraphics.CGRect bounds);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfAnnotation (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfAnnotation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfAnnotation (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfAnnotation (CoreGraphics.CGRect bounds, Foundation.NSString annotationType, Foundation.NSDictionary properties);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfAnnotation (CoreGraphics.CGRect bounds, PdfAnnotationKey annotationType, Foundation.NSDictionary properties);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfAction Action { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UITextAlignment Alignment { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AllowsToggleToOff { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDictionary AnnotationKeyValues { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public PdfAnnotationKey AnnotationType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIColor BackgroundColor { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfBorder Border { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGRect Bounds { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfWidgetCellState ButtonWidgetState { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string ButtonWidgetStateString { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Caption { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] Choices { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIColor Color { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Comb { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Contents { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfDestination Destination { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfLineStyle EndLineStyle { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint EndPoint { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string FieldName { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIFont Font { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIColor FontColor { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool HasAppearanceStream { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Highlighted { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfTextAnnotationIconType IconType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool IsPasswordField { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ListChoice { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfMarkupType MarkupType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint MaximumLength { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDate ModificationDate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfAction MouseUpAction { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Multiline { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool Open { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfPage Page { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIBezierPath[] Paths { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSValue[] QuadrilateralPoints { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool RadiosInUnison { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ReadOnly { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ShouldDisplay { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ShouldPrint { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfLineStyle StartLineStyle { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint StartPoint { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string ToolTip { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Type { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSUrl Url { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string UserName { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string[] Values { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfWidgetControlType WidgetControlType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string WidgetDefaultStringValue { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string WidgetFieldType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string WidgetStringValue { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AddBezierPath (UIKit.UIBezierPath path);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Draw (PdfDisplayBox box, CoreGraphics.CGContext context);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfLineStyle GetLineStyle (string fromName);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static string GetName (PdfLineStyle style);</span>
+	<span class='added added-method ' data-is-non-breaking="">public T GetValue&lt;T&gt; (PdfAnnotationKey key);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveAllAppearanceStreams ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveBezierPath (UIKit.UIBezierPath path);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected virtual void RemoveValue (Foundation.NSString key);</span>
+	<span class='added added-method ' data-is-non-breaking="">public void RemoveValue (PdfAnnotationKey key);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected virtual bool SetValue (CoreGraphics.CGRect rect, Foundation.NSString key);</span>
+	<span class='added added-method ' data-is-non-breaking="">public bool SetValue (CoreGraphics.CGRect rect, PdfAnnotationKey key);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected virtual bool SetValue (bool boolean, Foundation.NSString key);</span>
+	<span class='added added-method ' data-is-non-breaking="">public bool SetValue (bool boolean, PdfAnnotationKey key);</span>
+	<span class='added added-method ' data-is-non-breaking="">public bool SetValue (string str, PdfAnnotationKey key);</span>
+	<span class='added added-method ' data-is-non-breaking="">public bool SetValue&lt;T&gt; (T value, PdfAnnotationKey key);</span>
+}
+</pre>
+</div> <!-- end type PdfAnnotation -->
+<div> <!-- start type PdfAnnotationHighlightingMode -->
+<h3>New Type PdfKit.PdfAnnotationHighlightingMode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfAnnotationHighlightingMode {
+	<span class='added added-field ' data-is-non-breaking="">Invert = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Outline = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Push = 3,</span>
+}
+</pre>
+</div> <!-- end type PdfAnnotationHighlightingMode -->
+<div> <!-- start type PdfAnnotationHighlightingModeExtensions -->
+<h3>New Type PdfKit.PdfAnnotationHighlightingModeExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class PdfAnnotationHighlightingModeExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetConstant (PdfAnnotationHighlightingMode self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfAnnotationHighlightingMode GetValue (Foundation.NSString constant);</span>
+}
+</pre>
+</div> <!-- end type PdfAnnotationHighlightingModeExtensions -->
+<div> <!-- start type PdfAnnotationKey -->
+<h3>New Type PdfKit.PdfAnnotationKey</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfAnnotationKey {
+	<span class='added added-field ' data-is-non-breaking="">Action = 11,</span>
+	<span class='added added-field ' data-is-non-breaking="">AdditionalActions = 12,</span>
+	<span class='added added-field ' data-is-non-breaking="">AppearanceDictionary = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">AppearanceState = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Border = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">BorderStyle = 13,</span>
+	<span class='added added-field ' data-is-non-breaking="">Color = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Contents = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Date = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">DefaultAppearance = 14,</span>
+	<span class='added added-field ' data-is-non-breaking="">Destination = 15,</span>
+	<span class='added added-field ' data-is-non-breaking="">Flags = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">HighlightingMode = 16,</span>
+	<span class='added added-field ' data-is-non-breaking="">IconName = 21,</span>
+	<span class='added added-field ' data-is-non-breaking="">Inklist = 17,</span>
+	<span class='added added-field ' data-is-non-breaking="">InteriorColor = 18,</span>
+	<span class='added added-field ' data-is-non-breaking="">LineEndingStyles = 20,</span>
+	<span class='added added-field ' data-is-non-breaking="">LinePoints = 19,</span>
+	<span class='added added-field ' data-is-non-breaking="">Name = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">Open = 22,</span>
+	<span class='added added-field ' data-is-non-breaking="">Page = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">Parent = 23,</span>
+	<span class='added added-field ' data-is-non-breaking="">Popup = 24,</span>
+	<span class='added added-field ' data-is-non-breaking="">QuadPoints = 26,</span>
+	<span class='added added-field ' data-is-non-breaking="">Quadding = 25,</span>
+	<span class='added added-field ' data-is-non-breaking="">Rect = 9,</span>
+	<span class='added added-field ' data-is-non-breaking="">Subtype = 10,</span>
+	<span class='added added-field ' data-is-non-breaking="">TextLabel = 27,</span>
+	<span class='added added-field ' data-is-non-breaking="">WidgetAppearanceDictionary = 35,</span>
+	<span class='added added-field ' data-is-non-breaking="">WidgetBackgroundColor = 30,</span>
+	<span class='added added-field ' data-is-non-breaking="">WidgetBorderColor = 29,</span>
+	<span class='added added-field ' data-is-non-breaking="">WidgetCaption = 31,</span>
+	<span class='added added-field ' data-is-non-breaking="">WidgetDefaultValue = 32,</span>
+	<span class='added added-field ' data-is-non-breaking="">WidgetDownCaption = 28,</span>
+	<span class='added added-field ' data-is-non-breaking="">WidgetFieldFlags = 33,</span>
+	<span class='added added-field ' data-is-non-breaking="">WidgetFieldType = 34,</span>
+	<span class='added added-field ' data-is-non-breaking="">WidgetMaxLen = 36,</span>
+	<span class='added added-field ' data-is-non-breaking="">WidgetOptions = 37,</span>
+	<span class='added added-field ' data-is-non-breaking="">WidgetRolloverCaption = 39,</span>
+	<span class='added added-field ' data-is-non-breaking="">WidgetRotation = 38,</span>
+	<span class='added added-field ' data-is-non-breaking="">WidgetTextLabelUI = 40,</span>
+	<span class='added added-field ' data-is-non-breaking="">WidgetValue = 41,</span>
+}
+</pre>
+</div> <!-- end type PdfAnnotationKey -->
+<div> <!-- start type PdfAnnotationKeyExtensions -->
+<h3>New Type PdfKit.PdfAnnotationKeyExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class PdfAnnotationKeyExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetConstant (PdfAnnotationKey self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfAnnotationKey GetValue (Foundation.NSString constant);</span>
+}
+</pre>
+</div> <!-- end type PdfAnnotationKeyExtensions -->
+<div> <!-- start type PdfAnnotationLineEndingStyle -->
+<h3>New Type PdfKit.PdfAnnotationLineEndingStyle</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfAnnotationLineEndingStyle {
+	<span class='added added-field ' data-is-non-breaking="">Circle = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">ClosedArrow = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">Diamond = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">OpenArrow = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Square = 1,</span>
+}
+</pre>
+</div> <!-- end type PdfAnnotationLineEndingStyle -->
+<div> <!-- start type PdfAnnotationLineEndingStyleExtensions -->
+<h3>New Type PdfKit.PdfAnnotationLineEndingStyleExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class PdfAnnotationLineEndingStyleExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetConstant (PdfAnnotationLineEndingStyle self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfAnnotationLineEndingStyle GetValue (Foundation.NSString constant);</span>
+}
+</pre>
+</div> <!-- end type PdfAnnotationLineEndingStyleExtensions -->
+<div> <!-- start type PdfAnnotationSubtype -->
+<h3>New Type PdfKit.PdfAnnotationSubtype</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfAnnotationSubtype {
+	<span class='added added-field ' data-is-non-breaking="">Circle = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">FreeText = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Highlight = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ink = 9,</span>
+	<span class='added added-field ' data-is-non-breaking="">Line = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Link = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Popup = 11,</span>
+	<span class='added added-field ' data-is-non-breaking="">Square = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Stamp = 10,</span>
+	<span class='added added-field ' data-is-non-breaking="">StrikeOut = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">Text = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Underline = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">Widget = 12,</span>
+}
+</pre>
+</div> <!-- end type PdfAnnotationSubtype -->
+<div> <!-- start type PdfAnnotationSubtypeExtensions -->
+<h3>New Type PdfKit.PdfAnnotationSubtypeExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class PdfAnnotationSubtypeExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetConstant (PdfAnnotationSubtype self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfAnnotationSubtype GetValue (Foundation.NSString constant);</span>
+}
+</pre>
+</div> <!-- end type PdfAnnotationSubtypeExtensions -->
+<div> <!-- start type PdfAnnotationTextIconType -->
+<h3>New Type PdfKit.PdfAnnotationTextIconType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfAnnotationTextIconType {
+	<span class='added added-field ' data-is-non-breaking="">Comment = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Help = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Insert = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">Key = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">NewParagraph = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Note = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Paragraph = 5,</span>
+}
+</pre>
+</div> <!-- end type PdfAnnotationTextIconType -->
+<div> <!-- start type PdfAnnotationTextIconTypeExtensions -->
+<h3>New Type PdfKit.PdfAnnotationTextIconTypeExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class PdfAnnotationTextIconTypeExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetConstant (PdfAnnotationTextIconType self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfAnnotationTextIconType GetValue (Foundation.NSString constant);</span>
+}
+</pre>
+</div> <!-- end type PdfAnnotationTextIconTypeExtensions -->
+<div> <!-- start type PdfAnnotationWidgetSubtype -->
+<h3>New Type PdfKit.PdfAnnotationWidgetSubtype</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfAnnotationWidgetSubtype {
+	<span class='added added-field ' data-is-non-breaking="">Button = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Choice = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Signature = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Text = 3,</span>
+}
+</pre>
+</div> <!-- end type PdfAnnotationWidgetSubtype -->
+<div> <!-- start type PdfAnnotationWidgetSubtypeExtensions -->
+<h3>New Type PdfKit.PdfAnnotationWidgetSubtypeExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class PdfAnnotationWidgetSubtypeExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetConstant (PdfAnnotationWidgetSubtype self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfAnnotationWidgetSubtype GetValue (Foundation.NSString constant);</span>
+}
+</pre>
+</div> <!-- end type PdfAnnotationWidgetSubtypeExtensions -->
+<div> <!-- start type PdfAppearanceCharacteristics -->
+<h3>New Type PdfKit.PdfAppearanceCharacteristics</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfAppearanceCharacteristics : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfAppearanceCharacteristics ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfAppearanceCharacteristics (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfAppearanceCharacteristics (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIColor BackgroundColor { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIColor BorderColor { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Caption { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfWidgetControlType ControlType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string DownCaption { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string RolloverCaption { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint Rotation { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDictionary WeakAppearanceCharacteristicsKeyValues { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type PdfAppearanceCharacteristics -->
+<div> <!-- start type PdfAppearanceCharacteristicsKeys -->
+<h3>New Type PdfKit.PdfAppearanceCharacteristicsKeys</h3>
+<pre class='added' data-is-non-breaking="">
+public static class PdfAppearanceCharacteristicsKeys {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString BackgroundColorKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString BorderColorKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString CaptionKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DownCaptionKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString RolloverCaptionKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString RotationKey { get; }</span>
+}
+</pre>
+</div> <!-- end type PdfAppearanceCharacteristicsKeys -->
+<div> <!-- start type PdfAreaOfInterest -->
+<h3>New Type PdfKit.PdfAreaOfInterest</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+[Flags]
+public enum PdfAreaOfInterest {
+	<span class='added added-field ' data-is-non-breaking="">AnnotationArea = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">ControlArea = 16,</span>
+	<span class='added added-field ' data-is-non-breaking="">IconArea = 64,</span>
+	<span class='added added-field ' data-is-non-breaking="">ImageArea = 256,</span>
+	<span class='added added-field ' data-is-non-breaking="">LinkArea = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">NoArea = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">PageArea = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">PopupArea = 128,</span>
+	<span class='added added-field ' data-is-non-breaking="">TextArea = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">TextFieldArea = 32,</span>
+}
+</pre>
+</div> <!-- end type PdfAreaOfInterest -->
+<div> <!-- start type PdfBorder -->
+<h3>New Type PdfKit.PdfBorder</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfBorder : Foundation.NSObject, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfBorder ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfBorder (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfBorder (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfBorder (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat HorizontalCornerRadius { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat LineWidth { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfBorderStyle Style { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat VerticalCornerRadius { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDictionary WeakBorderKeyValues { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSArray WeakDashPattern { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Draw (CoreGraphics.CGRect rect);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type PdfBorder -->
+<div> <!-- start type PdfBorderKeys -->
+<h3>New Type PdfKit.PdfBorderKeys</h3>
+<pre class='added' data-is-non-breaking="">
+public static class PdfBorderKeys {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DashPatternKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString LineWidthKey { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString StyleKey { get; }</span>
+}
+</pre>
+</div> <!-- end type PdfBorderKeys -->
+<div> <!-- start type PdfBorderStyle -->
+<h3>New Type PdfKit.PdfBorderStyle</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfBorderStyle {
+	<span class='added added-field ' data-is-non-breaking="">Beveled = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Dashed = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Inset = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Solid = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Underline = 4,</span>
+}
+</pre>
+</div> <!-- end type PdfBorderStyle -->
+<div> <!-- start type PdfDestination -->
+<h3>New Type PdfKit.PdfDestination</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfDestination : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfDestination ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfDestination (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfDestination (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfDestination (PdfPage page, CoreGraphics.CGPoint point);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfPage Page { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint Point { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat Zoom { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSComparisonResult Compare (PdfDestination destination);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+}
+</pre>
+</div> <!-- end type PdfDestination -->
+<div> <!-- start type PdfDisplayBox -->
+<h3>New Type PdfKit.PdfDisplayBox</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfDisplayBox {
+	<span class='added added-field ' data-is-non-breaking="">Art = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Bleed = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Crop = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Media = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Trim = 3,</span>
+}
+</pre>
+</div> <!-- end type PdfDisplayBox -->
+<div> <!-- start type PdfDisplayDirection -->
+<h3>New Type PdfKit.PdfDisplayDirection</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfDisplayDirection {
+	<span class='added added-field ' data-is-non-breaking="">Horizontal = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Vertical = 0,</span>
+}
+</pre>
+</div> <!-- end type PdfDisplayDirection -->
+<div> <!-- start type PdfDisplayMode -->
+<h3>New Type PdfKit.PdfDisplayMode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfDisplayMode {
+	<span class='added added-field ' data-is-non-breaking="">SinglePage = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">SinglePageContinuous = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">TwoUp = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">TwoUpContinuous = 3,</span>
+}
+</pre>
+</div> <!-- end type PdfDisplayMode -->
+<div> <!-- start type PdfDocument -->
+<h3>New Type PdfKit.PdfDocument</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfDocument : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfDocument ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfDocument (Foundation.NSData data);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfDocument (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfDocument (Foundation.NSUrl url);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfDocument (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AllowsCommenting { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AllowsContentAccessibility { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AllowsCopying { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AllowsDocumentAssembly { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AllowsDocumentChanges { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AllowsFormFieldEntry { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AllowsPrinting { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public IPdfDocumentDelegate Delegate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DidBeginFindNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DidBeginPageFindNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DidBeginPageWriteNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DidBeginWriteNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DidEndFindNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DidEndPageFindNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DidEndPageWriteNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DidEndWriteNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DidFindMatchNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DidUnlockNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGPDFDocument Document { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSDictionary DocumentAttributes { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSUrl DocumentUrl { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public ClassForAnnotationTypeDelegate GetClassForAnnotationType { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool IsEncrypted { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool IsFinding { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool IsLocked { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint MajorVersion { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint MinorVersion { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfOutline OutlineRoot { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual ObjCRuntime.Class PageClass { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint PageCount { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public System.Type PageType { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfDocumentPermissions PermissionsStatus { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Text { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSObject WeakDelegate { get; set; }</span>
+	// events
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler DidBeginDocumentFind;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler DidMatchString;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler DidUnlock;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler FindFinished;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler MatchFound;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler PageFindFinished;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler PageFindStarted;</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void CancelFind ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ExchangePages (nint indexA, nint indexB);</span>
+	<span class='added added-method ' data-is-non-breaking="">public PdfSelection[] Find (string text, Foundation.NSStringCompareOptions compareOptions);</span>
+
+	<span class='added added-method ' data-is-non-breaking="">[Obsolete ("Use 'Find (string, NSStringCompareOptions)' instead.")]
+	public virtual PdfSelection[] Find (string text, nint options);</span>
+	<span class='added added-method ' data-is-non-breaking="">public PdfSelection Find (string text, PdfSelection selection, Foundation.NSStringCompareOptions compareOptions);</span>
+
+	<span class='added added-method ' data-is-non-breaking="">[Obsolete ("Use 'Find (string, PdfSelection, NSStringCompareOptions)' instead.")]
+	public virtual PdfSelection Find (string text, PdfSelection selection, nint options);</span>
+	<span class='added added-method ' data-is-non-breaking="">public void FindAsync (string text, Foundation.NSStringCompareOptions compareOptions);</span>
+
+	<span class='added added-method ' data-is-non-breaking="">[Obsolete ("Use 'FindAsync (string, NSStringCompareOptions)' instead.")]
+	public virtual void FindAsync (string text, nint options);</span>
+	<span class='added added-method ' data-is-non-breaking="">public void FindAsync (string[] text, Foundation.NSStringCompareOptions compareOptions);</span>
+
+	<span class='added added-method ' data-is-non-breaking="">[Obsolete ("Use 'FindAsync (string [], NSStringCompareOptions)' instead.")]
+	public virtual void FindAsync (string[] text, nint options);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSData GetDataRepresentation ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSData GetDataRepresentation (Foundation.NSDictionary options);</span>
+	<span class='added added-method ' data-is-non-breaking="">public PdfDocumentAttributes GetDocumentAttributes ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfPage GetPage (nint index);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual nint GetPageIndex (PdfPage page);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfSelection GetSelection (PdfPage startPage, CoreGraphics.CGPoint startPoint, PdfPage endPage, CoreGraphics.CGPoint endPoint);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfSelection GetSelection (PdfPage startPage, nint startCharIndex, PdfPage endPage, nint endCharIndex);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void InsertPage (PdfPage page, nint index);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfOutline OutlineItem (PdfSelection selection);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemovePage (nint index);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfSelection SelectEntireDocument ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public void SetDocumentAttributes (PdfDocumentAttributes attributes);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Unlock (string password);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Write (Foundation.NSUrl url);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Write (string path);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Write (Foundation.NSUrl url, Foundation.NSDictionary options);</span>
+	<span class='added added-method ' data-is-non-breaking="">public bool Write (Foundation.NSUrl url, PdfDocumentWriteOptions options);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Write (string path, Foundation.NSDictionary options);</span>
+	<span class='added added-method ' data-is-non-breaking="">public bool Write (string path, PdfDocumentWriteOptions options);</span>
+
+	// inner types
+	public static class Notifications {
+		// methods
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidBeginFind (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidBeginFind (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidBeginPageFind (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidBeginPageFind (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidBeginPageWrite (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidBeginPageWrite (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidBeginWrite (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidBeginWrite (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidEndFind (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidEndFind (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidEndPageFind (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidEndPageFind (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidEndPageWrite (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidEndPageWrite (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidEndWrite (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidEndWrite (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidFindMatch (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidFindMatch (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidUnlock (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDidUnlock (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+	}
+}
+</pre>
+</div> <!-- end type PdfDocument -->
+<div> <!-- start type PdfDocumentAttributes -->
+<h3>New Type PdfKit.PdfDocumentAttributes</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfDocumentAttributes : Foundation.DictionaryContainer {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfDocumentAttributes ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfDocumentAttributes (Foundation.NSDictionary dictionary);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public string Author { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public Foundation.NSDate CreationDate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string Creator { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string[] Keywords { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public Foundation.NSDate ModificationDate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string Producer { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string Subject { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string Title { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PdfDocumentAttributes -->
+<div> <!-- start type PdfDocumentDelegate -->
+<h3>New Type PdfKit.PdfDocumentDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfDocumentDelegate : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, IPdfDocumentDelegate, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfDocumentDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfDocumentDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfDocumentDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidBeginDocumentFind (Foundation.NSNotification notification);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidMatchString (PdfSelection sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DidUnlock (Foundation.NSNotification notification);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void FindFinished (Foundation.NSNotification notification);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual ObjCRuntime.Class GetClassForAnnotationType (string annotationType);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual ObjCRuntime.Class GetClassForPage ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void MatchFound (Foundation.NSNotification notification);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PageFindFinished (Foundation.NSNotification notification);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PageFindStarted (Foundation.NSNotification notification);</span>
+}
+</pre>
+</div> <!-- end type PdfDocumentDelegate -->
+<div> <!-- start type PdfDocumentDelegate_Extensions -->
+<h3>New Type PdfKit.PdfDocumentDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class PdfDocumentDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void DidBeginDocumentFind (IPdfDocumentDelegate This, Foundation.NSNotification notification);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidMatchString (IPdfDocumentDelegate This, PdfSelection sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void DidUnlock (IPdfDocumentDelegate This, Foundation.NSNotification notification);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void FindFinished (IPdfDocumentDelegate This, Foundation.NSNotification notification);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static ObjCRuntime.Class GetClassForAnnotationType (IPdfDocumentDelegate This, string annotationType);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static ObjCRuntime.Class GetClassForPage (IPdfDocumentDelegate This);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void MatchFound (IPdfDocumentDelegate This, Foundation.NSNotification notification);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void PageFindFinished (IPdfDocumentDelegate This, Foundation.NSNotification notification);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void PageFindStarted (IPdfDocumentDelegate This, Foundation.NSNotification notification);</span>
+}
+</pre>
+</div> <!-- end type PdfDocumentDelegate_Extensions -->
+<div> <!-- start type PdfDocumentPermissions -->
+<h3>New Type PdfKit.PdfDocumentPermissions</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfDocumentPermissions {
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Owner = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">User = 1,</span>
+}
+</pre>
+</div> <!-- end type PdfDocumentPermissions -->
+<div> <!-- start type PdfDocumentWriteOptions -->
+<h3>New Type PdfKit.PdfDocumentWriteOptions</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfDocumentWriteOptions : Foundation.DictionaryContainer {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfDocumentWriteOptions ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfDocumentWriteOptions (Foundation.NSDictionary dictionary);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public string OwnerPassword { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public string UserPassword { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PdfDocumentWriteOptions -->
+<div> <!-- start type PdfInterpolationQuality -->
+<h3>New Type PdfKit.PdfInterpolationQuality</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfInterpolationQuality {
+	<span class='added added-field ' data-is-non-breaking="">High = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Low = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+}
+</pre>
+</div> <!-- end type PdfInterpolationQuality -->
+<div> <!-- start type PdfLineStyle -->
+<h3>New Type PdfKit.PdfLineStyle</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfLineStyle {
+	<span class='added added-field ' data-is-non-breaking="">Circle = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">ClosedArrow = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">Diamond = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">OpenArrow = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Square = 1,</span>
+}
+</pre>
+</div> <!-- end type PdfLineStyle -->
+<div> <!-- start type PdfMarkupType -->
+<h3>New Type PdfKit.PdfMarkupType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfMarkupType {
+	<span class='added added-field ' data-is-non-breaking="">Highlight = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">StrikeOut = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Underline = 2,</span>
+}
+</pre>
+</div> <!-- end type PdfMarkupType -->
+<div> <!-- start type PdfOutline -->
+<h3>New Type PdfKit.PdfOutline</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfOutline : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfOutline ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfOutline (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfOutline (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfAction Action { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint ChildrenCount { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfDestination Destination { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfDocument Document { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint Index { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool IsOpen { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Label { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfOutline Parent { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfOutline Child (nint index);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void InsertChild (PdfOutline child, nint index);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveFromParent ();</span>
+}
+</pre>
+</div> <!-- end type PdfOutline -->
+<div> <!-- start type PdfPage -->
+<h3>New Type PdfKit.PdfPage</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfPage : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfPage ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfPage (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfPage (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfPage (UIKit.UIImage image);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfAnnotation[] Annotations { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSAttributedString AttributedString { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint CharacterCount { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSData DataRepresentation { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool DisplaysAnnotations { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfDocument Document { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Label { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGPDFPage Page { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nint Rotation { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Text { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AddAnnotation (PdfAnnotation annotation);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Draw (PdfDisplayBox box, CoreGraphics.CGContext context);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfAnnotation GetAnnotation (CoreGraphics.CGPoint point);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGRect GetBoundsForBox (PdfDisplayBox box);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGRect GetCharacterBounds (nint index);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual nint GetCharacterIndex (CoreGraphics.CGPoint point);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfSelection GetSelection (CoreGraphics.CGRect rect);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfSelection GetSelection (Foundation.NSRange range);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfSelection GetSelection (CoreGraphics.CGPoint startPoint, CoreGraphics.CGPoint endPoint);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual UIKit.UIImage GetThumbnail (CoreGraphics.CGSize size, PdfDisplayBox box);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGAffineTransform GetTransform (PdfDisplayBox box);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void RemoveAnnotation (PdfAnnotation annotation);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfSelection SelectLine (CoreGraphics.CGPoint point);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfSelection SelectWord (CoreGraphics.CGPoint point);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetBoundsForBox (CoreGraphics.CGRect bounds, PdfDisplayBox box);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void TransformContext (CoreGraphics.CGContext context, PdfDisplayBox box);</span>
+}
+</pre>
+</div> <!-- end type PdfPage -->
+<div> <!-- start type PdfPrintScalingMode -->
+<h3>New Type PdfKit.PdfPrintScalingMode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfPrintScalingMode {
+	<span class='added added-field ' data-is-non-breaking="">DownToFit = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">None = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">ToFit = 1,</span>
+}
+</pre>
+</div> <!-- end type PdfPrintScalingMode -->
+<div> <!-- start type PdfSelection -->
+<h3>New Type PdfKit.PdfSelection</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfSelection : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfSelection (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfSelection (PdfDocument document);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfSelection (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSAttributedString AttributedString { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIColor Color { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfPage[] Pages { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Text { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AddSelection (PdfSelection selection);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AddSelections (PdfSelection[] selections);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Draw (PdfPage page, bool active);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Draw (PdfPage page, PdfDisplayBox box, bool active);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ExtendSelectionAtEnd (nint succeed);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ExtendSelectionAtStart (nint precede);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ExtendSelectionForLineBoundaries ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGRect GetBoundsForPage (PdfPage page);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual uint GetNumberOfTextRanges (PdfPage page);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSRange GetRange (uint index, PdfPage page);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfSelection[] SelectionsByLine ();</span>
+}
+</pre>
+</div> <!-- end type PdfSelection -->
+<div> <!-- start type PdfTextAnnotationIconType -->
+<h3>New Type PdfKit.PdfTextAnnotationIconType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfTextAnnotationIconType {
+	<span class='added added-field ' data-is-non-breaking="">Comment = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Help = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Insert = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">Key = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">NewParagraph = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Note = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Paragraph = 5,</span>
+}
+</pre>
+</div> <!-- end type PdfTextAnnotationIconType -->
+<div> <!-- start type PdfThumbnailLayoutMode -->
+<h3>New Type PdfKit.PdfThumbnailLayoutMode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfThumbnailLayoutMode {
+	<span class='added added-field ' data-is-non-breaking="">Horizontal = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Vertical = 0,</span>
+}
+</pre>
+</div> <!-- end type PdfThumbnailLayoutMode -->
+<div> <!-- start type PdfThumbnailView -->
+<h3>New Type PdfKit.PdfThumbnailView</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfThumbnailView : UIKit.UIView, CoreAnimation.ICALayerDelegate, Foundation.INSCoding, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.Collections.IEnumerable, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAccessibilityIdentification, UIKit.IUIAppearance, UIKit.IUIAppearanceContainer, UIKit.IUICoordinateSpace, UIKit.IUIDynamicItem, UIKit.IUIFocusEnvironment, UIKit.IUIFocusItem, UIKit.IUITraitEnvironment {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfThumbnailView ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfThumbnailView (CoreGraphics.CGRect frame);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfThumbnailView (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfThumbnailView (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfThumbnailView (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public static PdfThumbnailView.PdfThumbnailViewAppearance Appearance { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIColor BackgroundColor { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIEdgeInsets ContentInset { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DocumentEditedNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfThumbnailLayoutMode LayoutMode { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfView PdfView { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfPage[] SelectedPages { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGSize ThumbnailSize { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static PdfThumbnailView.PdfThumbnailViewAppearance AppearanceWhenContainedIn (System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfThumbnailView.PdfThumbnailViewAppearance GetAppearance&lt;T&gt; ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfThumbnailView.PdfThumbnailViewAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfThumbnailView.PdfThumbnailViewAppearance GetAppearance (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfThumbnailView.PdfThumbnailViewAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfThumbnailView.PdfThumbnailViewAppearance GetAppearance (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+
+	// inner types
+	public static class Notifications {
+		// methods
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDocumentEdited (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDocumentEdited (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+	}
+	public class PdfThumbnailViewAppearance : UIKit.UIView+UIViewAppearance, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAppearance {
+		// constructors
+		<span class='added added-constructor ' data-is-non-breaking="">protected PdfThumbnailView (IntPtr handle);</span>
+	}
+}
+</pre>
+</div> <!-- end type PdfThumbnailView -->
+<div> <!-- start type PdfView -->
+<h3>New Type PdfKit.PdfView</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfView : UIKit.UIView, CoreAnimation.ICALayerDelegate, Foundation.INSCoding, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.Collections.IEnumerable, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAccessibilityIdentification, UIKit.IUIAppearance, UIKit.IUIAppearanceContainer, UIKit.IUICoordinateSpace, UIKit.IUIDynamicItem, UIKit.IUIFocusEnvironment, UIKit.IUIFocusItem, UIKit.IUIGestureRecognizerDelegate, UIKit.IUITraitEnvironment {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfView ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfView (CoreGraphics.CGRect frame);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfView (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfView (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfView (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString AnnotationHitNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString AnnotationWillHitNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static PdfView.PdfViewAppearance Appearance { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool AutoScales { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIColor BackgroundColor { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool CanGoBack { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool CanGoForward { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool CanGoToFirstPage { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool CanGoToLastPage { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool CanGoToNextPage { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool CanGoToPreviousPage { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool CanZoomIn { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool CanZoomOut { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString ChangedHistoryNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString CopyPermissionNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfDestination CurrentDestination { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfPage CurrentPage { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfSelection CurrentSelection { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public IPdfViewDelegate Delegate { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfDisplayBox DisplayBox { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DisplayBoxChangedNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfDisplayDirection DisplayDirection { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfDisplayMode DisplayMode { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DisplayModeChangedNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool DisplaysAsBook { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool DisplaysPageBreaks { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool DisplaysRtl { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfDocument Document { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString DocumentChangedNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIView DocumentView { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool EnableDataDetectors { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat GreekingThreshold { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfSelection[] HighlightedSelections { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfInterpolationQuality InterpolationQuality { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool IsUsingPageViewController { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat MaxScaleFactor { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat MinScaleFactor { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual UIKit.UIEdgeInsets PageBreakMargins { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString PageChangedNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString PrintPermissionNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString ScaleChangedNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat ScaleFactor { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat ScaleFactorForSizeToFit { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString SelectionChangedNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ShouldAntiAlias { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual PdfPage[] VisiblePages { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static Foundation.NSString VisiblePagesChangedNotification { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSObject WeakDelegate { get; set; }</span>
+	// events
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler&lt;PdfViewActionEventArgs&gt; OpenPdf;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler PerformFind;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler PerformGoToPage;</span>
+	<span class='added added-event ' data-is-non-breaking="">public event System.EventHandler&lt;PdfViewUrlEventArgs&gt; WillClickOnLink;</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void AnnotationsChanged (PdfPage page);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfView.PdfViewAppearance AppearanceWhenContainedIn (System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ClearSelection ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint ConvertPointFromPage (CoreGraphics.CGPoint point, PdfPage page);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint ConvertPointToPage (CoreGraphics.CGPoint point, PdfPage page);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGRect ConvertRectangleFromPage (CoreGraphics.CGRect rect, PdfPage page);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGRect ConvertRectangleToPage (CoreGraphics.CGRect rect, PdfPage page);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Copy (Foundation.NSObject sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">protected override void Dispose (bool disposing);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DrawPage (PdfPage page, CoreGraphics.CGContext context);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void DrawPagePost (PdfPage page, CoreGraphics.CGContext context);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfView.PdfViewAppearance GetAppearance&lt;T&gt; ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfView.PdfViewAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfView.PdfViewAppearance GetAppearance (UIKit.UITraitCollection traits);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfView.PdfViewAppearance GetAppearance&lt;T&gt; (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static PdfView.PdfViewAppearance GetAppearance (UIKit.UITraitCollection traits, System.Type[] containers);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfAreaOfInterest GetAreaOfInterest (CoreGraphics.CGPoint point);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfAreaOfInterest GetAreaOfInterest (UIKit.UIEvent mouseEvent);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual PdfPage GetPage (CoreGraphics.CGPoint point, bool nearest);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GoBack (Foundation.NSObject sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GoForward (Foundation.NSObject sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GoToDestination (PdfDestination destination);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GoToFirstPage (Foundation.NSObject sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GoToLastPage (Foundation.NSObject sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GoToNextPage (Foundation.NSObject sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GoToPage (PdfPage page);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GoToPreviousPage (Foundation.NSObject sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GoToRectangle (CoreGraphics.CGRect rect, PdfPage page);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void GoToSelection (PdfSelection selection);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void LayoutDocumentView ();</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PerformAction (PdfAction action);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGSize RowSize (PdfPage page);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ScrollSelectionToVisible (Foundation.NSObject sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SelectAll (Foundation.NSObject sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void SetCurrentSelection (PdfSelection selection, bool animate);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldBeRequiredToFailBy (UIKit.UIGestureRecognizer gestureRecognizer, UIKit.UIGestureRecognizer otherGestureRecognizer);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldBegin (UIKit.UIGestureRecognizer recognizer);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldReceivePress (UIKit.UIGestureRecognizer gestureRecognizer, UIKit.UIPress press);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldReceiveTouch (UIKit.UIGestureRecognizer recognizer, UIKit.UITouch touch);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldRecognizeSimultaneously (UIKit.UIGestureRecognizer gestureRecognizer, UIKit.UIGestureRecognizer otherGestureRecognizer);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool ShouldRequireFailureOf (UIKit.UIGestureRecognizer gestureRecognizer, UIKit.UIGestureRecognizer otherGestureRecognizer);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void TakeBackgroundColor (Foundation.NSObject sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void TakePasswordFrom (Foundation.NSObject sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void UsePageViewController (bool enable, Foundation.NSDictionary viewOptions);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ZoomIn (Foundation.NSObject sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void ZoomOut (Foundation.NSObject sender);</span>
+
+	// inner types
+	public static class Notifications {
+		// methods
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveAnnotationHit (System.EventHandler&lt;PdfViewAnnotationHitEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveAnnotationHit (Foundation.NSObject objectToObserve, System.EventHandler&lt;PdfViewAnnotationHitEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveAnnotationWillHit (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveAnnotationWillHit (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveChangedHistory (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveChangedHistory (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveCopyPermission (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveCopyPermission (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDisplayBoxChanged (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDisplayBoxChanged (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDisplayModeChanged (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDisplayModeChanged (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDocumentChanged (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveDocumentChanged (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObservePageChanged (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObservePageChanged (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObservePrintPermission (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObservePrintPermission (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveScaleChanged (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveScaleChanged (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveSelectionChanged (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveSelectionChanged (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveVisiblePagesChanged (System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+		<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSObject ObserveVisiblePagesChanged (Foundation.NSObject objectToObserve, System.EventHandler&lt;Foundation.NSNotificationEventArgs&gt; handler);</span>
+	}
+	public class PdfViewAppearance : UIKit.UIView+UIViewAppearance, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, UIKit.IUIAppearance {
+		// constructors
+		<span class='added added-constructor ' data-is-non-breaking="">protected PdfView (IntPtr handle);</span>
+	}
+}
+</pre>
+</div> <!-- end type PdfView -->
+<div> <!-- start type PdfViewActionEventArgs -->
+<h3>New Type PdfKit.PdfViewActionEventArgs</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfViewActionEventArgs : System.EventArgs {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfViewActionEventArgs (PdfActionRemoteGoTo action);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public PdfActionRemoteGoTo Action { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PdfViewActionEventArgs -->
+<div> <!-- start type PdfViewAnnotationHitEventArgs -->
+<h3>New Type PdfKit.PdfViewAnnotationHitEventArgs</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfViewAnnotationHitEventArgs : Foundation.NSNotificationEventArgs {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfViewAnnotationHitEventArgs (Foundation.NSNotification notification);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public PdfAnnotation AnnotationHit { get; }</span>
+}
+</pre>
+</div> <!-- end type PdfViewAnnotationHitEventArgs -->
+<div> <!-- start type PdfViewDelegate -->
+<h3>New Type PdfKit.PdfViewDelegate</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfViewDelegate : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, IPdfViewDelegate, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfViewDelegate ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfViewDelegate (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected PdfViewDelegate (IntPtr handle);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual void OpenPdf (PdfView sender, PdfActionRemoteGoTo action);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PerformFind (PdfView sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void PerformGoToPage (PdfView sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void WillClickOnLink (PdfView sender, Foundation.NSUrl url);</span>
+}
+</pre>
+</div> <!-- end type PdfViewDelegate -->
+<div> <!-- start type PdfViewDelegate_Extensions -->
+<h3>New Type PdfKit.PdfViewDelegate_Extensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class PdfViewDelegate_Extensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static void OpenPdf (IPdfViewDelegate This, PdfView sender, PdfActionRemoteGoTo action);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void PerformFind (IPdfViewDelegate This, PdfView sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void PerformGoToPage (IPdfViewDelegate This, PdfView sender);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static void WillClickOnLink (IPdfViewDelegate This, PdfView sender, Foundation.NSUrl url);</span>
+}
+</pre>
+</div> <!-- end type PdfViewDelegate_Extensions -->
+<div> <!-- start type PdfViewUrlEventArgs -->
+<h3>New Type PdfKit.PdfViewUrlEventArgs</h3>
+<pre class='added' data-is-non-breaking="">
+public class PdfViewUrlEventArgs : System.EventArgs {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public PdfViewUrlEventArgs (Foundation.NSUrl url);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public Foundation.NSUrl Url { get; set; }</span>
+}
+</pre>
+</div> <!-- end type PdfViewUrlEventArgs -->
+<div> <!-- start type PdfWidgetCellState -->
+<h3>New Type PdfKit.PdfWidgetCellState</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfWidgetCellState {
+	<span class='added added-field ' data-is-non-breaking="">Mixed = -1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Off = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">On = 1,</span>
+}
+</pre>
+</div> <!-- end type PdfWidgetCellState -->
+<div> <!-- start type PdfWidgetControlType -->
+<h3>New Type PdfKit.PdfWidgetControlType</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum PdfWidgetControlType {
+	<span class='added added-field ' data-is-non-breaking="">CheckBox = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">PushButton = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">RadioButton = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Unknown = -1,</span>
+}
+</pre>
+</div> <!-- end type PdfWidgetControlType -->
+</div> <!-- end namespace PdfKit -->
+
+<!-- start namespace Vision --> <div> 
+<h2>New Namespace Vision</h2>
+
+<div> <!-- start type IVNFaceObservationAccepting -->
+<h3>New Type Vision.IVNFaceObservationAccepting</h3>
+<pre class='added' data-is-non-breaking="">
+public interface IVNFaceObservationAccepting : ObjCRuntime.INativeObject, System.IDisposable {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceObservation[] InputFaceObservations { get; set; }</span>
+}
+</pre>
+</div> <!-- end type IVNFaceObservationAccepting -->
+<div> <!-- start type VNBarcodeObservation -->
+<h3>New Type Vision.VNBarcodeObservation</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNBarcodeObservation : Vision.VNRectangleObservation, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNBarcodeObservation ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNBarcodeObservation (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNBarcodeObservation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNBarcodeObservation (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreImage.CIBarcodeDescriptor BarcodeDescriptor { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string PayloadStringValue { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public VNBarcodeSymbology Symbology { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">protected virtual Foundation.NSString WeakSymbology { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static VNBarcodeObservation FromBoundingBox (CoreGraphics.CGRect boundingBox);</span>
+}
+</pre>
+</div> <!-- end type VNBarcodeObservation -->
+<div> <!-- start type VNBarcodeSymbology -->
+<h3>New Type Vision.VNBarcodeSymbology</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum VNBarcodeSymbology {
+	<span class='added added-field ' data-is-non-breaking="">Aztec = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Code128 = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">Code39 = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">Code39Checksum = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">Code39FullAscii = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">Code39FullAsciiChecksum = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">Code93 = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">Code93i = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">DataMatrix = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ean13 = 10,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ean8 = 9,</span>
+	<span class='added added-field ' data-is-non-breaking="">I2OF5 = 11,</span>
+	<span class='added added-field ' data-is-non-breaking="">I2OF5Checksum = 12,</span>
+	<span class='added added-field ' data-is-non-breaking="">Itf14 = 13,</span>
+	<span class='added added-field ' data-is-non-breaking="">Pdf417 = 14,</span>
+	<span class='added added-field ' data-is-non-breaking="">QR = 15,</span>
+	<span class='added added-field ' data-is-non-breaking="">Upce = 16,</span>
+}
+</pre>
+</div> <!-- end type VNBarcodeSymbology -->
+<div> <!-- start type VNBarcodeSymbologyExtensions -->
+<h3>New Type Vision.VNBarcodeSymbologyExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class VNBarcodeSymbologyExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetConstant (VNBarcodeSymbology self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString[] GetConstants (VNBarcodeSymbology[] self);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static VNBarcodeSymbology GetValue (Foundation.NSString constant);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static VNBarcodeSymbology[] GetValues (Foundation.NSString[] constants);</span>
+}
+</pre>
+</div> <!-- end type VNBarcodeSymbologyExtensions -->
+<div> <!-- start type VNClassificationObservation -->
+<h3>New Type Vision.VNClassificationObservation</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNClassificationObservation : Vision.VNObservation, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNClassificationObservation (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNClassificationObservation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNClassificationObservation (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual string Identifier { get; }</span>
+}
+</pre>
+</div> <!-- end type VNClassificationObservation -->
+<div> <!-- start type VNCoreMLFeatureValueObservation -->
+<h3>New Type Vision.VNCoreMLFeatureValueObservation</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNCoreMLFeatureValueObservation : Vision.VNObservation, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNCoreMLFeatureValueObservation (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNCoreMLFeatureValueObservation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNCoreMLFeatureValueObservation (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreML.MLFeatureValue FeatureValue { get; }</span>
+}
+</pre>
+</div> <!-- end type VNCoreMLFeatureValueObservation -->
+<div> <!-- start type VNCoreMLModel -->
+<h3>New Type Vision.VNCoreMLModel</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNCoreMLModel : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNCoreMLModel (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNCoreMLModel (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static VNCoreMLModel FromMLModel (CoreML.MLModel model, Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type VNCoreMLModel -->
+<div> <!-- start type VNCoreMLRequest -->
+<h3>New Type Vision.VNCoreMLRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNCoreMLRequest : Vision.VNImageBasedRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNCoreMLRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNCoreMLRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNCoreMLRequest (VNCoreMLModel model);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNCoreMLRequest (VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNCoreMLRequest (VNCoreMLModel model, VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNImageCropAndScaleOption ImageCropAndScaleOption { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNCoreMLModel Model { get; }</span>
+}
+</pre>
+</div> <!-- end type VNCoreMLRequest -->
+<div> <!-- start type VNDetectBarcodesRequest -->
+<h3>New Type Vision.VNDetectBarcodesRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class VNDetectBarcodesRequest : Vision.VNImageBasedRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNDetectBarcodesRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNDetectBarcodesRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNDetectBarcodesRequest (VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public static VNBarcodeSymbology[] SupportedSymbologies { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public VNBarcodeSymbology[] Symbologies { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">protected static Foundation.NSString[] WeakSupportedSymbologies { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">protected virtual Foundation.NSString[] WeakSymbologies { get; set; }</span>
+}
+</pre>
+</div> <!-- end type VNDetectBarcodesRequest -->
+<div> <!-- start type VNDetectFaceLandmarksRequest -->
+<h3>New Type Vision.VNDetectFaceLandmarksRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNDetectFaceLandmarksRequest : Vision.VNImageBasedRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt;, IVNFaceObservationAccepting {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNDetectFaceLandmarksRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNDetectFaceLandmarksRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNDetectFaceLandmarksRequest (VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceObservation[] InputFaceObservations { get; set; }</span>
+}
+</pre>
+</div> <!-- end type VNDetectFaceLandmarksRequest -->
+<div> <!-- start type VNDetectFaceRectanglesRequest -->
+<h3>New Type Vision.VNDetectFaceRectanglesRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNDetectFaceRectanglesRequest : Vision.VNImageBasedRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNDetectFaceRectanglesRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNDetectFaceRectanglesRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNDetectFaceRectanglesRequest (VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type VNDetectFaceRectanglesRequest -->
+<div> <!-- start type VNDetectHorizonRequest -->
+<h3>New Type Vision.VNDetectHorizonRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNDetectHorizonRequest : Vision.VNImageBasedRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNDetectHorizonRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNDetectHorizonRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNDetectHorizonRequest (VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type VNDetectHorizonRequest -->
+<div> <!-- start type VNDetectRectanglesRequest -->
+<h3>New Type Vision.VNDetectRectanglesRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNDetectRectanglesRequest : Vision.VNImageBasedRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNDetectRectanglesRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNDetectRectanglesRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNDetectRectanglesRequest (VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual float MaximumAspectRatio { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual uint MaximumObservations { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual float MinimumAspectRatio { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual float MinimumConfidence { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual float MinimumSize { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual float QuadratureTolerance { get; set; }</span>
+}
+</pre>
+</div> <!-- end type VNDetectRectanglesRequest -->
+<div> <!-- start type VNDetectTextRectanglesRequest -->
+<h3>New Type Vision.VNDetectTextRectanglesRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNDetectTextRectanglesRequest : Vision.VNImageBasedRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNDetectTextRectanglesRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNDetectTextRectanglesRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNDetectTextRectanglesRequest (VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool ReportCharacterBoxes { get; set; }</span>
+}
+</pre>
+</div> <!-- end type VNDetectTextRectanglesRequest -->
+<div> <!-- start type VNDetectedObjectObservation -->
+<h3>New Type Vision.VNDetectedObjectObservation</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNDetectedObjectObservation : Vision.VNObservation, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNDetectedObjectObservation (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNDetectedObjectObservation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNDetectedObjectObservation (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGRect BoundingBox { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static VNDetectedObjectObservation FromBoundingBox (CoreGraphics.CGRect boundingBox);</span>
+}
+</pre>
+</div> <!-- end type VNDetectedObjectObservation -->
+<div> <!-- start type VNErrorCode -->
+<h3>New Type Vision.VNErrorCode</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum VNErrorCode {
+	<span class='added added-field ' data-is-non-breaking="">IOError = 6,</span>
+	<span class='added added-field ' data-is-non-breaking="">InternalError = 9,</span>
+	<span class='added added-field ' data-is-non-breaking="">InvalidArgument = 14,</span>
+	<span class='added added-field ' data-is-non-breaking="">InvalidFormat = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">InvalidImage = 13,</span>
+	<span class='added added-field ' data-is-non-breaking="">InvalidModel = 15,</span>
+	<span class='added added-field ' data-is-non-breaking="">InvalidOperation = 12,</span>
+	<span class='added added-field ' data-is-non-breaking="">InvalidOption = 5,</span>
+	<span class='added added-field ' data-is-non-breaking="">MissingOption = 7,</span>
+	<span class='added added-field ' data-is-non-breaking="">NotImplemented = 8,</span>
+	<span class='added added-field ' data-is-non-breaking="">Ok = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">OperationFailed = 3,</span>
+	<span class='added added-field ' data-is-non-breaking="">OutOfBoundsError = 4,</span>
+	<span class='added added-field ' data-is-non-breaking="">OutOfMemory = 10,</span>
+	<span class='added added-field ' data-is-non-breaking="">RequestCancelled = 1,</span>
+	<span class='added added-field ' data-is-non-breaking="">UnknownError = 11,</span>
+}
+</pre>
+</div> <!-- end type VNErrorCode -->
+<div> <!-- start type VNErrorCodeExtensions -->
+<h3>New Type Vision.VNErrorCodeExtensions</h3>
+<pre class='added' data-is-non-breaking="">
+public static class VNErrorCodeExtensions {
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static Foundation.NSString GetDomain (VNErrorCode self);</span>
+}
+</pre>
+</div> <!-- end type VNErrorCodeExtensions -->
+<div> <!-- start type VNFaceLandmarkRegion -->
+<h3>New Type Vision.VNFaceLandmarkRegion</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class VNFaceLandmarkRegion : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNFaceLandmarkRegion (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNFaceLandmarkRegion (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual uint PointCount { get; }</span>
+}
+</pre>
+</div> <!-- end type VNFaceLandmarkRegion -->
+<div> <!-- start type VNFaceLandmarkRegion2D -->
+<h3>New Type Vision.VNFaceLandmarkRegion2D</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNFaceLandmarkRegion2D : Vision.VNFaceLandmarkRegion, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNFaceLandmarkRegion2D (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNFaceLandmarkRegion2D (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint[] NormalizedPoints { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint[] GetPointsInImage (CoreGraphics.CGSize imageSize);</span>
+}
+</pre>
+</div> <!-- end type VNFaceLandmarkRegion2D -->
+<div> <!-- start type VNFaceLandmarks -->
+<h3>New Type Vision.VNFaceLandmarks</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class VNFaceLandmarks : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNFaceLandmarks (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNFaceLandmarks (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual float Confidence { get; }</span>
+}
+</pre>
+</div> <!-- end type VNFaceLandmarks -->
+<div> <!-- start type VNFaceLandmarks2D -->
+<h3>New Type Vision.VNFaceLandmarks2D</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNFaceLandmarks2D : Vision.VNFaceLandmarks, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNFaceLandmarks2D (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNFaceLandmarks2D (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceLandmarkRegion2D AllPoints { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceLandmarkRegion2D FaceContour { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceLandmarkRegion2D InnerLips { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceLandmarkRegion2D LeftEye { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceLandmarkRegion2D LeftEyebrow { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceLandmarkRegion2D LeftPupil { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceLandmarkRegion2D MedianLine { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceLandmarkRegion2D Nose { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceLandmarkRegion2D NoseCrest { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceLandmarkRegion2D OuterLips { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceLandmarkRegion2D RightEye { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceLandmarkRegion2D RightEyebrow { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceLandmarkRegion2D RightPupil { get; }</span>
+}
+</pre>
+</div> <!-- end type VNFaceLandmarks2D -->
+<div> <!-- start type VNFaceObservation -->
+<h3>New Type Vision.VNFaceObservation</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNFaceObservation : Vision.VNDetectedObjectObservation, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNFaceObservation (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNFaceObservation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNFaceObservation (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNFaceLandmarks2D Landmarks { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static VNFaceObservation FromBoundingBox (CoreGraphics.CGRect boundingBox);</span>
+}
+</pre>
+</div> <!-- end type VNFaceObservation -->
+<div> <!-- start type VNHomographicImageRegistrationRequest -->
+<h3>New Type Vision.VNHomographicImageRegistrationRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNHomographicImageRegistrationRequest : Vision.VNImageRegistrationRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNHomographicImageRegistrationRequest (CoreGraphics.CGImage image);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNHomographicImageRegistrationRequest (CoreImage.CIImage image);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNHomographicImageRegistrationRequest (CoreVideo.CVPixelBuffer pixelBuffer);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNHomographicImageRegistrationRequest (Foundation.NSData imageData);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNHomographicImageRegistrationRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNHomographicImageRegistrationRequest (Foundation.NSUrl imageUrl);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNHomographicImageRegistrationRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNHomographicImageRegistrationRequest (CoreGraphics.CGImage image, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNHomographicImageRegistrationRequest (CoreImage.CIImage image, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNHomographicImageRegistrationRequest (CoreVideo.CVPixelBuffer pixelBuffer, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNHomographicImageRegistrationRequest (Foundation.NSData imageData, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNHomographicImageRegistrationRequest (Foundation.NSUrl imageUrl, VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type VNHomographicImageRegistrationRequest -->
+<div> <!-- start type VNHorizonObservation -->
+<h3>New Type Vision.VNHorizonObservation</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNHorizonObservation : Vision.VNObservation, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNHorizonObservation (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNHorizonObservation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNHorizonObservation (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual nfloat Angle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGAffineTransform Transform { get; }</span>
+}
+</pre>
+</div> <!-- end type VNHorizonObservation -->
+<div> <!-- start type VNImageAlignmentObservation -->
+<h3>New Type Vision.VNImageAlignmentObservation</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class VNImageAlignmentObservation : Vision.VNObservation, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNImageAlignmentObservation (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNImageAlignmentObservation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNImageAlignmentObservation (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type VNImageAlignmentObservation -->
+<div> <!-- start type VNImageBasedRequest -->
+<h3>New Type Vision.VNImageBasedRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class VNImageBasedRequest : Vision.VNRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNImageBasedRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNImageBasedRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageBasedRequest (VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGRect RegionOfInterest { get; set; }</span>
+}
+</pre>
+</div> <!-- end type VNImageBasedRequest -->
+<div> <!-- start type VNImageCropAndScaleOption -->
+<h3>New Type Vision.VNImageCropAndScaleOption</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum VNImageCropAndScaleOption {
+	<span class='added added-field ' data-is-non-breaking="">CenterCrop = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">ScaleFill = 2,</span>
+	<span class='added added-field ' data-is-non-breaking="">ScaleFit = 1,</span>
+}
+</pre>
+</div> <!-- end type VNImageCropAndScaleOption -->
+<div> <!-- start type VNImageHomographicAlignmentObservation -->
+<h3>New Type Vision.VNImageHomographicAlignmentObservation</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNImageHomographicAlignmentObservation : Vision.VNImageAlignmentObservation, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageHomographicAlignmentObservation (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNImageHomographicAlignmentObservation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNImageHomographicAlignmentObservation (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual OpenTK.Matrix3 WarpTransform { get; set; }</span>
+}
+</pre>
+</div> <!-- end type VNImageHomographicAlignmentObservation -->
+<div> <!-- start type VNImageOptions -->
+<h3>New Type Vision.VNImageOptions</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNImageOptions : Foundation.DictionaryContainer {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageOptions ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageOptions (Foundation.NSDictionary dictionary);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public CoreImage.CIContext CIContext { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public Foundation.NSData CameraIntrinsics { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public CoreGraphics.CGImageProperties Properties { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public Foundation.NSDictionary WeakProperties { get; set; }</span>
+}
+</pre>
+</div> <!-- end type VNImageOptions -->
+<div> <!-- start type VNImageRegistrationRequest -->
+<h3>New Type Vision.VNImageRegistrationRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class VNImageRegistrationRequest : Vision.VNTargetedImageRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRegistrationRequest (CoreGraphics.CGImage image);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRegistrationRequest (CoreImage.CIImage image);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRegistrationRequest (CoreVideo.CVPixelBuffer pixelBuffer);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRegistrationRequest (Foundation.NSData imageData);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNImageRegistrationRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRegistrationRequest (Foundation.NSUrl imageUrl);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNImageRegistrationRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRegistrationRequest (CoreGraphics.CGImage image, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRegistrationRequest (CoreImage.CIImage image, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRegistrationRequest (CoreVideo.CVPixelBuffer pixelBuffer, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRegistrationRequest (Foundation.NSData imageData, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRegistrationRequest (Foundation.NSUrl imageUrl, VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type VNImageRegistrationRequest -->
+<div> <!-- start type VNImageRequestHandler -->
+<h3>New Type Vision.VNImageRequestHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNImageRequestHandler : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNImageRequestHandler (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNImageRequestHandler (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (CoreGraphics.CGImage image, Foundation.NSDictionary options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (CoreGraphics.CGImage image, VNImageOptions imageOptions);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (CoreImage.CIImage image, Foundation.NSDictionary options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (CoreImage.CIImage image, VNImageOptions imageOptions);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (CoreVideo.CVPixelBuffer pixelBuffer, Foundation.NSDictionary options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (CoreVideo.CVPixelBuffer pixelBuffer, VNImageOptions imageOptions);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (Foundation.NSData imageData, Foundation.NSDictionary options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (Foundation.NSData imageData, VNImageOptions imageOptions);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (Foundation.NSUrl imageUrl, Foundation.NSDictionary options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (Foundation.NSUrl imageUrl, VNImageOptions imageOptions);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (CoreGraphics.CGImage image, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (CoreGraphics.CGImage image, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions imageOptions);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (CoreImage.CIImage image, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (CoreImage.CIImage image, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions imageOptions);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (CoreVideo.CVPixelBuffer pixelBuffer, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (CoreVideo.CVPixelBuffer pixelBuffer, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions imageOptions);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (Foundation.NSData imageData, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (Foundation.NSData imageData, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions imageOptions);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (Foundation.NSUrl imageUrl, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageRequestHandler (Foundation.NSUrl imageUrl, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions imageOptions);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Perform (VNRequest[] requests, Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type VNImageRequestHandler -->
+<div> <!-- start type VNImageTranslationAlignmentObservation -->
+<h3>New Type Vision.VNImageTranslationAlignmentObservation</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNImageTranslationAlignmentObservation : Vision.VNImageAlignmentObservation, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNImageTranslationAlignmentObservation (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNImageTranslationAlignmentObservation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNImageTranslationAlignmentObservation (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGAffineTransform AlignmentTransform { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type VNImageTranslationAlignmentObservation -->
+<div> <!-- start type VNObservation -->
+<h3>New Type Vision.VNObservation</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class VNObservation : Foundation.NSObject, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNObservation (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNObservation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNObservation (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual float Confidence { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Foundation.NSUuid Uuid { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EncodeTo (Foundation.NSCoder encoder);</span>
+}
+</pre>
+</div> <!-- end type VNObservation -->
+<div> <!-- start type VNPixelBufferObservation -->
+<h3>New Type Vision.VNPixelBufferObservation</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNPixelBufferObservation : Vision.VNObservation, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNPixelBufferObservation (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNPixelBufferObservation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNPixelBufferObservation (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreVideo.CVPixelBuffer PixelBuffer { get; }</span>
+}
+</pre>
+</div> <!-- end type VNPixelBufferObservation -->
+<div> <!-- start type VNRectangleObservation -->
+<h3>New Type Vision.VNRectangleObservation</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNRectangleObservation : Vision.VNDetectedObjectObservation, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNRectangleObservation (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNRectangleObservation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNRectangleObservation (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint BottomLeft { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint BottomRight { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint TopLeft { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual CoreGraphics.CGPoint TopRight { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static VNRectangleObservation FromBoundingBox (CoreGraphics.CGRect boundingBox);</span>
+}
+</pre>
+</div> <!-- end type VNRectangleObservation -->
+<div> <!-- start type VNRequest -->
+<h3>New Type Vision.VNRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class VNRequest : Foundation.NSObject, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNRequest (VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNRequestCompletionHandler CompletionHandler { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool PreferBackgroundProcessing { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual Metal.IMTLDevice PreferredMetalContext { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool UsesCpuOnly { get; set; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual Foundation.NSObject Copy (Foundation.NSZone zone);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual T[] GetResults&lt;T&gt; ();</span>
+}
+</pre>
+</div> <!-- end type VNRequest -->
+<div> <!-- start type VNRequestCompletionHandler -->
+<h3>New Type Vision.VNRequestCompletionHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public sealed delegate VNRequestCompletionHandler : System.MulticastDelegate, System.ICloneable, System.Runtime.Serialization.ISerializable {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNRequestCompletionHandler (object object, IntPtr method);</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual System.IAsyncResult BeginInvoke (VNRequest request, Foundation.NSError error, System.AsyncCallback callback, object object);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void EndInvoke (System.IAsyncResult result);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual void Invoke (VNRequest request, Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type VNRequestCompletionHandler -->
+<div> <!-- start type VNRequestTrackingLevel -->
+<h3>New Type Vision.VNRequestTrackingLevel</h3>
+<pre class='added' data-is-non-breaking="">
+[Serializable]
+public enum VNRequestTrackingLevel {
+	<span class='added added-field ' data-is-non-breaking="">Accurate = 0,</span>
+	<span class='added added-field ' data-is-non-breaking="">Fast = 1,</span>
+}
+</pre>
+</div> <!-- end type VNRequestTrackingLevel -->
+<div> <!-- start type VNSequenceRequestHandler -->
+<h3>New Type Vision.VNSequenceRequestHandler</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNSequenceRequestHandler : Foundation.NSObject, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNSequenceRequestHandler ();</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNSequenceRequestHandler (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNSequenceRequestHandler (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Perform (VNRequest[] requests, CoreGraphics.CGImage image, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Perform (VNRequest[] requests, CoreImage.CIImage image, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Perform (VNRequest[] requests, CoreVideo.CVPixelBuffer pixelBuffer, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Perform (VNRequest[] requests, Foundation.NSData imageData, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Perform (VNRequest[] requests, Foundation.NSUrl imageUrl, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Perform (VNRequest[] requests, CoreGraphics.CGImage image, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Perform (VNRequest[] requests, CoreImage.CIImage image, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Perform (VNRequest[] requests, CoreVideo.CVPixelBuffer pixelBuffer, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Perform (VNRequest[] requests, Foundation.NSData imageData, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSError error);</span>
+	<span class='added added-method ' data-is-non-breaking="">public virtual bool Perform (VNRequest[] requests, Foundation.NSUrl imageUrl, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSError error);</span>
+}
+</pre>
+</div> <!-- end type VNSequenceRequestHandler -->
+<div> <!-- start type VNTargetedImageRequest -->
+<h3>New Type Vision.VNTargetedImageRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class VNTargetedImageRequest : Vision.VNImageBasedRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNTargetedImageRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNTargetedImageRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreGraphics.CGImage cgImage, Foundation.NSDictionary optionsDict);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreGraphics.CGImage cgImage, VNImageOptions options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreImage.CIImage ciImage, Foundation.NSDictionary optionsDict);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreImage.CIImage ciImage, VNImageOptions options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreVideo.CVPixelBuffer pixelBuffer, Foundation.NSDictionary optionsDict);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreVideo.CVPixelBuffer pixelBuffer, VNImageOptions options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSData imageData, Foundation.NSDictionary optionsDict);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSData imageData, VNImageOptions options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSUrl imageUrl, Foundation.NSDictionary optionsDict);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSUrl imageUrl, VNImageOptions options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreGraphics.CGImage cgImage, Foundation.NSDictionary optionsDict, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreGraphics.CGImage cgImage, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary optionsDict);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreGraphics.CGImage cgImage, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreGraphics.CGImage cgImage, VNImageOptions options, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreImage.CIImage ciImage, Foundation.NSDictionary optionsDict, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreImage.CIImage ciImage, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary optionsDict);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreImage.CIImage ciImage, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreImage.CIImage ciImage, VNImageOptions options, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreVideo.CVPixelBuffer pixelBuffer, Foundation.NSDictionary optionsDict, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreVideo.CVPixelBuffer pixelBuffer, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary optionsDict);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreVideo.CVPixelBuffer pixelBuffer, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreVideo.CVPixelBuffer pixelBuffer, VNImageOptions options, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSData imageData, Foundation.NSDictionary optionsDict, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSData imageData, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary optionsDict);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSData imageData, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSData imageData, VNImageOptions options, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSUrl imageUrl, Foundation.NSDictionary optionsDict, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSUrl imageUrl, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary optionsDict);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSUrl imageUrl, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions options);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSUrl imageUrl, VNImageOptions options, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreGraphics.CGImage cgImage, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary optionsDict, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreGraphics.CGImage cgImage, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions options, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreImage.CIImage ciImage, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary optionsDict, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreImage.CIImage ciImage, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions options, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreVideo.CVPixelBuffer pixelBuffer, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary optionsDict, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (CoreVideo.CVPixelBuffer pixelBuffer, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions options, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSData imageData, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary optionsDict, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSData imageData, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions options, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSUrl imageUrl, ImageIO.CGImagePropertyOrientation orientation, Foundation.NSDictionary optionsDict, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTargetedImageRequest (Foundation.NSUrl imageUrl, ImageIO.CGImagePropertyOrientation orientation, VNImageOptions options, VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type VNTargetedImageRequest -->
+<div> <!-- start type VNTextObservation -->
+<h3>New Type Vision.VNTextObservation</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNTextObservation : Vision.VNDetectedObjectObservation, Foundation.INSCoding, Foundation.INSCopying, Foundation.INSObjectProtocol, Foundation.INSSecureCoding, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTextObservation (Foundation.NSCoder coder);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNTextObservation (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNTextObservation (IntPtr handle);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNRectangleObservation[] CharacterBoxes { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static VNTextObservation FromBoundingBox (CoreGraphics.CGRect boundingBox);</span>
+}
+</pre>
+</div> <!-- end type VNTextObservation -->
+<div> <!-- start type VNTrackObjectRequest -->
+<h3>New Type Vision.VNTrackObjectRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNTrackObjectRequest : Vision.VNTrackingRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNTrackObjectRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNTrackObjectRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTrackObjectRequest (VNDetectedObjectObservation observation);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTrackObjectRequest (VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTrackObjectRequest (VNDetectedObjectObservation observation, VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type VNTrackObjectRequest -->
+<div> <!-- start type VNTrackRectangleRequest -->
+<h3>New Type Vision.VNTrackRectangleRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNTrackRectangleRequest : Vision.VNTrackingRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNTrackRectangleRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNTrackRectangleRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTrackRectangleRequest (VNRectangleObservation observation);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTrackRectangleRequest (VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTrackRectangleRequest (VNRectangleObservation observation, VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type VNTrackRectangleRequest -->
+<div> <!-- start type VNTrackingRequest -->
+<h3>New Type Vision.VNTrackingRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public abstract class VNTrackingRequest : Vision.VNImageBasedRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNTrackingRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNTrackingRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTrackingRequest (VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNDetectedObjectObservation InputObservation { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual bool LastFrame { get; set; }</span>
+	<span class='added added-property ' data-is-non-breaking="">public virtual VNRequestTrackingLevel TrackingLevel { get; set; }</span>
+}
+</pre>
+</div> <!-- end type VNTrackingRequest -->
+<div> <!-- start type VNTranslationalImageRegistrationRequest -->
+<h3>New Type Vision.VNTranslationalImageRegistrationRequest</h3>
+<pre class='added' data-is-non-breaking="">
+public class VNTranslationalImageRegistrationRequest : Vision.VNImageRegistrationRequest, Foundation.INSCopying, Foundation.INSObjectProtocol, ObjCRuntime.INativeObject, System.IDisposable, System.IEquatable&lt;Foundation.NSObject&gt; {
+	// constructors
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTranslationalImageRegistrationRequest (CoreGraphics.CGImage image);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTranslationalImageRegistrationRequest (CoreImage.CIImage image);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTranslationalImageRegistrationRequest (CoreVideo.CVPixelBuffer pixelBuffer);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTranslationalImageRegistrationRequest (Foundation.NSData imageData);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNTranslationalImageRegistrationRequest (Foundation.NSObjectFlag t);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTranslationalImageRegistrationRequest (Foundation.NSUrl imageUrl);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">protected VNTranslationalImageRegistrationRequest (IntPtr handle);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTranslationalImageRegistrationRequest (CoreGraphics.CGImage image, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTranslationalImageRegistrationRequest (CoreImage.CIImage image, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTranslationalImageRegistrationRequest (CoreVideo.CVPixelBuffer pixelBuffer, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTranslationalImageRegistrationRequest (Foundation.NSData imageData, VNRequestCompletionHandler completionHandler);</span>
+	<span class='added added-constructor ' data-is-non-breaking="">public VNTranslationalImageRegistrationRequest (Foundation.NSUrl imageUrl, VNRequestCompletionHandler completionHandler);</span>
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public override IntPtr ClassHandle { get; }</span>
+}
+</pre>
+</div> <!-- end type VNTranslationalImageRegistrationRequest -->
+<div> <!-- start type VNUtils -->
+<h3>New Type Vision.VNUtils</h3>
+<pre class='added' data-is-non-breaking="">
+public static class VNUtils {
+	// properties
+	<span class='added added-property ' data-is-non-breaking="">public static CoreGraphics.CGRect NormalizedIdentityRect { get; }</span>
+	// methods
+	<span class='added added-method ' data-is-non-breaking="">public static CoreGraphics.CGPoint GetImagePoint (CoreGraphics.CGPoint normalizedPoint, uint imageWidth, uint imageHeight);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static CoreGraphics.CGPoint GetImagePoint (OpenTK.Vector2 faceLandmarkPoint, CoreGraphics.CGRect faceBoundingBox, uint imageWidth, uint imageHeight);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static CoreGraphics.CGRect GetImageRect (CoreGraphics.CGRect normalizedRect, uint imageWidth, uint imageHeight);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static CoreGraphics.CGPoint GetNormalizedFaceBoundingBoxPoint (OpenTK.Vector2 faceLandmarkPoint, CoreGraphics.CGRect faceBoundingBox, uint imageWidth, uint imageHeight);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static CoreGraphics.CGRect GetNormalizedRect (CoreGraphics.CGRect imageRect, uint imageWidth, uint imageHeight);</span>
+	<span class='added added-method ' data-is-non-breaking="">public static bool IsIdentityRect (CoreGraphics.CGRect rect);</span>
+}
+</pre>
+</div> <!-- end type VNUtils -->
+</div> <!-- end namespace Vision -->
+
+</div>
+
+
+
+   
+
+
+ <hr>

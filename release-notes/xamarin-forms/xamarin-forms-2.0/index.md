@@ -1,0 +1,23 @@
+---
+id: 5E751D20-DC29-4E30-BED5-6898981826D7
+title: "Xamarin.Forms 2.0"
+---
+
+# Xamarin.Forms 2.0.1
+
+## Features ##
+
+- Add PanGestureRecognizer
+
+## Bug Fixes ##
+
+- [Android] Resolve issue where AnchorX was sometimes incorrectly represented on Android
+- [Android] Resolve issue where toolbar items sometimes disappeared
+- [Android] Resolve issue where back arrow was wrong color
+- [UWP] Updated ActionSheet to use a ContentDialog and use a more windows friendly theme
+- [XamlC] Fix all sorts of minor issues
+- [WinRT] Entry no longer has erronious padding/display when in password mode
+- [iOS] SearchBar text and placeholder colors now correct
+- [iOS] WebView crashes when loading an URL with encoded parameters
+- [WP8] Resolve issue where calling RemovePage for root of NavigationPage would result in a crash
+- [WP8] Resolve issue where images would sometimes get sized to 0,0 due to measurement before load finishes
